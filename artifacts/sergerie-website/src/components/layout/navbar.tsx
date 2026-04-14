@@ -33,7 +33,7 @@ export function Navbar() {
         <div className="container mx-auto px-6 max-w-[1200px] flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Link href="/" data-testid="link-home-logo">
-              <img src={img('logo-sergerie.png')} alt="Les Rénovations Sergerie Inc." className="h-10 w-auto object-contain brightness-0 invert" />
+              <img src={img('logo-sergerie.png')} alt="Les Rénovations Sergerie Inc." className="h-[50px] w-auto object-contain brightness-0 invert" />
             </Link>
           </div>
           
