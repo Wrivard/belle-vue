@@ -1,0 +1,404 @@
+You are an expert UI/UX designer and frontend developer.
+
+Build a premium homepage for a roofing and renovation company.
+
+------------------------------------------------
+
+BUSINESS
+
+Les Rénovations Sergerie Inc.
+
+Phone:
+514-515-6795
+
+Email:
+[INSERT EMAIL IF AVAILABLE]
+
+Location:
+Rive-Sud de Montréal (Varennes)
+
+------------------------------------------------
+
+POSITIONING
+
+Entreprise spécialisée en toiture et rénovation résidentielle.
+
+Services:
+
+• Toiture  
+• Rénovation complète  
+• Cuisine  
+• Salle de bain  
+• Sous-sol  
+• Revêtement extérieur  
+• Balcon / terrasse  
+
+Core message:
+
+Travaux durables, propres et professionnels
+
+Tone:
+
+• fiable  
+• terrain  
+• polyvalent  
+• professionnel  
+
+------------------------------------------------
+
+BRANDING
+
+Extract colors directly from logo.
+
+Rules:
+
+• NO gradients  
+• NO fading colors  
+• ONLY solid colors  
+• dark dominant base  
+• accent color ONLY for CTA  
+• construction style (strong contrast)  
+
+------------------------------------------------
+
+GLOBAL DESIGN SYSTEM
+
+Container width:
+1200px centered
+
+Section spacing:
+120–140px vertical
+
+Border radius:
+6px everywhere
+
+Typography:
+
+H1 → 64–68px bold  
+H2 → 44–48px bold  
+H3 → 26–28px  
+Body → 18px  
+
+Font:
+modern sans-serif (Inter / Poppins)
+
+------------------------------------------------
+
+VISUAL HIERARCHY SYSTEM (STRICT)
+
+Each section:
+
+tagline (small uppercase + accent line)
+↓
+BIG BOLD TITLE
+↓
+short supporting text
+↓
+content block
+
+Between sections:
+
+• strong spacing  
+• alternating backgrounds  
+• clear section separation  
+• easy scan  
+
+------------------------------------------------
+
+ANIMATIONS
+
+Only:
+
+• fade-up on scroll  
+• hover lift  
+• image reveal  
+• button scale  
+
+Duration:
+200–300ms
+
+------------------------------------------------
+
+HOMEPAGE STRUCTURE
+
+------------------------------------------------
+
+1 NAVBAR
+
+Left:
+logo
+
+Right:
+Accueil  
+Services  
+Réalisations  
+À propos  
+Contact  
+
+CTA:
+Soumission gratuite
+
+Sticky navbar.
+
+------------------------------------------------
+
+2 HERO SECTION
+
+Full width background image:
+
+roofing work or house renovation
+
+Overlay:
+dark solid overlay
+
+LEFT aligned content
+
+Tagline:
+TOITURE & RÉNOVATION
+
+H1:
+Des travaux solides et professionnels
+
+Subtext:
+Les Rénovations Sergerie vous accompagnent dans tous vos projets avec qualité et propreté.
+
+Primary CTA:
+Soumission gratuite
+
+Secondary CTA:
+Voir nos réalisations
+
+------------------------------------------------
+
+3 TRUST STRIP
+
+✔ Soumission gratuite  
+✔ Travail garanti  
+✔ Propreté assurée  
+
+------------------------------------------------
+
+4 SERVICES SECTION
+
+Tagline:
+SERVICES
+
+Title:
+Nos expertises
+
+Grid:
+3 columns
+
+Cards:
+
+Toiture  
+Installation et rénovation de toiture durable.
+
+Rénovation  
+Transformation complète des espaces.
+
+Cuisine  
+Aménagement moderne et fonctionnel.
+
+Salle de bain  
+Rénovation esthétique et durable.
+
+Sous-sol  
+Finition et optimisation.
+
+Revêtement extérieur  
+Protection et esthétique de la maison.
+
+Balcon / terrasse  
+Structures extérieures solides.
+
+Card style:
+
+white  
+6px radius  
+shadow  
+hover lift  
+
+------------------------------------------------
+
+5 FEATURE SECTION
+
+Tagline:
+EXPERTISE
+
+Title:
+Une référence sur la Rive-Sud
+
+Split layout:
+
+Left:
+text
+
+Right:
+image chantier
+
+Text:
+Une équipe fiable qui livre des projets durables et propres.
+
+------------------------------------------------
+
+6 PROJECTS SECTION
+
+Tagline:
+RÉALISATIONS
+
+Title:
+Nos projets récents
+
+Grid:
+3 columns
+
+Images:
+
+• toiture  
+• rénovation  
+• extérieur  
+
+Hover:
+zoom subtle  
+
+------------------------------------------------
+
+7 PROCESS SECTION
+
+Tagline:
+PROCESSUS
+
+Title:
+Une approche simple et efficace
+
+Steps:
+
+1 Soumission  
+2 Planification  
+3 Réalisation  
+
+------------------------------------------------
+
+8 TESTIMONIALS
+
+Tagline:
+CLIENTS
+
+Title:
+Ils nous font confiance
+
+3 cards:
+
+Nom  
+Projet  
+Court témoignage  
+
+------------------------------------------------
+
+9 FAQ
+
+Tagline:
+QUESTIONS
+
+Title:
+Questions fréquentes
+
+Accordion
+
+Questions:
+
+Offrez-vous des soumissions gratuites ?  
+Quels types de travaux faites-vous ?  
+Travaillez-vous sur la Rive-Sud ?  
+Offrez-vous la rénovation complète ?  
+Quels sont vos délais ?  
+
+------------------------------------------------
+
+10 CTA SECTION
+
+Full width section
+
+Title:
+Besoin d’un expert en rénovation ?
+
+Text:
+Contactez-nous dès aujourd’hui pour une estimation.
+
+Button:
+Soumission gratuite  
+
+------------------------------------------------
+
+11 CONTACT SECTION
+
+Split layout
+
+Left:
+
+Phone:
+514-515-6795  
+
+Email:
+[INSERT EMAIL]  
+
+Location:
+Rive-Sud de Montréal  
+
+Right:
+
+Form:
+
+Nom  
+Téléphone  
+Email  
+Message  
+
+------------------------------------------------
+
+12 GOOGLE MAP
+
+Embed map centered on Varennes QC
+
+------------------------------------------------
+
+13 FOOTER
+
+Dark background
+
+Columns:
+
+Entreprise  
+Services  
+Contact  
+
+Bottom:
+
+© Les Rénovations Sergerie Inc.
+
+------------------------------------------------
+
+IMAGE RULES
+
+Use ONLY:
+
+• roofing work  
+• renovations  
+• chantier réel  
+• maisons  
+
+NO generic stock images.
+
+------------------------------------------------
+
+FINAL GOAL
+
+The website must feel:
+
+• professionnel  
+• solide  
+• polyvalent  
+• structuré  
+• facile à scanner  
+• hiérarchie visuelle forte  

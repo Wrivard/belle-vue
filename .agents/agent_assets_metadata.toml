@@ -1,0 +1,62 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "QVAry99CJ9BA6M2r8V0Lh"
+uri = "file://artifacts/mockup-sandbox/public/images/hero-bg.png"
+type = "image"
+title = "Hero roofing background"
+
+[[generated]]
+id = "5hPTDDHEFt5hCr6uUKQO_"
+uri = "file://artifacts/mockup-sandbox/public/images/feature-site.png"
+type = "image"
+title = "Construction site feature"
+
+[[generated]]
+id = "2bcsP-K0JVZA7TwHYOhse"
+uri = "file://artifacts/mockup-sandbox/public/images/project-roof.png"
+type = "image"
+title = "Project roofing"
+
+[[generated]]
+id = "OukM_lZegUtgLo14uxRNb"
+uri = "file://artifacts/mockup-sandbox/public/images/project-kitchen.png"
+type = "image"
+title = "Project kitchen"
+
+[[generated]]
+id = "GGRvQsA_pt_d3GwQ46QRF"
+uri = "file://artifacts/mockup-sandbox/public/images/project-exterior.png"
+type = "image"
+title = "Project exterior"
+
+[[generated]]
+id = "5STDivNcAb5xBueRXmatM"
+uri = "file://artifacts/mockup-sandbox/public/images/sergerie-hero-bg.png"
+type = "image"
+title = "Hero background roofing renovation"
+
+[[generated]]
+id = "wx-Te4str0gzNm06dKLOk"
+uri = "file://artifacts/mockup-sandbox/public/images/sergerie-project-roofing.png"
+type = "image"
+title = "Roofing project photo"
+
+[[generated]]
+id = "Nbvyy4RXrW4B88ajT72Gz"
+uri = "file://artifacts/mockup-sandbox/public/images/sergerie-project-kitchen.png"
+type = "image"
+title = "Kitchen renovation project photo"
+
+[[generated]]
+id = "RSeSypg5zTCznXWVQaceh"
+uri = "file://artifacts/mockup-sandbox/public/images/sergerie-project-exterior.png"
+type = "image"
+title = "Exterior renovation project photo"
+
+[[generated]]
+id = "zMV32gstyu9rAi0qSselt"
+uri = "file://artifacts/mockup-sandbox/public/images/sergerie-feature-site.png"
+type = "image"
+title = "Construction site photo"

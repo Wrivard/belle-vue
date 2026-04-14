@@ -1,0 +1,113 @@
+Tu es un expert senior en conception et développement web. 
+Je veux que tu construises ce projet sur une base SOLIDE, moderne et SEO-first dès le départ.
+
+IMPORTANT :
+- Utilise NEXT.JS comme stack principale pour ce projet
+- N’utilise PAS une SPA React pure comme fondation pour les pages publiques
+- L’objectif est d’avoir un site production-ready, rapide, bien structuré pour Google, et optimisé pour la conversion
+
+OBJECTIF DU PROJET :
+Construire un site web professionnel, multi-pages, visuellement haut de gamme, orienté conversion et SEO, avec une excellente structure technique dès le départ.
+
+CONTEXTE DU PROJET :
+- Nom de l’entreprise : [À REMPLIR]
+- Domaine : [À REMPLIR]
+- Secteur : [À REMPLIR]
+- Zone desservie : [À REMPLIR]
+- Objectif principal : [leads / appels / formulaires / soumissions / ventes]
+- Type de site : [site vitrine / landing pages Google Ads / SEO local / multi-pages]
+- Langue : [français / anglais / bilingue]
+- Pages prévues : [Accueil, Services, À propos, Contact, pages locales, landing pages, etc.]
+
+DIRECTION TECHNIQUE OBLIGATOIRE :
+- Utilise Next.js avec une architecture SEO-first
+- Les pages publiques doivent être rendues de façon compatible SEO dès le départ
+- Ne pars pas sur une structure SPA pure qui forcerait des correctifs SEO après coup
+- Chaque page importante doit pouvoir retourner du vrai HTML exploitable par Google
+- Prévois une structure propre pour un déploiement production
+
+SEO TECHNIQUE OBLIGATOIRE :
+- Chaque page doit avoir :
+  - un title unique
+  - une meta description unique
+  - un H1 clair et pertinent
+  - une URL propre
+  - une canonical correcte
+  - des Open Graph tags
+  - des Twitter Card tags
+- Mets en place :
+  - sitemap.xml
+  - robots.txt
+  - métadonnées propres par page
+  - structure de headings logique
+  - maillage interne pertinent
+- Si pertinent, ajoute des données structurées schema.org
+  - LocalBusiness
+  - Service
+  - FAQPage
+  - BreadcrumbList
+selon le type de page
+
+SEO LOCAL OBLIGATOIRE :
+- Structure le contenu pour bien cibler le SEO local
+- Mets en valeur les villes / régions / secteurs desservis
+- Prévois des pages locales ou pages de service si cela aide la stratégie
+- Intègre les éléments de confiance locaux si disponibles :
+  - adresse
+  - téléphone
+  - zone desservie
+  - avis
+  - années d’expérience
+  - garanties
+  - licences / certifications
+
+CONVERSION OBLIGATOIRE :
+- Le site doit être pensé pour générer des leads, pas juste être “beau”
+- Prévois une hiérarchie claire des CTA
+- Mets les formulaires, appels à l’action, téléphone et preuves de confiance aux bons endroits
+- Si le projet comprend des landing pages Google Ads, elles doivent être :
+  - rapides
+  - très claires
+  - centrées sur une seule intention
+  - avec CTA fort
+  - avec distraction minimale
+
+DESIGN / UX :
+- Le design doit être professionnel, premium, propre et crédible
+- Utilise une bonne hiérarchie visuelle, beaucoup de clarté et de lisibilité
+- Priorise la confiance, la simplicité, la rapidité de compréhension et la conversion
+- Le site doit être excellent sur mobile
+- Évite les choix flashy ou décoratifs qui nuisent à la lisibilité ou aux performances
+
+PERFORMANCE OBLIGATOIRE :
+- Optimise les images
+- Réduis le poids inutile du site
+- Fais attention au chargement mobile
+- Évite les animations lourdes ou inutiles
+- Garde une structure légère et performante
+
+RÈGLES DE DÉVELOPPEMENT :
+- Mets en place une structure de projet propre, maintenable et évolutive
+- Crée des composants réutilisables
+- Garde le code clair et cohérent
+- Ne crée pas une architecture compliquée si elle n’est pas nécessaire
+- Si une décision technique influence le SEO ou les performances, choisis l’option la plus robuste pour la production
+
+IMPORTANT — NE PAS FAIRE :
+- Ne commence pas en mode SPA pure pour les pages publiques
+- Ne laisse pas les métadonnées SEO comme placeholders
+- Ne fais pas un site joli mais faible techniquement
+- Ne remets pas les correctifs SEO à “plus tard”
+- Ne considère pas le projet terminé si la structure SEO technique n’est pas propre
+
+AVANT DE CONSIDÉRER LE PROJET TERMINÉ, VALIDE EXPLICITEMENT :
+1. que le projet est bien sur une base Next.js adaptée au SEO
+2. que les pages publiques ne reposent pas sur une SPA pure problématique pour Google
+3. que chaque page clé possède ses métadonnées SEO
+4. que sitemap.xml et robots.txt sont en place
+5. que les pages importantes ont une structure HTML exploitable
+6. que le site est mobile-friendly
+7. que la fondation est production-ready
+
+Ta mission n’est pas seulement de “faire un site”.
+Ta mission est de construire une base web professionnelle, crédible, performante, bien pensée pour le SEO et la conversion, sans dette structurelle dès le départ.
