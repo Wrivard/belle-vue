@@ -1,139 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Phone, MapPin, Mail, ChevronRight, Menu, X } from 'lucide-react';
-
-const FadeIn = ({ children, delay = 0, className = '' }: { children: React.ReactNode, delay?: number, className?: string }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = React.useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={`transition-all duration-700 ease-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      } ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-};
-
-const CountUp = ({ end, suffix = '', duration = 2000 }: { end: number, suffix?: string, duration?: number }) => {
-  const [count, setCount] = useState(0);
-  const [started, setStarted] = useState(false);
-  const ref = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started) {
-          setStarted(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.3 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [started]);
-
-  useEffect(() => {
-    if (!started) return;
-    let startTime: number;
-    const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.floor(eased * end));
-      if (progress < 1) requestAnimationFrame(animate);
-    };
-    requestAnimationFrame(animate);
-  }, [started, end, duration]);
-
-  return <span ref={ref}>{count}{suffix}</span>;
-};
+import { ChevronRight } from 'lucide-react';
+import { PageWrapper, FadeIn, CountUp, TestimonialsSection, ContactSection } from './_shared';
 
 export function Homepage() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <div className="font-['Inter'] bg-[#E4E4E4] text-[#1B1B1B] min-h-screen selection:bg-[#FF6501] selection:text-white dark">
-      {/* NAVBAR */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-[#1B1B1B] py-3 shadow-lg' : 'bg-transparent py-5'} text-[#E4E4E4]`}>
-        <div className="container mx-auto px-6 max-w-[1200px] flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img src="/__mockup/images/logo-sergerie.png" alt="Les Rénovations Sergerie Inc." className="h-10 w-auto object-contain brightness-0 invert" />
-          </div>
-          
-          <div className="hidden md:flex items-center gap-8 font-semibold text-sm tracking-wide uppercase">
-            <a href="#accueil" className="hover:text-[#FF6501] transition-colors">Accueil</a>
-            <a href="#services" className="hover:text-[#FF6501] transition-colors">Services</a>
-            <a href="#realisations" className="hover:text-[#FF6501] transition-colors">Réalisations</a>
-            <a href="#apropos" className="hover:text-[#FF6501] transition-colors">À propos</a>
-            <a href="#contact" className="hover:text-[#FF6501] transition-colors">Contact</a>
-          </div>
-
-          <div className="hidden md:flex items-center gap-4">
-            <a href="tel:514-515-6795" className="flex items-center gap-2 text-[#E4E4E4] font-bold text-sm tracking-wide">
-              <Phone size={16} className="text-[#FF6501]" />
-              514-515-6795
-            </a>
-            <Button className="bg-[#FF6501] hover:bg-[#FF6501]/90 text-white font-bold rounded-md px-6 py-5 uppercase tracking-wide transition-transform hover:scale-105">
-              Soumission gratuite
-            </Button>
-          </div>
-
-          <button className="md:hidden text-[#E4E4E4]" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-      </nav>
-
-      {/* MOBILE MENU */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#1B1B1B] pt-24 px-6 md:hidden flex flex-col gap-6 text-[#E4E4E4]">
-          <a href="#accueil" className="text-2xl font-bold uppercase" onClick={() => setMobileMenuOpen(false)}>Accueil</a>
-          <a href="#services" className="text-2xl font-bold uppercase" onClick={() => setMobileMenuOpen(false)}>Services</a>
-          <a href="#realisations" className="text-2xl font-bold uppercase" onClick={() => setMobileMenuOpen(false)}>Réalisations</a>
-          <a href="#apropos" className="text-2xl font-bold uppercase" onClick={() => setMobileMenuOpen(false)}>À propos</a>
-          <a href="#contact" className="text-2xl font-bold uppercase" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-          <Button className="bg-[#FF6501] hover:bg-[#FF6501]/90 text-white font-bold rounded-md py-6 mt-4 uppercase tracking-wide text-lg w-full">
-            Soumission gratuite
-          </Button>
-        </div>
-      )}
-
+    <PageWrapper>
       {/* HERO */}
       <section id="accueil" className="relative min-h-[90vh] flex items-center pt-20">
         <div className="absolute inset-0 z-0">
-          <img src="/__mockup/images/photo-hero-bg.jpg" alt="Hero background" className="w-full h-full object-cover" />
+          <img src="/__mockup/images/photo-hero-bg.jpg" alt="Hero background" className="w-full h-full object-cover object-right" />
           <div className="absolute inset-0 bg-[#1B1B1B]/80"></div>
         </div>
         
@@ -161,16 +38,17 @@ export function Homepage() {
             </FadeIn>
             
             <FadeIn delay={300} className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-[#FF6501] hover:bg-[#FF6501]/90 text-white font-bold rounded-md px-8 py-6 uppercase tracking-wide text-base transition-transform hover:scale-105 h-auto">
-                Soumission gratuite
-              </Button>
+              <a href="/__mockup/preview/sergerie-v2/Soumission">
+                <Button className="bg-[#FF6501] hover:bg-[#FF6501]/90 text-white font-bold rounded-md px-8 py-6 uppercase tracking-wide text-base transition-transform hover:scale-105 h-auto">
+                  Soumission gratuite
+                </Button>
+              </a>
               <Button variant="outline" className="border-2 border-[#E4E4E4] bg-transparent hover:bg-[#E4E4E4] hover:text-[#1B1B1B] text-[#E4E4E4] font-bold rounded-md px-8 py-6 uppercase tracking-wide text-base transition-colors h-auto">
                 Voir nos réalisations
               </Button>
             </FadeIn>
           </div>
         </div>
-        
       </section>
 
       {/* STATS SECTION */}
@@ -251,7 +129,6 @@ export function Homepage() {
 
       {/* FEATURE/EXPERTISE */}
       <section id="apropos" className="py-24 md:py-32 bg-[#1B1B1B] text-[#E4E4E4] relative overflow-hidden">
-        {/* Geometric accent */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-[#222222] clip-path-polygon"></div>
         
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
@@ -364,36 +241,7 @@ export function Homepage() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-24 md:py-32 bg-[#E4E4E4] text-[#1B1B1B]">
-        <div className="container mx-auto px-6 max-w-[1200px]">
-          <FadeIn>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-1 bg-[#FF6501]"></div>
-              <span className="text-[#FF6501] font-bold tracking-widest uppercase text-sm">Clients</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight mb-16">Ils nous font confiance</h2>
-          </FadeIn>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { name: 'Martin Tremblay', type: 'Toiture', quote: "Une équipe super professionnelle. Ils ont refait ma toiture en un temps record et ont laissé le terrain impeccable." },
-              { name: 'Sophie L.', type: 'Rénovation Cuisine', quote: "Le souci du détail de l'équipe Sergerie est impressionnant. Ma nouvelle cuisine est exactement comme je l'avais imaginée." },
-              { name: 'Pierre-Luc Côté', type: 'Sous-sol', quote: "Des gars fiables, polis et ponctuels. C'est rare de nos jours dans la construction. Je les recommande sans hésiter." }
-            ].map((test, idx) => (
-              <FadeIn key={idx} delay={idx * 150}>
-                <div className="bg-white p-10 rounded-md relative shadow-sm border-l-4 border-[#FF6501]">
-                  <div className="text-5xl font-serif text-[#E4E4E4] absolute top-6 right-8 opacity-50">"</div>
-                  <p className="text-lg italic text-[#1B1B1B]/80 mb-8 relative z-10">{test.quote}</p>
-                  <div>
-                    <h4 className="font-bold uppercase tracking-wide">{test.name}</h4>
-                    <p className="text-[#FF6501] text-sm font-bold uppercase tracking-wider">{test.type}</p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TestimonialsSection />
 
       {/* FAQ */}
       <section className="py-24 md:py-32 bg-[#1B1B1B] text-[#E4E4E4]">
@@ -448,7 +296,7 @@ export function Homepage() {
       <section className="py-32 text-white relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src="/__mockup/images/photo-camion.jpg" alt="Camion Sergerie" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-[#1B1B1B]/75"></div>
+          <div className="absolute inset-0 bg-[#1B1B1B]/85"></div>
         </div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-center">
           <FadeIn>
@@ -456,153 +304,17 @@ export function Homepage() {
             <p className="text-xl md:text-2xl font-medium mb-12 text-white/90 max-w-2xl mx-auto">
               Confiez-nous votre projet et découvrez la différence d'un travail fait avec rigueur et propreté.
             </p>
-            <Button className="bg-[#FF6501] hover:bg-[#FF6501]/90 text-white font-bold rounded-md px-10 py-8 uppercase tracking-widest text-lg transition-transform hover:scale-105 h-auto">
-              Obtenir ma soumission gratuite
-            </Button>
+            <a href="/__mockup/preview/sergerie-v2/Soumission">
+              <Button className="bg-[#FF6501] hover:bg-[#FF6501]/90 text-white font-bold rounded-md px-10 py-8 uppercase tracking-widest text-lg transition-transform hover:scale-105 h-auto">
+                Obtenir ma soumission gratuite
+              </Button>
+            </a>
           </FadeIn>
         </div>
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="py-24 md:py-32 bg-[#E4E4E4] text-[#1B1B1B]">
-        <div className="container mx-auto px-6 max-w-[1200px]">
-          <div className="grid md:grid-cols-2 gap-16">
-            <FadeIn>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-1 bg-[#FF6501]"></div>
-                <span className="text-[#FF6501] font-bold tracking-widest uppercase text-sm">Contact</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight mb-8">Discutons de <br/>votre projet</h2>
-              <p className="text-lg text-[#1B1B1B]/70 mb-12">
-                Prêt à transformer votre maison? Contactez-nous dès aujourd'hui pour une évaluation gratuite.
-              </p>
-
-              <div className="space-y-8">
-                <div className="flex items-start gap-6">
-                  <div className="w-14 h-14 bg-[#1B1B1B] text-[#FF6501] rounded-md flex items-center justify-center shrink-0">
-                    <Phone size={24} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold uppercase text-sm text-[#1B1B1B]/60 tracking-wider mb-1">Téléphone</h4>
-                    <p className="text-2xl font-bold">514-515-6795</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-6">
-                  <div className="w-14 h-14 bg-[#1B1B1B] text-[#FF6501] rounded-md flex items-center justify-center shrink-0">
-                    <Mail size={24} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold uppercase text-sm text-[#1B1B1B]/60 tracking-wider mb-1">Courriel</h4>
-                    <p className="text-xl font-bold">info@renovations-sergerie.ca</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-6">
-                  <div className="w-14 h-14 bg-[#1B1B1B] text-[#FF6501] rounded-md flex items-center justify-center shrink-0">
-                    <MapPin size={24} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold uppercase text-sm text-[#1B1B1B]/60 tracking-wider mb-1">Emplacement</h4>
-                    <p className="text-xl font-bold">Varennes, Rive-Sud de Montréal</p>
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={200}>
-              <div className="bg-white p-10 rounded-md shadow-xl border-t-4 border-[#FF6501]">
-                <h3 className="text-2xl font-bold uppercase mb-8">Envoyer un message</h3>
-                <form className="space-y-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Nom complet</label>
-                    <Input className="bg-[#E4E4E4]/50 border-0 h-14 rounded-sm focus-visible:ring-[#FF6501]" placeholder="Jean Tremblay" />
-                  </div>
-                  <div className="grid grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Téléphone</label>
-                      <Input className="bg-[#E4E4E4]/50 border-0 h-14 rounded-sm focus-visible:ring-[#FF6501]" placeholder="514-000-0000" />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Courriel</label>
-                      <Input className="bg-[#E4E4E4]/50 border-0 h-14 rounded-sm focus-visible:ring-[#FF6501]" placeholder="jean@exemple.com" />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Détails du projet</label>
-                    <Textarea className="bg-[#E4E4E4]/50 border-0 min-h-[150px] rounded-sm focus-visible:ring-[#FF6501] resize-none" placeholder="Décrivez votre projet de toiture ou de rénovation..." />
-                  </div>
-                  <Button className="w-full bg-[#1B1B1B] hover:bg-[#FF6501] text-white font-bold rounded-md py-6 uppercase tracking-wide text-base transition-colors h-auto mt-4">
-                    Envoyer la demande
-                  </Button>
-                </form>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="bg-[#1B1B1B] text-[#E4E4E4] pt-24 pb-8 border-t-8 border-[#FF6501]">
-        <div className="container mx-auto px-6 max-w-[1200px]">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
-            <div>
-              <img src="/__mockup/images/logo-sergerie.png" alt="Les Rénovations Sergerie Inc." className="h-12 w-auto object-contain mb-8 brightness-0 invert" />
-              <p className="text-[#E4E4E4]/60 mb-8 max-w-sm">
-                Entreprise spécialisée en toiture et rénovation résidentielle. Fiers de desservir Varennes et la Rive-Sud de Montréal avec rigueur et propreté.
-              </p>
-              <div className="flex items-center gap-4 font-bold text-xl">
-                <Phone size={20} className="text-[#FF6501]" />
-                514-515-6795
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-bold uppercase tracking-widest mb-8 text-white">Nos services</h4>
-              <ul className="space-y-4 text-[#E4E4E4]/70 font-medium">
-                <li><a href="#" className="hover:text-[#FF6501] transition-colors">Toiture</a></li>
-                <li><a href="#" className="hover:text-[#FF6501] transition-colors">Rénovation complète</a></li>
-                <li><a href="#" className="hover:text-[#FF6501] transition-colors">Cuisine & Salle de bain</a></li>
-                <li><a href="#" className="hover:text-[#FF6501] transition-colors">Sous-sol</a></li>
-                <li><a href="#" className="hover:text-[#FF6501] transition-colors">Revêtement extérieur</a></li>
-                <li><a href="#" className="hover:text-[#FF6501] transition-colors">Balcon & Terrasse</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-bold uppercase tracking-widest mb-8 text-white">Menu rapide</h4>
-              <ul className="space-y-4 text-[#E4E4E4]/70 font-medium">
-                <li><a href="#accueil" className="hover:text-[#FF6501] transition-colors">Accueil</a></li>
-                <li><a href="#services" className="hover:text-[#FF6501] transition-colors">Services</a></li>
-                <li><a href="#realisations" className="hover:text-[#FF6501] transition-colors">Réalisations</a></li>
-                <li><a href="#apropos" className="hover:text-[#FF6501] transition-colors">À propos</a></li>
-                <li><a href="#contact" className="hover:text-[#FF6501] transition-colors">Contact</a></li>
-              </ul>
-              <Button className="mt-8 bg-[#FF6501] hover:bg-[#FF6501]/90 text-white font-bold rounded-md px-6 py-5 uppercase tracking-wide w-full h-auto">
-                Soumission gratuite
-              </Button>
-            </div>
-          </div>
-          
-          <div className="border-t border-[#E4E4E4]/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#E4E4E4]/40 font-medium">
-            <p>© {new Date().getFullYear()} Les Rénovations Sergerie Inc. Tous droits réservés.</p>
-            <p>RBQ: (À venir)</p>
-          </div>
-        </div>
-      </footer>
-
-      {/* Global styling for custom clip paths used in design */}
-      <style>{`
-        .clip-path-slant {
-          clip-path: polygon(100% 0, 100% 100%, 0 100%);
-        }
-        .clip-path-slant-reverse {
-          clip-path: polygon(0 0, 100% 0, 100% 100%);
-        }
-        .clip-path-polygon {
-          clip-path: polygon(100% 0, 100% 100%, 20% 100%, 0% 50%, 20% 0);
-        }
-      `}</style>
-    </div>
+      <ContactSection />
+    </PageWrapper>
   );
 }
