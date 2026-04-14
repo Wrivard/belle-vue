@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Check, Phone, MapPin, Mail, ChevronRight, Menu, X } from 'lucide-react';
+import { Phone, MapPin, Mail, ChevronRight, Menu, X } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0, className = '' }: { children: React.ReactNode, delay?: number, className?: string }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,6 +36,41 @@ const FadeIn = ({ children, delay = 0, className = '' }: { children: React.React
   );
 };
 
+const CountUp = ({ end, suffix = '', duration = 2000 }: { end: number, suffix?: string, duration?: number }) => {
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started) {
+          setStarted(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [started]);
+
+  useEffect(() => {
+    if (!started) return;
+    let startTime: number;
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * end));
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [started, end, duration]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+};
+
 export function Homepage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -48,23 +83,13 @@ export function Homepage() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const services = [
-    { title: 'Toiture', desc: 'Installation et réfection complète avec matériaux de première qualité.' },
-    { title: 'Rénovation', desc: 'Gestion de projets de rénovation de A à Z, clés en main.' },
-    { title: 'Cuisine', desc: 'Design moderne et fonctionnel pour le cœur de votre maison.' },
-    { title: 'Salle de bain', desc: 'Espaces repensés, matériaux durables et finitions impeccables.' },
-    { title: 'Sous-sol', desc: 'Aménagement complet pour maximiser votre espace habitable.' },
-    { title: 'Revêtement extérieur', desc: 'Protection et esthétique avec des revêtements de haute durabilité.' },
-    { title: 'Balcon / terrasse', desc: 'Conception et construction d\'espaces extérieurs sur mesure.' },
-  ];
-
   return (
     <div className="font-['Inter'] bg-[#E4E4E4] text-[#1B1B1B] min-h-screen selection:bg-[#FF6501] selection:text-white dark">
       {/* NAVBAR */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-[#1B1B1B] py-3 shadow-lg' : 'bg-transparent py-5'} text-[#E4E4E4]`}>
         <div className="container mx-auto px-6 max-w-[1200px] flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="/__mockup/images/logo-sergerie.png" alt="Les Rénovations Sergerie Inc." className="h-10 w-auto object-contain" />
+            <img src="/__mockup/images/logo-sergerie.png" alt="Les Rénovations Sergerie Inc." className="h-10 w-auto object-contain brightness-0 invert" />
           </div>
           
           <div className="hidden md:flex items-center gap-8 font-semibold text-sm tracking-wide uppercase">
@@ -75,7 +100,11 @@ export function Homepage() {
             <a href="#contact" className="hover:text-[#FF6501] transition-colors">Contact</a>
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-4">
+            <a href="tel:514-515-6795" className="flex items-center gap-2 text-[#E4E4E4] font-bold text-sm tracking-wide">
+              <Phone size={16} className="text-[#FF6501]" />
+              514-515-6795
+            </a>
             <Button className="bg-[#FF6501] hover:bg-[#FF6501]/90 text-white font-bold rounded-md px-6 py-5 uppercase tracking-wide transition-transform hover:scale-105">
               Soumission gratuite
             </Button>
@@ -121,10 +150,7 @@ export function Homepage() {
               <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] mb-8 text-white uppercase tracking-tight">
                 Des travaux <br />
                 <span className="text-[#FF6501]">solides</span> et <br />
-                <span className="relative">
-                  professionnels
-                  <div className="absolute -bottom-2 left-0 w-full h-2 bg-[#FF6501]/30"></div>
-                </span>
+                professionnels
               </h1>
             </FadeIn>
             
@@ -145,25 +171,35 @@ export function Homepage() {
           </div>
         </div>
         
-        {/* Slanted decoration */}
-        <div className="absolute bottom-0 right-0 w-[50vw] h-32 bg-[#FF6501] clip-path-slant z-10 hidden lg:block opacity-90 transform translate-y-1/2"></div>
       </section>
 
-      {/* TRUST STRIP */}
-      <div className="bg-[#FF6501] text-white py-6 relative z-20">
+      {/* STATS SECTION */}
+      <div className="bg-[#1B1B1B] border-t-4 border-[#FF6501] relative z-20 py-16">
         <div className="container mx-auto px-6 max-w-[1200px]">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 font-bold text-lg md:text-xl uppercase tracking-wider">
-            <div className="flex items-center gap-3">
-              <div className="bg-white/20 p-1.5 rounded-full"><Check size={20} strokeWidth={3} /></div>
-              Soumission gratuite
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-4xl md:text-5xl font-bold text-[#FF6501] mb-2">
+                <CountUp end={15} suffix="+" />
+              </div>
+              <div className="uppercase text-sm font-bold tracking-wider text-[#E4E4E4]/60">Années d'expérience</div>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="bg-white/20 p-1.5 rounded-full"><Check size={20} strokeWidth={3} /></div>
-              Travail garanti
+            <div>
+              <div className="text-4xl md:text-5xl font-bold text-[#FF6501] mb-2">
+                <CountUp end={500} suffix="+" />
+              </div>
+              <div className="uppercase text-sm font-bold tracking-wider text-[#E4E4E4]/60">Projets complétés</div>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="bg-white/20 p-1.5 rounded-full"><Check size={20} strokeWidth={3} /></div>
-              Propreté assurée
+            <div>
+              <div className="text-4xl md:text-5xl font-bold text-[#FF6501] mb-2">
+                <CountUp end={100} suffix="%" />
+              </div>
+              <div className="uppercase text-sm font-bold tracking-wider text-[#E4E4E4]/60">Satisfaction client</div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold text-[#FF6501] mb-2">
+                <CountUp end={24} suffix="h" />
+              </div>
+              <div className="uppercase text-sm font-bold tracking-wider text-[#E4E4E4]/60">Temps de réponse</div>
             </div>
           </div>
         </div>
@@ -173,26 +209,38 @@ export function Homepage() {
       <section id="services" className="py-24 md:py-32 bg-[#E4E4E4] text-[#1B1B1B]">
         <div className="container mx-auto px-6 max-w-[1200px]">
           <FadeIn>
-            <div className="mb-16">
-              <div className="flex items-center gap-3 mb-4">
+            <div className="text-center mb-16 max-w-3xl mx-auto">
+              <div className="flex items-center justify-center gap-3 mb-4">
                 <div className="w-8 h-1 bg-[#FF6501]"></div>
                 <span className="text-[#FF6501] font-bold tracking-widest uppercase text-sm">Services</span>
+                <div className="w-8 h-1 bg-[#FF6501]"></div>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight">Nos expertises</h2>
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {services.map((service, idx) => (
-              <FadeIn key={idx} delay={idx * 50} className={idx === 0 ? "md:col-span-2 lg:col-span-2 row-span-2" : ""}>
-                <div className={`group h-full bg-[#1B1B1B] text-[#E4E4E4] rounded-md p-8 border-b-4 border-transparent hover:border-[#FF6501] transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col justify-between ${idx === 0 ? 'min-h-[300px]' : ''}`}>
-                  <div>
-                    <h3 className={`${idx === 0 ? 'text-3xl' : 'text-xl'} font-bold uppercase mb-4 group-hover:text-[#FF6501] transition-colors`}>{service.title}</h3>
-                    <p className={`text-[#E4E4E4]/70 ${idx === 0 ? 'text-lg' : 'text-base'}`}>{service.desc}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: 'Toiture', desc: 'Installation et réfection complète avec matériaux de première qualité.', img: 'service-toiture.png' },
+              { title: 'Rénovation', desc: 'Gestion de projets de rénovation de A à Z, clés en main.', img: 'service-renovation.png' },
+              { title: 'Cuisine', desc: 'Design moderne et fonctionnel pour le coeur de votre maison.', img: 'service-cuisine.png' },
+              { title: 'Salle de bain', desc: 'Espaces repensés, matériaux durables et finitions impeccables.', img: 'service-sdb.png' },
+              { title: 'Sous-sol', desc: 'Aménagement complet pour maximiser votre espace habitable.', img: 'service-soussol.png' },
+              { title: 'Revêtement extérieur', desc: 'Protection et esthétique avec des revêtements de haute durabilité.', img: 'service-revetement.png' },
+              { title: 'Balcon / terrasse', desc: "Conception et construction d'espaces extérieurs sur mesure.", img: 'service-balcon.png' },
+            ].map((service, idx) => (
+              <FadeIn key={idx} delay={idx * 80}>
+                <div className="group bg-white rounded-md shadow-sm border border-black/5 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden h-full flex flex-col">
+                  <div className="h-48 overflow-hidden">
+                    <img src={`/__mockup/images/${service.img}`} alt={service.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   </div>
-                  <div className="mt-8 flex justify-end">
-                    <div className="w-10 h-10 rounded-full border border-[#E4E4E4]/20 flex items-center justify-center group-hover:bg-[#FF6501] group-hover:border-[#FF6501] transition-colors">
-                      <ChevronRight size={20} className="text-[#E4E4E4]" />
+                  <div className="p-8 flex flex-col flex-1">
+                    <h3 className="text-2xl font-bold text-[#1B1B1B] mb-3 group-hover:text-[#FF6501] transition-colors">{service.title}</h3>
+                    <p className="text-[#1B1B1B]/70 leading-relaxed flex-1">{service.desc}</p>
+                    <div className="mt-6 flex justify-end">
+                      <div className="w-10 h-10 rounded-full border border-[#1B1B1B]/20 flex items-center justify-center group-hover:bg-[#FF6501] group-hover:border-[#FF6501] transition-colors">
+                        <ChevronRight size={20} className="text-[#1B1B1B] group-hover:text-white" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -287,29 +335,29 @@ export function Homepage() {
       {/* PROCESS */}
       <section className="py-24 md:py-32 bg-[#1B1B1B] text-[#E4E4E4]">
         <div className="container mx-auto px-6 max-w-[1200px]">
-          <FadeIn className="text-center mb-20">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-8 h-1 bg-[#FF6501]"></div>
-              <span className="text-[#FF6501] font-bold tracking-widest uppercase text-sm">Processus</span>
-              <div className="w-8 h-1 bg-[#FF6501]"></div>
+          <FadeIn>
+            <div className="mb-16">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-1 bg-[#FF6501]"></div>
+                <span className="text-[#FF6501] font-bold tracking-widest uppercase text-sm">Notre processus</span>
+              </div>
+              <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight">Simple et transparent</h2>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight">Une approche simple et efficace</h2>
           </FadeIn>
 
-          <div className="grid md:grid-cols-3 gap-12 relative">
-            <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-[#E4E4E4]/10 z-0"></div>
-            
+          <div className="grid md:grid-cols-3 gap-8">
             {[
-              { num: '01', title: 'Soumission', desc: 'Évaluation détaillée et transparente de votre projet, sans frais cachés.' },
-              { num: '02', title: 'Planification', desc: 'Choix des matériaux et établissement d\'un échéancier clair et respecté.' },
-              { num: '03', title: 'Réalisation', desc: 'Exécution des travaux avec minutie, professionnalisme et nettoyage quotidien.' }
+              { num: '01', title: 'Consultation', desc: 'Visite gratuite sur place. On évalue vos besoins, on discute du budget et on répond à toutes vos questions.' },
+              { num: '02', title: 'Soumission', desc: "Document détaillé avec prix fermes, échéancier précis et description complète des travaux. Sans surprise." },
+              { num: '03', title: 'Exécution', desc: "Travaux exécutés selon les normes RBQ, chantier propre et livré dans les délais convenus. Garanti." }
             ].map((step, idx) => (
-              <FadeIn key={idx} delay={idx * 200} className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-24 h-24 bg-[#1B1B1B] border-4 border-[#FF6501] rounded-full flex items-center justify-center text-3xl font-bold text-[#FF6501] mb-8 shadow-[0_0_30px_rgba(255,101,1,0.2)]">
-                  {step.num}
+              <FadeIn key={idx} delay={idx * 200}>
+                <div className="flex flex-col">
+                  <div className="text-6xl md:text-7xl font-bold text-[#FF6501] mb-6 leading-none">{step.num}</div>
+                  <div className="w-10 h-1 bg-[#FF6501] mb-6"></div>
+                  <h3 className="text-xl font-bold uppercase tracking-wide mb-4">{step.title}</h3>
+                  <p className="text-[#E4E4E4]/60 leading-relaxed">{step.desc}</p>
                 </div>
-                <h3 className="text-2xl font-bold uppercase mb-4">{step.title}</h3>
-                <p className="text-[#E4E4E4]/70">{step.desc}</p>
               </FadeIn>
             ))}
           </div>
@@ -497,7 +545,7 @@ export function Homepage() {
         <div className="container mx-auto px-6 max-w-[1200px]">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
             <div>
-              <img src="/__mockup/images/logo-sergerie.png" alt="Les Rénovations Sergerie Inc." className="h-12 w-auto object-contain mb-8 filter brightness-0 invert" />
+              <img src="/__mockup/images/logo-sergerie.png" alt="Les Rénovations Sergerie Inc." className="h-12 w-auto object-contain mb-8 brightness-0 invert" />
               <p className="text-[#E4E4E4]/60 mb-8 max-w-sm">
                 Entreprise spécialisée en toiture et rénovation résidentielle. Fiers de desservir Varennes et la Rive-Sud de Montréal avec rigueur et propreté.
               </p>
