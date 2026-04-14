@@ -16,6 +16,20 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **API codegen**: Orval (from OpenAPI spec)
 - **Build**: esbuild (CJS bundle)
 
+## Artifacts
+
+### Les Rénovations Sergerie (sergerie-website)
+- **Type**: Presentation-first React + Vite website
+- **Path**: `/` (root)
+- **Port**: 25729
+- **Pages**: Homepage (`/`), Soumission (`/soumission`)
+- **Brand colors**: Accent `#FF6501` (orange), Dark `#1B1B1B`, Light `#E4E4E4`
+- **Font**: Inter (Google Fonts)
+- **Routing**: wouter
+- **Images**: `public/images/` — 20+ client photos, logo
+- **Components**: `src/components/layout/` — Navbar, Footer, FadeIn, CountUp, MapSection, TestimonialsSection, ContactSection, PageWrapper
+- **Contact**: 514-515-6795, info@renovations-sergerie.ca, Varennes QC
+
 ## Key Commands
 
 - `pnpm run typecheck` — full typecheck across all packages
