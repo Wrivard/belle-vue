@@ -77,7 +77,14 @@ export function Footer() {
       <div className="border-t border-[#E4E4E4]/10">
         <div className="container mx-auto px-6 max-w-[1200px] py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#E4E4E4]/40 font-medium">
           <p>© {new Date().getFullYear()} Les Rénovations Sergerie Inc. Tous droits réservés.</p>
-          <p>RBQ: (À venir)</p>
+          <div className="flex items-center gap-4">
+            <span>RBQ: (À venir)</span>
+            <span className="text-[#E4E4E4]/20">|</span>
+            <div className="flex items-center gap-2">
+              <span>Membre</span>
+              <img src={img('logo-apchq.png')} alt="APCHQ" className="h-6 w-auto object-contain" data-testid="img-apchq-logo" />
+            </div>
+          </div>
         </div>
       </div>
     </footer>

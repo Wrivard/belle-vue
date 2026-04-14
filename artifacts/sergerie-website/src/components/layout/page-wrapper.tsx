@@ -2,6 +2,7 @@ import { type ReactNode } from 'react';
 import { Navbar } from './navbar';
 import { MapSection } from './map-section';
 import { Footer } from './footer';
+import { BackToTop } from './back-to-top';
 
 export function PageWrapper({ children }: { children: ReactNode }) {
   return (
@@ -10,6 +11,7 @@ export function PageWrapper({ children }: { children: ReactNode }) {
       {children}
       <MapSection />
       <Footer />
+      <BackToTop />
     </div>
   );
 }

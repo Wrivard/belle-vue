@@ -1,15 +1,19 @@
 import { Switch, Route, Router as WouterRouter } from "wouter";
+import { ScrollToTop } from "@/components/layout/scroll-to-top";
 import Home from "@/pages/home";
 import Soumission from "@/pages/soumission";
 import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/soumission" component={Soumission} />
-      <Route component={NotFound} />
-    </Switch>
+    <>
+      <ScrollToTop />
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/soumission" component={Soumission} />
+        <Route component={NotFound} />
+      </Switch>
+    </>
   );
 }
 
