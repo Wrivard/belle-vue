@@ -133,8 +133,8 @@ export function Homepage() {
       {/* HERO */}
       <section id="accueil" className="relative min-h-[90vh] flex items-center pt-20">
         <div className="absolute inset-0 z-0">
-          <img src="/__mockup/images/sergerie-hero-bg.png" alt="Hero background" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-[#1B1B1B]/85 mix-blend-multiply"></div>
+          <img src="/__mockup/images/photo-hero-bg.jpg" alt="Hero background" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#1B1B1B]/80"></div>
         </div>
         
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-[#E4E4E4]">
@@ -174,7 +174,7 @@ export function Homepage() {
       </section>
 
       {/* STATS SECTION */}
-      <div className="bg-[#1B1B1B] border-t-4 border-[#FF6501] relative z-20 py-16">
+      <div className="bg-[#1B1B1B] relative z-20 py-16">
         <div className="container mx-auto px-6 max-w-[1200px]">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
@@ -221,13 +221,12 @@ export function Homepage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: 'Toiture', desc: 'Installation et réfection complète avec matériaux de première qualité.', img: 'service-toiture.png' },
-              { title: 'Rénovation', desc: 'Gestion de projets de rénovation de A à Z, clés en main.', img: 'service-renovation.png' },
-              { title: 'Cuisine', desc: 'Design moderne et fonctionnel pour le coeur de votre maison.', img: 'service-cuisine.png' },
-              { title: 'Salle de bain', desc: 'Espaces repensés, matériaux durables et finitions impeccables.', img: 'service-sdb.png' },
-              { title: 'Sous-sol', desc: 'Aménagement complet pour maximiser votre espace habitable.', img: 'service-soussol.png' },
-              { title: 'Revêtement extérieur', desc: 'Protection et esthétique avec des revêtements de haute durabilité.', img: 'service-revetement.png' },
-              { title: 'Balcon / terrasse', desc: "Conception et construction d'espaces extérieurs sur mesure.", img: 'service-balcon.png' },
+              { title: 'Toiture', desc: 'Installation et réfection complète avec matériaux de première qualité.', img: 'photo-toiture.jpg' },
+              { title: 'Cuisine', desc: 'Design moderne et fonctionnel pour le coeur de votre maison.', img: 'photo-cuisine.jpg' },
+              { title: 'Salle de bain', desc: 'Espaces repensés, matériaux durables et finitions impeccables.', img: 'photo-sdb-vanite.jpg' },
+              { title: 'Sous-sol', desc: 'Aménagement complet pour maximiser votre espace habitable.', img: 'photo-soussol.jpg' },
+              { title: 'Revêtement extérieur', desc: 'Protection et esthétique avec des revêtements de haute durabilité.', img: 'photo-revetement.jpg' },
+              { title: 'Balcon / terrasse', desc: "Conception et construction d'espaces extérieurs sur mesure.", img: 'photo-balcon.jpg' },
             ].map((service, idx) => (
               <FadeIn key={idx} delay={idx * 80}>
                 <div className="group bg-white rounded-md shadow-sm border border-black/5 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden h-full flex flex-col">
@@ -287,7 +286,7 @@ export function Homepage() {
 
             <FadeIn delay={200} className="relative">
               <div className="absolute -inset-4 border-2 border-[#FF6501]/30 rounded-md transform translate-x-4 translate-y-4"></div>
-              <img src="/__mockup/images/sergerie-feature-site.png" alt="Construction site" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
+              <img src="/__mockup/images/photo-chantier.jpg" alt="Chantier de construction" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
             </FadeIn>
           </div>
         </div>
@@ -313,9 +312,9 @@ export function Homepage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { img: 'sergerie-project-roofing.png', title: 'Toiture Résidentielle', cat: 'Toiture' },
-              { img: 'sergerie-project-kitchen.png', title: 'Cuisine Moderne', cat: 'Rénovation intérieure' },
-              { img: 'sergerie-project-exterior.png', title: 'Revêtement Extérieur', cat: 'Extérieur' }
+              { img: 'photo-construction.jpg', title: 'Construction Résidentielle', cat: 'Toiture & Structure' },
+              { img: 'photo-cuisine-2.jpg', title: 'Cuisine Moderne', cat: 'Rénovation intérieure' },
+              { img: 'photo-sdb-bain.jpg', title: 'Salle de Bain Luxueuse', cat: 'Rénovation intérieure' }
             ].map((proj, idx) => (
               <FadeIn key={idx} delay={idx * 150}>
                 <div className="group relative overflow-hidden rounded-md cursor-pointer h-[400px]">
@@ -446,15 +445,18 @@ export function Homepage() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="py-32 bg-[#FF6501] text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[40%] h-full bg-white/10 clip-path-slant-reverse"></div>
+      <section className="py-32 text-white relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="/__mockup/images/photo-camion.jpg" alt="Camion Sergerie" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#1B1B1B]/75"></div>
+        </div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-center">
           <FadeIn>
             <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight mb-8">Besoin d'un expert <br/>en rénovation?</h2>
             <p className="text-xl md:text-2xl font-medium mb-12 text-white/90 max-w-2xl mx-auto">
               Confiez-nous votre projet et découvrez la différence d'un travail fait avec rigueur et propreté.
             </p>
-            <Button className="bg-[#1B1B1B] hover:bg-[#1B1B1B]/90 text-white font-bold rounded-md px-10 py-8 uppercase tracking-widest text-lg transition-transform hover:scale-105 h-auto">
+            <Button className="bg-[#FF6501] hover:bg-[#FF6501]/90 text-white font-bold rounded-md px-10 py-8 uppercase tracking-widest text-lg transition-transform hover:scale-105 h-auto">
               Obtenir ma soumission gratuite
             </Button>
           </FadeIn>
