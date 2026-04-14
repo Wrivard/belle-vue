@@ -39,10 +39,10 @@ export function Navbar() {
           
           <div className="hidden md:flex items-center gap-8 font-semibold text-sm tracking-wide uppercase">
             <a href={import.meta.env.BASE_URL} className="hover:text-[#FF6501] transition-colors" data-testid="link-accueil">Accueil</a>
-            <button onClick={() => scrollToSection('services')} className="hover:text-[#FF6501] transition-colors" data-testid="link-services">Services</button>
-            <button onClick={() => scrollToSection('realisations')} className="hover:text-[#FF6501] transition-colors" data-testid="link-realisations">Réalisations</button>
-            <button onClick={() => scrollToSection('apropos')} className="hover:text-[#FF6501] transition-colors" data-testid="link-apropos">À propos</button>
-            <button onClick={() => scrollToSection('contact')} className="hover:text-[#FF6501] transition-colors" data-testid="link-contact">Contact</button>
+            <button onClick={() => scrollToSection('services')} className="hover:text-[#FF6501] transition-colors uppercase" data-testid="link-services">Services</button>
+            <button onClick={() => scrollToSection('realisations')} className="hover:text-[#FF6501] transition-colors uppercase" data-testid="link-realisations">Réalisations</button>
+            <button onClick={() => scrollToSection('apropos')} className="hover:text-[#FF6501] transition-colors uppercase" data-testid="link-apropos">À propos</button>
+            <button onClick={() => scrollToSection('contact')} className="hover:text-[#FF6501] transition-colors uppercase" data-testid="link-contact">Contact</button>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
