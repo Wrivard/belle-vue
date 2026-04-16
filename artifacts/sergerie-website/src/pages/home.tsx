@@ -77,24 +77,24 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="bg-[#1B1B1B] relative z-20 py-16" data-testid="stats-section">
+      <div className="bg-white border-y border-black/5 relative z-20 py-16" data-testid="stats-section">
         <div className="container mx-auto px-6 max-w-[1200px]">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl md:text-5xl font-bold text-[#F97316] mb-2"><CountUp end={15} suffix="+" /></div>
-              <div className="uppercase text-sm font-bold tracking-wider text-[#E4E4E4]/60">Années d'expérience</div>
+              <div className="uppercase text-sm font-bold tracking-wider text-[#1B1B1B]/50">Années d'expérience</div>
             </div>
             <div>
               <div className="text-4xl md:text-5xl font-bold text-[#F97316] mb-2"><CountUp end={500} suffix="+" /></div>
-              <div className="uppercase text-sm font-bold tracking-wider text-[#E4E4E4]/60">Projets complétés</div>
+              <div className="uppercase text-sm font-bold tracking-wider text-[#1B1B1B]/50">Projets complétés</div>
             </div>
             <div>
               <div className="text-4xl md:text-5xl font-bold text-[#F97316] mb-2"><CountUp end={100} suffix="%" /></div>
-              <div className="uppercase text-sm font-bold tracking-wider text-[#E4E4E4]/60">Satisfaction client</div>
+              <div className="uppercase text-sm font-bold tracking-wider text-[#1B1B1B]/50">Satisfaction client</div>
             </div>
             <div>
               <div className="text-4xl md:text-5xl font-bold text-[#F97316] mb-2"><CountUp end={24} suffix="h" /></div>
-              <div className="uppercase text-sm font-bold tracking-wider text-[#E4E4E4]/60">Temps de réponse</div>
+              <div className="uppercase text-sm font-bold tracking-wider text-[#1B1B1B]/50">Temps de réponse</div>
             </div>
           </div>
         </div>
