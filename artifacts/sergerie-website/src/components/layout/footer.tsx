@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="lg:col-span-1">
             <Link href="/">
-              <img src={img('logo-sergerie.png')} alt="MC Rénovation Construction" className="h-[60px] w-auto object-contain mb-6 brightness-0 invert" />
+              <img src={img('logo-mc-renovation.png')} alt="MC Rénovation Construction" className="h-[60px] w-auto object-contain mb-6" />
             </Link>
             <p className="text-[#E4E4E4]/60 mb-6 text-sm leading-relaxed">
               Entreprise spécialisée en rénovation, finition intérieure et extérieure. Des travaux complets réalisés avec précision et efficacité à Saint-Jérôme et dans les Laurentides.
