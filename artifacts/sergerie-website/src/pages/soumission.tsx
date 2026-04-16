@@ -7,6 +7,7 @@ import { FadeIn } from '@/components/layout/fade-in';
 import { TestimonialsSection } from '@/components/layout/testimonials-section';
 import { FaqSection } from '@/components/layout/faq-section';
 import { ContactSection } from '@/components/layout/contact-section';
+import { CertificationsSection } from '@/components/layout/certifications-section';
 import { img } from '@/lib/utils';
 
 const advantages = [
@@ -51,6 +52,8 @@ export default function Soumission() {
           </div>
         </div>
       </section>
+
+      <CertificationsSection />
 
       <section className="py-16 md:py-24 bg-[#E4E4E4]" data-testid="soumission-form-section">
         <div className="container mx-auto px-6 max-w-[1200px]">

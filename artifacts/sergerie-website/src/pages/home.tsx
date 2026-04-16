@@ -7,6 +7,7 @@ import { CountUp } from '@/components/layout/count-up';
 import { TestimonialsSection } from '@/components/layout/testimonials-section';
 import { FaqSection } from '@/components/layout/faq-section';
 import { ContactSection } from '@/components/layout/contact-section';
+import { CertificationsSection } from '@/components/layout/certifications-section';
 import { img } from '@/lib/utils';
 
 const services = [
@@ -98,6 +99,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <CertificationsSection />
 
       <section id="services" className="py-24 md:py-32 bg-[#E4E4E4] text-[#1B1B1B]" data-testid="services-section">
         <div className="container mx-auto px-6 max-w-[1200px]">
