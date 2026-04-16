@@ -10,7 +10,7 @@ const certifications = [
 
 export function CertificationsSection() {
   return (
-    <section className="py-16 bg-white border-y border-black/5" data-testid="certifications-section">
+    <section className="py-16 bg-white border-b border-black/5" data-testid="certifications-section">
       <div className="container mx-auto px-6 max-w-[1200px]">
         <FadeIn>
           <div className="flex items-center justify-center gap-3 mb-10">
