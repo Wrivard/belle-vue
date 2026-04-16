@@ -10,18 +10,18 @@ import { ContactSection } from '@/components/layout/contact-section';
 import { img } from '@/lib/utils';
 
 const services = [
-  { title: 'Finition cuisine & salle de bain', desc: 'Rénovation complète avec des finitions soignées pour le coeur de votre maison.', img: 'photo-cuisine.jpg' },
-  { title: 'Finition intérieure', desc: 'Céramique, plancher, moulures — des finitions précises et durables.', img: 'photo-sdb-vanite.jpg' },
-  { title: 'Finition extérieure', desc: 'Revêtement et aluminium pour une protection et un look impeccable.', img: 'photo-revetement.jpg' },
-  { title: 'Agrandissement', desc: 'Agrandissez votre espace de vie avec des travaux solides et bien planifiés.', img: 'photo-soussol.jpg' },
-  { title: 'Balcon & Cabanon', desc: "Construction et rénovation de balcons et cabanons sur mesure.", img: 'photo-balcon.jpg' },
+  { title: 'Finition cuisine & salle de bain', desc: 'Rénovation complète avec des finitions soignées pour le coeur de votre maison.', img: 'mc-sdb-luxe.jpg' },
+  { title: 'Finition intérieure', desc: 'Céramique, plancher, moulures — des finitions précises et durables.', img: 'mc-escalier.jpg' },
+  { title: 'Finition extérieure', desc: 'Revêtement et aluminium pour une protection et un look impeccable.', img: 'mc-exterieur.jpg' },
+  { title: 'Agrandissement', desc: 'Agrandissez votre espace de vie avec des travaux solides et bien planifiés.', img: 'mc-agrandissement.jpg' },
+  { title: 'Balcon & Cabanon', desc: "Construction et rénovation de balcons et cabanons sur mesure.", img: 'mc-balcon.jpg' },
   { title: 'Toiture', desc: 'Installation et réfection complète avec matériaux de première qualité.', img: 'photo-toiture.jpg' },
 ];
 
 const projects = [
-  { img: 'photo-construction.jpg', title: 'Construction Résidentielle', cat: 'Toiture & Structure' },
-  { img: 'photo-cuisine-2.jpg', title: 'Cuisine Moderne', cat: 'Rénovation intérieure' },
-  { img: 'photo-sdb-bain.jpg', title: 'Salle de Bain Luxueuse', cat: 'Rénovation intérieure' }
+  { img: 'mc-cuisine.jpg', title: 'Cuisine Moderne', cat: 'Finition intérieure' },
+  { img: 'mc-sdb-douche.jpg', title: 'Salle de Bain Luxueuse', cat: 'Finition intérieure' },
+  { img: 'mc-cabanon.jpg', title: 'Garage & Cabanon', cat: 'Construction extérieure' },
 ];
 
 const steps = [
@@ -35,7 +35,7 @@ export default function Home() {
     <PageWrapper>
       <section id="accueil" className="relative min-h-[90vh] flex items-center pt-20" data-testid="hero-section">
         <div className="absolute inset-0 z-0">
-          <img src={img('photo-hero-bg.jpg')} alt="Hero background" className="w-full h-full object-cover object-right" />
+          <img src={img('mc-chantier.jpg')} alt="Chantier MC Rénovation Construction" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#1B1B1B]/80"></div>
         </div>
         
@@ -170,7 +170,7 @@ export default function Home() {
 
             <FadeIn delay={200} className="relative">
               <div className="absolute -inset-4 border-2 border-[#F97316]/30 rounded-md transform translate-x-4 translate-y-4"></div>
-              <img src={img('photo-chantier.jpg')} alt="Chantier de construction" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
+              <img src={img('mc-plancher.jpg')} alt="Finition intérieure MC Rénovation" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
             </FadeIn>
           </div>
         </div>
@@ -243,7 +243,7 @@ export default function Home() {
 
       <section className="py-32 text-white relative overflow-hidden" data-testid="cta-section">
         <div className="absolute inset-0 z-0">
-          <img src={img('photo-camion.jpg')} alt="MC Rénovation Construction" className="w-full h-full object-cover" />
+          <img src={img('mc-camion.jpg')} alt="MC Rénovation Construction" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-[#1B1B1B]/85"></div>
         </div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-center">
