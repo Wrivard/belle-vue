@@ -35,7 +35,7 @@ export default function Home() {
     <PageWrapper>
       <section id="accueil" className="relative min-h-[90vh] flex items-center pt-20" data-testid="hero-section">
         <div className="absolute inset-0 z-0">
-          <img src={img('mc-chantier.jpg')} alt="Chantier MC Rénovation Construction" className="w-full h-full object-cover object-center" />
+          <img src={img('mc-cuisine.jpg')} alt="Cuisine MC Rénovation Construction" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#1B1B1B]/80"></div>
         </div>
         
@@ -170,7 +170,7 @@ export default function Home() {
 
             <FadeIn delay={200} className="relative">
               <div className="absolute -inset-4 border-2 border-[#F97316]/30 rounded-md transform translate-x-4 translate-y-4"></div>
-              <img src={img('mc-plancher.jpg')} alt="Finition intérieure MC Rénovation" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
+              <img src={img('mc-camion.jpg')} alt="MC Rénovation Construction" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
             </FadeIn>
           </div>
         </div>
