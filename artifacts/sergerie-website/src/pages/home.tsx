@@ -274,7 +274,7 @@ export default function Home() {
         </div>
       </section>
 
-      <ContactSection />
+      <ContactSection showForm={false} />
     </PageWrapper>
   );
 }
