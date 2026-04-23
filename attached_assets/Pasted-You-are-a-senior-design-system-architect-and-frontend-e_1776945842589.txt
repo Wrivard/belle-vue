@@ -1,0 +1,218 @@
+You are a senior design system architect and frontend expert.
+
+You already have access to the full codebase of the current website we built together.
+
+Your job is to extract the design system and convert it into a reusable "Design Skill MD".
+
+---
+
+⚠️ CRITICAL RULES:
+
+- DO NOT include any business-specific content
+- DO NOT include any text, company info, services, phone numbers, or addresses
+- DO NOT describe copywriting
+- ONLY extract and describe:
+  - layout
+  - structure
+  - visual system
+  - design logic
+
+This must be reusable for ANY future project.
+
+---
+
+GOAL:
+
+Create a design skill that allows another AI to rebuild the SAME design structure and visual style,
+while automatically adapting to completely different content.
+
+---
+
+ANALYZE FROM THE CODE:
+
+- layout structure (sections, grids, containers)
+- spacing system (margins, paddings, gaps)
+- typography system (fonts, sizes, weights, hierarchy)
+- component patterns (buttons, cards, forms)
+- visual style (border radius, shadows, images)
+- animation usage
+
+---
+
+OUTPUT FORMAT:
+
+# [Design Skill Name]
+→ Generate a short, strong name that reflects the design style
+
+---
+
+## 1. Design Philosophy
+
+Describe:
+- visual tone (modern, bold, premium, minimal, etc.)
+- general feel of the interface
+- design intent
+
+---
+
+## 2. Layout System
+
+Extract and explain:
+
+- Container rules (max-width, padding, responsiveness)
+- Section spacing (consistent gaps, rhythm)
+- Grid system (columns, asymmetry, stacking behavior)
+- Alignment rules (centered, left-heavy, alternating)
+
+---
+
+## 3. Page Structure
+
+Reconstruct the structure of the homepage:
+
+- Hero section (layout type only)
+- Sections order
+- Section layout types (grid, split, stacked, etc.)
+
+⚠️ Do NOT describe content, only structure
+
+---
+
+## 4. Typography System (VERY IMPORTANT)
+
+Extract and describe in detail:
+
+### Font Families
+- Primary font (used for headings)
+- Secondary font (used for body text)
+- Optional accent font (used for tagline, highlights, etc.)
+
+---
+
+### Font Usage Rules
+
+Explain exactly where each font is used:
+
+- H1 → font family + size + weight + line-height
+- H2 / H3 → same
+- Body text → same
+- Tagline / small labels → same
+- Buttons → same
+
+---
+
+### Font Scale
+
+Describe the sizing system:
+
+- H1 size (desktop + mobile if possible)
+- H2 size
+- Paragraph size
+- Small text size
+
+---
+
+### Typography Behavior
+
+- Letter spacing (tight, normal, wide)
+- Line height (compact, airy)
+- Text transformations (uppercase, none, etc.)
+
+---
+
+⚠️ This section must be precise enough to reproduce the exact visual hierarchy.
+
+---
+
+## 5. Color System
+
+Describe:
+
+- Background usage (light/dark sections)
+- Accent color logic (where and how it's used)
+- Neutral tones
+
+⚠️ Keep it adaptable, no business-specific colors
+
+---
+
+## 6. Component System
+
+Extract reusable patterns:
+
+- Buttons (shape, size, hover, font usage)
+- Cards (padding, border, layout)
+- Sections (variants)
+- Forms (inputs, labels)
+
+---
+
+## 7. Visual Style
+
+Extract:
+
+- Border radius (ex: 6px consistency)
+- Shadow usage
+- Image handling (full width, overlays, ratios)
+- Icon style
+
+---
+
+## 8. Animation System
+
+Describe:
+
+- Animation types used
+- Speed and feel
+- Where animations appear (hover, scroll, etc.)
+
+---
+
+## 9. Design Rules (VERY IMPORTANT)
+
+List strict rules observed in the code:
+
+- spacing consistency
+- hierarchy rules
+- layout constraints
+- visual consistency rules
+
+---
+
+## 10. Implementation Notes (FROM CODE)
+
+Explain how this design is technically implemented:
+
+- Tailwind patterns or spacing scale
+- font imports (Google Fonts, local, etc.)
+- component reuse logic
+- section structure patterns
+- responsiveness strategy
+
+---
+
+## 11. JSON SUMMARY
+
+Provide a structured summary:
+
+{
+  "design_name": "",
+  "layout_type": "",
+  "hero_type": "",
+  "spacing": "",
+  "typography_style": "",
+  "font_primary": "",
+  "font_secondary": "",
+  "visual_style": "",
+  "complexity": "",
+  "tone": ""
+}
+
+---
+
+FINAL INSTRUCTION:
+
+This Design Skill must allow another AI to rebuild the same design system
+including typography, without ever needing the original code or content.
+
+It must be clear, structured, and reusable.
