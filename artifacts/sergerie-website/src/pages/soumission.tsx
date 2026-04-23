@@ -24,8 +24,8 @@ export default function Soumission() {
     <PageWrapper>
       <section className="relative min-h-[50vh] flex items-center pt-20" data-testid="soumission-hero">
         <div className="absolute inset-0 z-0">
-          <img src={img('mc-chantier.jpg')} alt="Chantier Construction Pro 3M" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-[#0B0B0B]/85"></div>
+          <img src={img('cp3m-hero2.webp')} alt="Chantier Construction Pro 3M" className="w-full h-full object-cover object-center" />
+          <div className="absolute inset-0 bg-[#1B1B1B]/85"></div>
         </div>
         
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-[#EDEDED] py-16">
@@ -64,34 +64,34 @@ export default function Soumission() {
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-8 h-1 bg-[#F47A1F]"></div>
                   </div>
-                  <h2 className="text-3xl font-bold uppercase tracking-tight mb-8 text-[#0B0B0B]">Détails du projet</h2>
+                  <h2 className="text-3xl font-bold uppercase tracking-tight mb-8 text-[#1B1B1B]">Détails du projet</h2>
                   
                   <form className="space-y-6" data-testid="soumission-form">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="text-sm font-bold uppercase tracking-wide text-[#0B0B0B]/70">Nom complet *</label>
+                        <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Nom complet *</label>
                         <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#F47A1F]" placeholder="Votre nom" data-testid="input-soumission-name" />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-sm font-bold uppercase tracking-wide text-[#0B0B0B]/70">Téléphone *</label>
+                        <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Téléphone *</label>
                         <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#F47A1F]" placeholder="(450) 000-0000" data-testid="input-soumission-phone" />
                       </div>
                     </div>
                     
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="text-sm font-bold uppercase tracking-wide text-[#0B0B0B]/70">Courriel *</label>
+                        <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Courriel *</label>
                         <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#F47A1F]" placeholder="votre@courriel.com" data-testid="input-soumission-email" />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-sm font-bold uppercase tracking-wide text-[#0B0B0B]/70">Adresse des travaux *</label>
+                        <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Adresse des travaux *</label>
                         <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#F47A1F]" placeholder="Numéro et rue, Ville" data-testid="input-soumission-address" />
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-bold uppercase tracking-wide text-[#0B0B0B]/70">Type de service *</label>
-                      <select className="w-full h-14 bg-[#EDEDED]/50 border-0 rounded-sm px-3 text-[#0B0B0B] focus:ring-2 focus:ring-[#F47A1F] focus:outline-none appearance-none cursor-pointer" data-testid="select-soumission-service">
+                      <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Type de service *</label>
+                      <select className="w-full h-14 bg-[#EDEDED]/50 border-0 rounded-sm px-3 text-[#1B1B1B] focus:ring-2 focus:ring-[#F47A1F] focus:outline-none appearance-none cursor-pointer" data-testid="select-soumission-service">
                         <option value="">Sélectionnez un service</option>
                         <option value="renovation">Rénovation</option>
                         <option value="portes-fenetres">Portes et fenêtres</option>
@@ -102,7 +102,7 @@ export default function Soumission() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-bold uppercase tracking-wide text-[#0B0B0B]/70">Détails supplémentaires</label>
+                      <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Détails supplémentaires</label>
                       <Textarea 
                         className="bg-[#EDEDED]/50 border-0 min-h-[180px] rounded-sm focus-visible:ring-[#F47A1F] resize-none" 
                         placeholder="Décrivez votre projet (dimensions approximatives, délai souhaité, etc.)" 
@@ -112,7 +112,7 @@ export default function Soumission() {
 
                     <div className="flex items-start gap-3 pt-2">
                       <input type="checkbox" id="consent" className="mt-1 accent-[#F47A1F] w-4 h-4" data-testid="checkbox-consent" />
-                      <label htmlFor="consent" className="text-sm text-[#0B0B0B]/60 leading-relaxed">
+                      <label htmlFor="consent" className="text-sm text-[#1B1B1B]/60 leading-relaxed">
                         J'accepte que mes informations soient utilisées uniquement pour traiter ma demande de soumission conformément à notre politique de confidentialité.
                       </label>
                     </div>
@@ -127,7 +127,7 @@ export default function Soumission() {
 
             <div className="space-y-6">
               <FadeIn delay={200}>
-                <div className="bg-[#0B0B0B] text-[#EDEDED] p-8 rounded-md shadow-lg" data-testid="sidebar-contact">
+                <div className="bg-[#1B1B1B] text-[#EDEDED] p-8 rounded-md shadow-lg" data-testid="sidebar-contact">
                   <h3 className="text-xl font-bold uppercase tracking-wide mb-6 text-white">Contactez-nous</h3>
                   
                   <div className="space-y-6">
@@ -165,7 +165,7 @@ export default function Soumission() {
               </FadeIn>
 
               <FadeIn delay={350}>
-                <div className="bg-[#0B0B0B] text-[#EDEDED] p-8 rounded-md shadow-lg" data-testid="sidebar-advantages">
+                <div className="bg-[#1B1B1B] text-[#EDEDED] p-8 rounded-md shadow-lg" data-testid="sidebar-advantages">
                   <h3 className="text-xl font-bold uppercase tracking-wide mb-6 text-white">Pourquoi nous choisir?</h3>
                   
                   <ul className="space-y-4">
@@ -181,8 +181,8 @@ export default function Soumission() {
 
               <FadeIn delay={500}>
                 <div className="relative overflow-hidden rounded-md h-[200px]">
-                  <img src={img('mc-camion.jpg')} alt="Construction Pro 3M" className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-[#0B0B0B]/40"></div>
+                  <img src={img('cp3m-projet-patio.webp')} alt="Construction Pro 3M" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-[#1B1B1B]/40"></div>
                 </div>
               </FadeIn>
             </div>

@@ -8,7 +8,7 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="py-24 md:py-32 bg-[#EDEDED] text-[#0B0B0B]" data-testid="testimonials-section">
+    <section className="py-24 md:py-32 bg-[#EDEDED] text-[#1B1B1B]" data-testid="testimonials-section">
       <div className="container mx-auto px-6 max-w-[1200px]">
         <FadeIn>
           <div className="flex items-center gap-3 mb-4">
@@ -23,7 +23,7 @@ export function TestimonialsSection() {
             <FadeIn key={idx} delay={idx * 150}>
               <div className="bg-white p-10 rounded-md relative shadow-sm border-l-4 border-[#F47A1F]" data-testid={`testimonial-card-${idx}`}>
                 <div className="text-5xl font-serif text-[#EDEDED] absolute top-6 right-8 opacity-50">"</div>
-                <p className="text-lg italic text-[#0B0B0B]/80 mb-8 relative z-10">{test.quote}</p>
+                <p className="text-lg italic text-[#1B1B1B]/80 mb-8 relative z-10">{test.quote}</p>
                 <div>
                   <h4 className="font-bold uppercase tracking-wide">{test.name}</h4>
                   <p className="text-[#F47A1F] text-sm font-bold uppercase tracking-wider">{test.type}</p>

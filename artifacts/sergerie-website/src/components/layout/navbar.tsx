@@ -28,7 +28,7 @@ export function Navbar() {
     <>
       <nav
         data-testid="navbar"
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-[#0B0B0B] py-3 shadow-lg' : 'bg-transparent py-5'} text-[#EDEDED]`}
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-[#1B1B1B] py-3 shadow-lg' : 'bg-transparent py-5'} text-[#EDEDED]`}
       >
         <div className="container mx-auto px-6 max-w-[1200px] flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -64,7 +64,7 @@ export function Navbar() {
       </nav>
 
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#0B0B0B] pt-24 px-6 md:hidden flex flex-col gap-6 text-[#EDEDED]" data-testid="mobile-menu">
+        <div className="fixed inset-0 z-40 bg-[#1B1B1B] pt-24 px-6 md:hidden flex flex-col gap-6 text-[#EDEDED]" data-testid="mobile-menu">
           <Link href="/" className="text-2xl font-bold uppercase" onClick={() => setMobileMenuOpen(false)}>Accueil</Link>
           <button onClick={() => scrollToSection('services')} className="text-2xl font-bold uppercase text-left">Services</button>
           <button onClick={() => scrollToSection('realisations')} className="text-2xl font-bold uppercase text-left">Réalisations</button>

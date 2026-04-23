@@ -4,7 +4,7 @@ import { img } from '@/lib/utils';
 
 export function Footer() {
   return (
-    <footer className="bg-[#0B0B0B] text-[#EDEDED]" data-testid="footer">
+    <footer className="bg-[#1B1B1B] text-[#EDEDED]" data-testid="footer">
       <div className="container mx-auto px-6 max-w-[1200px] py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="lg:col-span-1">

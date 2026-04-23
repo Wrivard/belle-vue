@@ -11,7 +11,7 @@ const faqItems = [
 
 export function FaqSection() {
   return (
-    <section className="py-24 md:py-32 bg-[#0B0B0B] text-[#EDEDED]" data-testid="faq-section">
+    <section className="py-24 md:py-32 bg-[#1B1B1B] text-[#EDEDED]" data-testid="faq-section">
       <div className="container mx-auto px-6 max-w-3xl">
         <FadeIn className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
