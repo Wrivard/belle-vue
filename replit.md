@@ -18,19 +18,21 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 
 ## Artifacts
 
-### MC Rénovation Construction (sergerie-website)
+### Construction Pro 3M (sergerie-website)
 - **Type**: Presentation-first React + Vite website
 - **Path**: `/` (root)
 - **Port**: 25729
 - **Pages**: Homepage (`/`), Soumission (`/soumission`)
-- **Brand colors**: Accent `#F97316` (orange), Primary `#000000` (black), Background `#FFFFFF` (white)
+- **Brand colors**: Accent `#F47A1F` (orange), Secondary accent `#FF8C2A` (light orange), Primary `#0B0B0B` (black), Text `#EDEDED`, Background `#FFFFFF`
+- **Design rules**: Solid colors only — no gradients, no fading. Black dominant, orange for CTA/highlights/icons only.
 - **Font**: Inter (Google Fonts)
 - **Routing**: wouter
+- **Logo**: `public/images/logo-construction-pro-3m.png`
 - **Images**: `public/images/` — 20+ client photos, logo
 - **Components**: `src/components/layout/` — Navbar, Footer, FadeIn, CountUp, MapSection, TestimonialsSection, ContactSection, PageWrapper
-- **Contact**: 450-712-0342, micky667@msn.com, Saint-Jérôme QC (Laurentides)
-- **Owner**: Michael Charbonneau
-- **Services**: Finition cuisine & salle de bain, Finition intérieure, Finition extérieure, Agrandissement, Balcon, Cabanon, Toiture
+- **Contact**: 450-502-3399, constructionpro3m@gmail.com, 850 rang des bas étangs, Québec
+- **Core message**: "Votre tranquillité d'esprit, notre savoir-faire !"
+- **Services**: Rénovation, Portes et fenêtres, Agrandissement, Travaux résidentiels
 
 ## Key Commands
 
