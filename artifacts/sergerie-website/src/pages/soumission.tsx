@@ -66,8 +66,8 @@ export default function Soumission() {
                   </div>
                   <h2 className="text-3xl font-bold uppercase tracking-tight mb-8 text-[#1B1B1B]">Détails du projet</h2>
                   
-                  <form className="space-y-6" data-testid="soumission-form">
-                    <div className="grid md:grid-cols-2 gap-6">
+                  <form className="space-y-8" data-testid="soumission-form">
+                    <div className="grid md:grid-cols-2 gap-8">
                       <div className="space-y-2">
                         <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Nom complet *</label>
                         <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#2D4FA8]" placeholder="Votre nom" data-testid="input-soumission-name" />
@@ -78,7 +78,7 @@ export default function Soumission() {
                       </div>
                     </div>
                     
-                    <div className="grid md:grid-cols-2 gap-6">
+                    <div className="grid md:grid-cols-2 gap-8">
                       <div className="space-y-2">
                         <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Courriel *</label>
                         <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#2D4FA8]" placeholder="votre@courriel.com" data-testid="input-soumission-email" />
@@ -103,7 +103,7 @@ export default function Soumission() {
                       </select>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6">
+                    <div className="grid md:grid-cols-2 gap-8">
                       <div className="space-y-2">
                         <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Budget approximatif</label>
                         <select className="w-full h-14 bg-[#EDEDED]/50 border-0 rounded-sm px-3 text-[#1B1B1B] focus:ring-2 focus:ring-[#2D4FA8] focus:outline-none appearance-none cursor-pointer" data-testid="select-soumission-budget">
@@ -132,7 +132,7 @@ export default function Soumission() {
                     <div className="space-y-2">
                       <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Détails supplémentaires</label>
                       <Textarea 
-                        className="bg-[#EDEDED]/50 border-0 min-h-[180px] rounded-sm focus-visible:ring-[#2D4FA8] resize-none" 
+                        className="bg-[#EDEDED]/50 border-0 min-h-[220px] rounded-sm focus-visible:ring-[#2D4FA8] resize-none" 
                         placeholder="Décrivez votre projet de rénovation intérieure ou extérieure (pièces concernées, délai souhaité, etc.)" 
                         data-testid="input-soumission-details"
                       />
