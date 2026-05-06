@@ -14,9 +14,9 @@ export function CertificationsSection() {
       <div className="container mx-auto px-6 max-w-[1200px]">
         <FadeIn>
           <div className="flex items-center justify-center gap-3 mb-10">
-            <div className="w-8 h-1 bg-[#F47A1F]"></div>
-            <span className="text-[#F47A1F] font-bold tracking-widest uppercase text-sm">Certifications & Affiliations</span>
-            <div className="w-8 h-1 bg-[#F47A1F]"></div>
+            <div className="w-8 h-1 bg-[#2D4FA8]"></div>
+            <span className="text-[#2D4FA8] font-bold tracking-widest uppercase text-sm">Certifications & Affiliations</span>
+            <div className="w-8 h-1 bg-[#2D4FA8]"></div>
           </div>
         </FadeIn>
 

@@ -18,21 +18,21 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 
 ## Artifacts
 
-### Construction Pro 3M (sergerie-website)
+### Marinier Rénovations (sergerie-website)
 - **Type**: Presentation-first React + Vite website
 - **Path**: `/` (root)
 - **Port**: 25729
 - **Pages**: Homepage (`/`), Soumission (`/soumission`)
-- **Brand colors**: Accent `#F47A1F` (orange), Secondary accent `#FF8C2A` (light orange), Primary `#0B0B0B` (black), Text `#EDEDED`, Background `#FFFFFF`
-- **Design rules**: Solid colors only — no gradients, no fading. Black dominant, orange for CTA/highlights/icons only.
+- **Brand colors**: Primary `#2D4FA8` (royal blue), Hover `#3D62C5` (lighter blue), Light Grey `#D8D8D8`, Dark Grey `#3A3A3A`, White `#FFFFFF`. Dark sections still use `#1B1B1B` for contrast (about, faq, hero overlay, cta).
+- **Design rules**: Solid colors only — no gradients. Navbar & footer are WHITE (to host the dark logo). Royal blue used for CTA/highlights/icons.
 - **Font**: Inter (Google Fonts)
 - **Routing**: wouter
-- **Logo**: `public/images/logo-construction-pro-3m.png`
-- **Images**: `public/images/` — 20+ client photos, logo
+- **Logo**: `public/images/logo-marinier-renovations.png`
+- **Images**: `public/images/` — `mc-*.jpg` is the active set used by the site
 - **Components**: `src/components/layout/` — Navbar, Footer, FadeIn, CountUp, MapSection, TestimonialsSection, ContactSection, PageWrapper
-- **Contact**: 450-502-3399, constructionpro3m@gmail.com, 850 rang des bas étangs, Québec
-- **Core message**: "Votre tranquillité d'esprit, notre savoir-faire !"
-- **Services**: Rénovation, Portes et fenêtres, Agrandissement, Travaux résidentiels
+- **Contact**: (514) 578-5959, info@marinier-renovations.com, Sainte-Julienne, QC, Canada
+- **Core message**: "Rénovation résidentielle, intérieure & extérieure"
+- **Services**: Rénovation intérieure, Rénovation extérieure, Salle de bain & cuisine, Travaux résidentiels sur mesure
 
 ## Key Commands
 
