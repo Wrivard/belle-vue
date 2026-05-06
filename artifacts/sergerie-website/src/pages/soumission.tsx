@@ -6,7 +6,6 @@ import { PageWrapper } from '@/components/layout/page-wrapper';
 import { FadeIn } from '@/components/layout/fade-in';
 import { TestimonialsSection } from '@/components/layout/testimonials-section';
 import { FaqSection } from '@/components/layout/faq-section';
-import { ContactSection } from '@/components/layout/contact-section';
 import { CertificationsSection } from '@/components/layout/certifications-section';
 import { img } from '@/lib/utils';
 
@@ -220,7 +219,6 @@ export default function Soumission() {
 
       <TestimonialsSection />
       <FaqSection />
-      <ContactSection />
     </PageWrapper>
   );
 }
