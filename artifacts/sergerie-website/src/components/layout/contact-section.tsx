@@ -20,7 +20,7 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
               <div className="w-8 h-1 bg-[#2D4FA8]"></div>
               <span className="text-[#2D4FA8] font-bold tracking-widest uppercase text-sm">Contact</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight mb-8">Discutons de <br/>votre projet</h2>
+            <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-8">Discutons de <br/>votre projet</h2>
             <p className="text-lg text-[#1B1B1B]/70 mb-12">
               Prêt à transformer votre maison? Contactez-nous dès aujourd'hui pour une évaluation gratuite.
             </p>
@@ -101,8 +101,8 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
             <FadeIn delay={200}>
               <div className="relative rounded-md overflow-hidden shadow-xl h-full min-h-[500px]">
                 <img
-                  src={img('marinier-salon.jpg')}
-                  alt="Réalisation Marinier Rénovations"
+                  src={img('marinier-mascotte.jpg')}
+                  alt="Mascotte Marinier Rénovations"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-[#1B1B1B]/30"></div>

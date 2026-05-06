@@ -89,19 +89,19 @@ export default function Home() {
         <div className="container mx-auto px-6 max-w-[1200px]">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-[#2D4FA8] mb-2"><CountUp end={10} suffix="+" /></div>
+              <div className="text-5xl md:text-7xl font-extrabold text-[#2D4FA8] mb-3 tracking-tight"><CountUp end={10} suffix="+" /></div>
               <div className="uppercase text-sm font-bold tracking-wider text-[#1B1B1B]/50">Années d'expérience</div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-[#2D4FA8] mb-2"><CountUp end={300} suffix="+" /></div>
+              <div className="text-5xl md:text-7xl font-extrabold text-[#2D4FA8] mb-3 tracking-tight"><CountUp end={300} suffix="+" /></div>
               <div className="uppercase text-sm font-bold tracking-wider text-[#1B1B1B]/50">Projets complétés</div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-[#2D4FA8] mb-2"><CountUp end={100} suffix="%" /></div>
+              <div className="text-5xl md:text-7xl font-extrabold text-[#2D4FA8] mb-3 tracking-tight"><CountUp end={100} suffix="%" /></div>
               <div className="uppercase text-sm font-bold tracking-wider text-[#1B1B1B]/50">Satisfaction client</div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-[#2D4FA8] mb-2"><CountUp end={24} suffix="h" /></div>
+              <div className="text-5xl md:text-7xl font-extrabold text-[#2D4FA8] mb-3 tracking-tight"><CountUp end={24} suffix="h" /></div>
               <div className="uppercase text-sm font-bold tracking-wider text-[#1B1B1B]/50">Temps de réponse</div>
             </div>
           </div>
@@ -119,7 +119,7 @@ export default function Home() {
                 <span className="text-[#2D4FA8] font-bold tracking-widest uppercase text-sm">Services</span>
                 <div className="w-8 h-1 bg-[#2D4FA8]"></div>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight">Nos expertises</h2>
+              <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight">Nos expertises</h2>
             </div>
           </FadeIn>
 
@@ -156,7 +156,7 @@ export default function Home() {
                 <div className="w-8 h-1 bg-[#2D4FA8]"></div>
                 <span className="text-[#2D4FA8] font-bold tracking-widest uppercase text-sm">Expertise</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight mb-8">Spécialistes en <span className="text-[#2D4FA8]">rénovation</span> résidentielle</h2>
+              <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-8">Spécialistes en <span className="text-[#2D4FA8]">rénovation</span> résidentielle</h2>
               
               <div className="space-y-6 text-[#EDEDED]/80 text-lg">
                 <p>
@@ -169,11 +169,11 @@ export default function Home() {
 
               <div className="mt-10 grid grid-cols-2 gap-8 border-t border-[#EDEDED]/10 pt-8">
                 <div>
-                  <div className="text-4xl font-bold text-[#2D4FA8] mb-2">10+</div>
+                  <div className="text-5xl md:text-6xl font-extrabold text-[#2D4FA8] mb-3 tracking-tight">10+</div>
                   <div className="uppercase text-sm font-bold tracking-wider text-[#EDEDED]/60">Années d'expérience</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold text-[#2D4FA8] mb-2">100%</div>
+                  <div className="text-5xl md:text-6xl font-extrabold text-[#2D4FA8] mb-3 tracking-tight">100%</div>
                   <div className="uppercase text-sm font-bold tracking-wider text-[#EDEDED]/60">Satisfaction client</div>
                 </div>
               </div>
@@ -195,7 +195,7 @@ export default function Home() {
                 <div className="w-8 h-1 bg-[#2D4FA8]"></div>
                 <span className="text-[#2D4FA8] font-bold tracking-widest uppercase text-sm">Réalisations</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight">Nos projets récents</h2>
+              <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight">Nos projets récents</h2>
             </FadeIn>
             <FadeIn delay={100}>
               <Button variant="outline" className="border-2 border-[#1B1B1B] bg-transparent text-[#1B1B1B] hover:bg-[#1B1B1B] hover:text-[#EDEDED] font-bold rounded-md px-6 py-6 uppercase tracking-wide" data-testid="button-voir-tout">

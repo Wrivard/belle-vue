@@ -183,7 +183,7 @@ export default function Soumission() {
 
               <FadeIn delay={500}>
                 <div className="relative overflow-hidden rounded-md h-[200px]">
-                  <img src={img('marinier-sdb-luxueuse.jpg')} alt="Marinier Rénovations" className="w-full h-full object-cover" />
+                  <img src={img('marinier-mascotte.jpg')} alt="Mascotte Marinier Rénovations" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-[#1B1B1B]/40"></div>
                 </div>
               </FadeIn>

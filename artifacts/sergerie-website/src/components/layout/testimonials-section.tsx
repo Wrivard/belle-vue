@@ -33,7 +33,7 @@ export function TestimonialsSection() {
             <span className="text-[#2D4FA8] font-bold tracking-widest uppercase text-sm">Clients</span>
           </div>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight">Ils nous font confiance</h2>
+            <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight">Ils nous font confiance</h2>
             <p className="text-[#1B1B1B]/60 text-sm font-medium">Faites défiler pour découvrir tous les témoignages</p>
           </div>
         </FadeIn>

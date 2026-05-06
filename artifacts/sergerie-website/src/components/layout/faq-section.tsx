@@ -19,7 +19,7 @@ export function FaqSection() {
             <span className="text-[#2D4FA8] font-bold tracking-widest uppercase text-sm">Questions</span>
             <div className="w-8 h-1 bg-[#2D4FA8]"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight">Questions fréquentes</h2>
+          <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight">Questions fréquentes</h2>
         </FadeIn>
 
         <FadeIn delay={200}>
