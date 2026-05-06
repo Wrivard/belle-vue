@@ -103,6 +103,32 @@ export default function Soumission() {
                       </select>
                     </div>
 
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Budget approximatif</label>
+                        <select className="w-full h-14 bg-[#EDEDED]/50 border-0 rounded-sm px-3 text-[#1B1B1B] focus:ring-2 focus:ring-[#2D4FA8] focus:outline-none appearance-none cursor-pointer" data-testid="select-soumission-budget">
+                          <option value="">Sélectionnez un budget</option>
+                          <option value="moins-5000">Moins de 5 000 $</option>
+                          <option value="5000-15000">5 000 $ – 15 000 $</option>
+                          <option value="15000-30000">15 000 $ – 30 000 $</option>
+                          <option value="30000-60000">30 000 $ – 60 000 $</option>
+                          <option value="plus-60000">Plus de 60 000 $</option>
+                          <option value="a-determiner">À déterminer</option>
+                        </select>
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Échéancier souhaité</label>
+                        <select className="w-full h-14 bg-[#EDEDED]/50 border-0 rounded-sm px-3 text-[#1B1B1B] focus:ring-2 focus:ring-[#2D4FA8] focus:outline-none appearance-none cursor-pointer" data-testid="select-soumission-timeline">
+                          <option value="">Sélectionnez un délai</option>
+                          <option value="urgent">Le plus tôt possible</option>
+                          <option value="1-3-mois">Dans 1 à 3 mois</option>
+                          <option value="3-6-mois">Dans 3 à 6 mois</option>
+                          <option value="6-mois-plus">Dans 6 mois ou plus</option>
+                          <option value="flexible">Flexible</option>
+                        </select>
+                      </div>
+                    </div>
+
                     <div className="space-y-2">
                       <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Détails supplémentaires</label>
                       <Textarea 
