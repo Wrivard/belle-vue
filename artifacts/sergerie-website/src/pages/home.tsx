@@ -11,16 +11,16 @@ import { CertificationsSection } from '@/components/layout/certifications-sectio
 import { img } from '@/lib/utils';
 
 const services = [
-  { title: 'Rénovation intérieure', desc: 'Transformez votre espace de vie avec une rénovation intérieure soignée — finition, planchers, moulures, peinture. Un travail propre, du début à la fin.', img: 'mc-interieur.jpg' },
-  { title: 'Rénovation extérieure', desc: "Revêtement, balcons, terrasses et finition extérieure. On protège et on embellit votre maison avec des matériaux de qualité.", img: 'mc-exterieur.jpg' },
-  { title: 'Salle de bain & cuisine', desc: 'Cuisines et salles de bain modernes, polyvalentes et durables. Conception, démolition, plomberie, céramique et finition clé en main.', img: 'mc-sdb-luxe.jpg' },
-  { title: 'Travaux résidentiels sur mesure', desc: 'Projets résidentiels personnalisés selon vos besoins. Planchers, escaliers, sous-sols et plus encore — on s\'adapte à votre vision.', img: 'mc-cuisine.jpg' },
+  { title: 'Rénovation intérieure', desc: 'Transformez votre espace de vie avec une rénovation intérieure soignée — finition, planchers, moulures, peinture. Un travail propre, du début à la fin.', img: 'marinier-salon.jpg' },
+  { title: 'Rénovation extérieure', desc: "Revêtement, balcons, terrasses et finition extérieure. On protège et on embellit votre maison avec des matériaux de qualité.", img: 'marinier-terrasse.jpg' },
+  { title: 'Salle de bain & cuisine', desc: 'Cuisines et salles de bain modernes, polyvalentes et durables. Conception, démolition, plomberie, céramique et finition clé en main.', img: 'marinier-sdb-luxueuse.jpg' },
+  { title: 'Travaux résidentiels sur mesure', desc: 'Projets résidentiels personnalisés selon vos besoins. Planchers, escaliers, sous-sols et plus encore — on s\'adapte à votre vision.', img: 'marinier-cuisine-noire.jpg' },
 ];
 
 const projects = [
-  { img: 'mc-cuisine.jpg', title: 'Cuisine Moderne', cat: 'Rénovation intérieure' },
-  { img: 'mc-sdb-luxe.jpg', title: 'Salle de Bain Raffinée', cat: 'Salle de bain' },
-  { img: 'mc-salon.jpg', title: 'Salon Lumineux', cat: 'Finition intérieure' },
+  { img: 'marinier-cuisine-blanche.jpg', title: 'Cuisine Moderne', cat: 'Rénovation intérieure' },
+  { img: 'marinier-sdb-luxueuse.jpg', title: 'Salle de Bain Raffinée', cat: 'Salle de bain' },
+  { img: 'marinier-salle-manger.jpg', title: 'Salle à Manger Lumineuse', cat: 'Finition intérieure' },
 ];
 
 const steps = [
@@ -34,8 +34,18 @@ export default function Home() {
     <PageWrapper>
       <section id="accueil" className="relative min-h-[90vh] flex items-center pt-20" data-testid="hero-section">
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <img src={img('mc-interieur.jpg')} alt="Marinier Rénovations" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-[#1B1B1B]/75"></div>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster={img('marinier-salon.jpg')}
+            className="w-full h-full object-cover object-center"
+          >
+            <source src={`${import.meta.env.BASE_URL}images/marinier-hero-video.mp4`} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-[#1B1B1B]/70"></div>
         </div>
         
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-[#EDEDED]">
@@ -171,7 +181,7 @@ export default function Home() {
 
             <FadeIn delay={200} className="relative">
               <div className="absolute -inset-4 border-2 border-[#2D4FA8]/30 rounded-md transform translate-x-4 translate-y-4"></div>
-              <img src={img('mc-chantier.jpg')} alt="Marinier Rénovations — équipe en travail" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
+              <img src={img('marinier-cuisine-blanche.jpg')} alt="Marinier Rénovations — équipe en travail" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl" />
             </FadeIn>
           </div>
         </div>
@@ -244,7 +254,7 @@ export default function Home() {
 
       <section className="py-32 text-white relative overflow-hidden" data-testid="cta-section">
         <div className="absolute inset-0 z-0">
-          <img src={img('mc-exterieur.jpg')} alt="Marinier Rénovations" className="w-full h-full object-cover" />
+          <img src={img('marinier-terrasse.jpg')} alt="Marinier Rénovations" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-[#1B1B1B]/85"></div>
         </div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-center">
