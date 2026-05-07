@@ -10,20 +10,20 @@ import { CertificationsSection } from '@/components/layout/certifications-sectio
 import { img } from '@/lib/utils';
 
 const services = [
-  { title: 'Construction résidentielle', img: 'photo-construction.jpg' },
-  { title: 'Construction commerciale', img: 'photo-chantier.jpg' },
-  { title: 'Construction industrielle', img: 'mc-camion.jpg' },
-  { title: 'Rénovation', img: 'marinier-cuisine-blanche.jpg' },
-  { title: 'Agrandissement', img: 'mc-agrandissement.jpg' },
-  { title: 'Portes et fenêtres', img: 'photo-porte-grange.jpg' },
-  { title: 'Finition intérieure', img: 'marinier-salon.jpg' },
-  { title: 'Revêtement extérieur', img: 'photo-revetement.jpg' },
+  { title: 'Construction résidentielle', img: 'ra/construction-residentielle.jpg' },
+  { title: 'Construction commerciale', img: 'ra/portes-garage.jpg' },
+  { title: 'Construction industrielle', img: 'ra/fondation.jpg' },
+  { title: 'Rénovation', img: 'ra/sdb-douche.jpg' },
+  { title: 'Agrandissement', img: 'ra/chantier-trailer.jpg' },
+  { title: 'Portes et fenêtres', img: 'ra/sdb-bain.jpg' },
+  { title: 'Finition intérieure', img: 'ra/sdb-vanite.jpg' },
+  { title: 'Revêtement extérieur', img: 'ra/exterieur-noir-bois.jpg' },
 ];
 
 const projects = [
-  { img: 'photo-construction.jpg', title: 'Construction résidentielle', cat: 'Résidentiel' },
-  { img: 'photo-chantier.jpg', title: 'Chantier commercial', cat: 'Commercial' },
-  { img: 'marinier-cuisine-blanche.jpg', title: 'Rénovation intérieure', cat: 'Rénovation' },
+  { img: 'ra/exterieur-noir-bois.jpg', title: 'Maison résidentielle clé en main', cat: 'Résidentiel' },
+  { img: 'ra/chantier-trailer.jpg', title: 'Construction de structure', cat: 'Construction' },
+  { img: 'ra/sdb-vanite.jpg', title: 'Rénovation salle de bain', cat: 'Rénovation' },
 ];
 
 const steps = [
@@ -191,7 +191,7 @@ export default function Home() {
 
             <FadeIn delay={200} className="relative">
               <div className="absolute -inset-4 border-2 border-[#114D8B]/30 rounded-md transform translate-x-4 translate-y-4"></div>
-              <img src={img('photo-construction.jpg')} alt="Réno-Action FB inc. — chantier" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl" />
+              <img src={img('ra/construction-residentielle.jpg')} alt="Réno-Action FB inc. — chantier" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl" />
             </FadeIn>
           </div>
         </div>
@@ -264,7 +264,7 @@ export default function Home() {
 
       <section className="py-32 text-white relative overflow-hidden" data-testid="cta-section">
         <div className="absolute inset-0 z-0">
-          <img src={img('photo-chantier.jpg')} alt="Réno-Action FB inc." className="w-full h-full object-cover" />
+          <img src={img('ra/exterieur-noir-bois.jpg')} alt="Réno-Action FB inc." className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-[#1B1B1B]/85"></div>
         </div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-center">

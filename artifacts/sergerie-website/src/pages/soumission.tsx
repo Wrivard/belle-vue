@@ -25,7 +25,7 @@ export default function Soumission() {
     <PageWrapper>
       <section className="relative min-h-[50vh] flex items-center pt-20" data-testid="soumission-hero">
         <div className="absolute inset-0 z-0">
-          <img src={img('photo-construction.jpg')} alt="Chantier Réno-Action FB inc." className="w-full h-full object-cover object-center" />
+          <img src={img('ra/exterieur-noir-bois.jpg')} alt="Chantier Réno-Action FB inc." className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#1B1B1B]/85"></div>
         </div>
         
@@ -213,7 +213,7 @@ export default function Soumission() {
 
               <FadeIn delay={500}>
                 <div className="relative overflow-hidden rounded-md h-[420px]">
-                  <img src={img('photo-chantier.jpg')} alt="Chantier Réno-Action FB inc." className="w-full h-full object-cover object-center" />
+                  <img src={img('ra/sdb-vanite.jpg')} alt="Chantier Réno-Action FB inc." className="w-full h-full object-cover object-center" />
                   <div className="absolute inset-0 bg-[#1B1B1B]/60"></div>
                   <div className="absolute bottom-0 left-0 w-full p-8">
                     <div className="text-xs font-bold tracking-[0.25em] uppercase text-white/60 mb-2">RBQ : 5698-3927-01</div>
