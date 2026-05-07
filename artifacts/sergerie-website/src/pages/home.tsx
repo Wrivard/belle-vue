@@ -1,6 +1,5 @@
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
-import { ChevronRight, Home as HomeIcon, Building2, Factory, Hammer, Maximize2, DoorOpen, Paintbrush, Layers } from 'lucide-react';
 import { PageWrapper } from '@/components/layout/page-wrapper';
 import { FadeIn } from '@/components/layout/fade-in';
 import { CountUp } from '@/components/layout/count-up';
@@ -10,21 +9,15 @@ import { ContactSection } from '@/components/layout/contact-section';
 import { CertificationsSection } from '@/components/layout/certifications-section';
 import { img } from '@/lib/utils';
 
-const sectors = [
-  { icon: HomeIcon, title: 'Résidentiel', desc: 'Maisons neuves, rénovations et agrandissements pour propriétaires.' },
-  { icon: Building2, title: 'Commercial', desc: 'Locaux, bureaux et bâtiments commerciaux clés en main.' },
-  { icon: Factory, title: 'Industriel', desc: 'Bâtiments industriels et institutionnels structurés.' },
-];
-
 const services = [
-  { icon: HomeIcon, title: 'Construction résidentielle', desc: 'Maisons neuves bâties avec rigueur, du plan à la livraison clé en main.' },
-  { icon: Building2, title: 'Construction commerciale', desc: 'Bâtiments commerciaux fonctionnels, livrés selon les normes et l\'échéancier.' },
-  { icon: Factory, title: 'Construction industrielle', desc: 'Structures industrielles et industrielles robustes, conçues pour durer.' },
-  { icon: Hammer, title: 'Rénovation', desc: 'Rénovations résidentielles et commerciales — propre, ponctuel et bien fini.' },
-  { icon: Maximize2, title: 'Agrandissement', desc: 'Agrandissez votre espace en harmonie avec l\'existant, sans compromis.' },
-  { icon: DoorOpen, title: 'Portes et fenêtres', desc: 'Installation et remplacement de portes et fenêtres performantes et étanches.' },
-  { icon: Paintbrush, title: 'Finition intérieure', desc: 'Gypse, joints, moulures, peinture et planchers — finition soignée du début à la fin.' },
-  { icon: Layers, title: 'Revêtement extérieur', desc: 'Revêtements muraux durables qui protègent et valorisent votre bâtiment.' },
+  { title: 'Construction résidentielle', img: 'photo-construction.jpg' },
+  { title: 'Construction commerciale', img: 'photo-chantier.jpg' },
+  { title: 'Construction industrielle', img: 'mc-camion.jpg' },
+  { title: 'Rénovation', img: 'marinier-cuisine-blanche.jpg' },
+  { title: 'Agrandissement', img: 'mc-agrandissement.jpg' },
+  { title: 'Portes et fenêtres', img: 'photo-porte-grange.jpg' },
+  { title: 'Finition intérieure', img: 'marinier-salon.jpg' },
+  { title: 'Revêtement extérieur', img: 'photo-revetement.jpg' },
 ];
 
 const projects = [
@@ -121,82 +114,44 @@ export default function Home() {
 
       <CertificationsSection />
 
-      <section id="services" className="py-24 md:py-32 bg-[#EDEDED] text-[#1B1B1B] relative overflow-hidden" data-testid="services-section">
-        <div className="absolute top-0 left-0 w-full h-1 bg-[#114D8B]"></div>
-
-        <div className="container mx-auto px-6 max-w-[1200px] relative">
+      <section id="services" className="py-24 md:py-32 bg-white text-[#1B1B1B]" data-testid="services-section">
+        <div className="container mx-auto px-6 max-w-[1280px]">
           <FadeIn>
-            <div className="grid md:grid-cols-12 gap-8 items-end mb-16">
-              <div className="md:col-span-7">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-1 bg-[#114D8B]"></div>
-                  <span className="text-[#114D8B] font-bold tracking-widest uppercase text-sm">Nos services</span>
-                </div>
-                <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight">Une expertise <span className="text-[#114D8B]">multi-secteur</span></h2>
+            <div className="text-center mb-16 max-w-2xl mx-auto">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="w-8 h-1 bg-[#114D8B]"></div>
+                <span className="text-[#114D8B] font-bold tracking-widest uppercase text-sm">Nos services</span>
+                <div className="w-8 h-1 bg-[#114D8B]"></div>
               </div>
-              <div className="md:col-span-5">
-                <p className="text-lg text-[#1B1B1B]/70 leading-relaxed">
-                  Entrepreneur général polyvalent, nous intervenons en construction neuve, en rénovation et en agrandissement, autant en résidentiel qu'en commercial et industriel.
-                </p>
-              </div>
+              <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Construction & rénovation</h2>
+              <p className="text-lg text-[#1B1B1B]/65 leading-relaxed">
+                Entrepreneur général polyvalent — résidentiel, commercial et industriel.
+              </p>
             </div>
           </FadeIn>
 
-          <div className="grid md:grid-cols-3 gap-4 mb-12" data-testid="sectors-grid">
-            {sectors.map((sector, idx) => {
-              const Icon = sector.icon;
-              return (
-                <FadeIn key={sector.title} delay={idx * 100}>
-                  <div className="group bg-[#1B1B1B] text-white p-8 rounded-md flex items-start gap-5 hover:bg-[#114D8B] transition-colors duration-300 h-full" data-testid={`sector-${idx}`}>
-                    <div className="w-14 h-14 rounded-md bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/20 transition-colors">
-                      <Icon size={26} className="text-[#114D8B] group-hover:text-white transition-colors" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold tracking-[0.25em] uppercase text-white/40 group-hover:text-white/70 mb-2 transition-colors">0{idx + 1} — Secteur</div>
-                      <h3 className="text-2xl font-bold uppercase tracking-tight mb-2">{sector.title}</h3>
-                      <p className="text-white/70 group-hover:text-white/90 text-sm leading-relaxed">{sector.desc}</p>
-                    </div>
-                  </div>
-                </FadeIn>
-              );
-            })}
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#1B1B1B]/10 rounded-md overflow-hidden border border-[#1B1B1B]/10" data-testid="services-grid">
-            {services.map((service, idx) => {
-              const Icon = service.icon;
-              return (
-                <FadeIn key={service.title} delay={idx * 60}>
-                  <div className="group bg-white p-8 hover:bg-[#114D8B] transition-colors duration-300 h-full flex flex-col relative" data-testid={`service-card-${idx}`}>
-                    <div className="absolute top-6 right-6 text-xs font-bold tracking-widest text-[#1B1B1B]/20 group-hover:text-white/40 transition-colors">0{idx + 1}</div>
-                    <div className="w-12 h-12 rounded-md bg-[#114D8B]/10 group-hover:bg-white/15 flex items-center justify-center mb-6 transition-colors">
-                      <Icon size={22} className="text-[#114D8B] group-hover:text-white transition-colors" />
-                    </div>
-                    <h3 className="text-lg font-bold uppercase tracking-tight text-[#1B1B1B] group-hover:text-white mb-3 transition-colors leading-tight">{service.title}</h3>
-                    <p className="text-[#1B1B1B]/65 group-hover:text-white/85 text-sm leading-relaxed flex-1 transition-colors">{service.desc}</p>
-                    <div className="mt-6 pt-4 border-t border-[#1B1B1B]/10 group-hover:border-white/25 flex items-center justify-between transition-colors">
-                      <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#114D8B] group-hover:text-white transition-colors">En savoir plus</span>
-                      <ChevronRight size={16} className="text-[#1B1B1B]/40 group-hover:text-white group-hover:translate-x-1 transition-all" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" data-testid="services-grid">
+            {services.map((service, idx) => (
+              <FadeIn key={service.title} delay={idx * 60}>
+                <Link href="/soumission" data-testid={`service-card-${idx}`}>
+                  <div className="group relative overflow-hidden rounded-md aspect-[4/5] cursor-pointer shadow-sm hover:shadow-2xl transition-shadow duration-500">
+                    <img
+                      src={img(service.img)}
+                      alt={service.title}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/30 to-transparent"></div>
+                    <div className="absolute inset-0 bg-[#114D8B]/0 group-hover:bg-[#114D8B]/40 transition-colors duration-500"></div>
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <div className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/60 mb-2">0{idx + 1}</div>
+                      <h3 className="text-xl font-bold text-white uppercase tracking-tight leading-tight">{service.title}</h3>
+                      <div className="mt-4 h-px w-10 bg-[#114D8B] group-hover:w-full group-hover:bg-white transition-all duration-500"></div>
                     </div>
                   </div>
-                </FadeIn>
-              );
-            })}
+                </Link>
+              </FadeIn>
+            ))}
           </div>
-
-          <FadeIn delay={300}>
-            <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 bg-white border-l-4 border-[#114D8B] p-8 rounded-md" data-testid="services-cta">
-              <div>
-                <div className="text-xs font-bold tracking-[0.25em] uppercase text-[#114D8B] mb-2">RBQ : 5698-3927-01</div>
-                <p className="text-xl font-bold text-[#1B1B1B]">Un projet en tête ? Discutons-en — soumission gratuite et sans engagement.</p>
-              </div>
-              <Link href="/soumission" data-testid="link-services-soumission">
-                <Button className="bg-[#114D8B] hover:bg-[#1A6BB8] text-white font-bold rounded-md px-8 py-6 uppercase tracking-wide text-base transition-transform hover:scale-105 h-auto whitespace-nowrap">
-                  Demander une soumission
-                </Button>
-              </Link>
-            </div>
-          </FadeIn>
         </div>
       </section>
 
