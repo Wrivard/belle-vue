@@ -112,8 +112,6 @@ export default function Home() {
         </div>
       </div>
 
-      <CertificationsSection />
-
       <section id="services" className="py-24 md:py-32 bg-white text-[#1B1B1B]" data-testid="services-section">
         <div className="container mx-auto px-6 max-w-[1280px]">
           <FadeIn>
@@ -154,6 +152,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <CertificationsSection />
 
       <section id="apropos" className="py-24 md:py-32 bg-[#1B1B1B] text-[#EDEDED] relative overflow-hidden" data-testid="about-section">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-[#222222] clip-path-polygon"></div>
