@@ -18,21 +18,22 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 
 ## Artifacts
 
-### Marinier Rénovations (sergerie-website)
+### Réno-Action FB inc. (sergerie-website)
 - **Type**: Presentation-first React + Vite website
 - **Path**: `/` (root)
 - **Port**: 25729
 - **Pages**: Homepage (`/`), Soumission (`/soumission`)
-- **Brand colors**: Primary `#2D4FA8` (royal blue), Hover `#3D62C5` (lighter blue), Light Grey `#D8D8D8`, Dark Grey `#3A3A3A`, White `#FFFFFF`. Dark sections still use `#1B1B1B` for contrast (about, faq, hero overlay, cta).
-- **Design rules**: Solid colors only — no gradients. Navbar & footer are WHITE (to host the dark logo). Royal blue used for CTA/highlights/icons.
+- **Brand colors**: Primary `#114D8B` (deep blue), Hover `#1A6BB8` (lighter blue), Light Grey `#D9D9D9`, Dark Grey `#2A2A2A`, White `#FFFFFF`. Dark sections still use `#1B1B1B` for contrast (about, faq, hero overlay, cta).
+- **Design rules**: Solid colors only — no gradients. Navbar & footer are WHITE (to host the dark logo). Deep blue used for CTA/highlights/icons.
 - **Font**: Inter (Google Fonts)
 - **Routing**: wouter
-- **Logo**: `public/images/logo-marinier-renovations.png`
-- **Images**: `public/images/` — `mc-*.jpg` is the active set used by the site
+- **Logo**: `public/images/logo-reno-action.png`
+- **Images**: `public/images/` — uses `photo-*.jpg` and `marinier-*.jpg` set
 - **Components**: `src/components/layout/` — Navbar, Footer, FadeIn, CountUp, MapSection, TestimonialsSection, ContactSection, PageWrapper
-- **Contact**: (514) 578-5959, info@marinier-renovations.com, Sainte-Julienne, QC, Canada
-- **Core message**: "Rénovation résidentielle, intérieure & extérieure"
-- **Services**: Rénovation intérieure, Rénovation extérieure, Salle de bain & cuisine, Travaux résidentiels sur mesure
+- **Contact**: (819) 849-6999, reno-action@hotmail.com, Coaticook, QC, Canada, J1A 1J1
+- **License**: RBQ 5698-3927-01
+- **Core message**: "Entrepreneur général — Construction & rénovation résidentielle, commerciale et industrielle"
+- **Services**: Construction résidentielle, Construction commerciale, Construction industrielle, Rénovation, Agrandissement, Portes et fenêtres, Finition intérieure, Revêtement extérieur
 
 ## Key Commands
 
