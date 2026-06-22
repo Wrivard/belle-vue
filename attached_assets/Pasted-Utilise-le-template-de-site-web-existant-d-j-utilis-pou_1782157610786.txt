@@ -1,0 +1,92 @@
+Utilise le template de site web existant (déjà utilisé pour les autres entreprises de construction) et remplace uniquement les informations pour cette nouvelle entreprise :
+
+ENTREPRISE : Construction F.G. Saguenay
+
+---
+
+OBJECTIF DU SITE :
+Positionner l’entreprise comme un entrepreneur général fiable spécialisé en rénovation intérieure et extérieure, pour projets résidentiels et commerciaux, avec une finition soignée et clé en main.
+
+TON / STYLE :
+- Professionnel
+- Moderne
+- Axé qualité et finition
+- Confiance / service clé en main
+- Résidentiel + commercial
+
+---
+
+IDENTITÉ DE L’ENTREPRISE :
+
+Nom : Construction F.G. Saguenay  
+Téléphone : (581) 306-4207  
+Email : constructionfgsaguenay@hotmail.com  
+Adresse : 4805 Sentier du Lac-du-Rat-Musqué, Saguenay, QC, G7B 0M7  
+RBQ : (ne pas inventer / laisser vide si non fourni)
+
+---
+
+COULEURS / STYLE VISUEL :
+- Vert foncé (couleur principale du branding/logo)
+- Blanc (fond / contraste)
+- Noir (texte)
+- Gris doux (sections secondaires)
+
+---
+
+SECTION SERVICES (IMPORTANT – 6 CARTES MAXIMUM)
+
+Regrouper les services en 6 catégories claires :
+
+1. Rénovation résidentielle
+- Rénovation complète de maison
+- Modernisation d’espaces
+- Projets clé en main
+- Amélioration générale intérieure/extérieure
+
+2. Rénovation commerciale
+- Espaces commerciaux
+- Bureaux et locaux
+- Aménagement et finition
+- Travaux sur mesure
+
+3. Rénovation intérieure
+- Finition intérieure
+- Gypse / murs / plafonds
+- Planchers
+- Travaux de finition bois (ex: pin, bois naturel)
+
+4. Rénovation extérieure
+- Revêtement extérieur
+- Finition extérieure
+- Réparation et amélioration de façade
+- Travaux structurels extérieurs
+
+5. Menuiserie et finition
+- Travail du bois sur mesure
+- Installation de panneaux / bois décoratif
+- Finitions haut de gamme
+- Détails architecturaux
+
+6. Entrepreneur général / clé en main
+- Gestion complète de projet
+- Coordination de chantier
+- Suivi des travaux
+- Service clé en main du début à la fin
+
+---
+
+POSITIONNEMENT IMPORTANT :
+- Entrepreneur général
+- Rénovation intérieure et extérieure
+- Résidentiel et commercial
+- Qualité de finition élevée
+- Service fiable et professionnel
+
+---
+
+INSTRUCTIONS IMPORTANTES :
+- Ne pas inventer de certifications ou RBQ
+- Ne pas modifier le template du site
+- Seulement remplacer le contenu
+- Garder une structure simple et orientée conversion
