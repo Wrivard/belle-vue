@@ -3,13 +3,13 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { FadeIn } from './fade-in';
 
 const testimonials = [
-  { name: 'Sophie Tremblay', type: 'Construction résidentielle', quote: "Réno-Action FB inc. a construit notre maison du début à la fin. Équipe structurée, échéancier respecté, finition irréprochable. Un entrepreneur général sur qui on peut compter." },
-  { name: 'Patrick Lemieux', type: 'Agrandissement', quote: "Notre agrandissement s'intègre parfaitement à la maison existante. L'équipe a été à l'écoute du début à la fin et le résultat est solide et bien fini." },
-  { name: 'Nathalie Gagnon', type: 'Revêtement extérieur', quote: "Revêtement extérieur refait au complet par Réno-Action FB inc. Travail soigné, échéancier respecté, prix juste. Une équipe professionnelle et fiable." },
-  { name: 'Marc-André Côté', type: 'Construction commerciale', quote: "Réno-Action FB a réalisé notre local commercial clés en main. Gestion sans accroc, sous-traitants bien coordonnés, livraison à temps. Très impressionné par leur structure." },
-  { name: 'Julie Bouchard', type: 'Finition intérieure', quote: "Excellent service, communication claire à chaque étape et un souci du détail qui se voit dans la finition. Je referai certainement affaire avec eux." },
-  { name: 'François Dubé', type: 'Rénovation', quote: "Réno-Action FB inc. a su respecter nos demandes spécifiques et proposer des solutions intelligentes. Une équipe honnête, ponctuelle et très compétente." },
-  { name: 'Caroline Poirier', type: 'Portes et fenêtres', quote: "Remplacement complet des portes et fenêtres. Installation propre, équipe courtoise et résultat impeccable. Maison plus chaude et beaucoup plus belle. Merci!" },
+  { name: 'Sophie Tremblay', type: 'Rénovation résidentielle', quote: "Construction F.G. Saguenay a rénové notre maison du début à la fin. Équipe structurée, échéancier respecté, finition irréprochable. Un entrepreneur général sur qui on peut vraiment compter." },
+  { name: 'Patrick Lemieux', type: 'Rénovation intérieure', quote: "Notre cuisine et salle de bain entièrement refaites. L'équipe a été à l'écoute du début à la fin et la finition est vraiment haut de gamme. Résultat magnifique, on est très satisfaits." },
+  { name: 'Nathalie Gagnon', type: 'Revêtement extérieur', quote: "Revêtement extérieur refait au complet. Travail soigné, échéancier respecté, prix juste. Une équipe professionnelle et fiable, je recommande sans hésiter." },
+  { name: 'Marc-André Côté', type: 'Rénovation commerciale', quote: "Construction F.G. Saguenay a rénové notre local commercial clés en main. Gestion sans accroc, sous-traitants bien coordonnés, livraison à temps. Très impressionné par leur sérieux." },
+  { name: 'Julie Bouchard', type: 'Finition intérieure', quote: "Excellent service, communication claire à chaque étape et un souci du détail qui se voit dans la finition. Je referai certainement affaire avec eux pour mes prochains projets." },
+  { name: 'François Dubé', type: 'Menuiserie et finition', quote: "Travail de bois sur mesure exceptionnel. L'équipe a su respecter nos demandes spécifiques et proposer des solutions intelligentes. Résultat élégant et très professionnel." },
+  { name: 'Caroline Poirier', type: 'Rénovation clé en main', quote: "Rénovation complète gérée de A à Z. Équipe courtoise, propre sur le chantier et résultat impeccable. La maison est transformée, exactement comme on l'avait imaginé. Merci!" },
 ];
 
 export function TestimonialsSection() {
@@ -29,8 +29,8 @@ export function TestimonialsSection() {
       <div className="container mx-auto px-6 max-w-[1200px]">
         <FadeIn>
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-1 bg-[#114D8B]"></div>
-            <span className="text-[#114D8B] font-bold tracking-widest uppercase text-sm">Clients</span>
+            <div className="w-8 h-1 bg-[#155B2E]"></div>
+            <span className="text-[#155B2E] font-bold tracking-widest uppercase text-sm">Clients</span>
           </div>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
             <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight">Ils nous font confiance</h2>
@@ -49,14 +49,14 @@ export function TestimonialsSection() {
               {testimonials.map((test, idx) => (
                 <CarouselItem key={idx} className="pl-6 md:basis-1/2 lg:basis-1/3">
                   <div
-                    className="bg-white p-8 md:p-10 rounded-md shadow-sm border-l-4 border-[#114D8B] h-full flex flex-col min-h-[340px]"
+                    className="bg-white p-8 md:p-10 rounded-md shadow-sm border-l-4 border-[#155B2E] h-full flex flex-col min-h-[340px]"
                     data-testid={`testimonial-card-${idx}`}
                   >
-                    <div className="text-5xl font-serif text-[#114D8B]/15 leading-none mb-2">"</div>
+                    <div className="text-5xl font-serif text-[#155B2E]/15 leading-none mb-2">"</div>
                     <p className="text-base md:text-lg italic text-[#1B1B1B]/80 mb-6 flex-1 leading-relaxed">{test.quote}</p>
                     <div className="border-t border-[#1B1B1B]/10 pt-4">
                       <h4 className="font-bold uppercase tracking-wide text-sm">{test.name}</h4>
-                      <p className="text-[#114D8B] text-xs font-bold uppercase tracking-wider mt-1">{test.type}</p>
+                      <p className="text-[#155B2E] text-xs font-bold uppercase tracking-wider mt-1">{test.type}</p>
                     </div>
                   </div>
                 </CarouselItem>
@@ -70,17 +70,17 @@ export function TestimonialsSection() {
                     key={i}
                     onClick={() => api?.scrollTo(i)}
                     aria-label={`Aller au témoignage ${i + 1}`}
-                    className={`h-1.5 rounded-full transition-all ${i === current ? 'w-8 bg-[#114D8B]' : 'w-3 bg-[#1B1B1B]/20 hover:bg-[#1B1B1B]/40'}`}
+                    className={`h-1.5 rounded-full transition-all ${i === current ? 'w-8 bg-[#155B2E]' : 'w-3 bg-[#1B1B1B]/20 hover:bg-[#1B1B1B]/40'}`}
                   />
                 ))}
               </div>
               <div className="flex items-center gap-3">
                 <CarouselPrevious
-                  className="static translate-y-0 h-11 w-11 rounded-full border-2 border-[#1B1B1B] bg-transparent text-[#1B1B1B] hover:bg-[#114D8B] hover:border-[#114D8B] hover:text-white transition-colors"
+                  className="static translate-y-0 h-11 w-11 rounded-full border-2 border-[#1B1B1B] bg-transparent text-[#1B1B1B] hover:bg-[#155B2E] hover:border-[#155B2E] hover:text-white transition-colors"
                   data-testid="testimonial-prev"
                 />
                 <CarouselNext
-                  className="static translate-y-0 h-11 w-11 rounded-full border-2 border-[#1B1B1B] bg-transparent text-[#1B1B1B] hover:bg-[#114D8B] hover:border-[#114D8B] hover:text-white transition-colors"
+                  className="static translate-y-0 h-11 w-11 rounded-full border-2 border-[#1B1B1B] bg-transparent text-[#1B1B1B] hover:bg-[#155B2E] hover:border-[#155B2E] hover:text-white transition-colors"
                   data-testid="testimonial-next"
                 />
               </div>
