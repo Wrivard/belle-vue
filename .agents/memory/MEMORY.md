@@ -1,0 +1,1 @@
+- [sergerie-website white-label template](sergerie-template.md) — one construction site re-skinned per client; replit.md/folder name go stale, read live source to find current brand.

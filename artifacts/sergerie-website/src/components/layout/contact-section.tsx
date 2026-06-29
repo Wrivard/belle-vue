@@ -17,42 +17,42 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
         <div className="grid md:grid-cols-2 gap-16">
           <FadeIn>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-1 bg-[#155B2E]"></div>
-              <span className="text-[#155B2E] font-bold tracking-widest uppercase text-sm">Contact</span>
+              <div className="w-8 h-1 bg-[#FF0000]"></div>
+              <span className="text-[#FF0000] font-bold tracking-widest uppercase text-sm">Contact</span>
             </div>
             <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-8">Discutons de <br/>votre projet</h2>
             <p className="text-lg text-[#1B1B1B]/70 mb-12">
-              Rénovation résidentielle ou commerciale, intérieure ou extérieure. Contactez Construction F.G. Saguenay pour une soumission gratuite.
+              Toiture ou rénovation résidentielle sur la Rive-Sud de Montréal et l'Ouest-de-l'Île. Contactez Construction R. Lavallee Inc. pour une soumission gratuite.
             </p>
 
             <div className="space-y-8">
               <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-[#1B1B1B] text-[#3DA65A] rounded-md flex items-center justify-center shrink-0">
+                <div className="w-14 h-14 bg-[#1B1B1B] text-[#FF4D4D] rounded-md flex items-center justify-center shrink-0">
                   <Phone size={24} />
                 </div>
                 <div>
                   <h4 className="font-bold uppercase text-sm text-[#1B1B1B]/60 tracking-wider mb-1">Téléphone</h4>
-                  <a href="tel:581-306-4207" className="text-2xl font-bold hover:text-[#155B2E] transition-colors" data-testid="text-phone">(581) 306-4207</a>
+                  <a href="tel:438-888-9601" className="text-2xl font-bold hover:text-[#FF0000] transition-colors" data-testid="text-phone">(438) 888-9601</a>
                 </div>
               </div>
               
               <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-[#1B1B1B] text-[#3DA65A] rounded-md flex items-center justify-center shrink-0">
+                <div className="w-14 h-14 bg-[#1B1B1B] text-[#FF4D4D] rounded-md flex items-center justify-center shrink-0">
                   <Mail size={24} />
                 </div>
                 <div>
                   <h4 className="font-bold uppercase text-sm text-[#1B1B1B]/60 tracking-wider mb-1">Courriel</h4>
-                  <a href="mailto:constructionfgsaguenay@hotmail.com" className="text-xl font-bold hover:text-[#155B2E] transition-colors" data-testid="text-email">constructionfgsaguenay@hotmail.com</a>
+                  <a href="mailto:constructionrlavallee@gmail.com" className="text-xl font-bold hover:text-[#FF0000] transition-colors" data-testid="text-email">constructionrlavallee@gmail.com</a>
                 </div>
               </div>
 
               <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-[#1B1B1B] text-[#3DA65A] rounded-md flex items-center justify-center shrink-0">
+                <div className="w-14 h-14 bg-[#1B1B1B] text-[#FF4D4D] rounded-md flex items-center justify-center shrink-0">
                   <MapPin size={24} />
                 </div>
                 <div>
                   <h4 className="font-bold uppercase text-sm text-[#1B1B1B]/60 tracking-wider mb-1">Emplacement</h4>
-                  <p className="text-xl font-bold" data-testid="text-location">Saguenay, QC<br/><span className="text-base text-[#1B1B1B]/60">G7B 0M7</span></p>
+                  <p className="text-xl font-bold" data-testid="text-location">Saint-Constant, QC<br/><span className="text-base text-[#1B1B1B]/60">Rive-Sud de Montréal &amp; Ouest-de-l'Île</span></p>
                 </div>
               </div>
             </div>
@@ -60,7 +60,7 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
             {!showForm && (
               <div className="mt-12">
                 <Link href="/soumission">
-                  <button className="bg-[#155B2E] hover:bg-[#1E7A3E] text-white font-bold rounded-md px-8 py-5 uppercase tracking-wide text-base transition-transform hover:scale-105">
+                  <button className="bg-[#FF0000] hover:bg-[#CC0000] text-white font-bold rounded-md px-8 py-5 uppercase tracking-wide text-base transition-transform hover:scale-105">
                     Obtenir une soumission gratuite
                   </button>
                 </Link>
@@ -70,28 +70,28 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
 
           {showForm ? (
             <FadeIn delay={200}>
-              <div className="bg-white p-10 rounded-md shadow-xl border-t-4 border-[#155B2E]">
+              <div className="bg-white p-10 rounded-md shadow-xl border-t-4 border-[#FF0000]">
                 <h3 className="text-2xl font-bold uppercase mb-8">Envoyer un message</h3>
                 <form className="space-y-6" data-testid="contact-form">
                   <div className="space-y-2">
                     <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Nom complet</label>
-                    <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#155B2E]" placeholder="Jean Tremblay" data-testid="input-contact-name" />
+                    <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#FF0000]" placeholder="Jean Tremblay" data-testid="input-contact-name" />
                   </div>
                   <div className="grid grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Téléphone</label>
-                      <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#155B2E]" placeholder="581-000-0000" data-testid="input-contact-phone" />
+                      <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#FF0000]" placeholder="438-000-0000" data-testid="input-contact-phone" />
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Courriel</label>
-                      <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#155B2E]" placeholder="jean@exemple.com" data-testid="input-contact-email" />
+                      <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#FF0000]" placeholder="jean@exemple.com" data-testid="input-contact-email" />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Détails du projet</label>
-                    <Textarea className="bg-[#EDEDED]/50 border-0 min-h-[150px] rounded-sm focus-visible:ring-[#155B2E] resize-none" placeholder="Décrivez votre projet : rénovation intérieure, extérieure, menuiserie, finition, etc." data-testid="input-contact-details" />
+                    <Textarea className="bg-[#EDEDED]/50 border-0 min-h-[150px] rounded-sm focus-visible:ring-[#FF0000] resize-none" placeholder="Décrivez votre projet : toiture, rénovation, salle de bain, cuisine, revêtement extérieur, etc." data-testid="input-contact-details" />
                   </div>
-                  <Button className="w-full bg-[#1B1B1B] hover:bg-[#155B2E] text-white font-bold rounded-md py-6 uppercase tracking-wide text-base transition-colors h-auto mt-4" data-testid="button-contact-submit">
+                  <Button className="w-full bg-[#1B1B1B] hover:bg-[#FF0000] text-white font-bold rounded-md py-6 uppercase tracking-wide text-base transition-colors h-auto mt-4" data-testid="button-contact-submit">
                     Envoyer la demande
                   </Button>
                 </form>
@@ -102,14 +102,14 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
               <div className="relative rounded-md overflow-hidden shadow-xl h-full min-h-[500px]">
                 <img
                   src={img('photo-construction.jpg')}
-                  alt="Chantier Construction F.G. Saguenay"
+                  alt="Chantier Construction R. Lavallee Inc."
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-[#1B1B1B]/40"></div>
                 <div className="absolute bottom-0 left-0 w-full p-8 bg-[#1B1B1B]/80">
-                  <div className="text-xs font-bold tracking-[0.25em] uppercase text-white/60 mb-2">Entrepreneur général</div>
-                  <p className="text-white font-bold text-lg uppercase tracking-wide">Rénovation & finition</p>
-                  <p className="text-[#3DA65A] font-bold text-lg uppercase tracking-wide">Résidentiel · Commercial</p>
+                  <div className="text-xs font-bold tracking-[0.25em] uppercase text-white/60 mb-2">Entrepreneur spécialisé</div>
+                  <p className="text-white font-bold text-lg uppercase tracking-wide">Toiture & rénovation</p>
+                  <p className="text-[#FF4D4D] font-bold text-lg uppercase tracking-wide">Résidentiel</p>
                 </div>
               </div>
             </FadeIn>

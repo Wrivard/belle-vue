@@ -18,22 +18,22 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 
 ## Artifacts
 
-### Réno-Action FB inc. (sergerie-website)
-- **Type**: Presentation-first React + Vite website
+### Construction R. Lavallee Inc. (sergerie-website)
+- **Type**: Presentation-first React + Vite website (shared construction template reused per client)
 - **Path**: `/` (root)
 - **Port**: 25729
 - **Pages**: Homepage (`/`), Soumission (`/soumission`)
-- **Brand colors**: Primary `#114D8B` (deep blue), Hover `#1A6BB8` (lighter blue), Light Grey `#D9D9D9`, Dark Grey `#2A2A2A`, White `#FFFFFF`. Dark sections still use `#1B1B1B` for contrast (about, faq, hero overlay, cta).
-- **Design rules**: Solid colors only — no gradients. Navbar & footer are WHITE (to host the dark logo). Deep blue used for CTA/highlights/icons.
+- **Brand colors**: Accent `#FF0000` (red), Hover `#CC0000` (darker red), Light red highlight `#FF4D4D` (text on dark), Dark `#1B1B1B`, Text `#E4E4E4`, White `#FFFFFF`. CSS `--primary`/`--accent` HSL = `0 100% 50%`.
+- **Design rules**: Solid colors only — no gradients. Navbar & footer are BLACK `#1B1B1B` (to host the white-text logo). Red used for CTA/highlights/icons.
 - **Font**: Inter (Google Fonts)
 - **Routing**: wouter
-- **Logo**: `public/images/logo-reno-action.png`
-- **Images**: `public/images/` — uses `photo-*.jpg` and `marinier-*.jpg` set
-- **Components**: `src/components/layout/` — Navbar, Footer, FadeIn, CountUp, MapSection, TestimonialsSection, ContactSection, PageWrapper
-- **Contact**: (819) 849-6999, reno-action@hotmail.com, Coaticook, QC, Canada, J1A 1J1
-- **License**: RBQ 5698-3927-01
-- **Core message**: "Entrepreneur général — Construction & rénovation résidentielle, commerciale et industrielle"
-- **Services**: Construction résidentielle, Construction commerciale, Construction industrielle, Rénovation, Agrandissement, Portes et fenêtres, Finition intérieure, Revêtement extérieur
+- **Logo**: `public/images/logo-r-lavallee.png` (white text + red graphic, transparent bg → needs dark background)
+- **Images**: `public/images/` — uses `photo-*.jpg` and `marinier-*.jpg` set (toiture → `photo-toiture.jpg`)
+- **Components**: `src/components/layout/` — Navbar, Footer, FadeIn, CountUp, MapSection, TestimonialsSection, ContactSection, PageWrapper. Note: `certifications-section.tsx` exists but is NOT rendered (client has no confirmed certifications — do not invent RBQ/associations).
+- **Contact**: (438) 888-9601, constructionrlavallee@gmail.com, Saint-Constant, QC, Canada
+- **Zones served**: Rive-Sud de Montréal, Ouest-de-l'Île
+- **Core message**: "Entrepreneur spécialisé en toiture & rénovation résidentielle"
+- **Services**: Toiture résidentielle, Rénovation générale, Rénovation de salle de bain, Cuisine, Revêtement extérieur, Travaux extérieurs
 
 ## Key Commands
 
