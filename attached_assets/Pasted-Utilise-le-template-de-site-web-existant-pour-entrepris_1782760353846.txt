@@ -1,0 +1,99 @@
+Utilise le template de site web existant pour entreprise de construction (même structure que les autres projets) et remplace uniquement les informations pour cette nouvelle entreprise.
+
+---
+
+ENTREPRISE : Construction R. Lavallee Inc.
+
+---
+
+OBJECTIF DU SITE :
+Positionner l’entreprise comme un entrepreneur spécialisé en toiture et rénovation résidentielle, principalement sur la Rive-Sud et l’Ouest de Montréal, avec un service professionnel, fiable et orienté qualité.
+
+---
+
+TON / STYLE :
+- Professionnel
+- Construction / chantier
+- Fiable et haut de gamme
+- Résidentiel (principal)
+- Accent sur toiture et rénovation
+- Simple, clair, conversion client
+
+---
+
+IDENTITÉ :
+
+Nom : Construction R. Lavallee Inc.  
+Téléphone : (438) 888-9601  
+Email : constructionrlavallee@gmail.com  
+Adresse : Saint-Constant, QC, Canada  
+Zones desservies : Rive-Sud de Montréal, Ouest-de-l’Île (inclure villes listées dans la page actuelle)
+
+---
+
+POSITIONNEMENT :
+- Entrepreneur spécialisé en toiture
+- Rénovation résidentielle
+- Petits et moyens projets résidentiels
+- Service fiable et rapide
+- Travail propre et durable
+
+---
+
+SECTION SERVICES (6 CARTES DE SERVICES)
+
+1. Toiture résidentielle
+- Installation et remplacement de toitures
+- Réparations
+- Inspection et entretien
+
+2. Rénovation générale
+- Projets résidentiels complets ou partiels
+- Modernisation de maisons
+- Travaux intérieurs et extérieurs
+
+3. Rénovation de salle de bain
+- Démolition et reconstruction
+- Douche, bain, céramique
+- Finition complète
+
+4. Cuisine
+- Rénovation complète
+- Armoires et comptoirs
+- Installation et modernisation
+
+5. Revêtement extérieur
+- Siding et finition extérieure
+- Protection et modernisation des façades
+- Travaux durables
+
+6. Travaux extérieurs
+- Petits projets extérieurs
+- Réparations générales
+- Finition extérieure et amélioration
+
+---
+
+DESIGN SYSTEM (IMPORTANT)
+
+Couleurs :
+- Accent principal : #ff0000 (rouge)
+- Fond noir : #1b1b1b
+- Texte principal : #e4e4e4
+- Blanc secondaire : #ffffff (utilisation minimale pour contraste)
+
+Style :
+- Navbar noire (#1b1b1b)
+- Footer noir (#1b1b1b)
+- Look moderne, contrasté, industriel
+- Accent rouge pour CTA, boutons, highlights
+- Design simple et robuste (construction / toiture)
+
+---
+
+RÈGLES IMPORTANTES :
+- Ne pas inventer d’informations (RBQ, certifications, etc.)
+- Garder la structure du template identique
+- Seulement remplacer le contenu
+- Mettre l’emphase sur toiture + rénovation résidentielle
+- UX orientée appel / soumission rapide
