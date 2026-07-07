@@ -34,11 +34,17 @@ export default function Home() {
     <PageWrapper>
       <section id="accueil" className="relative min-h-[90vh] flex items-center pt-20" data-testid="hero-section">
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <img
-            src={img('pros-maison-neuve.jpg')}
-            alt="Construction Pro-S — résidence neuve dans la région du Saguenay"
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster={img('pros-maison-neuve.jpg')}
             className="w-full h-full object-cover object-center"
-          />
+          >
+            <source src={`${import.meta.env.BASE_URL}images/marinier-hero-video.mp4`} type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-[#1B1B1B]/70"></div>
         </div>
         
