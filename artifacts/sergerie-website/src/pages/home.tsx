@@ -9,18 +9,18 @@ import { ContactSection } from '@/components/layout/contact-section';
 import { img } from '@/lib/utils';
 
 const services = [
-  { title: 'Construction résidentielle', img: 'photo-construction.jpg' },
-  { title: 'Rénovation générale', img: 'photo-soussol.jpg' },
-  { title: 'Toiture', img: 'photo-toiture.jpg' },
-  { title: 'Revêtement extérieur', img: 'photo-revetement.jpg' },
-  { title: 'Agrandissement', img: 'photo-chantier.jpg' },
-  { title: 'Travaux de finition', img: 'photo-cuisine.jpg' },
+  { title: 'Construction résidentielle', img: 'pros-maison-patio.jpg' },
+  { title: 'Rénovation générale', img: 'pros-interieur.jpg' },
+  { title: 'Toiture', img: 'pros-maison-neuve.jpg' },
+  { title: 'Revêtement extérieur', img: 'pros-revetement.jpg' },
+  { title: 'Agrandissement', img: 'pros-jumele.jpg' },
+  { title: 'Travaux de finition', img: 'pros-finition.jpg' },
 ];
 
 const projects = [
-  { img: 'photo-construction.jpg', title: 'Construction résidentielle neuve', cat: 'Construction' },
-  { img: 'photo-toiture.jpg', title: 'Toiture refaite à neuf', cat: 'Toiture' },
-  { img: 'photo-revetement.jpg', title: 'Revêtement extérieur complet', cat: 'Rénovation' },
+  { img: 'pros-maison-neuve.jpg', title: 'Construction résidentielle neuve', cat: 'Construction' },
+  { img: 'pros-cuisine.jpg', title: 'Cuisine & rénovation intérieure', cat: 'Rénovation' },
+  { img: 'pros-sdb-douche.jpg', title: 'Salle de bain moderne', cat: 'Rénovation' },
 ];
 
 const steps = [
@@ -34,17 +34,11 @@ export default function Home() {
     <PageWrapper>
       <section id="accueil" className="relative min-h-[90vh] flex items-center pt-20" data-testid="hero-section">
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster={img('marinier-salon.jpg')}
+          <img
+            src={img('pros-maison-neuve.jpg')}
+            alt="Construction Pro-S — résidence neuve dans la région du Saguenay"
             className="w-full h-full object-cover object-center"
-          >
-            <source src={`${import.meta.env.BASE_URL}images/marinier-hero-video.mp4`} type="video/mp4" />
-          </video>
+          />
           <div className="absolute inset-0 bg-[#1B1B1B]/70"></div>
         </div>
         
@@ -184,7 +178,7 @@ export default function Home() {
 
             <FadeIn delay={200} className="relative">
               <div className="absolute -inset-4 border-2 border-[#0077C8]/30 rounded-md transform translate-x-4 translate-y-4"></div>
-              <img src={img('marinier-salon.jpg')} alt="Construction Pro-S — rénovation" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl" />
+              <img src={img('pros-apropos.jpg')} alt="Construction Pro-S — entrepreneur général au Saguenay" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl" />
             </FadeIn>
           </div>
         </div>
@@ -257,7 +251,7 @@ export default function Home() {
 
       <section className="py-32 text-white relative overflow-hidden" data-testid="cta-section">
         <div className="absolute inset-0 z-0">
-          <img src={img('photo-construction.jpg')} alt="Construction Pro-S" className="w-full h-full object-cover" />
+          <img src={img('pros-maison-patio.jpg')} alt="Construction Pro-S" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-[#1B1B1B]/85"></div>
         </div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-center">
