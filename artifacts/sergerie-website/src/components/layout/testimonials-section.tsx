@@ -3,13 +3,13 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { FadeIn } from './fade-in';
 
 const testimonials = [
-  { name: 'Sophie Tremblay', type: 'Toiture résidentielle', quote: "Construction R. Lavallee Inc. a remplacé notre toiture au complet. Équipe ponctuelle, chantier propre et travail durable. Un entrepreneur fiable sur qui on peut vraiment compter." },
-  { name: 'Patrick Lemieux', type: 'Rénovation de salle de bain', quote: "Notre salle de bain entièrement refaite. L'équipe a été à l'écoute du début à la fin et le résultat est superbe. Travail soigné, on est très satisfaits." },
-  { name: 'Nathalie Gagnon', type: 'Revêtement extérieur', quote: "Revêtement extérieur refait au complet. Travail soigné, échéancier respecté, prix juste. Une équipe professionnelle et fiable, je recommande sans hésiter." },
-  { name: 'Marc-André Côté', type: 'Rénovation générale', quote: "Construction R. Lavallee Inc. a géré notre rénovation du début à la fin. Service rapide, communication claire et travail impeccable. Très impressionné par leur sérieux." },
-  { name: 'Julie Bouchard', type: 'Cuisine', quote: "Excellent service pour la rénovation de notre cuisine. Communication claire à chaque étape et un souci du détail évident. Je referai certainement affaire avec eux." },
-  { name: 'François Dubé', type: 'Toiture résidentielle', quote: "Réparation de toiture exécutée rapidement et proprement. L'équipe a su régler le problème efficacement et durablement. Résultat impeccable, très professionnel." },
-  { name: 'Caroline Poirier', type: 'Travaux extérieurs', quote: "Petits travaux extérieurs réalisés avec soin. Équipe courtoise, propre sur le chantier et résultat à la hauteur de nos attentes. Merci pour le beau travail!" },
+  { name: 'Sophie Tremblay', type: 'Construction résidentielle', quote: "Construction Pro-S a bâti notre maison neuve du début à la fin. Équipe organisée, échéancier respecté et finition impeccable. Un entrepreneur professionnel sur qui on peut vraiment compter." },
+  { name: 'Patrick Lemieux', type: 'Rénovation générale', quote: "Rénovation complète de notre résidence. L'équipe a été à l'écoute du début à la fin et le résultat dépasse nos attentes. Travail soigné et grande rigueur." },
+  { name: 'Nathalie Gagnon', type: 'Toiture', quote: "Toiture refaite au complet, proprement et rapidement. Travail durable, prix juste et équipe professionnelle. Je recommande sans hésiter." },
+  { name: 'Marc-André Côté', type: 'Agrandissement', quote: "Construction Pro-S a géré l'agrandissement de notre maison du début à la fin. Communication claire et travail impeccable. Très impressionné par leur sérieux." },
+  { name: 'Julie Bouchard', type: 'Revêtement extérieur', quote: "Excellent service pour le revêtement extérieur de notre propriété. Souci du détail évident et échéancier respecté. Je referai certainement affaire avec eux." },
+  { name: 'François Dubé', type: 'Travaux de finition', quote: "Finitions intérieures réalisées avec un souci du détail remarquable. Résultat haut de gamme, équipe courtoise et chantier propre. Un travail de qualité supérieure." },
+  { name: 'Caroline Poirier', type: 'Construction résidentielle', quote: "Projet de construction mené avec professionnalisme du début à la fin. Équipe fiable, propre sur le chantier et résultat à la hauteur de nos attentes. Merci!" },
 ];
 
 export function TestimonialsSection() {
@@ -29,8 +29,8 @@ export function TestimonialsSection() {
       <div className="container mx-auto px-6 max-w-[1200px]">
         <FadeIn>
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-1 bg-[#FF0000]"></div>
-            <span className="text-[#FF0000] font-bold tracking-widest uppercase text-sm">Clients</span>
+            <div className="w-8 h-1 bg-[#0077C8]"></div>
+            <span className="text-[#0077C8] font-bold tracking-widest uppercase text-sm">Clients</span>
           </div>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
             <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight">Ils nous font confiance</h2>
@@ -49,14 +49,14 @@ export function TestimonialsSection() {
               {testimonials.map((test, idx) => (
                 <CarouselItem key={idx} className="pl-6 md:basis-1/2 lg:basis-1/3">
                   <div
-                    className="bg-white p-8 md:p-10 rounded-md shadow-sm border-l-4 border-[#FF0000] h-full flex flex-col min-h-[340px]"
+                    className="bg-white p-8 md:p-10 rounded-md shadow-sm border-l-4 border-[#0077C8] h-full flex flex-col min-h-[340px]"
                     data-testid={`testimonial-card-${idx}`}
                   >
-                    <div className="text-5xl font-serif text-[#FF0000]/15 leading-none mb-2">"</div>
+                    <div className="text-5xl font-serif text-[#0077C8]/15 leading-none mb-2">"</div>
                     <p className="text-base md:text-lg italic text-[#1B1B1B]/80 mb-6 flex-1 leading-relaxed">{test.quote}</p>
                     <div className="border-t border-[#1B1B1B]/10 pt-4">
                       <h4 className="font-bold uppercase tracking-wide text-sm">{test.name}</h4>
-                      <p className="text-[#FF0000] text-xs font-bold uppercase tracking-wider mt-1">{test.type}</p>
+                      <p className="text-[#0077C8] text-xs font-bold uppercase tracking-wider mt-1">{test.type}</p>
                     </div>
                   </div>
                 </CarouselItem>
@@ -70,17 +70,17 @@ export function TestimonialsSection() {
                     key={i}
                     onClick={() => api?.scrollTo(i)}
                     aria-label={`Aller au témoignage ${i + 1}`}
-                    className={`h-1.5 rounded-full transition-all ${i === current ? 'w-8 bg-[#FF0000]' : 'w-3 bg-[#1B1B1B]/20 hover:bg-[#1B1B1B]/40'}`}
+                    className={`h-1.5 rounded-full transition-all ${i === current ? 'w-8 bg-[#0077C8]' : 'w-3 bg-[#1B1B1B]/20 hover:bg-[#1B1B1B]/40'}`}
                   />
                 ))}
               </div>
               <div className="flex items-center gap-3">
                 <CarouselPrevious
-                  className="static translate-y-0 h-11 w-11 rounded-full border-2 border-[#1B1B1B] bg-transparent text-[#1B1B1B] hover:bg-[#FF0000] hover:border-[#FF0000] hover:text-white transition-colors"
+                  className="static translate-y-0 h-11 w-11 rounded-full border-2 border-[#1B1B1B] bg-transparent text-[#1B1B1B] hover:bg-[#0077C8] hover:border-[#0077C8] hover:text-white transition-colors"
                   data-testid="testimonial-prev"
                 />
                 <CarouselNext
-                  className="static translate-y-0 h-11 w-11 rounded-full border-2 border-[#1B1B1B] bg-transparent text-[#1B1B1B] hover:bg-[#FF0000] hover:border-[#FF0000] hover:text-white transition-colors"
+                  className="static translate-y-0 h-11 w-11 rounded-full border-2 border-[#1B1B1B] bg-transparent text-[#1B1B1B] hover:bg-[#0077C8] hover:border-[#0077C8] hover:text-white transition-colors"
                   data-testid="testimonial-next"
                 />
               </div>

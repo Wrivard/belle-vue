@@ -2,14 +2,14 @@ export function MapSection() {
   return (
     <section className="w-full" data-testid="map-section">
       <iframe
-        src="https://www.google.com/maps?q=Saint-Constant%2C%20QC%2C%20Canada&output=embed"
+        src="https://www.google.com/maps?q=Chicoutimi%2C%20QC%2C%20Canada&output=embed"
         width="100%"
         height="450"
         style={{ border: 0, display: 'block' }}
         allowFullScreen
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-        title="Localisation - Saint-Constant, QC"
+        title="Localisation - Chicoutimi, QC"
       />
     </section>
   );
