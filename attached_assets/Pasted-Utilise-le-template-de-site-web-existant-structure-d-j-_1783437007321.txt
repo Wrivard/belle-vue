@@ -1,0 +1,100 @@
+Utilise le template de site web existant (structure déjà utilisée pour les autres entreprises de construction) et remplace uniquement les informations pour cette nouvelle entreprise.
+
+---
+
+ENTREPRISE : Construction Pro-S
+
+---
+
+OBJECTIF DU SITE :
+Positionner l’entreprise comme un entrepreneur spécialisé en construction, rénovation et toiture, offrant des services résidentiels de qualité avec une approche professionnelle et un souci du détail.
+
+---
+
+TON / STYLE :
+- Professionnel
+- Construction haut de gamme
+- Fiable et expérimenté
+- Résidentiel principalement
+- Axé qualité, précision et durabilité
+- Image moderne de constructeur
+
+---
+
+IDENTITÉ :
+
+Nom : Construction Pro-S  
+Téléphone : (418) 487-8865  
+Email : constructionpro-s@hotmail.com  
+Secteur : Construction / rénovation / toiture  
+RBQ : non fourni (ne pas inventer)
+
+---
+
+POSITIONNEMENT :
+- Entrepreneur spécialisé
+- Construction résidentielle
+- Rénovation complète
+- Travaux de toiture
+- Projets sur mesure
+- Service professionnel du début à la fin
+
+---
+
+SECTION SERVICES (6 CARTES DE SERVICES)
+
+1. Construction résidentielle
+- Construction de maisons et projets neufs
+- Gestion complète des travaux
+- Réalisation sur mesure
+
+2. Rénovation générale
+- Transformation d’espaces existants
+- Rénovations intérieures et extérieures
+- Amélioration de propriétés
+
+3. Toiture
+- Installation et remplacement
+- Réparation de toiture
+- Protection durable du bâtiment
+
+4. Revêtement extérieur
+- Installation de revêtements
+- Amélioration de façade
+- Protection contre les intempéries
+
+5. Agrandissement
+- Ajout d’espaces habitables
+- Extensions de maison
+- Projets adaptés aux besoins
+
+6. Travaux de finition
+- Finitions intérieures
+- Détails personnalisés
+- Travaux de qualité supérieure
+
+---
+
+DESIGN SYSTEM (selon logo)
+
+Couleurs suggérées :
+- Noir principal : #111111
+- Gris foncé : #222222
+- Blanc : #f5f5f5
+- Accent bleu : #0077C8 (inspiré du toit/logo bleu)
+
+Style :
+- Moderne construction
+- Contraste noir/blanc avec accent bleu
+- Look professionnel et robuste
+- CTA visibles en bleu
+- Design premium mais accessible
+
+---
+
+RÈGLES IMPORTANTES :
+- Ne pas inventer RBQ ou certifications
+- Garder la structure du template identique
+- Modifier uniquement le contenu
+- Mettre l’accent sur construction + rénovation + toiture
+- Utiliser les images de réalisations pour démontrer la qualité des travaux
