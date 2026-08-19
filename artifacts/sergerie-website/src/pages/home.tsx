@@ -85,7 +85,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="bg-[#111111] border-t border-white/10 relative z-20 py-16" data-testid="stats-section">
+      <div className="bg-[#1B1B1B] border-t border-white/10 relative z-20 py-16" data-testid="stats-section">
         <div className="container mx-auto px-6 max-w-[1200px]">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
