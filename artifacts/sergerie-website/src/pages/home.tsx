@@ -85,24 +85,24 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="bg-white border-t border-black/5 relative z-20 py-16" data-testid="stats-section">
+      <div className="bg-[#111111] border-t border-white/10 relative z-20 py-16" data-testid="stats-section">
         <div className="container mx-auto px-6 max-w-[1200px]">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-5xl md:text-7xl font-extrabold text-[#C89A4D] mb-3 tracking-tight"><CountUp end={10} suffix="+" /></div>
-              <div className="uppercase text-sm font-bold tracking-wider text-[#1B1B1B]/50">Années d'expérience</div>
+              <div className="uppercase text-sm font-bold tracking-wider text-white">Années d'expérience</div>
             </div>
             <div>
-              <div className="text-5xl md:text-7xl font-extrabold text-[#C89A4D] mb-3 tracking-tight"><CountUp end={50} suffix="+" /></div>
-              <div className="uppercase text-sm font-bold tracking-wider text-[#1B1B1B]/50">Projets réalisés</div>
+              <div className="text-5xl md:text-7xl font-extrabold text-[#C89A4D] mb-3 tracking-tight"><CountUp end={250} suffix="+" /></div>
+              <div className="uppercase text-sm font-bold tracking-wider text-white">Projets réalisés</div>
             </div>
             <div>
               <div className="text-5xl md:text-7xl font-extrabold text-[#C89A4D] mb-3 tracking-tight"><CountUp end={100} suffix="%" /></div>
-              <div className="uppercase text-sm font-bold tracking-wider text-[#1B1B1B]/50">Souci du détail</div>
+              <div className="uppercase text-sm font-bold tracking-wider text-white">Souci du détail</div>
             </div>
             <div>
               <div className="text-5xl md:text-7xl font-extrabold text-[#C89A4D] mb-3 tracking-tight"><CountUp end={24} suffix="h" /></div>
-              <div className="uppercase text-sm font-bold tracking-wider text-[#1B1B1B]/50">Réponse rapide</div>
+              <div className="uppercase text-sm font-bold tracking-wider text-white">Réponse rapide</div>
             </div>
           </div>
         </div>
