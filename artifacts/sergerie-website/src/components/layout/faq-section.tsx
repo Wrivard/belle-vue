@@ -16,9 +16,9 @@ export function FaqSection() {
       <div className="container mx-auto px-6 max-w-3xl">
         <FadeIn className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-1 bg-[#B89A6A]"></div>
-            <span className="text-[#B89A6A] font-bold tracking-widest uppercase text-sm">Questions</span>
-            <div className="w-8 h-1 bg-[#B89A6A]"></div>
+            <div className="w-8 h-1 bg-[#C89A4D]"></div>
+            <span className="text-[#C89A4D] font-bold tracking-widest uppercase text-sm">Questions</span>
+            <div className="w-8 h-1 bg-[#C89A4D]"></div>
           </div>
           <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight">Questions fréquentes</h2>
         </FadeIn>
@@ -27,7 +27,7 @@ export function FaqSection() {
           <Accordion type="single" collapsible className="w-full space-y-4">
             {faqItems.map((item) => (
               <AccordionItem key={item.value} value={item.value} className="border border-[#EDEDED]/20 rounded-md px-6 bg-[#161616]" data-testid={`faq-${item.value}`}>
-                <AccordionTrigger className="text-lg font-bold hover:text-[#D4B27A] hover:no-underline py-6 text-left">{item.q}</AccordionTrigger>
+                <AccordionTrigger className="text-lg font-bold hover:text-[#C89A4D] hover:no-underline py-6 text-left">{item.q}</AccordionTrigger>
                 <AccordionContent className="text-[#EDEDED]/70 text-base pb-6">{item.a}</AccordionContent>
               </AccordionItem>
             ))}

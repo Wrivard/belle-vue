@@ -52,15 +52,15 @@ export default function Home() {
           <div className="max-w-3xl">
             <FadeIn>
               <div className="flex items-center gap-4 mb-8 md:mb-10">
-                <div className="w-12 h-1 bg-[#B89A6A]"></div>
-                <span className="text-[#B89A6A] font-bold tracking-[0.2em] uppercase text-sm">Rénovation résidentielle haut de gamme</span>
+                <div className="w-12 h-1 bg-[#C89A4D]"></div>
+                <span className="text-[#C89A4D] font-bold tracking-[0.2em] uppercase text-sm">Rénovation résidentielle haut de gamme</span>
               </div>
             </FadeIn>
             
             <FadeIn delay={100}>
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-[1.08] mb-8 md:mb-10 text-white uppercase tracking-tight" data-testid="text-hero-title">
                 Transformez votre maison <br />
-                <span className="text-[#D4B27A]">avec une rénovation</span> <br />
+                <span className="text-[#C89A4D]">avec une rénovation</span> <br />
                 à votre image
               </h1>
             </FadeIn>
@@ -73,7 +73,7 @@ export default function Home() {
             
             <FadeIn delay={300} className="flex flex-col sm:flex-row gap-4 sm:gap-5 pb-4 md:pb-6">
               <Link href="/soumission" data-testid="link-hero-soumission">
-                <Button className="bg-[#B89A6A] hover:bg-[#8C7048] text-white font-bold rounded-md px-8 py-6 uppercase tracking-wide text-base transition-transform hover:scale-105 h-auto">
+                <Button className="bg-[#C89A4D] hover:bg-[#9A702F] text-white font-bold rounded-md px-8 py-6 uppercase tracking-wide text-base transition-transform hover:scale-105 h-auto">
                   Demander une soumission
                 </Button>
               </Link>
@@ -89,19 +89,19 @@ export default function Home() {
         <div className="container mx-auto px-6 max-w-[1200px]">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-5xl md:text-7xl font-extrabold text-[#B89A6A] mb-3 tracking-tight"><CountUp end={10} suffix="+" /></div>
+              <div className="text-5xl md:text-7xl font-extrabold text-[#C89A4D] mb-3 tracking-tight"><CountUp end={10} suffix="+" /></div>
               <div className="uppercase text-sm font-bold tracking-wider text-[#1B1B1B]/50">Années d'expérience</div>
             </div>
             <div>
-              <div className="text-5xl md:text-7xl font-extrabold text-[#B89A6A] mb-3 tracking-tight"><CountUp end={50} suffix="+" /></div>
+              <div className="text-5xl md:text-7xl font-extrabold text-[#C89A4D] mb-3 tracking-tight"><CountUp end={50} suffix="+" /></div>
               <div className="uppercase text-sm font-bold tracking-wider text-[#1B1B1B]/50">Projets réalisés</div>
             </div>
             <div>
-              <div className="text-5xl md:text-7xl font-extrabold text-[#B89A6A] mb-3 tracking-tight"><CountUp end={100} suffix="%" /></div>
+              <div className="text-5xl md:text-7xl font-extrabold text-[#C89A4D] mb-3 tracking-tight"><CountUp end={100} suffix="%" /></div>
               <div className="uppercase text-sm font-bold tracking-wider text-[#1B1B1B]/50">Souci du détail</div>
             </div>
             <div>
-              <div className="text-5xl md:text-7xl font-extrabold text-[#B89A6A] mb-3 tracking-tight"><CountUp end={24} suffix="h" /></div>
+              <div className="text-5xl md:text-7xl font-extrabold text-[#C89A4D] mb-3 tracking-tight"><CountUp end={24} suffix="h" /></div>
               <div className="uppercase text-sm font-bold tracking-wider text-[#1B1B1B]/50">Réponse rapide</div>
             </div>
           </div>
@@ -113,9 +113,9 @@ export default function Home() {
           <FadeIn>
             <div className="text-center mb-16 max-w-2xl mx-auto">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="w-8 h-1 bg-[#B89A6A]"></div>
-                <span className="text-[#B89A6A] font-bold tracking-widest uppercase text-sm">Nos services</span>
-                <div className="w-8 h-1 bg-[#B89A6A]"></div>
+                <div className="w-8 h-1 bg-[#C89A4D]"></div>
+                <span className="text-[#C89A4D] font-bold tracking-widest uppercase text-sm">Nos services</span>
+                <div className="w-8 h-1 bg-[#C89A4D]"></div>
               </div>
               <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Rénovation sur mesure</h2>
               <p className="text-lg text-[#1B1B1B]/65 leading-relaxed">
@@ -135,11 +135,11 @@ export default function Home() {
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-[#0B0B0B]/55"></div>
-                    <div className="absolute inset-0 bg-[#B89A6A]/0 group-hover:bg-[#B89A6A]/40 transition-colors duration-500"></div>
+                    <div className="absolute inset-0 bg-[#C89A4D]/0 group-hover:bg-[#C89A4D]/40 transition-colors duration-500"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <div className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/60 mb-2">0{idx + 1}</div>
                       <h3 className="text-xl font-bold text-white uppercase tracking-tight leading-tight">{service.title}</h3>
-                      <div className="mt-4 h-px w-10 bg-[#B89A6A] group-hover:w-full group-hover:bg-white transition-all duration-500"></div>
+                      <div className="mt-4 h-px w-10 bg-[#C89A4D] group-hover:w-full group-hover:bg-white transition-all duration-500"></div>
                     </div>
                   </div>
                 </Link>
@@ -156,10 +156,10 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <FadeIn>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-1 bg-[#B89A6A]"></div>
-                <span className="text-[#B89A6A] font-bold tracking-widest uppercase text-sm">Notre approche</span>
+                <div className="w-8 h-1 bg-[#C89A4D]"></div>
+                <span className="text-[#C89A4D] font-bold tracking-widest uppercase text-sm">Notre approche</span>
               </div>
-              <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-8">Une approche basée sur la <span className="text-[#D4B27A]">qualité et la confiance</span></h2>
+              <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-8">Une approche basée sur la <span className="text-[#C89A4D]">qualité et la confiance</span></h2>
               
               <div className="space-y-6 text-[#EDEDED]/80 text-lg">
                 <p>
@@ -172,18 +172,18 @@ export default function Home() {
 
               <div className="mt-10 grid grid-cols-2 gap-8 border-t border-[#EDEDED]/10 pt-8">
                 <div>
-                   <div className="text-5xl md:text-6xl font-extrabold text-[#D4B27A] mb-3 tracking-tight">100%</div>
+                   <div className="text-5xl md:text-6xl font-extrabold text-[#C89A4D] mb-3 tracking-tight">100%</div>
                    <div className="uppercase text-sm font-bold tracking-wider text-[#EDEDED]/60">Service personnalisé</div>
                 </div>
                 <div>
-                   <div className="text-5xl md:text-6xl font-extrabold text-[#D4B27A] mb-3 tracking-tight">6</div>
+                   <div className="text-5xl md:text-6xl font-extrabold text-[#C89A4D] mb-3 tracking-tight">6</div>
                    <div className="uppercase text-sm font-bold tracking-wider text-[#EDEDED]/60">Spécialités de rénovation</div>
                 </div>
               </div>
             </FadeIn>
 
             <FadeIn delay={200} className="relative">
-              <div className="absolute -inset-4 border-2 border-[#B89A6A]/30 rounded-md transform translate-x-4 translate-y-4"></div>
+              <div className="absolute -inset-4 border-2 border-[#C89A4D]/30 rounded-md transform translate-x-4 translate-y-4"></div>
                <img src={img('photo-cuisine-3.jpg')} alt="Projet de rénovation résidentielle" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl" />
             </FadeIn>
           </div>
@@ -195,8 +195,8 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <FadeIn>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-1 bg-[#B89A6A]"></div>
-                <span className="text-[#B89A6A] font-bold tracking-widest uppercase text-sm">Réalisations</span>
+                <div className="w-8 h-1 bg-[#C89A4D]"></div>
+                <span className="text-[#C89A4D] font-bold tracking-widest uppercase text-sm">Réalisations</span>
               </div>
               <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight">Nos projets récents</h2>
             </FadeIn>
@@ -214,7 +214,7 @@ export default function Home() {
                   <img src={img(proj.img)} alt={proj.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-[#1B1B1B]/60 opacity-80 group-hover:opacity-90 transition-opacity"></div>
                   <div className="absolute bottom-0 left-0 w-full p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <span className="text-[#D4B27A] font-bold text-sm tracking-widest uppercase mb-2 block">{proj.cat}</span>
+                    <span className="text-[#C89A4D] font-bold text-sm tracking-widest uppercase mb-2 block">{proj.cat}</span>
                     <h3 className="text-[#EDEDED] text-2xl font-bold uppercase">{proj.title}</h3>
                   </div>
                 </div>
@@ -229,8 +229,8 @@ export default function Home() {
           <FadeIn>
             <div className="mb-16">
               <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-1 bg-[#B89A6A]"></div>
-              <span className="text-[#B89A6A] font-bold tracking-widest uppercase text-sm">Notre processus</span>
+              <div className="w-8 h-1 bg-[#C89A4D]"></div>
+              <span className="text-[#C89A4D] font-bold tracking-widest uppercase text-sm">Notre processus</span>
               </div>
               <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight">Simple et transparent</h2>
             </div>
@@ -240,8 +240,8 @@ export default function Home() {
             {steps.map((step, idx) => (
               <FadeIn key={idx} delay={idx * 200}>
                 <div className="flex flex-col" data-testid={`step-${step.num}`}>
-                  <div className="text-6xl md:text-7xl font-bold text-[#B89A6A] mb-6 leading-none">{step.num}</div>
-                  <div className="w-10 h-1 bg-[#B89A6A] mb-6"></div>
+                  <div className="text-6xl md:text-7xl font-bold text-[#C89A4D] mb-6 leading-none">{step.num}</div>
+                  <div className="w-10 h-1 bg-[#C89A4D] mb-6"></div>
                   <h3 className="text-xl font-bold uppercase tracking-wide mb-4">{step.title}</h3>
                   <p className="text-[#EDEDED]/60 leading-relaxed">{step.desc}</p>
                 </div>
@@ -267,7 +267,7 @@ export default function Home() {
                Contactez Rénovation Isaac Thibault inc. pour discuter de votre projet de rénovation résidentielle et obtenir une soumission gratuite.
             </p>
             <Link href="/soumission" data-testid="link-cta-soumission">
-               <Button className="bg-[#B89A6A] hover:bg-[#8C7048] text-white font-bold rounded-md px-10 py-8 uppercase tracking-widest text-lg transition-transform hover:scale-105 h-auto">
+               <Button className="bg-[#C89A4D] hover:bg-[#9A702F] text-white font-bold rounded-md px-10 py-8 uppercase tracking-widest text-lg transition-transform hover:scale-105 h-auto">
                  Demander une soumission
               </Button>
             </Link>

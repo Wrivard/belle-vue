@@ -38,20 +38,20 @@ export function Navbar() {
           </div>
           
           <div className="hidden md:flex items-center gap-8 font-semibold text-sm tracking-wide uppercase">
-            <a href={import.meta.env.BASE_URL} className="hover:text-[#B89A6A] transition-colors" data-testid="link-accueil">Accueil</a>
-            <button onClick={() => scrollToSection('services')} className="hover:text-[#B89A6A] transition-colors uppercase" data-testid="link-services">Services</button>
-            <button onClick={() => scrollToSection('realisations')} className="hover:text-[#B89A6A] transition-colors uppercase" data-testid="link-realisations">Réalisations</button>
-            <button onClick={() => scrollToSection('apropos')} className="hover:text-[#B89A6A] transition-colors uppercase" data-testid="link-apropos">À propos</button>
-            <button onClick={() => scrollToSection('contact')} className="hover:text-[#B89A6A] transition-colors uppercase" data-testid="link-contact">Contact</button>
+            <a href={import.meta.env.BASE_URL} className="hover:text-[#C89A4D] transition-colors" data-testid="link-accueil">Accueil</a>
+            <button onClick={() => scrollToSection('services')} className="hover:text-[#C89A4D] transition-colors uppercase" data-testid="link-services">Services</button>
+            <button onClick={() => scrollToSection('realisations')} className="hover:text-[#C89A4D] transition-colors uppercase" data-testid="link-realisations">Réalisations</button>
+            <button onClick={() => scrollToSection('apropos')} className="hover:text-[#C89A4D] transition-colors uppercase" data-testid="link-apropos">À propos</button>
+            <button onClick={() => scrollToSection('contact')} className="hover:text-[#C89A4D] transition-colors uppercase" data-testid="link-contact">Contact</button>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
             <a href="tel:514-795-2889" className="flex items-center gap-2 text-[#E4E4E4] font-bold text-sm tracking-wide" data-testid="link-phone">
-              <Phone size={16} className="text-[#B89A6A]" />
+              <Phone size={16} className="text-[#C89A4D]" />
               (514) 795-2889
             </a>
             <Link href="/soumission" data-testid="link-soumission-nav">
-              <Button className="bg-[#B89A6A] hover:bg-[#8C7048] text-white font-bold rounded-md px-6 py-5 uppercase tracking-wide transition-transform hover:scale-105">
+              <Button className="bg-[#C89A4D] hover:bg-[#9A702F] text-white font-bold rounded-md px-6 py-5 uppercase tracking-wide transition-transform hover:scale-105">
                 Soumission gratuite
               </Button>
             </Link>
@@ -71,7 +71,7 @@ export function Navbar() {
           <button onClick={() => scrollToSection('apropos')} className="text-2xl font-bold uppercase text-left">À propos</button>
           <button onClick={() => scrollToSection('contact')} className="text-2xl font-bold uppercase text-left">Contact</button>
           <Link href="/soumission">
-            <Button className="bg-[#B89A6A] hover:bg-[#8C7048] text-white font-bold rounded-md py-6 mt-4 uppercase tracking-wide text-lg w-full">
+            <Button className="bg-[#C89A4D] hover:bg-[#9A702F] text-white font-bold rounded-md py-6 mt-4 uppercase tracking-wide text-lg w-full">
               Soumission gratuite
             </Button>
           </Link>

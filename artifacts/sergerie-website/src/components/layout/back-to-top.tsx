@@ -20,7 +20,7 @@ export function BackToTop() {
     <button
       onClick={scrollToTop}
       data-testid="button-back-to-top"
-      className={`fixed bottom-8 right-8 z-50 w-12 h-12 bg-[#B89A6A] hover:bg-[#8C7048] text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 ${
+      className={`fixed bottom-8 right-8 z-50 w-12 h-12 bg-[#C89A4D] hover:bg-[#9A702F] text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
       aria-label="Retour en haut"
