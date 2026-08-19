@@ -32,7 +32,7 @@ const steps = [
 export default function Home() {
   return (
     <PageWrapper>
-      <section id="accueil" className="relative min-h-[90vh] flex items-center pt-20" data-testid="hero-section">
+      <section id="accueil" className="relative min-h-[90svh] md:min-h-[90vh] flex items-center py-28 sm:py-32 md:py-36 lg:py-40" data-testid="hero-section">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
             autoPlay
@@ -48,17 +48,17 @@ export default function Home() {
           <div className="absolute inset-0 bg-[#1B1B1B]/70"></div>
         </div>
         
-        <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-[#EDEDED]">
+        <div className="container mx-auto px-5 sm:px-6 max-w-[1200px] relative z-10 text-[#EDEDED]">
           <div className="max-w-3xl">
             <FadeIn>
-              <div className="flex items-center gap-4 mb-6">
+              <div className="flex items-center gap-4 mb-8 md:mb-10">
                 <div className="w-12 h-1 bg-[#B89A6A]"></div>
                 <span className="text-[#B89A6A] font-bold tracking-[0.2em] uppercase text-sm">Rénovation résidentielle haut de gamme</span>
               </div>
             </FadeIn>
             
             <FadeIn delay={100}>
-              <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] mb-8 text-white uppercase tracking-tight" data-testid="text-hero-title">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-[1.08] mb-8 md:mb-10 text-white uppercase tracking-tight" data-testid="text-hero-title">
                 Transformez votre maison <br />
                 <span className="text-[#D4B27A]">avec une rénovation</span> <br />
                 à votre image
@@ -66,12 +66,12 @@ export default function Home() {
             </FadeIn>
             
             <FadeIn delay={200}>
-              <p className="text-lg md:text-xl text-[#EDEDED]/80 mb-10 max-w-2xl font-medium leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-[#EDEDED]/80 mb-12 md:mb-14 max-w-2xl font-medium leading-relaxed">
                 Entrepreneur général spécialisé en rénovation résidentielle intérieure et extérieure. Des projets réalisés avec précision, qualité et souci du détail.
               </p>
             </FadeIn>
             
-            <FadeIn delay={300} className="flex flex-col sm:flex-row gap-4">
+            <FadeIn delay={300} className="flex flex-col sm:flex-row gap-4 sm:gap-5 pb-4 md:pb-6">
               <Link href="/soumission" data-testid="link-hero-soumission">
                 <Button className="bg-[#B89A6A] hover:bg-[#8C7048] text-white font-bold rounded-md px-8 py-6 uppercase tracking-wide text-base transition-transform hover:scale-105 h-auto">
                   Demander une soumission
