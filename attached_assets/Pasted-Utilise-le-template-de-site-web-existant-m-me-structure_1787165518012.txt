@@ -1,0 +1,250 @@
+Utilise le template de site web existant (même structure que les autres projets) et adapte-le pour cette entreprise.
+
+---
+
+ENTREPRISE : Rénovation Isaac Thibault inc.
+
+---
+
+OBJECTIF DU SITE :
+Créer un site web professionnel pour Rénovation Isaac Thibault inc., un entrepreneur général spécialisé dans les projets de rénovation intérieure et extérieure résidentiels.
+
+Le site doit positionner l’entreprise comme un entrepreneur de confiance offrant des rénovations haut de gamme, un service personnalisé et un travail durable avec une attention particulière aux détails et aux finitions.
+
+Mettre l’accent sur :
+- Rénovation intérieure
+- Rénovation extérieure
+- Cuisine
+- Salle de bain
+- Transformation complète d’espaces
+- Finitions haut de gamme
+- Projets résidentiels sur mesure
+
+---
+
+TON / STYLE :
+- Moderne
+- Élégant
+- Professionnel
+- Haut de gamme
+- Axé sur le détail
+
+Le design doit refléter la qualité des réalisations visibles sur les photos : cuisines modernes, salles de bain contemporaines et espaces propres avec de belles finitions.
+
+---
+
+IDENTITÉ :
+
+Nom :
+Rénovation Isaac Thibault inc.
+
+Téléphone :
+(514) 795-2889
+
+Courriel :
+renovationisaact@icloud.com
+
+Adresse :
+40 Camille, Repentigny, QC
+
+Secteur :
+Repentigny, Montréal et environs
+
+---
+
+DESCRIPTION ENTREPRISE :
+
+"Rénovation Isaac Thibault inc. accompagne ses clients dans leurs projets de rénovation intérieure et extérieure avec un service professionnel, une exécution soignée et une approche personnalisée."
+
+---
+
+HERO SECTION :
+
+Titre :
+"Transformez votre maison avec une rénovation à votre image."
+
+Sous-titre :
+"Entrepreneur général spécialisé en rénovation résidentielle intérieure et extérieure. Des projets réalisés avec précision, qualité et souci du détail."
+
+Boutons :
+- Demander une soumission
+- Voir nos réalisations
+
+---
+
+SERVICES (6 CARTES)
+
+1. Rénovation de cuisine
+
+Description :
+"Créez une cuisine moderne, fonctionnelle et adaptée à votre style de vie."
+
+Inclure :
+- Transformation complète
+- Armoires et comptoirs
+- Dosserets
+- Aménagement personnalisé
+- Finitions modernes
+
+
+2. Rénovation de salle de bain
+
+Description :
+"Des salles de bain élégantes et durables pensées selon vos besoins."
+
+Inclure :
+- Douche sur mesure
+- Céramique
+- Vanité
+- Plomberie
+- Modernisation complète
+
+
+3. Rénovation intérieure complète
+
+Description :
+"Donnez une nouvelle vie à votre propriété avec une transformation complète."
+
+Inclure :
+- Réaménagement d’espaces
+- Sous-sol
+- Aires ouvertes
+- Finitions intérieures
+
+
+4. Finition intérieure
+
+Description :
+"Des détails qui font toute la différence dans le résultat final."
+
+Inclure :
+- Planchers
+- Peinture
+- Moulures
+- Portes
+- Finitions décoratives
+
+
+5. Rénovation extérieure
+
+Description :
+"Améliorez l’apparence et la valeur de votre propriété."
+
+Inclure :
+- Revêtement extérieur
+- Terrasses
+- Réparations
+- Améliorations architecturales
+
+
+6. Projet sur mesure
+
+Description :
+"Un accompagnement personnalisé pour réaliser votre vision."
+
+Inclure :
+- Analyse du projet
+- Planification
+- Gestion complète
+- Coordination des travaux
+
+---
+
+SECTION À PROPOS :
+
+Titre :
+"Une approche basée sur la qualité et la confiance"
+
+Texte :
+
+"Chez Rénovation Isaac Thibault inc., chaque projet est réalisé avec passion et professionnalisme. Notre objectif est d’offrir des espaces fonctionnels, modernes et durables qui répondent aux attentes de chaque client."
+
+---
+
+SECTION RÉALISATIONS :
+
+Mettre en avant :
+- Cuisines modernes
+- Salles de bain rénovées
+- Espaces intérieurs transformés
+- Projets avant/après
+- Finitions détaillées
+
+Créer une galerie premium avec grandes images.
+
+---
+
+SECTION POURQUOI NOUS CHOISIR :
+
+✓ Entrepreneur général de confiance  
+✓ Rénovations résidentielles complètes  
+✓ Souci du détail  
+✓ Travail propre et professionnel  
+✓ Service personnalisé  
+✓ Résultats durables et esthétiques  
+
+---
+
+DESIGN SYSTEM :
+
+S’inspirer du logo actuel (style minimaliste beige/noir).
+
+Palette :
+
+Couleur principale :
+- Noir charbon : #111111
+
+Accent :
+- Beige doré : #B89A6A
+
+Secondaire :
+- Gris chaud : #6B6258
+
+Blanc :
+- #FFFFFF
+
+
+---
+
+STYLE VISUEL :
+
+- Design rénovation haut de gamme
+- Inspiration architecture intérieure
+- Beaucoup d’espaces blancs
+- Photos lumineuses de cuisines et salles de bain
+- Ambiance premium et élégante
+
+Utiliser des images de réalisations plutôt que des photos de chantier.
+
+Éviter un style trop "entrepreneur général industriel".
+Positionner Rénovation Isaac Thibault comme un spécialiste des rénovations résidentielles haut de gamme.
+
+---
+
+NAVBAR / FOOTER :
+
+Navbar :
+- Logo
+- Accueil
+- Services
+- Réalisations
+- À propos
+- Contact
+
+Bouton :
+"Soumission gratuite"
+
+Footer :
+- Téléphone
+- Courriel
+- Zone desservie
+- Formulaire de contact
+
+---
+
+IMPORTANT :
+- Garder exactement la structure du template existant.
+- Modifier uniquement textes, images, couleurs et informations.
+- Ne pas créer une nouvelle structure.
+- Utiliser les photos de cuisines et rénovations comme éléments principaux.
+- Mettre l’accent sur la qualité des finitions et l’aspect haut de gamme des projets.

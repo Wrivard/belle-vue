@@ -9,14 +9,14 @@ import { FaqSection } from '@/components/layout/faq-section';
 import { img } from '@/lib/utils';
 
 const advantages = [
-  'Spécialiste en construction résidentielle',
-  'Rénovation & toiture complètes',
-  'Région du Saguenay',
+  'Entrepreneur général de confiance',
+  'Rénovations résidentielles complètes',
+  'Repentigny, Montréal et environs',
   'Visite et soumission gratuites',
   'Prix fermes, sans surprise',
   'Service professionnel du début à la fin',
   'Travail précis et durable',
-  'Réponse sous 24h'
+  'Résultats durables et esthétiques'
 ];
 
 export default function Soumission() {
@@ -24,7 +24,7 @@ export default function Soumission() {
     <PageWrapper>
       <section className="relative min-h-[50vh] flex items-center pt-20" data-testid="soumission-hero">
         <div className="absolute inset-0 z-0">
-          <img src={img('pros-maison-patio.jpg')} alt="Chantier Construction Pro-S" className="w-full h-full object-cover object-center" />
+           <img src={img('photo-cuisine-3.jpg')} alt="Projet de rénovation résidentielle" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#1B1B1B]/85"></div>
         </div>
         
@@ -32,21 +32,21 @@ export default function Soumission() {
           <div className="max-w-3xl">
             <FadeIn>
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-1 bg-[#0077C8]"></div>
-                <span className="text-[#0077C8] font-bold tracking-[0.2em] uppercase text-sm">Soumission gratuite</span>
+                 <div className="w-12 h-1 bg-[#B89A6A]"></div>
+                 <span className="text-[#B89A6A] font-bold tracking-[0.2em] uppercase text-sm">Soumission gratuite</span>
               </div>
             </FadeIn>
             
             <FadeIn delay={100}>
               <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] mb-6 text-white uppercase tracking-tight" data-testid="text-soumission-title">
-                Démarrez votre <br />
-                <span className="text-[#4DA8DA]">projet</span> aujourd'hui
+                 Démarrez votre <br />
+                 <span className="text-[#D4B27A]">projet</span> aujourd'hui
               </h1>
             </FadeIn>
             
             <FadeIn delay={200}>
               <p className="text-lg md:text-xl text-[#EDEDED]/80 max-w-2xl font-medium leading-relaxed">
-                Construction, rénovation ou toiture résidentielle dans la région du Saguenay. Réponse garantie sous 24h. Visite gratuite incluse. Aucun engagement.
+                 Rénovation intérieure ou extérieure à Repentigny, Montréal et les environs. Décrivez-nous votre projet et recevez une réponse personnalisée, sans engagement.
               </p>
             </FadeIn>
           </div>
@@ -60,7 +60,7 @@ export default function Soumission() {
               <FadeIn>
                 <div className="bg-white p-8 md:p-12 rounded-md shadow-lg">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-8 h-1 bg-[#0077C8]"></div>
+                   <div className="w-8 h-1 bg-[#B89A6A]"></div>
                   </div>
                   <h2 className="text-3xl font-bold uppercase tracking-tight mb-8 text-[#1B1B1B]">Détails du projet</h2>
                   
@@ -68,35 +68,35 @@ export default function Soumission() {
                     <div className="grid md:grid-cols-2 gap-8">
                       <div className="space-y-2">
                         <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Nom complet *</label>
-                        <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#0077C8]" placeholder="Votre nom" data-testid="input-soumission-name" />
+                        <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#B89A6A]" placeholder="Votre nom" data-testid="input-soumission-name" />
                       </div>
                       <div className="space-y-2">
                         <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Téléphone *</label>
-                        <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#0077C8]" placeholder="(418) 000-0000" data-testid="input-soumission-phone" />
+                       <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#B89A6A]" placeholder="(514) 000-0000" data-testid="input-soumission-phone" />
                       </div>
                     </div>
                     
                     <div className="grid md:grid-cols-2 gap-8">
                       <div className="space-y-2">
                         <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Courriel *</label>
-                        <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#0077C8]" placeholder="votre@courriel.com" data-testid="input-soumission-email" />
+                        <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#B89A6A]" placeholder="votre@courriel.com" data-testid="input-soumission-email" />
                       </div>
                       <div className="space-y-2">
                         <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Adresse des travaux *</label>
-                        <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#0077C8]" placeholder="Numéro et rue, Ville" data-testid="input-soumission-address" />
+                        <Input className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#B89A6A]" placeholder="Numéro et rue, Ville" data-testid="input-soumission-address" />
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Type de service *</label>
-                      <select className="w-full h-14 bg-[#EDEDED]/50 border-0 rounded-sm px-3 text-[#1B1B1B] focus:ring-2 focus:ring-[#0077C8] focus:outline-none appearance-none cursor-pointer" data-testid="select-soumission-service">
+                      <select className="w-full h-14 bg-[#EDEDED]/50 border-0 rounded-sm px-3 text-[#1B1B1B] focus:ring-2 focus:ring-[#B89A6A] focus:outline-none appearance-none cursor-pointer" data-testid="select-soumission-service">
                         <option value="">Sélectionnez un service</option>
-                        <option value="construction">Construction résidentielle</option>
-                        <option value="renovation-generale">Rénovation générale</option>
-                        <option value="toiture">Toiture</option>
-                        <option value="revetement-exterieur">Revêtement extérieur</option>
-                        <option value="agrandissement">Agrandissement</option>
-                        <option value="travaux-finition">Travaux de finition</option>
+                         <option value="cuisine">Rénovation de cuisine</option>
+                         <option value="salle-de-bain">Rénovation de salle de bain</option>
+                         <option value="interieur-complet">Rénovation intérieure complète</option>
+                         <option value="finition-interieure">Finition intérieure</option>
+                         <option value="exterieur">Rénovation extérieure</option>
+                         <option value="sur-mesure">Projet sur mesure</option>
                         <option value="autre">Autre</option>
                       </select>
                     </div>
@@ -104,7 +104,7 @@ export default function Soumission() {
                     <div className="grid md:grid-cols-2 gap-8">
                       <div className="space-y-2">
                         <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Budget approximatif</label>
-                        <select className="w-full h-14 bg-[#EDEDED]/50 border-0 rounded-sm px-3 text-[#1B1B1B] focus:ring-2 focus:ring-[#0077C8] focus:outline-none appearance-none cursor-pointer" data-testid="select-soumission-budget">
+                        <select className="w-full h-14 bg-[#EDEDED]/50 border-0 rounded-sm px-3 text-[#1B1B1B] focus:ring-2 focus:ring-[#B89A6A] focus:outline-none appearance-none cursor-pointer" data-testid="select-soumission-budget">
                           <option value="">Sélectionnez un budget</option>
                           <option value="moins-5000">Moins de 5 000 $</option>
                           <option value="5000-15000">5 000 $ – 15 000 $</option>
@@ -116,7 +116,7 @@ export default function Soumission() {
                       </div>
                       <div className="space-y-2">
                         <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Échéancier souhaité</label>
-                        <select className="w-full h-14 bg-[#EDEDED]/50 border-0 rounded-sm px-3 text-[#1B1B1B] focus:ring-2 focus:ring-[#0077C8] focus:outline-none appearance-none cursor-pointer" data-testid="select-soumission-timeline">
+                        <select className="w-full h-14 bg-[#EDEDED]/50 border-0 rounded-sm px-3 text-[#1B1B1B] focus:ring-2 focus:ring-[#B89A6A] focus:outline-none appearance-none cursor-pointer" data-testid="select-soumission-timeline">
                           <option value="">Sélectionnez un délai</option>
                           <option value="urgent">Le plus tôt possible</option>
                           <option value="1-3-mois">Dans 1 à 3 mois</option>
@@ -129,21 +129,21 @@ export default function Soumission() {
 
                     <div className="space-y-2">
                       <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Détails supplémentaires</label>
-                      <Textarea 
-                        className="bg-[#EDEDED]/50 border-0 min-h-[220px] rounded-sm focus-visible:ring-[#0077C8] resize-none" 
-                        placeholder="Décrivez votre projet (type de rénovation, pièces concernées, ampleur des travaux, échéancier souhaité, etc.)" 
+                         <Textarea 
+                         className="bg-[#EDEDED]/50 border-0 min-h-[220px] rounded-sm focus-visible:ring-[#B89A6A] resize-none" 
+                         placeholder="Décrivez votre projet (pièces concernées, travaux souhaités, style recherché, échéancier, etc.)" 
                         data-testid="input-soumission-details"
                       />
                     </div>
 
                     <div className="flex items-start gap-3 pt-2">
-                      <input type="checkbox" id="consent" className="mt-1 accent-[#0077C8] w-4 h-4" data-testid="checkbox-consent" />
+                       <input type="checkbox" id="consent" className="mt-1 accent-[#B89A6A] w-4 h-4" data-testid="checkbox-consent" />
                       <label htmlFor="consent" className="text-sm text-[#1B1B1B]/60 leading-relaxed">
                         J'accepte que mes informations soient utilisées uniquement pour traiter ma demande de soumission conformément à notre politique de confidentialité.
                       </label>
                     </div>
 
-                    <Button className="w-full bg-[#0077C8] hover:bg-[#005B99] text-white font-bold rounded-md py-6 uppercase tracking-wide text-base transition-transform hover:scale-[1.02] h-auto mt-4" data-testid="button-soumission-submit">
+                     <Button className="w-full bg-[#B89A6A] hover:bg-[#8C7048] text-white font-bold rounded-md py-6 uppercase tracking-wide text-base transition-transform hover:scale-[1.02] h-auto mt-4" data-testid="button-soumission-submit">
                       Envoyer ma demande de soumission
                     </Button>
                   </form>
@@ -158,32 +158,32 @@ export default function Soumission() {
                   
                   <div className="space-y-6">
                     <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 bg-[#0077C8] rounded-md flex items-center justify-center shrink-0">
+                       <div className="w-10 h-10 bg-[#B89A6A] rounded-md flex items-center justify-center shrink-0">
                         <Phone size={18} className="text-white" />
                       </div>
                       <div>
                         <div className="text-xs uppercase tracking-wider text-[#EDEDED]/40 font-bold mb-1">Téléphone</div>
-                        <a href="tel:418-487-8865" className="font-bold text-white text-lg hover:text-[#4DA8DA] transition-colors">(418) 487-8865</a>
+                         <a href="tel:514-795-2889" className="font-bold text-white text-lg hover:text-[#D4B27A] transition-colors">(514) 795-2889</a>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 bg-[#0077C8] rounded-md flex items-center justify-center shrink-0">
+                       <div className="w-10 h-10 bg-[#B89A6A] rounded-md flex items-center justify-center shrink-0">
                         <Mail size={18} className="text-white" />
                       </div>
                       <div>
                         <div className="text-xs uppercase tracking-wider text-[#EDEDED]/40 font-bold mb-1">Courriel</div>
-                        <a href="mailto:constructionpro-s@hotmail.com" className="font-bold text-white hover:text-[#4DA8DA] transition-colors text-sm">constructionpro-s@hotmail.com</a>
+                         <a href="mailto:renovationisaact@icloud.com" className="font-bold text-white hover:text-[#D4B27A] transition-colors text-sm">renovationisaact@icloud.com</a>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 bg-[#0077C8] rounded-md flex items-center justify-center shrink-0">
+                       <div className="w-10 h-10 bg-[#B89A6A] rounded-md flex items-center justify-center shrink-0">
                         <MapPin size={18} className="text-white" />
                       </div>
                       <div>
                         <div className="text-xs uppercase tracking-wider text-[#EDEDED]/40 font-bold mb-1">Adresse</div>
-                        <span className="font-bold text-white text-sm">400, rue du Lis-Blanc<br/>Chicoutimi (QC) G7G 0L4</span>
+                         <span className="font-bold text-white text-sm">40 Camille<br/>Repentigny (QC)</span>
                       </div>
                     </div>
                   </div>
@@ -197,7 +197,7 @@ export default function Soumission() {
                   <ul className="space-y-4">
                     {advantages.map((item, idx) => (
                       <li key={idx} className="flex items-center gap-3">
-                        <CheckCircle2 size={18} className="text-[#4DA8DA] shrink-0" />
+                        <CheckCircle2 size={18} className="text-[#D4B27A] shrink-0" />
                         <span className="text-[#EDEDED]/80 text-sm font-medium">{item}</span>
                       </li>
                     ))}
@@ -207,11 +207,11 @@ export default function Soumission() {
 
               <FadeIn delay={500}>
                 <div className="relative overflow-hidden rounded-md h-[420px]">
-                  <img src={img('pros-camion.jpg')} alt="Réalisation Construction Pro-S" className="w-full h-full object-cover object-center" />
+                   <img src={img('photo-sdb-complete.jpg')} alt="Réalisation de salle de bain" className="w-full h-full object-cover object-center" />
                   <div className="absolute inset-0 bg-[#1B1B1B]/60"></div>
                   <div className="absolute bottom-0 left-0 w-full p-8">
-                    <p className="text-white font-bold text-lg uppercase tracking-wide leading-tight">Entrepreneur spécialisé</p>
-                    <p className="text-[#4DA8DA] font-bold text-lg uppercase tracking-wide leading-tight">Construction & rénovation</p>
+                     <p className="text-white font-bold text-lg uppercase tracking-wide leading-tight">Rénovation résidentielle</p>
+                     <p className="text-[#D4B27A] font-bold text-lg uppercase tracking-wide leading-tight">Qualité & souci du détail</p>
                   </div>
                 </div>
               </FadeIn>
