@@ -11,7 +11,7 @@ import { img } from '@/lib/utils';
 const services = [
   { title: 'Rénovation de cuisine', img: 'client-cuisine-noire.png' },
   { title: 'Rénovation de salle de bain', img: 'client-salle-de-bain-1.png' },
-  { title: 'Rénovation intérieure complète', img: 'client-projet-sous-sol.jfif' },
+  { title: 'Rénovation de sous-sol', img: 'client-projet-sous-sol.jfif' },
   { title: 'Finition intérieure', img: 'client-cuisine-blanche.png' },
   { title: 'Rénovation extérieure', img: 'client-exterieur.png' },
   { title: 'Projet sur mesure', img: 'client-projet-6.png' },
