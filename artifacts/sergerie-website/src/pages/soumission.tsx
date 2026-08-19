@@ -24,7 +24,7 @@ export default function Soumission() {
     <PageWrapper>
       <section className="relative min-h-[50vh] flex items-center pt-20" data-testid="soumission-hero">
         <div className="absolute inset-0 z-0">
-           <img src={img('photo-cuisine-3.jpg')} alt="Projet de rénovation résidentielle" className="w-full h-full object-cover object-center" />
+           <img src={img('client-reno-general.jfif')} alt="Projet de rénovation résidentielle" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#1B1B1B]/85"></div>
         </div>
         
@@ -207,7 +207,7 @@ export default function Soumission() {
 
               <FadeIn delay={500}>
                 <div className="relative overflow-hidden rounded-md h-[420px]">
-                   <img src={img('photo-sdb-complete.jpg')} alt="Réalisation de salle de bain" className="w-full h-full object-cover object-center" />
+                   <img src={img('client-salle-de-bain-1.png')} alt="Réalisation de salle de bain" className="w-full h-full object-cover object-center" />
                   <div className="absolute inset-0 bg-[#1B1B1B]/60"></div>
                   <div className="absolute bottom-0 left-0 w-full p-8">
                      <p className="text-white font-bold text-lg uppercase tracking-wide leading-tight">Rénovation résidentielle</p>

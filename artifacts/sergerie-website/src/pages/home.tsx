@@ -9,18 +9,18 @@ import { ContactSection } from '@/components/layout/contact-section';
 import { img } from '@/lib/utils';
 
 const services = [
-  { title: 'Rénovation de cuisine', img: 'photo-cuisine.jpg' },
-  { title: 'Rénovation de salle de bain', img: 'photo-sdb-complete.jpg' },
-  { title: 'Rénovation intérieure complète', img: 'photo-soussol.jpg' },
-  { title: 'Finition intérieure', img: 'photo-cuisine-2.jpg' },
-  { title: 'Rénovation extérieure', img: 'photo-terrasse.jpg' },
-  { title: 'Projet sur mesure', img: 'photo-balcon.jpg' },
+  { title: 'Rénovation de cuisine', img: 'client-cuisine-noire.png' },
+  { title: 'Rénovation de salle de bain', img: 'client-salle-de-bain-1.png' },
+  { title: 'Rénovation intérieure complète', img: 'client-projet-sous-sol.jfif' },
+  { title: 'Finition intérieure', img: 'client-cuisine-blanche.png' },
+  { title: 'Rénovation extérieure', img: 'client-exterieur.png' },
+  { title: 'Projet sur mesure', img: 'client-projet-6.png' },
 ];
 
 const projects = [
-  { img: 'photo-cuisine-3.jpg', title: 'Cuisine moderne sur mesure', cat: 'Cuisine' },
-  { img: 'photo-sdb-vanite.jpg', title: 'Salle de bain contemporaine', cat: 'Salle de bain' },
-  { img: 'photo-soussol.jpg', title: 'Transformation complète d’espace', cat: 'Rénovation intérieure' },
+  { img: 'client-projet-cuisine.jfif', title: 'Cuisine moderne sur mesure', cat: 'Cuisine' },
+  { img: 'client-salle-de-bain-2.png', title: 'Salle de bain contemporaine', cat: 'Salle de bain' },
+  { img: 'client-projet-sous-sol.jfif', title: 'Transformation complète d’espace', cat: 'Rénovation intérieure' },
 ];
 
 const steps = [
@@ -60,8 +60,8 @@ export default function Home() {
             <FadeIn delay={100}>
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-[1.08] mb-8 md:mb-10 text-white uppercase tracking-tight" data-testid="text-hero-title">
                 Transformez votre maison <br />
-                <span className="text-[#C89A4D]">avec une rénovation</span> <br />
-                à votre image
+                avec une <br />
+                <span className="text-[#C89A4D]">rénovation à votre image</span>
               </h1>
             </FadeIn>
             
@@ -184,7 +184,7 @@ export default function Home() {
 
             <FadeIn delay={200} className="relative">
               <div className="absolute -inset-4 border-2 border-[#C89A4D]/30 rounded-md transform translate-x-4 translate-y-4"></div>
-               <img src={img('photo-cuisine-3.jpg')} alt="Projet de rénovation résidentielle" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl" />
+               <img src={img('client-reno-general.jfif')} alt="Projet de rénovation résidentielle" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl" />
             </FadeIn>
           </div>
         </div>
@@ -257,7 +257,7 @@ export default function Home() {
 
       <section className="py-32 text-white relative overflow-hidden" data-testid="cta-section">
         <div className="absolute inset-0 z-0">
-          <img src={img('photo-terrasse.jpg')} alt="Projet de rénovation extérieure" className="w-full h-full object-cover" />
+          <img src={img('client-projet-patio.jfif')} alt="Projet de rénovation extérieure" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-[#1B1B1B]/85"></div>
         </div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-center">
