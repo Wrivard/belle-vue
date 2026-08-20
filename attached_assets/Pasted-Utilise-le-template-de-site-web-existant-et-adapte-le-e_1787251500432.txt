@@ -1,0 +1,384 @@
+Utilise le template de site web existant et adapte-le entièrement pour **Construction KMF**.
+
+---
+
+# ENTREPRISE
+
+**Construction KMF**
+
+Entreprise générale spécialisée principalement en **revêtement extérieur**, desservant notamment **Montréal, Blainville, Terrebonne, Laval et Repentigny**.
+
+Construction KMF réalise des projets **résidentiels, commerciaux et de rénovation**, avec une approche axée sur la qualité d’exécution, la durabilité et le souci du travail bien fait.
+
+**RBQ : 5786-4977-01**
+
+---
+
+# OBJECTIF DU SITE
+
+Créer un site web moderne et professionnel qui positionne Construction KMF comme un **spécialiste du revêtement extérieur**.
+
+Le site doit permettre de :
+
+* Présenter clairement les différents services de revêtement extérieur.
+* Mettre en valeur les réalisations de l’entreprise.
+* Inspirer confiance dès les premières secondes.
+* Montrer la capacité à réaliser des projets résidentiels et commerciaux.
+* Générer principalement des **demandes de soumission**.
+* Faciliter les appels et prises de contact.
+
+Ne pas donner l'impression d'une entreprise de rénovation générale qui fait un peu de tout. Le **revêtement extérieur doit être au cœur du positionnement**.
+
+---
+
+# STYLE / DIRECTION VISUELLE
+
+Créer une esthétique :
+
+* Moderne
+* Solide
+* Professionnelle
+* Épurée
+* Architecturale
+* Masculine sans être trop industrielle
+
+Le design doit rappeler les entreprises spécialisées en **enveloppe du bâtiment et revêtement architectural**.
+
+Utiliser de grandes photos de réalisations : maisons modernes, multilogements, bâtiments commerciaux, détails de revêtement et transformations avant/après.
+
+Éviter les photos stock génériques de travailleurs qui regardent la caméra.
+
+---
+
+# IDENTITÉ VISUELLE
+
+S'inspirer directement du logo actuel de Construction KMF.
+
+### Palette principale
+
+**Bleu KMF**
+`#29499A`
+
+**Noir charbon**
+`#171717`
+
+**Blanc**
+`#FFFFFF`
+
+**Gris pâle**
+`#F4F4F4`
+
+**Gris acier**
+`#686868`
+
+Utiliser principalement le blanc et le noir/gris pour conserver un aspect haut de gamme.
+
+Le bleu doit être utilisé comme **couleur d'accent** pour les boutons, liens, icônes et éléments importants.
+
+---
+
+# HERO SECTION
+
+Utiliser une grande photographie professionnelle d'une maison contemporaine ou d'un bâtiment récemment terminé avec un **revêtement extérieur moderne clairement visible**.
+
+### Petit texte
+
+**SPÉCIALISTE EN REVÊTEMENT EXTÉRIEUR**
+
+### Titre
+
+**Donnez une nouvelle dimension à votre extérieur.**
+
+### Sous-titre
+
+**Installation et rénovation de revêtement extérieur pour projets résidentiels et commerciaux à Montréal et sur la Rive-Nord.**
+
+### CTA principal
+
+**Demander une soumission**
+
+### CTA secondaire
+
+**Voir nos réalisations**
+
+Sous les boutons :
+
+**Résidentiel • Commercial • Rénovation**
+
+---
+
+# SERVICES
+
+Créer une section :
+
+## **Notre expertise en revêtement extérieur**
+
+Présenter les principaux services sous forme de grandes cartes visuelles.
+
+### Revêtement résidentiel
+
+Installation et remplacement de revêtement extérieur pour maisons neuves et projets de rénovation.
+
+### Revêtement commercial
+
+Solutions de revêtement adaptées aux commerces, bâtiments professionnels et projets de plus grande envergure.
+
+### Remplacement de revêtement
+
+Modernisation de bâtiments existants avec retrait et remplacement du revêtement extérieur.
+
+### Construction neuve
+
+Installation complète du revêtement sur les nouvelles constructions.
+
+### Rénovation extérieure
+
+Transformation et remise à niveau de l'apparence extérieure d'un bâtiment.
+
+### Finitions extérieures
+
+Installation et finition des différents éléments nécessaires pour obtenir un résultat propre, uniforme et durable.
+
+---
+
+# TYPES DE REVÊTEMENT
+
+Créer une section visuelle permettant de présenter les différents matériaux que l'entreprise peut installer.
+
+Exemples de catégories à prévoir :
+
+* Revêtement métallique
+* Fibrociment
+* Vinyle
+* Bois et imitation bois
+* Revêtement architectural
+* Revêtement composite
+
+**Important :** si certains matériaux ne sont pas réellement offerts par Construction KMF, garder la structure facilement modifiable plutôt que d'affirmer qu'ils les installent.
+
+---
+
+# RÉSIDENTIEL
+
+Créer une grande section avec photo.
+
+### Titre
+
+**Transformez l'apparence de votre propriété**
+
+### Texte
+
+Le revêtement extérieur joue un rôle majeur autant dans l'apparence que dans la protection d'une propriété. Construction KMF accompagne ses clients dans leurs projets de construction et de rénovation afin d'obtenir une finition extérieure propre, moderne et durable.
+
+### CTA
+
+**Parler de mon projet**
+
+---
+
+# COMMERCIAL
+
+Créer une section visuellement plus architecturale.
+
+### Titre
+
+**Des solutions adaptées aux projets commerciaux**
+
+Présenter Construction KMF comme une entreprise capable d'intervenir sur des bâtiments commerciaux et des projets de plus grande ampleur.
+
+Mettre l'accent sur :
+
+* Qualité d'installation
+* Uniformité des finitions
+* Durabilité
+* Respect du projet
+* Revêtement architectural
+* Travaux sur bâtiments existants ou constructions neuves
+
+### CTA
+
+**Demander une soumission commerciale**
+
+---
+
+# AVANT / APRÈS
+
+Créer une section interactive avec plusieurs transformations de bâtiments.
+
+### Titre
+
+**Voyez la différence**
+
+Utiliser idéalement un système de comparaison avant/après avec slider.
+
+Cette section doit démontrer visuellement l'impact qu'un nouveau revêtement peut avoir sur une propriété.
+
+---
+
+# RÉALISATIONS
+
+Cette section doit être très importante dans le site.
+
+### Titre
+
+**Nos réalisations**
+
+Créer une galerie moderne avec filtres :
+
+**Tous | Résidentiel | Commercial | Construction neuve | Rénovation**
+
+Chaque projet peut contenir :
+
+* Plusieurs photos
+* Type de projet
+* Localisation
+* Type de revêtement
+* Courte description
+
+Utiliser de grandes images et très peu de texte afin de laisser les réalisations parler d'elles-mêmes.
+
+---
+
+# À PROPOS
+
+### Titre
+
+**Le souci du travail bien fait.**
+
+### Texte
+
+Construction KMF est une entreprise générale spécialisée en revêtement extérieur qui réalise des projets résidentiels, commerciaux et de rénovation.
+
+Chaque projet est réalisé avec une attention particulière portée à la qualité d'exécution, aux détails et à la durabilité du résultat.
+
+Que ce soit pour une construction neuve ou pour transformer complètement l'apparence d'un bâtiment existant, Construction KMF mise sur une approche professionnelle et un travail propre du début à la fin.
+
+---
+
+# POURQUOI CONSTRUCTION KMF
+
+Créer 4 blocs simples :
+
+### Expertise spécialisée
+
+Une entreprise dont le revêtement extérieur constitue une expertise centrale.
+
+### Travail soigné
+
+Une attention particulière portée aux détails et aux finitions.
+
+### Résidentiel & commercial
+
+Des solutions adaptées à différents types de bâtiments.
+
+### Résultat durable
+
+Une installation pensée autant pour l'apparence que pour la longévité.
+
+---
+
+# ZONES DESSERVIES
+
+Créer une section SEO locale :
+
+### **Revêtement extérieur à Montréal et sur la Rive-Nord**
+
+Présenter notamment :
+
+* Montréal
+* Laval
+* Blainville
+* Terrebonne
+* Repentigny
+* Rive-Nord
+* Secteurs environnants
+
+Ajouter une phrase indiquant que les clients peuvent communiquer avec Construction KMF pour vérifier la disponibilité dans leur secteur.
+
+---
+
+# CALL TO ACTION FINAL
+
+Créer une grande section visuelle avec une belle réalisation en arrière-plan.
+
+### Titre
+
+**Un projet de revêtement extérieur?**
+
+### Texte
+
+Parlez-nous de votre projet et obtenez une soumission adaptée à vos besoins.
+
+### Bouton
+
+**Obtenir une soumission**
+
+Ajouter également :
+
+**(514) 838-1641**
+
+---
+
+# COORDONNÉES
+
+**Construction KMF**
+
+**Téléphone :**
+(514) 838-1641
+
+**Courriel :**
+[constructionkmf@gmail.com](mailto:constructionkmf@gmail.com)
+
+**Secteurs desservis :**
+Montréal • Laval • Blainville • Terrebonne • Repentigny • Rive-Nord
+
+**RBQ :**
+5786-4977-01
+
+---
+
+# NAVIGATION
+
+* Accueil
+* Services
+* Réalisations
+* À propos
+* Contact
+
+Bouton toujours visible dans le header :
+
+**Demander une soumission**
+
+Sur mobile, ajouter également un bouton d'appel rapide.
+
+---
+
+# FOOTER
+
+Inclure :
+
+* Logo Construction KMF
+* Courte description
+* Services
+* Zones desservies
+* Téléphone
+* Courriel
+* RBQ
+* Liens de navigation
+* Bouton de soumission
+
+---
+
+# IMPORTANT
+
+* Conserver la structure générale et les fonctionnalités du template existant.
+* Adapter complètement son contenu et son identité à Construction KMF.
+* Le site doit immédiatement communiquer **REVÊTEMENT EXTÉRIEUR**.
+* Ne pas diluer le positionnement avec trop de services de construction générale.
+* Mettre fortement en valeur les réalisations.
+* Utiliser des photos réalistes et professionnelles de revêtements extérieurs.
+* Favoriser les maisons modernes, multilogements et bâtiments commerciaux.
+* Éviter les images stock clichés.
+* Utiliser le bleu du logo comme accent plutôt que comme couleur dominante partout.
+* Donner au site une apparence beaucoup plus professionnelle que la présence Facebook actuelle.
+* Optimiser le site pour convertir les visiteurs en **appels et demandes de soumission**.

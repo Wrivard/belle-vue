@@ -22,7 +22,7 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
             </div>
             <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-8">Discutons de <br/>votre projet</h2>
             <p className="text-lg text-[#1B1B1B]/70 mb-12">
-              Rénovation intérieure et extérieure résidentielle à Repentigny, Montréal et environs. Contactez-nous pour une soumission gratuite.
+               Revêtement extérieur résidentiel et commercial à Montréal et sur la Rive-Nord. Contactez-nous pour une soumission adaptée à votre projet.
             </p>
 
             <div className="space-y-8">
@@ -32,7 +32,7 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
                 </div>
                 <div>
                   <h4 className="font-bold uppercase text-sm text-[#1B1B1B]/60 tracking-wider mb-1">Téléphone</h4>
-                   <a href="tel:514-795-2889" className="text-2xl font-bold hover:text-[#C89A4D] transition-colors" data-testid="text-phone">(514) 795-2889</a>
+                    <a href="tel:5148381641" className="text-2xl font-bold hover:text-[#29499A] transition-colors" data-testid="text-phone">(514) 838-1641</a>
                 </div>
               </div>
               
@@ -42,7 +42,7 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
                 </div>
                 <div>
                   <h4 className="font-bold uppercase text-sm text-[#1B1B1B]/60 tracking-wider mb-1">Courriel</h4>
-                   <a href="mailto:renovationisaact@icloud.com" className="text-xl font-bold hover:text-[#C89A4D] transition-colors" data-testid="text-email">renovationisaact@icloud.com</a>
+                    <a href="mailto:constructionkmf@gmail.com" className="text-xl font-bold hover:text-[#29499A] transition-colors" data-testid="text-email">constructionkmf@gmail.com</a>
                 </div>
               </div>
 
@@ -52,7 +52,7 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
                 </div>
                 <div>
                   <h4 className="font-bold uppercase text-sm text-[#1B1B1B]/60 tracking-wider mb-1">Emplacement</h4>
-                   <p className="text-xl font-bold" data-testid="text-location">Repentigny, QC<br/><span className="text-base text-[#1B1B1B]/60">Montréal et environs</span></p>
+                    <p className="text-xl font-bold" data-testid="text-location">Montréal & Rive-Nord<br/><span className="text-base text-[#1B1B1B]/60">Laval, Blainville, Terrebonne, Repentigny</span></p>
                 </div>
               </div>
             </div>
@@ -108,8 +108,8 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
                 <div className="absolute inset-0 bg-[#1B1B1B]/40"></div>
                 <div className="absolute bottom-0 left-0 w-full p-8 bg-[#1B1B1B]/80">
                   <div className="text-xs font-bold tracking-[0.25em] uppercase text-white/60 mb-2">Entrepreneur spécialisé</div>
-                   <p className="text-white font-bold text-lg uppercase tracking-wide">Rénovation intérieure</p>
-                   <p className="text-[#C89A4D] font-bold text-lg uppercase tracking-wide">Finitions haut de gamme</p>
+                     <p className="text-white font-bold text-lg uppercase tracking-wide">Revêtement extérieur</p>
+                    <p className="text-[#8EA8F1] font-bold text-lg uppercase tracking-wide">Qualité & durabilité</p>
                 </div>
               </div>
             </FadeIn>

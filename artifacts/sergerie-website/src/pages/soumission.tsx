@@ -9,14 +9,14 @@ import { FaqSection } from '@/components/layout/faq-section';
 import { img } from '@/lib/utils';
 
 const advantages = [
-  'Entrepreneur général de confiance',
-  'Rénovations résidentielles complètes',
-  'Repentigny, Montréal et environs',
-  'Visite et soumission gratuites',
-  'Prix fermes, sans surprise',
+  'Spécialiste du revêtement extérieur',
+  'Projets résidentiels et commerciaux',
+  'Montréal et la Rive-Nord',
+  'Soumission adaptée à votre projet',
+  'Installation propre et durable',
   'Service professionnel du début à la fin',
-  'Travail précis et durable',
-  'Résultats durables et esthétiques'
+  'Travail précis et soigné',
+  'Licence RBQ 5786-4977-01'
 ];
 
 export default function Soumission() {
@@ -24,7 +24,7 @@ export default function Soumission() {
     <PageWrapper>
       <section className="relative min-h-[50vh] flex items-center pt-20" data-testid="soumission-hero">
         <div className="absolute inset-0 z-0">
-           <img src={img('client-reno-general.jfif')} alt="Projet de rénovation résidentielle" className="w-full h-full object-cover object-center" />
+           <img src={img('photo-revetement.jpg')} alt="Projet de revêtement extérieur" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#1B1B1B]/85"></div>
         </div>
         
@@ -33,20 +33,20 @@ export default function Soumission() {
             <FadeIn>
               <div className="flex items-center gap-4 mb-6">
                  <div className="w-12 h-1 bg-[#C89A4D]"></div>
-                 <span className="text-[#C89A4D] font-bold tracking-[0.2em] uppercase text-sm">Soumission gratuite</span>
+                 <span className="text-[#8EA8F1] font-bold tracking-[0.2em] uppercase text-sm">Construction KMF</span>
               </div>
             </FadeIn>
             
             <FadeIn delay={100}>
               <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] mb-6 text-white uppercase tracking-tight" data-testid="text-soumission-title">
-                 Démarrez votre <br />
-                 <span className="text-[#C89A4D]">projet</span> aujourd'hui
+                  Donnez une nouvelle <br />
+                  <span className="text-[#8EA8F1]">dimension à votre extérieur</span>
               </h1>
             </FadeIn>
             
             <FadeIn delay={200}>
               <p className="text-lg md:text-xl text-[#EDEDED]/80 max-w-2xl font-medium leading-relaxed">
-                 Rénovation intérieure ou extérieure à Repentigny, Montréal et les environs. Décrivez-nous votre projet et recevez une réponse personnalisée, sans engagement.
+                  Décrivez-nous votre projet de revêtement extérieur à Montréal ou sur la Rive-Nord et recevez une réponse personnalisée, sans engagement.
               </p>
             </FadeIn>
           </div>
@@ -91,12 +91,12 @@ export default function Soumission() {
                       <label className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Type de service *</label>
                       <select className="w-full h-14 bg-[#EDEDED]/50 border-0 rounded-sm px-3 text-[#1B1B1B] focus:ring-2 focus:ring-[#C89A4D] focus:outline-none appearance-none cursor-pointer" data-testid="select-soumission-service">
                         <option value="">Sélectionnez un service</option>
-                         <option value="cuisine">Rénovation de cuisine</option>
-                         <option value="salle-de-bain">Rénovation de salle de bain</option>
-                         <option value="interieur-complet">Rénovation intérieure complète</option>
-                         <option value="finition-interieure">Finition intérieure</option>
-                         <option value="exterieur">Rénovation extérieure</option>
-                         <option value="sur-mesure">Projet sur mesure</option>
+                         <option value="residentiel">Revêtement résidentiel</option>
+                         <option value="commercial">Revêtement commercial</option>
+                         <option value="remplacement">Remplacement de revêtement</option>
+                         <option value="construction-neuve">Construction neuve</option>
+                         <option value="renovation-exterieure">Rénovation extérieure</option>
+                         <option value="finitions">Finitions extérieures</option>
                         <option value="autre">Autre</option>
                       </select>
                     </div>
@@ -163,7 +163,7 @@ export default function Soumission() {
                       </div>
                       <div>
                         <div className="text-xs uppercase tracking-wider text-[#EDEDED]/40 font-bold mb-1">Téléphone</div>
-                         <a href="tel:514-795-2889" className="font-bold text-white text-lg hover:text-[#C89A4D] transition-colors">(514) 795-2889</a>
+                          <a href="tel:5148381641" className="font-bold text-white text-lg hover:text-[#8EA8F1] transition-colors">(514) 838-1641</a>
                       </div>
                     </div>
 
@@ -173,7 +173,7 @@ export default function Soumission() {
                       </div>
                       <div>
                         <div className="text-xs uppercase tracking-wider text-[#EDEDED]/40 font-bold mb-1">Courriel</div>
-                         <a href="mailto:renovationisaact@icloud.com" className="font-bold text-white hover:text-[#C89A4D] transition-colors text-sm">renovationisaact@icloud.com</a>
+                          <a href="mailto:constructionkmf@gmail.com" className="font-bold text-white hover:text-[#8EA8F1] transition-colors text-sm">constructionkmf@gmail.com</a>
                       </div>
                     </div>
 
@@ -183,7 +183,7 @@ export default function Soumission() {
                       </div>
                       <div>
                         <div className="text-xs uppercase tracking-wider text-[#EDEDED]/40 font-bold mb-1">Adresse</div>
-                         <span className="font-bold text-white text-sm">40 Camille<br/>Repentigny (QC)</span>
+                          <span className="font-bold text-white text-sm">Montréal, Laval<br/>Blainville, Terrebonne, Repentigny</span>
                       </div>
                     </div>
                   </div>
@@ -210,8 +210,8 @@ export default function Soumission() {
                    <img src={img('client-salle-de-bain-1.png')} alt="Réalisation de salle de bain" className="w-full h-full object-cover object-center" />
                   <div className="absolute inset-0 bg-[#1B1B1B]/60"></div>
                   <div className="absolute bottom-0 left-0 w-full p-8">
-                     <p className="text-white font-bold text-lg uppercase tracking-wide leading-tight">Rénovation résidentielle</p>
-                     <p className="text-[#C89A4D] font-bold text-lg uppercase tracking-wide leading-tight">Qualité & souci du détail</p>
+                   <p className="text-white font-bold text-lg uppercase tracking-wide leading-tight">Revêtement extérieur</p>
+                   <p className="text-[#8EA8F1] font-bold text-lg uppercase tracking-wide leading-tight">Qualité & durabilité</p>
                   </div>
                 </div>
               </FadeIn>
