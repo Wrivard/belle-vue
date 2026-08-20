@@ -26,7 +26,7 @@ export function Footer() {
           </div>
           
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-[0.2em] mb-6 text-[#E4E4E4] border-b border-[#C89A4D] pb-3 inline-block">Nos services</h4>
+             <h4 className="text-sm font-bold uppercase tracking-[0.2em] mb-6 text-[#E4E4E4] border-b border-[#29499A] pb-3 inline-block">Nos services</h4>
             <ul className="space-y-3 text-[#E4E4E4]/70 text-sm">
                {['Revêtement résidentiel', 'Revêtement commercial', 'Remplacement de revêtement', 'Construction neuve', 'Rénovation extérieure', 'Finitions extérieures'].map((s) => (
                  <li key={s}><span className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#29499A] rounded-full shrink-0"></span>{s}</span></li>
@@ -35,30 +35,30 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-[0.2em] mb-6 text-[#E4E4E4] border-b border-[#C89A4D] pb-3 inline-block">Navigation</h4>
+             <h4 className="text-sm font-bold uppercase tracking-[0.2em] mb-6 text-[#E4E4E4] border-b border-[#29499A] pb-3 inline-block">Navigation</h4>
             <ul className="space-y-3 text-[#E4E4E4]/70 text-sm">
-              <li><Link href="/" className="hover:text-[#C89A4D] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#C89A4D] rounded-full shrink-0"></span>Accueil</Link></li>
-              <li><a href="#services" className="hover:text-[#C89A4D] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#C89A4D] rounded-full shrink-0"></span>Services</a></li>
-              <li><a href="#realisations" className="hover:text-[#C89A4D] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#C89A4D] rounded-full shrink-0"></span>Réalisations</a></li>
-              <li><a href="#apropos" className="hover:text-[#C89A4D] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#C89A4D] rounded-full shrink-0"></span>À propos</a></li>
-              <li><a href="#contact" className="hover:text-[#C89A4D] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#C89A4D] rounded-full shrink-0"></span>Contact</a></li>
-              <li><Link href="/soumission" className="hover:text-[#C89A4D] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#C89A4D] rounded-full shrink-0"></span>Soumission gratuite</Link></li>
+              <li><Link href="/" className="hover:text-[#8EA8F1] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#29499A] rounded-full shrink-0"></span>Accueil</Link></li>
+              <li><a href="#services" className="hover:text-[#8EA8F1] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#29499A] rounded-full shrink-0"></span>Services</a></li>
+              <li><a href="#realisations" className="hover:text-[#8EA8F1] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#29499A] rounded-full shrink-0"></span>Réalisations</a></li>
+              <li><a href="#apropos" className="hover:text-[#8EA8F1] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#29499A] rounded-full shrink-0"></span>À propos</a></li>
+              <li><a href="#contact" className="hover:text-[#8EA8F1] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#29499A] rounded-full shrink-0"></span>Contact</a></li>
+              <li><Link href="/soumission" className="hover:text-[#8EA8F1] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#29499A] rounded-full shrink-0"></span>Demander une soumission</Link></li>
             </ul>
           </div>
 
           <div>
-             <h4 className="text-sm font-bold uppercase tracking-[0.2em] mb-6 text-[#E4E4E4] border-b border-[#C89A4D] pb-3 inline-block">Coordonnées</h4>
+              <h4 className="text-sm font-bold uppercase tracking-[0.2em] mb-6 text-[#E4E4E4] border-b border-[#29499A] pb-3 inline-block">Coordonnées</h4>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
-                <MapPin size={18} className="text-[#C89A4D] shrink-0 mt-0.5" />
+                <MapPin size={18} className="text-[#8EA8F1] shrink-0 mt-0.5" />
                 <span className="text-[#E4E4E4]/70">Montréal, Laval<br/>et la Rive-Nord</span>
               </li>
               <li className="flex items-start gap-3">
-                <Phone size={18} className="text-[#C89A4D] shrink-0 mt-0.5" />
+                <Phone size={18} className="text-[#8EA8F1] shrink-0 mt-0.5" />
                 <a href="tel:5148381641" className="text-[#E4E4E4]/70 hover:text-[#8EA8F1] transition-colors">(514) 838-1641</a>
               </li>
               <li className="flex items-start gap-3">
-                <Mail size={18} className="text-[#C89A4D] shrink-0 mt-0.5" />
+                <Mail size={18} className="text-[#8EA8F1] shrink-0 mt-0.5" />
                 <a href="mailto:constructionkmf@gmail.com" className="text-[#E4E4E4]/70 hover:text-[#8EA8F1] transition-colors break-all">constructionkmf@gmail.com</a>
               </li>
             </ul>
