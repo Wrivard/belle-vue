@@ -34,9 +34,7 @@ export default function Home() {
     <PageWrapper>
       <section id="accueil" className="relative min-h-[90svh] flex items-center py-32 md:py-40" data-testid="hero-section">
         <div className="absolute inset-0 overflow-hidden">
-          <video autoPlay muted loop playsInline preload="auto" poster={img('kmf-projet-02.png')} className="w-full h-full object-cover object-center">
-            <source src={`${import.meta.env.BASE_URL}images/cp3m-hero-video.mp4`} type="video/mp4" />
-          </video>
+          <img src={img('kmf-hero.png')} alt="Maison contemporaine avec revêtement extérieur" className="w-full h-full object-cover object-[center_20%]" />
           <div className="absolute inset-0 bg-[#171717]/75" />
         </div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-white">
