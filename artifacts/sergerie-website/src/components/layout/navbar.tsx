@@ -38,16 +38,16 @@ export function Navbar() {
           </div>
           
           <div className="hidden md:flex items-center gap-8 font-semibold text-sm tracking-wide uppercase">
-             <a href={import.meta.env.BASE_URL} className="hover:text-[#8EA8F1] transition-colors" data-testid="link-accueil">Accueil</a>
-             <button onClick={() => scrollToSection('services')} className="hover:text-[#8EA8F1] transition-colors uppercase" data-testid="link-services">Services</button>
-             <button onClick={() => scrollToSection('realisations')} className="hover:text-[#8EA8F1] transition-colors uppercase" data-testid="link-realisations">Réalisations</button>
-             <button onClick={() => scrollToSection('apropos')} className="hover:text-[#8EA8F1] transition-colors uppercase" data-testid="link-apropos">À propos</button>
-             <button onClick={() => scrollToSection('contact')} className="hover:text-[#8EA8F1] transition-colors uppercase" data-testid="link-contact">Contact</button>
+             <a href={import.meta.env.BASE_URL} className="hover:text-[#29499A] transition-colors" data-testid="link-accueil">Accueil</a>
+             <button onClick={() => scrollToSection('services')} className="hover:text-[#29499A] transition-colors uppercase" data-testid="link-services">Services</button>
+             <button onClick={() => scrollToSection('realisations')} className="hover:text-[#29499A] transition-colors uppercase" data-testid="link-realisations">Réalisations</button>
+             <button onClick={() => scrollToSection('apropos')} className="hover:text-[#29499A] transition-colors uppercase" data-testid="link-apropos">À propos</button>
+             <button onClick={() => scrollToSection('contact')} className="hover:text-[#29499A] transition-colors uppercase" data-testid="link-contact">Contact</button>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
              <a href="tel:5148381641" className="flex items-center gap-2 text-[#E4E4E4] font-bold text-sm tracking-wide" data-testid="link-phone">
-               <Phone size={16} className="text-[#8EA8F1]" />
+               <Phone size={16} className="text-[#29499A]" />
                (514) 838-1641
             </a>
             <Link href="/soumission" data-testid="link-soumission-nav">

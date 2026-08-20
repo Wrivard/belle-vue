@@ -33,14 +33,14 @@ export default function Soumission() {
             <FadeIn>
               <div className="flex items-center gap-4 mb-6">
                  <div className="w-12 h-1 bg-[#29499A]"></div>
-                 <span className="text-[#8EA8F1] font-bold tracking-[0.2em] uppercase text-sm">Construction KMF</span>
+                 <span className="text-[#29499A] font-bold tracking-[0.2em] uppercase text-sm">Construction KMF</span>
               </div>
             </FadeIn>
             
             <FadeIn delay={100}>
               <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] mb-6 text-white uppercase tracking-tight" data-testid="text-soumission-title">
                   Donnez une nouvelle <br />
-                  <span className="text-[#8EA8F1]">dimension à votre extérieur</span>
+                  <span className="text-[#29499A]">dimension à votre extérieur</span>
               </h1>
             </FadeIn>
             
@@ -163,7 +163,7 @@ export default function Soumission() {
                       </div>
                       <div>
                         <div className="text-xs uppercase tracking-wider text-[#EDEDED]/40 font-bold mb-1">Téléphone</div>
-                          <a href="tel:5148381641" className="font-bold text-white text-lg hover:text-[#8EA8F1] transition-colors">(514) 838-1641</a>
+                          <a href="tel:5148381641" className="font-bold text-white text-lg hover:text-[#29499A] transition-colors">(514) 838-1641</a>
                       </div>
                     </div>
 
@@ -173,7 +173,7 @@ export default function Soumission() {
                       </div>
                       <div>
                         <div className="text-xs uppercase tracking-wider text-[#EDEDED]/40 font-bold mb-1">Courriel</div>
-                          <a href="mailto:constructionkmf@gmail.com" className="font-bold text-white hover:text-[#8EA8F1] transition-colors text-sm">constructionkmf@gmail.com</a>
+                          <a href="mailto:constructionkmf@gmail.com" className="font-bold text-white hover:text-[#29499A] transition-colors text-sm">constructionkmf@gmail.com</a>
                       </div>
                     </div>
 
@@ -211,7 +211,7 @@ export default function Soumission() {
                   <div className="absolute inset-0 bg-[#1B1B1B]/60"></div>
                   <div className="absolute bottom-0 left-0 w-full p-8">
                    <p className="text-white font-bold text-lg uppercase tracking-wide leading-tight">Revêtement extérieur</p>
-                   <p className="text-[#8EA8F1] font-bold text-lg uppercase tracking-wide leading-tight">Qualité & durabilité</p>
+                   <p className="text-[#29499A] font-bold text-lg uppercase tracking-wide leading-tight">Qualité & durabilité</p>
                   </div>
                 </div>
               </FadeIn>

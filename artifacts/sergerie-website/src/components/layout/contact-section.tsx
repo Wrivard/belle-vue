@@ -27,7 +27,7 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
 
             <div className="space-y-8">
               <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-[#1B1B1B] text-[#8EA8F1] rounded-md flex items-center justify-center shrink-0">
+                <div className="w-14 h-14 bg-[#1B1B1B] text-[#29499A] rounded-md flex items-center justify-center shrink-0">
                   <Phone size={24} />
                 </div>
                 <div>
@@ -37,7 +37,7 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
               </div>
               
               <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-[#1B1B1B] text-[#8EA8F1] rounded-md flex items-center justify-center shrink-0">
+                <div className="w-14 h-14 bg-[#1B1B1B] text-[#29499A] rounded-md flex items-center justify-center shrink-0">
                   <Mail size={24} />
                 </div>
                 <div>
@@ -47,7 +47,7 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
               </div>
 
               <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-[#1B1B1B] text-[#8EA8F1] rounded-md flex items-center justify-center shrink-0">
+                <div className="w-14 h-14 bg-[#1B1B1B] text-[#29499A] rounded-md flex items-center justify-center shrink-0">
                   <MapPin size={24} />
                 </div>
                 <div>
@@ -109,7 +109,7 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
                 <div className="absolute bottom-0 left-0 w-full p-8 bg-[#1B1B1B]/80">
                   <div className="text-xs font-bold tracking-[0.25em] uppercase text-white/60 mb-2">Entrepreneur spécialisé</div>
                      <p className="text-white font-bold text-lg uppercase tracking-wide">Revêtement extérieur</p>
-                    <p className="text-[#8EA8F1] font-bold text-lg uppercase tracking-wide">Qualité & durabilité</p>
+                    <p className="text-[#29499A] font-bold text-lg uppercase tracking-wide">Qualité & durabilité</p>
                 </div>
               </div>
             </FadeIn>
