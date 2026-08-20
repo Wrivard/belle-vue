@@ -101,7 +101,7 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
             <FadeIn delay={200}>
               <div className="relative rounded-md overflow-hidden shadow-xl h-full min-h-[500px]">
                    <img
-                   src={img('photo-revetement.jpg')}
+                   src={img('kmf-projet-03.png')}
                     alt="Projet de revêtement extérieur"
                   className="w-full h-full object-cover"
                 />

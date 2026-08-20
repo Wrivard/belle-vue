@@ -7,19 +7,19 @@ import { ContactSection } from '@/components/layout/contact-section';
 import { img } from '@/lib/utils';
 
 const services = [
-  { title: 'Revêtement résidentiel', description: 'Installation et remplacement pour maisons neuves et projets de rénovation.', img: 'photo-revetement.jpg' },
-  { title: 'Revêtement commercial', description: 'Des solutions durables pour commerces, bâtiments professionnels et multilogements.', img: 'photo-construction.jpg' },
-  { title: 'Remplacement de revêtement', description: 'Modernisez l’enveloppe de votre bâtiment avec une finition propre et actuelle.', img: 'photo-exterieur.jpg' },
-  { title: 'Construction neuve', description: 'Installation complète du revêtement extérieur sur les nouvelles constructions.', img: 'photo-chantier.jpg' },
-  { title: 'Rénovation extérieure', description: 'Transformez l’apparence de votre propriété et augmentez sa protection.', img: 'photo-terrasse.jpg' },
-  { title: 'Finitions extérieures', description: 'Chaque détail final est posé avec précision pour un résultat uniforme et durable.', img: 'photo-porte-grange.jpg' },
+  { title: 'Revêtement résidentiel', description: 'Installation et remplacement pour maisons neuves et projets de rénovation.', img: 'kmf-projet-02.png' },
+  { title: 'Revêtement commercial', description: 'Des solutions durables pour commerces, bâtiments professionnels et multilogements.', img: 'kmf-projet-04.png' },
+  { title: 'Remplacement de revêtement', description: 'Modernisez l’enveloppe de votre bâtiment avec une finition propre et actuelle.', img: 'kmf-projet-03.png' },
+  { title: 'Construction neuve', description: 'Installation complète du revêtement extérieur sur les nouvelles constructions.', img: 'kmf-projet-01.png' },
+  { title: 'Rénovation extérieure', description: 'Transformez l’apparence de votre propriété et augmentez sa protection.', img: 'kmf-projet-05.png' },
+  { title: 'Finitions extérieures', description: 'Chaque détail final est posé avec précision pour un résultat uniforme et durable.', img: 'kmf-projet-08.png' },
 ];
 
 const projects = [
-  { img: 'photo-revetement.jpg', title: 'Façade contemporaine', cat: 'Résidentiel', detail: 'Revêtement architectural' },
-  { img: 'photo-construction.jpg', title: 'Projet d’envergure', cat: 'Commercial', detail: 'Construction neuve' },
-  { img: 'photo-exterieur.jpg', title: 'Transformation extérieure', cat: 'Rénovation', detail: 'Remplacement de revêtement' },
-  { img: 'photo-garage.jpg', title: 'Finition durable', cat: 'Résidentiel', detail: 'Revêtement extérieur' },
+  { img: 'kmf-projet-06.png', title: 'Façade contemporaine', cat: 'Résidentiel', detail: 'Revêtement architectural' },
+  { img: 'kmf-projet-04.png', title: 'Projet d’envergure', cat: 'Commercial', detail: 'Construction neuve' },
+  { img: 'kmf-projet-03.png', title: 'Transformation extérieure', cat: 'Rénovation', detail: 'Remplacement de revêtement' },
+  { img: 'kmf-projet-07.png', title: 'Finition durable', cat: 'Résidentiel', detail: 'Revêtement extérieur' },
 ];
 
 const advantages = [
@@ -34,7 +34,9 @@ export default function Home() {
     <PageWrapper>
       <section id="accueil" className="relative min-h-[90svh] flex items-center py-32 md:py-40" data-testid="hero-section">
         <div className="absolute inset-0 overflow-hidden">
-          <img src={img('photo-revetement.jpg')} alt="Revêtement extérieur d'une maison moderne" className="w-full h-full object-cover object-center" />
+          <video autoPlay muted loop playsInline preload="auto" poster={img('kmf-projet-02.png')} className="w-full h-full object-cover object-center">
+            <source src={`${import.meta.env.BASE_URL}images/cp3m-hero-video.mp4`} type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-[#171717]/75" />
         </div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-white">
@@ -109,7 +111,7 @@ export default function Home() {
             </FadeIn>
             <FadeIn delay={200} className="relative">
               <div className="absolute -inset-4 border-2 border-[#29499A]/60 rounded-md translate-x-4 translate-y-4" />
-              <img src={img('photo-construction.jpg')} alt="Projet de revêtement extérieur Construction KMF" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl" />
+              <img src={img('kmf-projet-01.png')} alt="Projet de revêtement extérieur Construction KMF" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl" />
             </FadeIn>
           </div>
         </div>
@@ -131,7 +133,7 @@ export default function Home() {
       </section>
 
       <section className="py-32 text-white relative overflow-hidden" data-testid="cta-section">
-        <div className="absolute inset-0"><img src={img('photo-exterieur.jpg')} alt="" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-[#171717]/85" /></div>
+        <div className="absolute inset-0"><img src={img('kmf-projet-05.png')} alt="" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-[#171717]/85" /></div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-center"><FadeIn><h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight mb-8">Un projet de <span className="text-[#8EA8F1]">revêtement extérieur?</span></h2><p className="text-xl md:text-2xl font-medium mb-12 text-white/90 max-w-2xl mx-auto">Parlez-nous de votre projet et obtenez une soumission adaptée à vos besoins.</p><Link href="/soumission"><Button className="bg-[#29499A] hover:bg-[#1E3778] text-white font-bold rounded-md px-10 py-8 uppercase tracking-widest text-lg h-auto">Obtenir une soumission</Button></Link><a href="tel:5148381641" className="block mt-8 text-[#8EA8F1] font-bold text-2xl">(514) 838-1641</a></FadeIn></div>
       </section>
       <ContactSection showForm={false} />
