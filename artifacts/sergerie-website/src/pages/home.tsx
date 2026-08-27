@@ -6,7 +6,7 @@ import { FadeIn } from '@/components/layout/fade-in';
 import { ContactSection } from '@/components/layout/contact-section';
 import { FaqSection } from '@/components/layout/faq-section';
 import { TestimonialsSection } from '@/components/layout/testimonials-section';
-import { belleVueImages } from '@/data/belle-vue-images';
+import { belleVueHeroImage, belleVueImages } from '@/data/belle-vue-images';
 import { img } from '@/lib/utils';
 
 const services = [
@@ -52,7 +52,7 @@ export default function Home() {
     <PageWrapper>
       <section id="accueil" className="relative min-h-[90svh] flex items-center py-32 md:py-40" data-testid="hero-section">
         <div className="absolute inset-0 overflow-hidden">
-           <img src={img(belleVueImages[0])} alt="Cuisine avec armoires sur mesure" className="w-full h-full object-cover object-center" />
+           <img src={img(belleVueHeroImage)} alt="Cuisine avec armoires sur mesure" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#171717]/75" />
         </div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-white">
