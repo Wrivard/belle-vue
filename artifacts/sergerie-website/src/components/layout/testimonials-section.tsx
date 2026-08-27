@@ -24,7 +24,7 @@ export function TestimonialsSection() {
   }, [api]);
 
   return (
-    <section className="py-24 md:py-32 bg-[#EDEDED] text-[#1B1B1B]" data-testid="testimonials-section">
+    <section id="temoignages" className="scroll-mt-24 py-24 md:py-32 bg-[#EDEDED] text-[#1B1B1B]" data-testid="testimonials-section">
       <div className="container mx-auto px-6 max-w-[1200px]">
         <FadeIn><div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]"></div><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Le sur mesure</span></div><div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16"><h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight">Des solutions pensées pour vous</h2><p className="text-[#1B1B1B]/60 text-sm font-medium">Découvrez nos domaines d’ébénisterie</p></div></FadeIn>
         <FadeIn delay={150}>

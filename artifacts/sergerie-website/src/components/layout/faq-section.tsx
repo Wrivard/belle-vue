@@ -16,7 +16,7 @@ const faqItems = [
 
 export function FaqSection() {
   return (
-    <section id="faq" className="py-24 md:py-32 bg-[#1B1B1B] text-[#EDEDED]" data-testid="faq-section">
+    <section id="faq" className="scroll-mt-24 py-24 md:py-32 bg-[#1B1B1B] text-[#EDEDED]" data-testid="faq-section">
       <div className="container mx-auto px-6 max-w-3xl">
         <FadeIn className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]"></div><span className="text-[#FF4B50] font-bold tracking-widest uppercase text-sm">Questions</span><div className="w-8 h-1 bg-[#D71920]"></div></div>

@@ -5,6 +5,7 @@ import { PageWrapper } from '@/components/layout/page-wrapper';
 import { FadeIn } from '@/components/layout/fade-in';
 import { ContactSection } from '@/components/layout/contact-section';
 import { FaqSection } from '@/components/layout/faq-section';
+import { TestimonialsSection } from '@/components/layout/testimonials-section';
 import { img } from '@/lib/utils';
 
 const services = [
@@ -93,7 +94,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" className="py-24 md:py-32 bg-white text-[#171717]" data-testid="services-section">
+      <section id="services" className="scroll-mt-24 py-24 md:py-32 bg-white text-[#171717]" data-testid="services-section">
         <div className="container mx-auto px-6 max-w-[1280px]">
           <FadeIn>
             <div className="max-w-3xl mb-16">
@@ -102,14 +103,14 @@ export default function Home() {
               <p className="text-lg text-[#171717]/65 leading-relaxed">Armoire Belle-Vue Ébénisterie crée des espaces fonctionnels et personnalisés. Chaque projet commence par vos besoins pour intégrer naturellement les armoires à votre pièce et maximiser le rangement.</p>
             </div>
           </FadeIn>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service, idx) => (
               <FadeIn key={service.title} delay={idx * 60}>
                 <Link href="/soumission">
-                  <div className="group relative overflow-hidden rounded-md aspect-[4/5] cursor-pointer shadow-sm hover:shadow-2xl transition-shadow duration-500">
+                  <div className="group relative overflow-hidden rounded-md aspect-[4/3] cursor-pointer shadow-sm hover:shadow-2xl transition-shadow duration-500">
                     <img src={img(service.img)} alt={service.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-[#171717]/60 group-hover:bg-[#D71920]/55 transition-colors duration-500" />
-                    <div className="absolute bottom-0 left-0 right-0 p-6"><div className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/60 mb-2">0{idx + 1}</div><h3 className="text-xl font-bold text-white uppercase tracking-tight leading-tight">{service.title}</h3><p className="text-white/75 text-sm mt-3 leading-relaxed">{service.description}</p><div className="mt-4 h-px w-10 bg-[#D71920] group-hover:w-full group-hover:bg-white transition-all duration-500" /></div>
+                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8"><div className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/60 mb-2">0{idx + 1}</div><h3 className="text-xl md:text-2xl font-bold text-white uppercase tracking-tight leading-tight">{service.title}</h3><p className="text-white/75 text-sm mt-3 leading-relaxed max-w-xl">{service.description}</p><div className="mt-4 h-px w-10 bg-[#D71920] group-hover:w-full group-hover:bg-white transition-all duration-500" /></div>
                   </div>
                 </Link>
               </FadeIn>
@@ -118,7 +119,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="apropos" className="py-24 md:py-32 bg-[#171717] text-white" data-testid="about-section">
+      <section id="apropos" className="scroll-mt-24 py-24 md:py-32 bg-[#171717] text-white" data-testid="about-section">
         <div className="container mx-auto px-6 max-w-[1200px]">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <FadeIn>
@@ -137,7 +138,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="realisations" className="py-24 md:py-32 bg-[#F4F4F4] text-[#171717]" data-testid="projects-section">
+      <section id="pourquoi" className="scroll-mt-24 py-24 md:py-32 bg-white text-[#171717]" data-testid="why-section">
+        <div className="container mx-auto px-6 max-w-[1200px]"><FadeIn><div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Le sur mesure</span></div><h2 className="text-4xl md:text-6xl font-extrabold uppercase tracking-tight mb-16">Votre espace, vos besoins, votre solution.</h2></FadeIn><div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">{advantages.map(({ icon: Icon, title, text }, idx) => <FadeIn key={title} delay={idx * 80}><div className="border-t-2 border-[#D71920] pt-6"><Icon className="text-[#D71920] mb-6" size={32} /><h3 className="font-bold uppercase tracking-wide mb-3">{title}</h3><p className="text-[#171717]/60 leading-relaxed">{text}</p></div></FadeIn>)}</div></div>
+      </section>
+
+      <section id="realisations" className="scroll-mt-24 py-24 md:py-32 bg-[#F4F4F4] text-[#171717]" data-testid="projects-section">
         <div className="container mx-auto px-6 max-w-[1200px]">
           <FadeIn><div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Réalisations</span></div><h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Des projets qui vous ressemblent.</h2><p className="text-lg text-[#171717]/65 max-w-2xl mb-16">Découvrez quelques exemples de cuisines, salles de bain et solutions de rangement sur mesure.</p></FadeIn>
           <div className="grid md:grid-cols-2 gap-6">
@@ -148,11 +153,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="pourquoi" className="py-24 md:py-32 bg-white text-[#171717]" data-testid="why-section">
-        <div className="container mx-auto px-6 max-w-[1200px]"><FadeIn><div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Le sur mesure</span></div><h2 className="text-4xl md:text-6xl font-extrabold uppercase tracking-tight mb-16">Votre espace, vos besoins, votre solution.</h2></FadeIn><div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">{advantages.map(({ icon: Icon, title, text }, idx) => <FadeIn key={title} delay={idx * 80}><div className="border-t-2 border-[#D71920] pt-6"><Icon className="text-[#D71920] mb-6" size={32} /><h3 className="font-bold uppercase tracking-wide mb-3">{title}</h3><p className="text-[#171717]/60 leading-relaxed">{text}</p></div></FadeIn>)}</div></div>
-      </section>
-
-      <section id="approche" className="py-24 md:py-32 bg-[#EDEDED] text-[#171717]" data-testid="approach-section">
+      <section id="approche" className="scroll-mt-24 py-24 md:py-32 bg-[#EDEDED] text-[#171717]" data-testid="approach-section">
         <div className="container mx-auto px-6 max-w-[1200px]">
           <FadeIn><div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Notre approche</span></div><h2 className="text-4xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Un projet conçu autour de vos besoins.</h2><p className="text-lg text-[#171717]/65 max-w-2xl mb-16">De la première discussion à la finalisation, chaque étape sert à créer une solution d’armoires qui s’intègre à votre espace.</p></FadeIn>
           <div className="grid md:grid-cols-5 gap-6">
@@ -165,8 +166,9 @@ export default function Home() {
         <div className="absolute inset-0"><img src={img('photo-cuisine-3.jpg')} alt="" loading="lazy" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-[#171717]/85" /></div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-center"><FadeIn><h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight mb-8">Vous avez un <span className="text-[#FF4B50]">projet en tête?</span></h2><p className="text-xl md:text-2xl font-medium mb-12 text-white/90 max-w-2xl mx-auto">Parlez-nous de votre cuisine, salle de bain ou projet d’ébénisterie et obtenez une soumission adaptée à vos besoins.</p><Link href="/soumission"><Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-10 py-8 uppercase tracking-widest text-lg h-auto">Demander une soumission</Button></Link><a href="tel:+14186721613" className="block mt-8 text-[#FF4B50] font-bold text-2xl">(418) 672-1613</a></FadeIn></div>
       </section>
-      <ContactSection showForm={false} />
+      <TestimonialsSection />
       <FaqSection />
+      <ContactSection showForm={false} />
     </PageWrapper>
   );
 }

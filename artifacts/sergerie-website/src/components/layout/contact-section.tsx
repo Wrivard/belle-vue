@@ -7,7 +7,7 @@ interface ContactSectionProps { showForm?: boolean; }
 
 export function ContactSection({ showForm = true }: ContactSectionProps) {
   return (
-    <section id="contact" className="py-24 md:py-32 bg-[#EDEDED] text-[#1B1B1B]" data-testid="contact-section">
+    <section id="contact" className="scroll-mt-24 py-24 md:py-32 bg-[#EDEDED] text-[#1B1B1B]" data-testid="contact-section">
       <div className="container mx-auto px-6 max-w-[1200px]">
         <div className="grid md:grid-cols-2 gap-16">
           <FadeIn>
