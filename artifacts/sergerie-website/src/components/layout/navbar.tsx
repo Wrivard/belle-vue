@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
-import { Phone, Menu, X } from 'lucide-react';
+import { ChevronDown, Phone, Menu, X } from 'lucide-react';
 import { img } from '@/lib/utils';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -14,21 +15,20 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    setMobileMenuOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   const menuItems = [
-    ['services', 'Services'],
     ['pourquoi', 'Le sur mesure'],
-    ['realisations', 'Réalisations'],
     ['approche', 'Notre approche'],
-    ['apropos', 'À propos'],
     ['temoignages', 'Témoignages'],
     ['faq', 'FAQ'],
     ['contact', 'Contact'],
   ];
+
+  const closeMenus = () => {
+    setMobileMenuOpen(false);
+    setServicesOpen(false);
+  };
+
+  const homeSectionHref = (id: string) => `${import.meta.env.BASE_URL}#${id}`;
 
   return (
     <>
@@ -37,21 +37,45 @@ export function Navbar() {
           <Link href="/" data-testid="link-home-logo" className="shrink-0">
             <img src={img('logo-armoire-belle-vue.png')} alt="Armoire Belle-Vue Ébénisterie inc." className="h-[58px] md:h-[66px] w-auto object-contain" />
           </Link>
-          <div className="hidden 2xl:flex items-center gap-4 font-semibold text-[11px] tracking-wide uppercase">
+          <div className="hidden xl:flex items-center gap-5 font-semibold text-[11px] tracking-wide uppercase">
             <a href={import.meta.env.BASE_URL} className="hover:text-[#FF4B50] transition-colors" data-testid="link-accueil">Accueil</a>
-            {menuItems.map(([id, label]) => <button key={id} onClick={() => scrollToSection(id)} className="hover:text-[#FF4B50] transition-colors uppercase" data-testid={`link-${id}`}>{label}</button>)}
+            <a href={homeSectionHref('apropos')} className="hover:text-[#FF4B50] transition-colors" data-testid="link-apropos">À propos</a>
+            <div className="relative group" onMouseLeave={() => setServicesOpen(false)}>
+              <button onClick={() => setServicesOpen(!servicesOpen)} className="flex items-center gap-1 hover:text-[#FF4B50] transition-colors uppercase" aria-expanded={servicesOpen} aria-haspopup="true" data-testid="link-services">
+                Services <ChevronDown size={13} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              <div className={`absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-4 ${servicesOpen ? 'block' : 'hidden group-hover:block'}`}>
+                <div className="overflow-hidden rounded-md border border-white/10 bg-[#1B1B1B] p-2 shadow-2xl">
+                  <a href={homeSectionHref('services')} onClick={closeMenus} className="block rounded px-4 py-3 text-[11px] hover:bg-[#D71920] transition-colors">Armoires de cuisine sur mesure</a>
+                  <a href={homeSectionHref('services')} onClick={closeMenus} className="block rounded px-4 py-3 text-[11px] hover:bg-[#D71920] transition-colors">Vanités et armoires de salle de bain</a>
+                  <a href={homeSectionHref('services')} onClick={closeMenus} className="block rounded px-4 py-3 text-[11px] hover:bg-[#D71920] transition-colors">Rangement personnalisé</a>
+                  <a href={homeSectionHref('services')} onClick={closeMenus} className="block rounded px-4 py-3 text-[11px] hover:bg-[#D71920] transition-colors">Projets d’ébénisterie</a>
+                </div>
+              </div>
+            </div>
+            <a href={homeSectionHref('realisations')} className="hover:text-[#FF4B50] transition-colors" data-testid="link-realisations">Réalisations</a>
           </div>
-          <div className="hidden 2xl:flex items-center gap-4">
+          <div className="hidden xl:flex items-center gap-4">
             <a href="tel:+14186721613" className="flex items-center gap-2 text-[#E4E4E4] font-bold text-sm tracking-wide" data-testid="link-phone"><Phone size={16} className="text-[#D71920]" />(418) 672-1613</a>
             <Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })} data-testid="link-soumission-nav"><Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-5 py-5 uppercase tracking-wide transition-transform hover:scale-105">Demander une soumission</Button></Link>
           </div>
-          <button className="2xl:hidden text-[#E4E4E4]" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label={mobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'} data-testid="button-mobile-menu">{mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}</button>
+          <button className="xl:hidden text-[#E4E4E4]" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label={mobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'} data-testid="button-mobile-menu">{mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}</button>
         </div>
       </nav>
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#1B1B1B] pt-28 px-6 2xl:hidden flex flex-col gap-6 text-[#E4E4E4]" data-testid="mobile-menu">
-          <Link href="/" className="text-2xl font-bold uppercase" onClick={() => setMobileMenuOpen(false)}>Accueil</Link>
-          {menuItems.map(([id, label]) => <button key={id} onClick={() => scrollToSection(id)} className="text-2xl font-bold uppercase text-left">{label}</button>)}
+        <div className="fixed inset-0 z-40 bg-[#1B1B1B] pt-28 px-6 xl:hidden flex flex-col gap-6 text-[#E4E4E4] overflow-y-auto" data-testid="mobile-menu">
+          <Link href="/" className="text-2xl font-bold uppercase" onClick={closeMenus}>Accueil</Link>
+          <a href={homeSectionHref('apropos')} className="text-2xl font-bold uppercase" onClick={closeMenus}>À propos</a>
+          <div>
+            <button onClick={() => setServicesOpen(!servicesOpen)} className="flex items-center gap-2 text-2xl font-bold uppercase text-left" aria-expanded={servicesOpen}>
+              Services <ChevronDown size={22} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {servicesOpen && <div className="mt-3 ml-4 space-y-3 border-l-2 border-[#D71920] pl-4">
+              {['Armoires de cuisine sur mesure', 'Vanités et armoires de salle de bain', 'Rangement personnalisé', 'Projets d’ébénisterie'].map((service) => <a key={service} href={homeSectionHref('services')} onClick={closeMenus} className="block text-base font-semibold uppercase text-white/75">{service}</a>)}
+            </div>}
+          </div>
+          <a href={homeSectionHref('realisations')} className="text-2xl font-bold uppercase" onClick={closeMenus}>Réalisations</a>
+          {menuItems.map(([id, label]) => <a key={id} href={homeSectionHref(id)} onClick={closeMenus} className="text-2xl font-bold uppercase text-left">{label}</a>)}
           <Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })}><Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md py-6 mt-4 uppercase tracking-wide text-lg w-full">Demander une soumission</Button></Link>
         </div>
       )}
