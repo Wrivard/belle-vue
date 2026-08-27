@@ -17,13 +17,13 @@ const faqItems = [
 export function FaqSection() {
   return (
     <section id="faq" className="scroll-mt-24 py-24 md:py-32 bg-[#1B1B1B] text-[#EDEDED]" data-testid="faq-section">
-      <div className="container mx-auto px-6 max-w-3xl">
+      <div className="container mx-auto px-6 max-w-[1200px]">
         <FadeIn className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]"></div><span className="text-[#FF4B50] font-bold tracking-widest uppercase text-sm">Questions</span><div className="w-8 h-1 bg-[#D71920]"></div></div>
           <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight">Questions fréquentes</h2>
         </FadeIn>
         <FadeIn delay={200}>
-          <Accordion type="single" collapsible className="w-full space-y-4">
+          <Accordion type="single" collapsible className="w-full max-w-4xl mx-auto space-y-4">
             {faqItems.map((item) => <AccordionItem key={item.value} value={item.value} className="border border-[#EDEDED]/20 rounded-md px-6 bg-[#161616]" data-testid={`faq-${item.value}`}><AccordionTrigger className="text-lg font-bold hover:text-[#FF4B50] hover:no-underline py-6 text-left">{item.q}</AccordionTrigger><AccordionContent className="text-[#EDEDED]/70 text-base pb-6">{item.a}</AccordionContent></AccordionItem>)}
           </Accordion>
         </FadeIn>
