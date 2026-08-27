@@ -6,7 +6,7 @@ import { BackToTop } from './back-to-top';
 
 export function PageWrapper({ children }: { children: ReactNode }) {
   return (
-    <div className="font-['Inter'] bg-[#F4F4F4] text-[#171717] min-h-screen selection:bg-[#29499A] selection:text-white">
+    <div className="font-['Inter'] bg-[#F4F4F4] text-[#171717] min-h-screen selection:bg-[#D71920] selection:text-white">
       <Navbar />
       {children}
       <MapSection />

@@ -57,7 +57,7 @@ export default function Home() {
     <PageWrapper>
       <section id="accueil" className="relative min-h-[90svh] flex items-center py-32 md:py-40" data-testid="hero-section">
         <div className="absolute inset-0 overflow-hidden">
-          <img src={img('photo-hero-bg.jpg')} alt="Cuisine avec armoires sur mesure" className="w-full h-full object-cover object-center" />
+          <img src={img('photo-cuisine.jpg')} alt="Cuisine avec armoires sur mesure" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#171717]/75" />
         </div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-white">
