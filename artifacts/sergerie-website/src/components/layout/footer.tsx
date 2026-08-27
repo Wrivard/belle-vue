@@ -26,7 +26,7 @@ export function Footer() {
               <li><a href="#realisations" className="hover:text-[#FF4B50] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#D71920] rounded-full shrink-0"></span>Réalisations</a></li>
               <li><a href="#approche" className="hover:text-[#FF4B50] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#D71920] rounded-full shrink-0"></span>Notre approche</a></li>
               <li><a href="#contact" className="hover:text-[#FF4B50] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#D71920] rounded-full shrink-0"></span>Contact</a></li>
-              <li><Link href="/soumission" className="hover:text-[#FF4B50] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#D71920] rounded-full shrink-0"></span>Demander une soumission</Link></li>
+              <li><Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })} className="hover:text-[#FF4B50] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#D71920] rounded-full shrink-0"></span>Demander une soumission</Link></li>
             </ul>
           </div>
           <div>

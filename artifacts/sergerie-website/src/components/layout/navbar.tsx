@@ -43,7 +43,7 @@ export function Navbar() {
           </div>
           <div className="hidden xl:flex items-center gap-4">
             <a href="tel:+14186721613" className="flex items-center gap-2 text-[#E4E4E4] font-bold text-sm tracking-wide" data-testid="link-phone"><Phone size={16} className="text-[#D71920]" />(418) 672-1613</a>
-            <Link href="/soumission" data-testid="link-soumission-nav"><Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-5 py-5 uppercase tracking-wide transition-transform hover:scale-105">Demander une soumission</Button></Link>
+            <Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })} data-testid="link-soumission-nav"><Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-5 py-5 uppercase tracking-wide transition-transform hover:scale-105">Demander une soumission</Button></Link>
           </div>
           <button className="xl:hidden text-[#E4E4E4]" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label={mobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'} data-testid="button-mobile-menu">{mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}</button>
         </div>
@@ -52,7 +52,7 @@ export function Navbar() {
         <div className="fixed inset-0 z-40 bg-[#1B1B1B] pt-28 px-6 xl:hidden flex flex-col gap-6 text-[#E4E4E4]" data-testid="mobile-menu">
           <Link href="/" className="text-2xl font-bold uppercase" onClick={() => setMobileMenuOpen(false)}>Accueil</Link>
           {menuItems.map(([id, label]) => <button key={id} onClick={() => scrollToSection(id)} className="text-2xl font-bold uppercase text-left">{label}</button>)}
-          <Link href="/soumission"><Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md py-6 mt-4 uppercase tracking-wide text-lg w-full">Demander une soumission</Button></Link>
+          <Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })}><Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md py-6 mt-4 uppercase tracking-wide text-lg w-full">Demander une soumission</Button></Link>
         </div>
       )}
     </>

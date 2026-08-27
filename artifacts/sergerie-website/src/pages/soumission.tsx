@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { PageWrapper } from '@/components/layout/page-wrapper';
 import { FadeIn } from '@/components/layout/fade-in';
+import { TestimonialsSection } from '@/components/layout/testimonials-section';
 import { FaqSection } from '@/components/layout/faq-section';
 import { img } from '@/lib/utils';
 
@@ -43,7 +44,7 @@ export default function Soumission() {
 
   return (
     <PageWrapper>
-      <section className="relative min-h-[50vh] flex items-center pt-20" data-testid="soumission-hero">
+      <section className="relative min-h-[46vh] md:min-h-[50vh] flex items-center pt-20" data-testid="soumission-hero">
         <div className="absolute inset-0 z-0">
           <img src={img('photo-cuisine-2.jpg')} alt="Cuisine avec armoires sur mesure" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#1B1B1B]/85"></div>
@@ -57,17 +58,24 @@ export default function Soumission() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-[#EDEDED]" data-testid="soumission-form-section">
+      <section className="py-14 md:py-20 bg-[#EDEDED]" data-testid="soumission-form-section">
         <div className="container mx-auto px-6 max-w-[1200px]">
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
               <FadeIn>
-                <div className="bg-white p-8 md:p-12 rounded-md shadow-lg">
-                  <div className="flex items-center gap-3 mb-2"><div className="w-8 h-1 bg-[#D71920]"></div></div>
-                  <h2 className="text-3xl font-bold uppercase tracking-tight mb-3 text-[#1B1B1B]">Détails du projet</h2>
-                  <p className="text-[#1B1B1B]/60 mb-8">Quelques informations nous aideront à mieux comprendre votre projet.</p>
-                  {submitted && <div className="mb-8 border-l-4 border-[#D71920] bg-[#FBE8E9] px-5 py-4 text-sm text-[#1B1B1B]" role="status">Votre demande est prête à être envoyée dans votre application courriel. Vous pouvez y joindre vos photos ou vos plans avant l’envoi.</div>}
-                  <form className="space-y-8" data-testid="soumission-form" onSubmit={handleSubmit}>
+                <div className="bg-white rounded-md shadow-lg overflow-hidden">
+                  <div className="relative min-h-[220px] md:min-h-[260px] flex items-end overflow-hidden">
+                    <img src={img('photo-cuisine-3.jpg')} alt="" className="absolute inset-0 w-full h-full object-cover object-center" />
+                    <div className="absolute inset-0 bg-[#1B1B1B]/70" />
+                    <div className="relative z-10 p-8 md:p-12 text-white">
+                      <div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]"></div><span className="text-[#FF4B50] font-bold tracking-[0.2em] uppercase text-xs">Votre projet, à votre mesure</span></div>
+                      <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight">Détails du projet</h2>
+                      <p className="text-white/75 mt-3 max-w-xl">Quelques informations nous aideront à mieux comprendre votre espace et vos besoins.</p>
+                    </div>
+                  </div>
+                  <div className="p-8 md:p-12">
+                    {submitted && <div className="mb-8 border-l-4 border-[#D71920] bg-[#FBE8E9] px-5 py-4 text-sm text-[#1B1B1B]" role="status">Votre demande est prête à être envoyée dans votre application courriel. Vous pouvez y joindre vos photos ou vos plans avant l’envoi.</div>}
+                    <form className="space-y-8" data-testid="soumission-form" onSubmit={handleSubmit}>
                     <div className="grid md:grid-cols-2 gap-8">
                       <div className="space-y-2"><label htmlFor="quote-name" className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Nom *</label><Input id="quote-name" name="name" required className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#D71920]" placeholder="Votre nom" data-testid="input-soumission-name" /></div>
                       <div className="space-y-2"><label htmlFor="quote-phone" className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Téléphone *</label><Input id="quote-phone" name="phone" required type="tel" className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#D71920]" placeholder="(418) 000-0000" data-testid="input-soumission-phone" /></div>
@@ -85,7 +93,8 @@ export default function Soumission() {
                     <div className="space-y-2"><label htmlFor="quote-files" className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Photos ou plans</label><div className="flex items-center gap-3 bg-[#EDEDED]/50 px-4 h-14 rounded-sm"><Paperclip size={18} className="text-[#D71920]" /><Input id="quote-files" name="files" type="file" accept="image/*,.pdf" multiple className="border-0 p-0 h-auto bg-transparent file:mr-4 file:border-0 file:bg-[#1B1B1B] file:px-3 file:py-2 file:text-white file:text-sm file:font-semibold" data-testid="input-soumission-files" /></div><p className="text-xs text-[#1B1B1B]/50">Vous pourrez joindre ces fichiers dans votre courriel.</p></div>
                     <div className="flex items-start gap-3 pt-2"><input type="checkbox" id="consent" required className="mt-1 accent-[#D71920] w-4 h-4" data-testid="checkbox-consent" /><label htmlFor="consent" className="text-sm text-[#1B1B1B]/60 leading-relaxed">J’accepte que mes informations soient utilisées uniquement pour traiter ma demande de soumission.</label></div>
                     <Button type="submit" className="w-full bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md py-6 uppercase tracking-wide text-base transition-transform hover:scale-[1.02] h-auto mt-4" data-testid="button-soumission-submit">Demander une soumission</Button>
-                  </form>
+                    </form>
+                  </div>
                 </div>
               </FadeIn>
             </div>
@@ -102,6 +111,7 @@ export default function Soumission() {
           </div>
         </div>
       </section>
+      <TestimonialsSection />
       <FaqSection />
     </PageWrapper>
   );

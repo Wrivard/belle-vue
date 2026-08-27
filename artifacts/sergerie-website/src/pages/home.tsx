@@ -80,7 +80,7 @@ export default function Home() {
               </p>
             </FadeIn>
             <FadeIn delay={300} className="flex flex-col sm:flex-row gap-4">
-              <Link href="/soumission">
+              <Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })}>
                 <Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-8 py-6 uppercase tracking-wide text-base h-auto">
                   Demander une soumission <ArrowRight className="ml-2" size={18} />
                 </Button>
@@ -106,7 +106,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service, idx) => (
               <FadeIn key={service.title} delay={idx * 60}>
-                <Link href="/soumission">
+                <Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })}>
                   <div className="group relative overflow-hidden rounded-md aspect-[4/3] cursor-pointer shadow-sm hover:shadow-2xl transition-shadow duration-500">
                     <img src={img(service.img)} alt={service.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-[#171717]/60 group-hover:bg-[#D71920]/55 transition-colors duration-500" />
@@ -164,7 +164,7 @@ export default function Home() {
 
       <section className="py-32 text-white relative overflow-hidden" data-testid="cta-section">
         <div className="absolute inset-0"><img src={img('photo-cuisine-3.jpg')} alt="" loading="lazy" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-[#171717]/85" /></div>
-        <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-center"><FadeIn><h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight mb-8">Vous avez un <span className="text-[#FF4B50]">projet en tête?</span></h2><p className="text-xl md:text-2xl font-medium mb-12 text-white/90 max-w-2xl mx-auto">Parlez-nous de votre cuisine, salle de bain ou projet d’ébénisterie et obtenez une soumission adaptée à vos besoins.</p><Link href="/soumission"><Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-10 py-8 uppercase tracking-widest text-lg h-auto">Demander une soumission</Button></Link><a href="tel:+14186721613" className="block mt-8 text-[#FF4B50] font-bold text-2xl">(418) 672-1613</a></FadeIn></div>
+        <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-center"><FadeIn><h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight mb-8">Vous avez un <span className="text-[#FF4B50]">projet en tête?</span></h2><p className="text-xl md:text-2xl font-medium mb-12 text-white/90 max-w-2xl mx-auto">Parlez-nous de votre cuisine, salle de bain ou projet d’ébénisterie et obtenez une soumission adaptée à vos besoins.</p><Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })}><Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-10 py-8 uppercase tracking-widest text-lg h-auto">Demander une soumission</Button></Link><a href="tel:+14186721613" className="block mt-8 text-[#FF4B50] font-bold text-2xl">(418) 672-1613</a></FadeIn></div>
       </section>
       <TestimonialsSection />
       <FaqSection />
