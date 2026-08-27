@@ -151,9 +151,9 @@ export default function Home() {
       <section id="realisations" className="scroll-mt-24 py-24 md:py-32 bg-[#F4F4F4] text-[#171717]" data-testid="projects-section">
         <div className="container mx-auto px-6 max-w-[1200px]">
            <FadeIn><div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Réalisations</span></div><h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Des projets qui vous ressemblent.</h2><p className="text-lg text-[#171717]/65 max-w-2xl mb-16">Une sélection de cuisines, salles de bain et solutions de rangement sur mesure.</p></FadeIn>
-            <div className="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-[1.55fr_1fr_1fr_1.55fr] lg:grid-rows-[180px_180px_180px]">
+            <div className="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-[1.55fr_1fr_1fr_1.55fr] lg:grid-rows-[207px_207px_207px]">
              {featuredRealizations.map(({ image, className }, idx) => (
-                <FadeIn key={image} delay={(idx % 6) * 60} className={`min-h-[170px] lg:min-h-0 ${className}`}><div className="group relative h-full min-h-0 overflow-hidden rounded-xl cursor-pointer bg-[#171717]"><img src={img(image)} alt={`Réalisation d’armoires sur mesure ${String(idx + 1).padStart(2, '0')}`} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" /></div></FadeIn>
+                <FadeIn key={image} delay={(idx % 6) * 60} className={`min-h-[196px] lg:min-h-0 ${className}`}><div className="group relative h-full min-h-0 overflow-hidden rounded-xl cursor-pointer bg-[#171717]"><img src={img(image)} alt={`Réalisation d’armoires sur mesure ${String(idx + 1).padStart(2, '0')}`} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" /></div></FadeIn>
             ))}
           </div>
         </div>
