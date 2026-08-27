@@ -65,9 +65,7 @@ export default function Soumission() {
             <div className="lg:col-span-2">
               <FadeIn>
                 <div className="bg-white rounded-md shadow-lg overflow-hidden">
-                  <div className="relative min-h-[220px] md:min-h-[260px] flex items-end overflow-hidden">
-                    <img src={img(belleVueImages[1])} alt="" className="absolute inset-0 w-full h-full object-cover object-center" />
-                    <div className="absolute inset-0 bg-[#1B1B1B]/70" />
+                  <div className="relative min-h-[220px] md:min-h-[260px] flex items-end overflow-hidden bg-[#1B1B1B]">
                     <div className="relative z-10 p-8 md:p-12 text-white">
                       <div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]"></div><span className="text-[#FF4B50] font-bold tracking-[0.2em] uppercase text-xs">Votre projet, à votre mesure</span></div>
                       <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight">Détails du projet</h2>
