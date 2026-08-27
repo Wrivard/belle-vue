@@ -7,6 +7,7 @@ import { PageWrapper } from '@/components/layout/page-wrapper';
 import { FadeIn } from '@/components/layout/fade-in';
 import { TestimonialsSection } from '@/components/layout/testimonials-section';
 import { FaqSection } from '@/components/layout/faq-section';
+import { belleVueImages } from '@/data/belle-vue-images';
 import { img } from '@/lib/utils';
 
 const advantages = [
@@ -46,7 +47,7 @@ export default function Soumission() {
     <PageWrapper>
       <section className="relative min-h-[46vh] md:min-h-[50vh] flex items-center pt-20" data-testid="soumission-hero">
         <div className="absolute inset-0 z-0">
-          <img src={img('photo-cuisine-2.jpg')} alt="Cuisine avec armoires sur mesure" className="w-full h-full object-cover object-center" />
+          <img src={img(belleVueImages[24])} alt="Cuisine avec armoires sur mesure" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#1B1B1B]/85"></div>
         </div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-[#EDEDED] py-16">
@@ -65,7 +66,7 @@ export default function Soumission() {
               <FadeIn>
                 <div className="bg-white rounded-md shadow-lg overflow-hidden">
                   <div className="relative min-h-[220px] md:min-h-[260px] flex items-end overflow-hidden">
-                    <img src={img('photo-cuisine-3.jpg')} alt="" className="absolute inset-0 w-full h-full object-cover object-center" />
+                    <img src={img(belleVueImages[1])} alt="" className="absolute inset-0 w-full h-full object-cover object-center" />
                     <div className="absolute inset-0 bg-[#1B1B1B]/70" />
                     <div className="relative z-10 p-8 md:p-12 text-white">
                       <div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]"></div><span className="text-[#FF4B50] font-bold tracking-[0.2em] uppercase text-xs">Votre projet, à votre mesure</span></div>

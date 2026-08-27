@@ -6,36 +6,30 @@ import { FadeIn } from '@/components/layout/fade-in';
 import { ContactSection } from '@/components/layout/contact-section';
 import { FaqSection } from '@/components/layout/faq-section';
 import { TestimonialsSection } from '@/components/layout/testimonials-section';
+import { belleVueImages } from '@/data/belle-vue-images';
 import { img } from '@/lib/utils';
 
 const services = [
   {
     title: 'Armoires de cuisine sur mesure',
     description: 'Une configuration pensée pour votre espace, vos habitudes et la façon dont vous utilisez votre cuisine.',
-    img: 'photo-cuisine.jpg',
+    img: belleVueImages[0],
   },
   {
     title: 'Vanités et armoires de salle de bain',
     description: 'Du rangement adapté aux dimensions de la pièce, à la configuration du lavabo et à votre quotidien.',
-    img: 'photo-sdb-vanite.jpg',
+    img: belleVueImages[10],
   },
   {
     title: 'Rangement sur mesure',
     description: 'Des solutions personnalisées pour mieux utiliser l’espace disponible dans chaque pièce.',
-    img: 'photo-garage.jpg',
+    img: belleVueImages[2],
   },
   {
     title: 'Projets d’ébénisterie',
     description: 'Une idée précise ou un espace à optimiser? Discutons d’une solution conçue pour votre projet.',
-    img: 'photo-porte-grange.jpg',
+    img: belleVueImages[23],
   },
-];
-
-const projects = [
-  { img: 'photo-cuisine-2.jpg', title: 'Projet de cuisine sur mesure', cat: 'Cuisine', detail: 'Armoires personnalisées' },
-  { img: 'photo-sdb-complete.jpg', title: 'Projet de salle de bain', cat: 'Salle de bain', detail: 'Vanité et rangement' },
-  { img: 'photo-garage.jpg', title: 'Solution de rangement', cat: 'Rangement', detail: 'Aménagement sur mesure' },
-  { img: 'photo-cuisine-3.jpg', title: 'Projet d’ébénisterie', cat: 'Ébénisterie sur mesure', detail: 'Création personnalisée' },
 ];
 
 const advantages = [
@@ -58,7 +52,7 @@ export default function Home() {
     <PageWrapper>
       <section id="accueil" className="relative min-h-[90svh] flex items-center py-32 md:py-40" data-testid="hero-section">
         <div className="absolute inset-0 overflow-hidden">
-          <img src={img('photo-cuisine.jpg')} alt="Cuisine avec armoires sur mesure" className="w-full h-full object-cover object-center" />
+           <img src={img(belleVueImages[0])} alt="Cuisine avec armoires sur mesure" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#171717]/75" />
         </div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-white">
@@ -132,7 +126,7 @@ export default function Home() {
             </FadeIn>
             <FadeIn delay={200} className="relative">
               <div className="absolute -inset-4 border-2 border-[#D71920]/60 rounded-md translate-x-4 translate-y-4" />
-              <img src={img('photo-cuisine-2.jpg')} alt="Projet de cuisine avec armoires personnalisées" loading="lazy" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl" />
+               <img src={img(belleVueImages[3])} alt="Projet de cuisine avec armoires personnalisées" loading="lazy" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl" />
             </FadeIn>
           </div>
         </div>
@@ -145,9 +139,9 @@ export default function Home() {
       <section id="realisations" className="scroll-mt-24 py-24 md:py-32 bg-[#F4F4F4] text-[#171717]" data-testid="projects-section">
         <div className="container mx-auto px-6 max-w-[1200px]">
           <FadeIn><div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Réalisations</span></div><h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Des projets qui vous ressemblent.</h2><p className="text-lg text-[#171717]/65 max-w-2xl mb-16">Découvrez quelques exemples de cuisines, salles de bain et solutions de rangement sur mesure.</p></FadeIn>
-          <div className="grid md:grid-cols-2 gap-6">
-            {projects.map((project, idx) => (
-              <FadeIn key={project.title} delay={idx * 100}><div className="group relative overflow-hidden rounded-md cursor-pointer h-[360px]"><img src={img(project.img)} alt={project.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" /><div className="absolute inset-0 bg-[#171717]/55 group-hover:bg-[#171717]/40 transition-colors" /><div className="absolute bottom-0 left-0 w-full p-8"><span className="text-[#FF4B50] font-bold text-sm tracking-widest uppercase mb-2 block">{project.cat}</span><h3 className="text-white text-2xl font-bold uppercase">{project.title}</h3><p className="text-white/70 mt-2">{project.detail}</p></div></div></FadeIn>
+           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+             {belleVueImages.map((image, idx) => (
+               <FadeIn key={image} delay={(idx % 6) * 60}><div className="group relative overflow-hidden rounded-md cursor-pointer aspect-[4/3]"><img src={img(image)} alt={`Réalisation d’armoires sur mesure ${String(idx + 1).padStart(2, '0')}`} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-[#171717]/75 via-[#171717]/10 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" /><div className="absolute bottom-0 left-0 w-full p-5 md:p-6"><span className="text-[#FF4B50] font-bold text-xs tracking-widest uppercase mb-1 block">Réalisation {String(idx + 1).padStart(2, '0')}</span><h3 className="text-white text-lg md:text-xl font-bold uppercase">Armoires sur mesure</h3></div></div></FadeIn>
             ))}
           </div>
         </div>
@@ -163,7 +157,7 @@ export default function Home() {
       </section>
 
       <section className="py-32 text-white relative overflow-hidden" data-testid="cta-section">
-        <div className="absolute inset-0"><img src={img('photo-cuisine-3.jpg')} alt="" loading="lazy" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-[#171717]/85" /></div>
+         <div className="absolute inset-0"><img src={img(belleVueImages[18])} alt="" loading="lazy" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-[#171717]/85" /></div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-center"><FadeIn><h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight mb-8">Vous avez un <span className="text-[#FF4B50]">projet en tête?</span></h2><p className="text-xl md:text-2xl font-medium mb-12 text-white/90 max-w-2xl mx-auto">Parlez-nous de votre cuisine, salle de bain ou projet d’ébénisterie et obtenez une soumission adaptée à vos besoins.</p><Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })}><Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-10 py-8 uppercase tracking-widest text-lg h-auto">Demander une soumission</Button></Link><a href="tel:+14186721613" className="block mt-8 text-[#FF4B50] font-bold text-2xl">(418) 672-1613</a></FadeIn></div>
       </section>
       <TestimonialsSection />
