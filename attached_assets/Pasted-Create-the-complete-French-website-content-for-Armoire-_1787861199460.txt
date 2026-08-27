@@ -1,0 +1,252 @@
+Create the complete French website content for Armoire Belle-Vue Ébénisterie inc., an ébénisterie specializing in the fabrication of custom kitchen and bathroom cabinetry.
+
+Business information:
+- Name: Armoire Belle-Vue Ébénisterie inc.
+- Address: 381 rue Principale, Québec, G0V 1G0
+- Phone: (418) 672-1613
+- Email: armoirebelle-vue@hotmail.ca
+- Main services: custom kitchen cabinets and bathroom cabinetry
+- Website goal: showcase the company’s craftsmanship and completed projects, explain its custom cabinetry services, and generate quote requests.
+
+Write the website entirely in French.
+
+Do not invent years of experience, certifications, warranties, service areas, materials, brands, or company history that have not been provided.
+
+PAGES TO CREATE:
+
+1. ACCUEIL
+
+Hero:
+Title: Des armoires sur mesure conçues pour votre quotidien.
+Subtitle: Cuisine, salle de bain et projets d’ébénisterie réalisés sur mesure selon votre espace, vos besoins et votre style.
+CTA: Demander une soumission
+Secondary CTA: Voir nos réalisations
+
+Introduction:
+Present Armoire Belle-Vue Ébénisterie as a local custom cabinetry company focused on creating functional, personalized spaces.
+
+Explain that every project begins with the client’s needs and that the cabinetry is designed to integrate naturally into the room while maximizing functionality and storage.
+
+Services overview:
+- Armoires de cuisine sur mesure
+- Vanités et armoires de salle de bain
+- Rangement sur mesure
+- Projets d’ébénisterie
+
+Add a section explaining the advantages of custom cabinetry:
+- Adapted to the exact dimensions of the space
+- Personalized configuration
+- Better use of available storage
+- Choice of finishes and details
+- A result designed specifically for the client
+
+Include a featured projects section leading to the Réalisations page.
+
+Final CTA:
+Vous avez un projet en tête?
+Parlez-nous de votre cuisine, salle de bain ou projet d’ébénisterie et obtenez une soumission adaptée à vos besoins.
+
+2. CUISINES SUR MESURE
+
+Title:
+Une cuisine pensée pour votre espace.
+
+Explain the company’s custom kitchen cabinetry service.
+
+Focus the content on both functionality and appearance.
+
+Discuss:
+- Custom cabinet configuration
+- Kitchen islands
+- Pantry and food storage
+- Drawers and practical storage
+- Maximizing available space
+- Integration around appliances
+- Colors, finishes and cabinetry details
+
+Explain that a custom kitchen allows the layout to be adapted to how the client actually uses the room.
+
+Include sections for:
+- New kitchens
+- Kitchen renovation / cabinet replacement
+- Storage optimization
+- Islands and additional cabinetry
+
+CTA:
+Discuter de votre projet de cuisine
+
+3. SALLES DE BAIN
+
+Title:
+Du rangement sur mesure pour votre salle de bain.
+
+Create content around custom bathroom cabinetry and vanities.
+
+Explain how cabinetry can be designed according to:
+- Available dimensions
+- Storage requirements
+- Sink configuration
+- Desired appearance
+- Daily functionality
+
+Possible services:
+- Custom vanities
+- Bathroom cabinets
+- Linen/storage cabinets
+- Wall-mounted storage
+
+Only present these as confirmed services when appropriate.
+
+CTA:
+Demander une soumission
+
+4. ÉBÉNISTERIE ET RANGEMENT SUR MESURE
+
+Title:
+Des solutions conçues pour votre espace.
+
+Present additional custom woodworking and cabinetry possibilities beyond kitchens and bathrooms.
+
+Potential projects can include:
+- Built-in storage
+- Laundry room cabinetry
+- Walk-in storage
+- Entrance storage
+- Entertainment/storage units
+- Custom furniture
+- Other residential cabinetry
+
+Do not state that every example is offered unless confirmed. Present them as examples of possible custom projects where appropriate.
+
+Explain that clients can contact the company with a specific idea or space that needs a custom solution.
+
+5. RÉALISATIONS
+
+Title:
+Nos réalisations
+
+Create a project gallery for completed work.
+
+Main categories:
+- Cuisines
+- Salles de bain
+- Rangement
+- Ébénisterie sur mesure
+
+Each project can contain:
+- Photos
+- Type of project
+- Location if available
+- Client needs
+- Work completed
+- Important features of the project
+- Final result
+
+Avoid inventing project details when only photos are available.
+
+Add CTA:
+Vous aimez ce que vous voyez?
+Parlez-nous de votre projet.
+
+6. NOTRE APPROCHE
+
+Title:
+Un projet conçu autour de vos besoins.
+
+Explain the general process:
+
+Étape 1 – Votre projet
+Discussion about the space, needs, preferences and objectives.
+
+Étape 2 – Planification
+Determine the appropriate configuration and custom solution for the project.
+
+Étape 3 – Choix et détails
+Finalize the relevant finishes, colors, configurations and details.
+
+Étape 4 – Fabrication
+Fabrication of the cabinetry according to the approved project.
+
+Étape 5 – Finalisation
+Complete the project and installation if installation is offered by the company.
+
+Emphasize personalized service, attention to detail, functionality and quality workmanship without making unsupported claims.
+
+7. À PROPOS
+
+Title:
+Armoire Belle-Vue Ébénisterie
+
+Present the company as an ébénisterie specializing in custom cabinetry for residential spaces.
+
+Focus on:
+- Personalized projects
+- Custom fabrication
+- Attention to client needs
+- Functional solutions
+- Attention to detail
+- Direct and approachable service
+
+Do not invent the company’s founding date, number of employees, years of experience or family history.
+
+8. FAQ
+
+Create useful questions such as:
+
+- Est-ce que vos armoires sont fabriquées sur mesure?
+- Faites-vous des cuisines complètes?
+- Réalisez-vous des vanités de salle de bain?
+- Peut-on remplacer seulement les armoires d’une cuisine existante?
+- Pouvez-vous maximiser le rangement dans une petite cuisine?
+- Peut-on choisir les couleurs et les finis?
+- Comment fonctionne une demande de soumission?
+- Puis-je vous envoyer des photos ou des plans de mon projet?
+- Réalisez-vous d’autres projets d’ébénisterie?
+- Quels secteurs desservez-vous?
+
+Only provide definitive answers when supported by the available business information.
+
+9. CONTACT / SOUMISSION
+
+Title:
+Parlez-nous de votre projet.
+
+Content:
+Vous planifiez une nouvelle cuisine, une salle de bain ou un projet d’ébénisterie sur mesure? Communiquez avec Armoire Belle-Vue Ébénisterie pour nous présenter votre projet et discuter de vos besoins.
+
+Armoire Belle-Vue Ébénisterie inc.
+381 rue Principale
+Québec, G0V 1G0
+
+Téléphone:
+(418) 672-1613
+
+Courriel:
+armoirebelle-vue@hotmail.ca
+
+Quote form fields:
+- Nom
+- Téléphone
+- Courriel
+- Ville
+- Type de projet
+- Cuisine / Salle de bain / Ébénisterie / Autre
+- Description du projet
+- Échéancier souhaité
+- Budget approximatif
+- Upload photos or plans
+
+CTA:
+Demander une soumission
+
+The overall content should position Armoire Belle-Vue Ébénisterie as a specialist in personalized, made-to-measure cabinetry rather than a general renovation contractor.
+
+Prioritize useful local SEO topics naturally throughout the content, including:
+- armoires sur mesure
+- armoires de cuisine
+- cuisine sur mesure
+- ébénisterie
+- vanité de salle de bain
+- rangement sur mesure
+
+Do not keyword-stuff and do not invent locations served by the company.
