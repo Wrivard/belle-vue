@@ -40,15 +40,15 @@ const advantages = [
 ];
 
 const featuredRealizations = [
-  { image: belleVueImages[0], className: 'lg:col-span-3 lg:row-span-2' },
-  { image: belleVueImages[19], className: 'lg:col-span-1' },
-  { image: belleVueImages[10], className: 'lg:col-span-1' },
-  { image: belleVueImages[23], className: 'lg:col-span-1' },
-  { image: belleVueImages[2], className: 'lg:col-span-1' },
-  { image: belleVueImages[3], className: 'lg:col-span-2' },
-  { image: belleVueImages[24], className: 'lg:col-span-2' },
-  { image: belleVueImages[13], className: 'lg:col-span-1' },
-  { image: belleVueImages[27], className: 'lg:col-span-1' },
+  { image: belleVueImages[0], className: 'col-span-2 lg:col-span-1 lg:col-start-1 lg:row-start-1' },
+  { image: belleVueImages[19], className: 'col-span-1 lg:col-span-1 lg:col-start-2 lg:row-start-1' },
+  { image: belleVueImages[10], className: 'col-span-1 lg:col-span-1 lg:col-start-3 lg:row-start-1' },
+  { image: belleVueImages[23], className: 'col-span-1 lg:col-span-1 lg:col-start-4 lg:row-start-1 lg:row-span-2' },
+  { image: belleVueImages[2], className: 'col-span-1 lg:col-span-1 lg:col-start-1 lg:row-start-2' },
+  { image: belleVueImages[3], className: 'col-span-1 lg:col-span-2 lg:col-start-2 lg:row-start-2' },
+  { image: belleVueImages[24], className: 'col-span-2 lg:col-span-2 lg:col-start-1 lg:row-start-3' },
+  { image: belleVueImages[13], className: 'col-span-1 lg:col-span-1 lg:col-start-3 lg:row-start-3' },
+  { image: belleVueImages[27], className: 'col-span-1 lg:col-span-1 lg:col-start-4 lg:row-start-3' },
 ];
 
 const processSteps = [
@@ -151,9 +151,9 @@ export default function Home() {
       <section id="realisations" className="scroll-mt-24 py-24 md:py-32 bg-[#F4F4F4] text-[#171717]" data-testid="projects-section">
         <div className="container mx-auto px-6 max-w-[1200px]">
            <FadeIn><div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Réalisations</span></div><h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Des projets qui vous ressemblent.</h2><p className="text-lg text-[#171717]/65 max-w-2xl mb-16">Une sélection de cuisines, salles de bain et solutions de rangement sur mesure.</p></FadeIn>
-           <div className="grid grid-cols-3 lg:grid-cols-6 grid-rows-3 auto-rows-[120px] lg:auto-rows-[170px] gap-3 md:gap-4">
+            <div className="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-[1.55fr_1fr_1fr_1.55fr] lg:grid-rows-[180px_180px_180px]">
              {featuredRealizations.map(({ image, className }, idx) => (
-               <FadeIn key={image} delay={(idx % 6) * 60} className={`min-h-0 ${className}`}><div className="group relative h-full min-h-0 overflow-hidden rounded-md cursor-pointer bg-[#171717]"><img src={img(image)} alt={`Réalisation d’armoires sur mesure ${String(idx + 1).padStart(2, '0')}`} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-[#171717]/80 via-[#171717]/10 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" /><div className="absolute bottom-0 left-0 w-full p-3 md:p-5"><span className="text-[#FF4B50] font-bold text-[10px] md:text-xs tracking-widest uppercase mb-1 block">Réalisation {String(idx + 1).padStart(2, '0')}</span><h3 className="text-white text-xs md:text-lg font-bold uppercase leading-tight">Armoires sur mesure</h3></div></div></FadeIn>
+                <FadeIn key={image} delay={(idx % 6) * 60} className={`min-h-[170px] lg:min-h-0 ${className}`}><div className="group relative h-full min-h-0 overflow-hidden rounded-xl cursor-pointer bg-[#171717]"><img src={img(image)} alt={`Réalisation d’armoires sur mesure ${String(idx + 1).padStart(2, '0')}`} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-[#171717]/85 via-[#171717]/10 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" /><div className="absolute bottom-0 left-0 w-full p-3 md:p-5"><span className="text-[#FF4B50] font-bold text-[10px] md:text-xs tracking-widest uppercase mb-1 block">Réalisation {String(idx + 1).padStart(2, '0')}</span><h3 className="text-white text-xs md:text-lg font-bold uppercase leading-tight">Armoires sur mesure</h3></div></div></FadeIn>
             ))}
           </div>
         </div>
