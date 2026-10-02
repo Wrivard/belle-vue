@@ -50,7 +50,7 @@ export function Navbar() {
                   <a href={homeSectionHref('services')} onClick={closeMenus} className="block rounded px-4 py-3 text-[11px] hover:bg-[#D71920] transition-colors">Armoires de cuisine sur mesure</a>
                   <a href={homeSectionHref('services')} onClick={closeMenus} className="block rounded px-4 py-3 text-[11px] hover:bg-[#D71920] transition-colors">Vanités et armoires de salle de bain</a>
                   <a href={homeSectionHref('services')} onClick={closeMenus} className="block rounded px-4 py-3 text-[11px] hover:bg-[#D71920] transition-colors">Rangement personnalisé</a>
-                  <a href={homeSectionHref('services')} onClick={closeMenus} className="block rounded px-4 py-3 text-[11px] hover:bg-[#D71920] transition-colors">Projets d’ébénisterie</a>
+                  <a href={homeSectionHref('services')} onClick={closeMenus} className="block rounded px-4 py-3 text-[11px] hover:bg-[#D71920] transition-colors">Ameublement sur mesure</a>
                 </div>
               </div>
             </div>
@@ -72,7 +72,7 @@ export function Navbar() {
               Services <ChevronDown size={22} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
             </button>
             {servicesOpen && <div className="mt-3 ml-4 space-y-3 border-l-2 border-[#D71920] pl-4">
-              {['Armoires de cuisine sur mesure', 'Vanités et armoires de salle de bain', 'Rangement personnalisé', 'Projets d’ébénisterie'].map((service) => <a key={service} href={homeSectionHref('services')} onClick={closeMenus} className="block text-base font-semibold uppercase text-white/75">{service}</a>)}
+              {['Armoires de cuisine sur mesure', 'Vanités et armoires de salle de bain', 'Rangement personnalisé', 'Ameublement sur mesure'].map((service) => <a key={service} href={homeSectionHref('services')} onClick={closeMenus} className="block text-base font-semibold uppercase text-white/75">{service}</a>)}
             </div>}
           </div>
           <a href={homeSectionHref('realisations')} className="text-2xl font-bold uppercase" onClick={closeMenus}>Réalisations</a>

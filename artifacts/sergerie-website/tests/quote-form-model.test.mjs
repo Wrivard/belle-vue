@@ -13,6 +13,8 @@ const valid = {
 
 test('project step validates only project fields', () => {
   assert.deepEqual(Object.keys(validateStep(1, EMPTY_DRAFT)), ['projectType', 'details']);
+  assert.ok(PROJECT_TYPES.includes('Ameublement sur mesure'));
+  assert.ok(!PROJECT_TYPES.includes('Ébénisterie'));
   assert.deepEqual(validateStep(1, { ...EMPTY_DRAFT, projectType: 'Autre', details: 'Description' }), {});
   assert.ok(validateStep(1, { ...valid, details: ' \n ' }).details);
   assert.ok(validateStep(1, { ...valid, projectType: 'Invalid option' }).projectType);

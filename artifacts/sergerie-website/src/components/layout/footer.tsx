@@ -2,7 +2,7 @@ import { Link } from 'wouter';
 import { Phone, MapPin, Mail } from 'lucide-react';
 import { img } from '@/lib/utils';
 
-const services = ['Armoires de cuisine sur mesure', 'Vanités et armoires de salle de bain', 'Rangement sur mesure', 'Projets d’ébénisterie'];
+const services = ['Armoires de cuisine sur mesure', 'Vanités et armoires de salle de bain', 'Rangement sur mesure', 'Ameublement sur mesure'];
 
 const home = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 
@@ -13,7 +13,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="lg:col-span-1">
             <Link href="/"><img src={img('logo-armoire-belle-vue.png')} alt="Armoire Belle-Vue Ébénisterie inc." className="h-[78px] max-w-full w-auto object-contain mb-6" /></Link>
-            <p className="text-[#E4E4E4]/70 mb-6 text-sm leading-relaxed">Des armoires sur mesure et des solutions d’ébénisterie pensées pour votre espace, vos besoins et votre quotidien.</p>
+            <p className="text-[#E4E4E4]/70 mb-6 text-sm leading-relaxed">Des armoires et du mobilier sur mesure, pensés pour votre espace, vos besoins et votre quotidien.</p>
             <div className="flex items-center gap-3"><div className="w-10 h-10 bg-[#D71920] rounded-md flex items-center justify-center"><Phone size={18} className="text-white" /></div><div><div className="text-xs uppercase tracking-wider text-[#E4E4E4]/50 font-bold">Appelez-nous</div><a href="tel:+14186721613" className="font-bold text-[#E4E4E4] hover:text-[#FF4B50] transition-colors" data-testid="footer-phone">(418) 672-1613</a></div></div>
           </div>
           <div>

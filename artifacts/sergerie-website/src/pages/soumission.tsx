@@ -11,7 +11,7 @@ const advantages = [
   'Armoires de cuisine sur mesure',
   'Vanités et armoires de salle de bain',
   'Rangement personnalisé',
-  'Projets d’ébénisterie sur mesure',
+  'Ameublement sur mesure',
   'Configuration adaptée à votre espace',
   'Attention portée aux détails',
 ];
@@ -28,7 +28,7 @@ export default function Soumission() {
           <div className="max-w-3xl">
             <FadeIn><div className="flex items-center gap-4 mb-6"><div className="w-12 h-1 bg-[#D71920]"></div><span className="text-[#FF4B50] font-bold tracking-[0.2em] uppercase text-sm">Armoire Belle-Vue Ébénisterie</span></div></FadeIn>
             <FadeIn delay={100}><h1 className="text-5xl md:text-7xl font-bold leading-[1.05] mb-6 text-white uppercase tracking-tight" data-testid="text-soumission-title">Parlez-nous de <span className="text-[#FF4B50]">votre projet.</span></h1></FadeIn>
-            <FadeIn delay={200}><p className="text-lg md:text-xl text-[#EDEDED]/80 max-w-2xl font-medium leading-relaxed">Vous planifiez une nouvelle cuisine, une salle de bain ou un projet d’ébénisterie sur mesure? Parlons de vos habitudes, de votre espace et de vos besoins pour imaginer des armoires ergonomiques et adaptées à votre quotidien.</p></FadeIn>
+            <FadeIn delay={200}><p className="text-lg md:text-xl text-[#EDEDED]/80 max-w-2xl font-medium leading-relaxed">Vous planifiez une nouvelle cuisine, une salle de bain ou un projet d’ameublement sur mesure? Parlons de vos habitudes, de votre espace et de vos besoins pour imaginer des armoires ergonomiques et adaptées à votre quotidien.</p></FadeIn>
           </div>
         </div>
       </section>

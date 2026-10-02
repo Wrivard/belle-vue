@@ -26,7 +26,7 @@ const services = [
     img: belleVueImages[2],
   },
   {
-    title: 'Projets d’ébénisterie',
+    title: 'Ameublement sur mesure',
     description: 'Une idée précise ou un espace à optimiser? Discutons d’une solution ergonomique, conçue selon votre projet et vos besoins.',
     img: belleVueImages[23],
   },
@@ -73,7 +73,7 @@ export default function Home() {
             <FadeIn>
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-1 bg-[#D71920]" />
-                <span className="text-[#FF4B50] font-bold tracking-[0.2em] uppercase text-sm">Ébénisterie sur mesure</span>
+                <span className="text-[#FF4B50] font-bold tracking-[0.2em] uppercase text-sm">Ameublement sur mesure</span>
               </div>
             </FadeIn>
             <FadeIn delay={100}>
@@ -83,7 +83,7 @@ export default function Home() {
             </FadeIn>
             <FadeIn delay={200}>
               <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl leading-relaxed">
-                Cuisine, salle de bain et projets d’ébénisterie pensés pour un quotidien plus ergonomique, selon votre espace, vos besoins et votre style.
+                Cuisine, salle de bain et ameublement sur mesure, pensés pour un quotidien plus ergonomique et adaptés à votre espace, à vos besoins et à votre style.
               </p>
             </FadeIn>
             <FadeIn delay={300} className="flex flex-col sm:flex-row gap-4">
@@ -96,7 +96,7 @@ export default function Home() {
                 Voir nos réalisations
               </Button>
             </FadeIn>
-            <p className="mt-8 text-sm font-bold tracking-widest uppercase text-white/60">Cuisine <span className="text-[#FF4B50]">•</span> Salle de bain <span className="text-[#FF4B50]">•</span> Ébénisterie</p>
+            <p className="mt-8 text-sm font-bold tracking-widest uppercase text-white/60">Cuisine <span className="text-[#FF4B50]">•</span> Salle de bain <span className="text-[#FF4B50]">•</span> Ameublement sur mesure</p>
           </div>
         </div>
       </section>
@@ -131,7 +131,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <FadeIn>
               <div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#FF4B50] font-bold tracking-widest uppercase text-sm">À propos</span></div>
-              <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-8">L’ébénisterie <span className="text-[#FF4B50]">à votre mesure.</span></h2>
+              <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-8">L’ameublement <span className="text-[#FF4B50]">à votre mesure.</span></h2>
               <div className="space-y-6 text-white/75 text-lg leading-relaxed">
                 <p>Fondée en 2011, Armoire Belle-Vue Ébénisterie est née du désir de Frédéric et Bianca de mieux concilier le travail et la vie de famille, alors que l’entreprise où travaillait Frédéric allait fermer.</p>
                 <p>Diplômé en techniques d’ébénisterie et métiers d’art au Collège d’Alma en 1996, Frédéric œuvre dans le domaine depuis la fin de ses études. Il met aujourd’hui environ 30 ans d’expérience au service de vos projets.</p>

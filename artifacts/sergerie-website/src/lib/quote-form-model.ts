@@ -17,7 +17,7 @@ export const EMPTY_DRAFT: QuoteDraft = {
 
 export const QUOTE_EMAIL = 'armoirebelle-vue@hotmail.ca';
 
-export const PROJECT_TYPES = ['Cuisine sur mesure', 'Salle de bain', 'Ébénisterie', 'Rangement sur mesure', 'Autre'];
+export const PROJECT_TYPES = ['Cuisine sur mesure', 'Salle de bain', 'Ameublement sur mesure', 'Rangement sur mesure', 'Autre'];
 export const BUDGETS = ['Moins de 10 000 $', '10 000 $ à 20 000 $', '20 000 $ à 40 000 $', 'Plus de 40 000 $'];
 export const TIMELINES = ['Le plus tôt possible', 'Dans 1 à 3 mois', 'Dans 3 à 6 mois', 'Flexible'];
 
