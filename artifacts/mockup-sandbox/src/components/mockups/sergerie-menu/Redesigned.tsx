@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import { ArrowRight, ArrowUpRight, ChevronDown, Phone, X } from "lucide-react";
 import "./_group.css";
 
@@ -24,7 +24,7 @@ const helpfulLinks = [
 
 export function Redesigned() {
   const [servicesOpen, setServicesOpen] = useState(false);
-  const stopNavigation = (event: React.MouseEvent) => event.preventDefault();
+  const stopNavigation = (event: MouseEvent<HTMLAnchorElement>) => event.preventDefault();
 
   return (
     <div className="h-[100dvh] min-h-[680px] overflow-hidden bg-[#171717] font-sans text-[#E4E4E4]">
@@ -90,21 +90,19 @@ export function Redesigned() {
                   <span>Voir les services</span>
                   <ChevronDown size={21} className={`text-[#FF4B50] transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
                 </button>
-                {servicesOpen && (
-                  <div id="mobile-services-list" className="grid gap-x-5 gap-y-1 border-b border-white/10 bg-white/[0.03] px-4 py-3 sm:grid-cols-2">
-                    {services.map((service, index) => (
-                      <a
-                        key={service}
-                        href="#"
-                        onClick={stopNavigation}
-                        className="flex min-h-10 items-center justify-between gap-3 py-2 text-sm font-medium text-white/75 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4B50]"
-                      >
-                        <span>{service}</span>
-                        <ArrowUpRight size={15} className="shrink-0 text-white/35" />
-                      </a>
-                    ))}
-                  </div>
-                )}
+                <div id="mobile-services-list" className={`${servicesOpen ? "grid" : "hidden"} gap-x-5 gap-y-1 border-b border-white/10 bg-white/[0.03] px-4 py-3 sm:grid-cols-2`}>
+                  {services.map((service) => (
+                    <a
+                      key={service}
+                      href="#"
+                      onClick={stopNavigation}
+                      className="flex min-h-10 items-center justify-between gap-3 py-2 text-sm font-medium text-white/75 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4B50]"
+                    >
+                      <span>{service}</span>
+                      <ArrowUpRight size={15} className="shrink-0 text-white/35" />
+                    </a>
+                  ))}
+                </div>
               </section>
 
               <section aria-labelledby="helpful-title">
