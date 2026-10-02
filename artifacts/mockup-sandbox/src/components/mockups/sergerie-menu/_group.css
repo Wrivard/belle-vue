@@ -1,0 +1,84 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/__mockup/fonts/inter-variable.ttf") format("truetype");
+}
+
+@theme inline {
+  --font-sans: "Inter", sans-serif;
+}
+
+:root {
+  --background: 0 0% 89.4%;
+  --foreground: 0 0% 10.6%;
+  --border: 0 0% 80%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10.6%;
+  --card-border: 0 0% 85%;
+  --sidebar: 0 0% 10.6%;
+  --sidebar-foreground: 0 0% 89.4%;
+  --sidebar-border: 0 0% 20%;
+  --sidebar-primary: 0 78% 47%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 0 0% 15%;
+  --sidebar-accent-foreground: 0 0% 89.4%;
+  --sidebar-ring: 0 78% 47%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10.6%;
+  --popover-border: 0 0% 85%;
+  --primary: 0 78% 47%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 10.6%;
+  --secondary-foreground: 0 0% 89.4%;
+  --muted: 0 0% 85%;
+  --muted-foreground: 0 0% 40%;
+  --accent: 0 78% 47%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 0 0% 80%;
+  --ring: 0 78% 47%;
+  --chart-1: 0 78% 47%;
+  --chart-2: 0 0% 10.6%;
+  --chart-3: 0 0% 60%;
+  --chart-4: 24 80% 60%;
+  --chart-5: 0 0% 40%;
+  --app-font-sans: "Inter", sans-serif;
+  --app-font-serif: Georgia, serif;
+  --app-font-mono: Menlo, monospace;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 0 0% 10.6%;
+  --foreground: 0 0% 89.4%;
+  --border: 0 0% 20%;
+  --card: 0 0% 13%;
+  --card-foreground: 0 0% 89.4%;
+  --card-border: 0 0% 20%;
+  --sidebar: 0 0% 10.6%;
+  --sidebar-foreground: 0 0% 89.4%;
+  --sidebar-border: 0 0% 20%;
+  --sidebar-primary: 25 95% 53%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 0 0% 15%;
+  --sidebar-accent-foreground: 0 0% 89.4%;
+  --sidebar-ring: 25 95% 53%;
+  --popover: 0 0% 13%;
+  --popover-foreground: 0 0% 89.4%;
+  --popover-border: 0 0% 20%;
+  --primary: 25 95% 53%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 89.4%;
+  --secondary-foreground: 0 0% 10.6%;
+  --muted: 0 0% 18%;
+  --muted-foreground: 0 0% 55%;
+  --accent: 25 95% 53%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 0 0% 25%;
+  --ring: 25 95% 53%;
+}
