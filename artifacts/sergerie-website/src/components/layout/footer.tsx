@@ -1,14 +1,12 @@
 import { Link } from 'wouter';
 import { Phone, MapPin, Mail } from 'lucide-react';
 import { img } from '@/lib/utils';
-import { focusMapSection, setMapConsent, useMapConsent } from '@/lib/map-consent';
 
 const services = ['Armoires de cuisine sur mesure', 'Vanités et armoires de salle de bain', 'Rangement sur mesure', 'Projets d’ébénisterie'];
 
 const home = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 
 export function Footer() {
-  const mapOn = useMapConsent();
   return (
     <footer className="bg-[#1B1B1B] text-[#E4E4E4] border-t border-white/10" data-testid="footer">
       <div className="container mx-auto px-6 max-w-[1200px] py-20">
@@ -43,7 +41,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10 bg-[#141414]"><div className="container mx-auto px-6 max-w-[1200px] py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#E4E4E4]/60 font-medium"><p>© {new Date().getFullYear()} Armoire Belle-Vue Ébénisterie inc. Tous droits réservés.</p><div className="flex flex-wrap items-center justify-center gap-4"><Link href="/politique-cookies" className="underline underline-offset-4 hover:text-[#FF4B50]" data-testid="link-politique-cookies">Politique relative aux témoins</Link><button type="button" onClick={() => { if (mapOn) setMapConsent(false); focusMapSection(); }} className="underline underline-offset-4 hover:text-[#FF4B50]" data-testid="button-map-preferences">{mapOn ? 'Retirer le consentement à la carte' : 'Préférences de la carte'}</button></div></div></div>
+      <div className="border-t border-white/10 bg-[#141414]"><div className="container mx-auto px-6 max-w-[1200px] py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#E4E4E4]/60 font-medium"><p>© {new Date().getFullYear()} Armoire Belle-Vue Ébénisterie inc. Tous droits réservés.</p><Link href="/politique-cookies" className="underline underline-offset-4 hover:text-[#FF4B50]" data-testid="link-politique-cookies">Politique relative aux témoins</Link></div></div>
     </footer>
   );
 }

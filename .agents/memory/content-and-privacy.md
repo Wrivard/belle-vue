@@ -18,3 +18,11 @@ La demande de conformité à la Loi 25 couvre la politique publique et le compor
 **Why:** Une politique de témoins ne prouve pas les pratiques internes de l’entreprise, sa délégation de responsabilité, ses durées de conservation ou les évaluations requises pour les transferts hors Québec.
 
 **How to apply:** Vérifier les services effectivement chargés et adapter les contrôles au consentement. Avant publication, faire confirmer le responsable et les pratiques organisationnelles par l’entreprise; ne pas inventer ces renseignements pour remplir un texte juridique.
+
+# Affichage de la carte
+
+« toujours afficher la map, pas besoin de la cacher »
+
+**Why:** L’utilisateur a explicitement demandé de retirer l’activation préalable de la carte après avoir été informé des échanges automatiques avec Google.
+
+**How to apply:** Conserver l’affichage automatique de la carte et une politique qui décrit ce comportement réel. Ne pas réintroduire le masquage sans accord de l’utilisateur et ne pas présenter l’affichage automatique comme une conformité juridique garantie.
