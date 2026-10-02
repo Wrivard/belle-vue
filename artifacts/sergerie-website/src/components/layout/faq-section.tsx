@@ -27,7 +27,21 @@ export function FaqSection() {
         </FadeIn>
         <FadeIn delay={200}>
           <Accordion type="single" collapsible className="grid w-full grid-cols-1 items-start gap-4 md:grid-cols-2">
-            {faqItems.map((item) => <AccordionItem key={item.value} value={item.value} className="border border-[#EDEDED]/20 rounded-md px-6 bg-[#161616]" data-testid={`faq-${item.value}`}><AccordionTrigger className="text-lg font-bold hover:text-[#FF4B50] hover:no-underline py-6 text-left">{item.q}</AccordionTrigger><AccordionContent className="text-[#EDEDED]/70 text-base pb-6">{item.a}</AccordionContent></AccordionItem>)}
+            {faqItems.map((item, index) => (
+              <AccordionItem
+                key={item.value}
+                value={item.value}
+                className={`rounded-md border border-[#EDEDED]/20 bg-[#161616] px-6 ${faqItems.length % 2 !== 0 && index === faqItems.length - 1 ? 'md:col-span-2' : ''}`}
+                data-testid={`faq-${item.value}`}
+              >
+                <AccordionTrigger className="gap-4 py-5 text-left text-lg font-bold leading-7 hover:text-[#FF4B50] hover:no-underline md:min-h-32 lg:min-h-[104px]">
+                  <span>{item.q}</span>
+                </AccordionTrigger>
+                <AccordionContent className="pb-6 text-base leading-relaxed text-[#EDEDED]/70">
+                  {item.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
           </Accordion>
         </FadeIn>
       </div>
