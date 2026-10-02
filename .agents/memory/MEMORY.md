@@ -1,1 +1,2 @@
 - [sergerie-website white-label template](sergerie-template.md) — one construction site re-skinned per client; replit.md/folder name go stale, read live source to find current brand.
+- [Témoignages et conformité](content-and-privacy.md) — avis clients sans réponses du propriétaire; une politique Loi 25 ne certifie pas les pratiques internes.

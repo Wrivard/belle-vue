@@ -1,10 +1,14 @@
 import { Link } from 'wouter';
 import { Phone, MapPin, Mail } from 'lucide-react';
 import { img } from '@/lib/utils';
+import { focusMapSection, setMapConsent, useMapConsent } from '@/lib/map-consent';
 
 const services = ['Armoires de cuisine sur mesure', 'Vanités et armoires de salle de bain', 'Rangement sur mesure', 'Projets d’ébénisterie'];
 
+const home = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+
 export function Footer() {
+  const mapOn = useMapConsent();
   return (
     <footer className="bg-[#1B1B1B] text-[#E4E4E4] border-t border-white/10" data-testid="footer">
       <div className="container mx-auto px-6 max-w-[1200px] py-20">
@@ -22,10 +26,10 @@ export function Footer() {
             <h4 className="text-sm font-bold uppercase tracking-[0.2em] mb-6 text-[#E4E4E4] border-b border-[#D71920] pb-3 inline-block">Navigation</h4>
             <ul className="space-y-3 text-[#E4E4E4]/70 text-sm">
               <li><Link href="/" className="hover:text-[#FF4B50] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#D71920] rounded-full shrink-0"></span>Accueil</Link></li>
-              <li><a href="#services" className="hover:text-[#FF4B50] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#D71920] rounded-full shrink-0"></span>Services</a></li>
-              <li><a href="#realisations" className="hover:text-[#FF4B50] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#D71920] rounded-full shrink-0"></span>Réalisations</a></li>
-              <li><a href="#approche" className="hover:text-[#FF4B50] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#D71920] rounded-full shrink-0"></span>Notre approche</a></li>
-              <li><a href="#contact" className="hover:text-[#FF4B50] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#D71920] rounded-full shrink-0"></span>Contact</a></li>
+              <li><a href={home + '#services'} className="hover:text-[#FF4B50] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#D71920] rounded-full shrink-0"></span>Services</a></li>
+              <li><a href={home + '#realisations'} className="hover:text-[#FF4B50] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#D71920] rounded-full shrink-0"></span>Réalisations</a></li>
+              <li><a href={home + '#approche'} className="hover:text-[#FF4B50] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#D71920] rounded-full shrink-0"></span>Notre approche</a></li>
+              <li><a href={home + '#contact'} className="hover:text-[#FF4B50] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#D71920] rounded-full shrink-0"></span>Contact</a></li>
               <li><Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })} className="hover:text-[#FF4B50] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#D71920] rounded-full shrink-0"></span>Demander une soumission</Link></li>
             </ul>
           </div>
@@ -39,7 +43,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10 bg-[#141414]"><div className="container mx-auto px-6 max-w-[1200px] py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#E4E4E4]/60 font-medium"><p>© {new Date().getFullYear()} Armoire Belle-Vue Ébénisterie inc. Tous droits réservés.</p><div className="flex items-center gap-4"><span>(418) 672-1613</span><span className="text-[#E4E4E4]/30">|</span><span>armoirebelle-vue@hotmail.ca</span></div></div></div>
+      <div className="border-t border-white/10 bg-[#141414]"><div className="container mx-auto px-6 max-w-[1200px] py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#E4E4E4]/60 font-medium"><p>© {new Date().getFullYear()} Armoire Belle-Vue Ébénisterie inc. Tous droits réservés.</p><div className="flex flex-wrap items-center justify-center gap-4"><Link href="/politique-cookies" className="underline underline-offset-4 hover:text-[#FF4B50]" data-testid="link-politique-cookies">Politique relative aux témoins</Link><button type="button" onClick={() => { if (mapOn) setMapConsent(false); focusMapSection(); }} className="underline underline-offset-4 hover:text-[#FF4B50]" data-testid="button-map-preferences">{mapOn ? 'Retirer le consentement à la carte' : 'Préférences de la carte'}</button></div></div></div>
     </footer>
   );
 }

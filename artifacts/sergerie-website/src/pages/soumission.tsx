@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react';
+import { Link } from 'wouter';
 import { Phone, Mail, MapPin, CheckCircle2, Paperclip } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -54,7 +55,7 @@ export default function Soumission() {
           <div className="max-w-3xl">
             <FadeIn><div className="flex items-center gap-4 mb-6"><div className="w-12 h-1 bg-[#D71920]"></div><span className="text-[#FF4B50] font-bold tracking-[0.2em] uppercase text-sm">Armoire Belle-Vue Ébénisterie</span></div></FadeIn>
             <FadeIn delay={100}><h1 className="text-5xl md:text-7xl font-bold leading-[1.05] mb-6 text-white uppercase tracking-tight" data-testid="text-soumission-title">Parlez-nous de <span className="text-[#FF4B50]">votre projet.</span></h1></FadeIn>
-            <FadeIn delay={200}><p className="text-lg md:text-xl text-[#EDEDED]/80 max-w-2xl font-medium leading-relaxed">Vous planifiez une nouvelle cuisine, une salle de bain ou un projet d’ébénisterie sur mesure? Présentez-nous votre idée et discutons de vos besoins.</p></FadeIn>
+            <FadeIn delay={200}><p className="text-lg md:text-xl text-[#EDEDED]/80 max-w-2xl font-medium leading-relaxed">Vous planifiez une nouvelle cuisine, une salle de bain ou un projet d’ébénisterie sur mesure? Présentez-nous votre idée. Nous prendrons rendez-vous pour discuter de vos besoins avant de préparer votre soumission et de vous l’envoyer par courriel.</p></FadeIn>
           </div>
         </div>
       </section>
@@ -91,6 +92,7 @@ export default function Soumission() {
                     <div className="space-y-2"><label htmlFor="quote-details" className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Description du projet *</label><Textarea id="quote-details" name="details" required className="bg-[#EDEDED]/50 border-0 min-h-[220px] rounded-sm focus-visible:ring-[#D71920] resize-none" placeholder="Parlez-nous de l’espace, de vos besoins et de vos idées." data-testid="input-soumission-details" /></div>
                     <div className="space-y-2"><label htmlFor="quote-files" className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Photos ou plans</label><div className="flex items-center gap-3 bg-[#EDEDED]/50 px-4 h-14 rounded-sm"><Paperclip size={18} className="text-[#D71920]" /><Input id="quote-files" name="files" type="file" accept="image/*,.pdf" multiple className="border-0 p-0 h-auto bg-transparent file:mr-4 file:border-0 file:bg-[#1B1B1B] file:px-3 file:py-2 file:text-white file:text-sm file:font-semibold" data-testid="input-soumission-files" /></div><p className="text-xs text-[#1B1B1B]/50">Vous pourrez joindre ces fichiers dans votre courriel.</p></div>
                     <div className="flex items-start gap-3 pt-2"><input type="checkbox" id="consent" required className="mt-1 accent-[#D71920] w-4 h-4" data-testid="checkbox-consent" /><label htmlFor="consent" className="text-sm text-[#1B1B1B]/60 leading-relaxed">J’accepte que mes informations soient utilisées uniquement pour traiter ma demande de soumission.</label></div>
+                    <p className="text-sm text-[#1B1B1B]/70">Ce formulaire prépare un courriel dans votre application de messagerie; vous devrez l’envoyer vous-même. <Link href="/politique-cookies" className="underline underline-offset-4 hover:text-[#D71920]">Consultez les renseignements sur la confidentialité et vos droits.</Link></p>
                     <Button type="submit" className="w-full bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md py-6 uppercase tracking-wide text-base transition-transform hover:scale-[1.02] h-auto mt-4" data-testid="button-soumission-submit">Demander une soumission</Button>
                     </form>
                   </div>

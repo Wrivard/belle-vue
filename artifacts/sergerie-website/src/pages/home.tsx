@@ -52,11 +52,12 @@ const featuredRealizations = [
 ];
 
 const processSteps = [
-  ['01', 'Votre projet', 'Nous discutons de votre espace, de vos besoins, de vos préférences et de vos objectifs.'],
-  ['02', 'Planification', 'Nous déterminons la configuration et la solution sur mesure adaptées à votre projet.'],
-  ['03', 'Choix et détails', 'Nous finalisons les couleurs, les finis, la configuration et les détails pertinents.'],
-  ['04', 'Fabrication', 'Les armoires sont fabriquées selon le projet approuvé.'],
-  ['05', 'Finalisation', 'Le projet est finalisé, avec installation lorsque celle-ci est offerte pour le projet.'],
+  ['01', 'Rendez-vous', 'Nous prenons rendez-vous pour discuter de votre projet et recueillir les informations nécessaires à la soumission.'],
+  ['02', 'Soumission', 'Nous préparons votre soumission et vous l’envoyons par courriel.'],
+  ['03', 'Rencontre à nos bureaux', 'Si la proposition et le prix vous conviennent, nous vous présentons les plans, les couleurs, les modèles et les matériaux.'],
+  ['04', 'Date d’installation', 'Nous déterminons ensemble une date d’installation et planifions la prise de mesures finales.'],
+  ['05', 'Mesures finales', 'Nous prenons les mesures finales afin de préparer la fabrication et l’installation.'],
+  ['06', 'Installation', 'Nous faisons tout pour honorer la date convenue, avec une attention particulière à la propreté et à la qualité du travail.'],
 ];
 
 export default function Home() {
@@ -132,8 +133,15 @@ export default function Home() {
               <div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#FF4B50] font-bold tracking-widest uppercase text-sm">À propos</span></div>
               <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-8">L’ébénisterie <span className="text-[#FF4B50]">à votre mesure.</span></h2>
               <div className="space-y-6 text-white/75 text-lg leading-relaxed">
-                <p>Armoire Belle-Vue Ébénisterie se spécialise dans la fabrication d’armoires sur mesure pour les espaces résidentiels.</p>
-                <p>Nous concevons des projets personnalisés en portant attention à vos besoins, à la fonctionnalité de l’espace et aux détails qui feront la différence dans votre quotidien.</p>
+                <p>Fondée en 2011, Armoire Belle-Vue Ébénisterie est née du désir de Frédéric et Bianca de mieux concilier le travail et la vie de famille, alors que l’entreprise où travaillait Frédéric allait fermer.</p>
+                <p>Diplômé en techniques d’ébénisterie et métiers d’art au Collège d’Alma en 1996, Frédéric œuvre dans le domaine depuis la fin de ses études. Il met aujourd’hui environ 30 ans d’expérience au service de vos projets.</p>
+                <p>Bianca a étudié et travaillé en comptabilité, puis ouvert un service de garde à domicile en 2007. La création de l’entreprise lui permettait de continuer à travailler de la maison tout en étant présente pour leurs deux jeunes enfants.</p>
+                <p>Notre petite équipe privilégie une communication étroite et une véritable écoute. Comme nous aimons le dire : <strong className="text-white">« C’est votre cuisine. »</strong> Chaque projet doit correspondre à vos goûts, à vos besoins et à votre réalité.</p>
+              </div>
+              <div className="grid grid-cols-3 gap-4 border-t border-white/20 mt-8 pt-6">
+                <div><p className="text-xl sm:text-2xl font-bold text-white">Depuis 2011</p><p className="mt-2 text-sm text-white/65">Une entreprise familiale</p></div>
+                <div><p className="text-xl sm:text-2xl font-bold text-white">≈ 30 ans</p><p className="mt-2 text-sm text-white/65">D’expérience pour Frédéric</p></div>
+                <div><p className="text-xl sm:text-2xl font-bold text-white">360+</p><p className="mt-2 text-sm text-white/65">Projets réalisés</p></div>
               </div>
             </FadeIn>
             <FadeIn delay={200} className="relative">
@@ -161,8 +169,8 @@ export default function Home() {
 
       <section id="approche" className="scroll-mt-24 py-24 md:py-32 bg-[#EDEDED] text-[#171717]" data-testid="approach-section">
         <div className="container mx-auto px-6 max-w-[1200px]">
-          <FadeIn><div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Notre approche</span></div><h2 className="text-4xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Un projet conçu autour de vos besoins.</h2><p className="text-lg text-[#171717]/65 max-w-2xl mb-16">De la première discussion à la finalisation, chaque étape sert à créer une solution d’armoires qui s’intègre à votre espace.</p></FadeIn>
-          <div className="grid md:grid-cols-5 gap-6">
+          <FadeIn><div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Notre approche</span></div><h2 className="text-4xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Un projet conçu autour de vos besoins.</h2><p className="text-lg text-[#171717]/65 max-w-2xl mb-8">De la première rencontre à l’installation, nous vous accompagnons avec écoute, service, qualité et fiabilité. Nous restons également disponibles pour le service après-vente.</p><p className="text-[#171717]/65 max-w-2xl mb-16">Le délai varie selon le projet et le calendrier de production. Nous accordons beaucoup d’importance aux dates annoncées et faisons tout pour les respecter.</p></FadeIn>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
             {processSteps.map(([number, title, text], idx) => <FadeIn key={number} delay={idx * 70}><div className="border-t-2 border-[#D71920] pt-6 h-full"><span className="text-[#D71920] font-bold text-sm tracking-widest">{number}</span><h3 className="font-bold uppercase tracking-wide mt-4 mb-3">{title}</h3><p className="text-[#171717]/60 leading-relaxed text-sm">{text}</p></div></FadeIn>)}
           </div>
         </div>

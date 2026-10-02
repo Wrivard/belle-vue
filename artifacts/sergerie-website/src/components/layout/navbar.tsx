@@ -21,6 +21,7 @@ export function Navbar() {
     ['temoignages', 'Témoignages'],
     ['faq', 'FAQ'],
     ['contact', 'Contact'],
+    ['politique-cookies', 'Politique relative aux témoins'],
   ];
 
   const closeMenus = () => {
@@ -75,7 +76,7 @@ export function Navbar() {
             </div>}
           </div>
           <a href={homeSectionHref('realisations')} className="text-2xl font-bold uppercase" onClick={closeMenus}>Réalisations</a>
-          {menuItems.map(([id, label]) => <a key={id} href={homeSectionHref(id)} onClick={closeMenus} className="text-2xl font-bold uppercase text-left">{label}</a>)}
+          {menuItems.map(([id, label]) => id === 'politique-cookies' ? <Link key={id} href="/politique-cookies" onClick={closeMenus} className="text-base font-bold uppercase text-left">{label}</Link> : <a key={id} href={homeSectionHref(id)} onClick={closeMenus} className="text-2xl font-bold uppercase text-left">{label}</a>)}
           <Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })}><Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md py-6 mt-4 uppercase tracking-wide text-lg w-full">Demander une soumission</Button></Link>
         </div>
       )}
