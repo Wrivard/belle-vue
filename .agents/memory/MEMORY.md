@@ -1,3 +1,4 @@
 - [sergerie-website white-label template](sergerie-template.md) — one construction site re-skinned per client; replit.md/folder name go stale, read live source to find current brand.
 - [Témoignages et conformité](content-and-privacy.md) — avis clients sans réponses du propriétaire; une politique Loi 25 ne certifie pas les pratiques internes.
 - [Rédaction Belle-Vue](copywriting.md) — mettre en valeur l’ergonomie et l’adaptation aux besoins dans les textes du site.
+- [Menu mobile Belle-Vue](mobile-navigation.md) — privilégier une liste simple, sans défilement imbriqué, avec le haut du menu toujours visible.
