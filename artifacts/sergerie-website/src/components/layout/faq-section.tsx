@@ -26,7 +26,7 @@ export function FaqSection() {
           <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight">Questions fréquentes</h2>
         </FadeIn>
         <FadeIn delay={200}>
-          <Accordion type="single" collapsible className="w-full max-w-4xl mx-auto space-y-4">
+          <Accordion type="single" collapsible className="grid w-full grid-cols-1 items-start gap-4 md:grid-cols-2">
             {faqItems.map((item) => <AccordionItem key={item.value} value={item.value} className="border border-[#EDEDED]/20 rounded-md px-6 bg-[#161616]" data-testid={`faq-${item.value}`}><AccordionTrigger className="text-lg font-bold hover:text-[#FF4B50] hover:no-underline py-6 text-left">{item.q}</AccordionTrigger><AccordionContent className="text-[#EDEDED]/70 text-base pb-6">{item.a}</AccordionContent></AccordionItem>)}
           </Accordion>
         </FadeIn>
