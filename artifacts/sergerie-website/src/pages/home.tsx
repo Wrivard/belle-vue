@@ -52,12 +52,9 @@ const featuredRealizations = [
 ];
 
 const processSteps = [
-  ['01', 'Rendez-vous', 'Nous prenons rendez-vous pour discuter de votre projet et recueillir les informations nécessaires à la soumission.'],
-  ['02', 'Soumission', 'Nous préparons votre soumission et vous l’envoyons par courriel.'],
-  ['03', 'Rencontre à nos bureaux', 'Si la proposition et le prix vous conviennent, nous vous présentons les plans, les couleurs, les modèles et les matériaux.'],
-  ['04', 'Date d’installation', 'Nous déterminons ensemble une date d’installation et planifions la prise de mesures finales.'],
-  ['05', 'Mesures finales', 'Nous prenons les mesures finales afin de préparer la fabrication et l’installation.'],
-  ['06', 'Installation', 'Nous faisons tout pour honorer la date convenue, avec une attention particulière à la propreté et à la qualité du travail.'],
+  ['01', 'Rendez-vous et soumission', 'Nous discutons de votre projet, recueillons les informations nécessaires, puis préparons votre soumission et vous l’envoyons par courriel.'],
+  ['02', 'Plans et planification', 'Si la proposition et le prix vous conviennent, nous vous présentons les plans, les couleurs, les modèles et les matériaux à nos bureaux. Nous déterminons ensuite une date d’installation et planifions les mesures finales.'],
+  ['03', 'Mesures finales et installation', 'Nous prenons les mesures finales pour préparer la fabrication et l’installation. Nous faisons tout pour respecter la date convenue, avec une attention particulière à la propreté et à la qualité du travail.'],
 ];
 
 export default function Home() {
