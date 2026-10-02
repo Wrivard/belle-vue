@@ -12,31 +12,31 @@ import { img } from '@/lib/utils';
 const services = [
   {
     title: 'Armoires de cuisine sur mesure',
-    description: 'Une configuration pensée pour votre espace, vos habitudes et la façon dont vous utilisez votre cuisine.',
+    description: 'Une configuration ergonomique et sur mesure, adaptée à votre espace, vos habitudes et vos besoins au quotidien.',
     img: belleVueImages[0],
   },
   {
     title: 'Vanités et armoires de salle de bain',
-    description: 'Du rangement adapté aux dimensions de la pièce, à la configuration du lavabo et à votre quotidien.',
+    description: 'Des vanités et armoires ergonomiques, adaptées aux dimensions de la pièce, à la configuration du lavabo et à vos besoins.',
     img: belleVueImages[10],
   },
   {
     title: 'Rangement sur mesure',
-    description: 'Des solutions personnalisées pour mieux utiliser l’espace disponible dans chaque pièce.',
+    description: 'Des rangements sur mesure, pensés pour faciliter vos gestes et adaptés à l’espace et à vos besoins.',
     img: belleVueImages[2],
   },
   {
     title: 'Projets d’ébénisterie',
-    description: 'Une idée précise ou un espace à optimiser? Discutons d’une solution conçue pour votre projet.',
+    description: 'Une idée précise ou un espace à optimiser? Discutons d’une solution ergonomique, conçue selon votre projet et vos besoins.',
     img: belleVueImages[23],
   },
 ];
 
 const advantages = [
-  { icon: Ruler, title: 'Dimensions précises', text: 'Une solution adaptée aux dimensions exactes de votre espace.' },
-  { icon: TableProperties, title: 'Configuration personnalisée', text: 'Chaque rangement est réfléchi selon vos besoins et vos habitudes.' },
-  { icon: Maximize2, title: 'Espace optimisé', text: 'Une meilleure utilisation du rangement disponible, dans chaque pièce.' },
-  { icon: Sparkles, title: 'Détails à votre image', text: 'Des choix de couleurs, de finis et de détails qui vous ressemblent.' },
+  { icon: Ruler, title: 'Dimensions précises', text: 'Des armoires adaptées aux dimensions de votre espace et à votre réalité.' },
+  { icon: TableProperties, title: 'Conception ergonomique', text: 'Une configuration pensée pour faciliter vos gestes et répondre à vos habitudes.' },
+  { icon: Maximize2, title: 'Rangement adapté', text: 'L’espace de rangement est réfléchi en fonction de vos besoins et de votre quotidien.' },
+  { icon: Sparkles, title: 'Détails à votre image', text: 'Des choix de couleurs, de finis et de détails adaptés à vos goûts et à votre projet.' },
 ];
 
 const featuredRealizations = [
@@ -83,7 +83,7 @@ export default function Home() {
             </FadeIn>
             <FadeIn delay={200}>
               <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl leading-relaxed">
-                Cuisine, salle de bain et projets d’ébénisterie réalisés sur mesure selon votre espace, vos besoins et votre style.
+                Cuisine, salle de bain et projets d’ébénisterie pensés pour un quotidien plus ergonomique, selon votre espace, vos besoins et votre style.
               </p>
             </FadeIn>
             <FadeIn delay={300} className="flex flex-col sm:flex-row gap-4">
@@ -107,7 +107,7 @@ export default function Home() {
             <div className="max-w-3xl mb-16">
               <div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Notre savoir-faire</span></div>
               <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Des espaces pensés pour vous.</h2>
-              <p className="text-lg text-[#171717]/65 leading-relaxed">Armoire Belle-Vue Ébénisterie crée des espaces fonctionnels et personnalisés. Chaque projet commence par vos besoins pour intégrer naturellement les armoires à votre pièce et maximiser le rangement.</p>
+              <p className="text-lg text-[#171717]/65 leading-relaxed">Armoire Belle-Vue Ébénisterie conçoit des armoires sur mesure, ergonomiques et adaptées à chaque projet. La configuration tient compte de votre espace, de vos habitudes et de la façon dont vous souhaitez utiliser votre rangement au quotidien.</p>
             </div>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -153,7 +153,7 @@ export default function Home() {
       </section>
 
       <section id="pourquoi" className="scroll-mt-24 py-24 md:py-32 bg-white text-[#171717]" data-testid="why-section">
-        <div className="container mx-auto px-6 max-w-[1200px]"><FadeIn><div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Le sur mesure</span></div><h2 className="text-4xl md:text-6xl font-extrabold uppercase tracking-tight mb-16">Votre espace, vos besoins, votre solution.</h2></FadeIn><div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">{advantages.map(({ icon: Icon, title, text }, idx) => <FadeIn key={title} delay={idx * 80}><div className="border-t-2 border-[#D71920] pt-6"><Icon className="text-[#D71920] mb-6" size={32} /><h3 className="font-bold uppercase tracking-wide mb-3">{title}</h3><p className="text-[#171717]/60 leading-relaxed">{text}</p></div></FadeIn>)}</div></div>
+        <div className="container mx-auto px-6 max-w-[1200px]"><FadeIn><div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Le sur mesure</span></div><h2 className="text-4xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Votre espace, vos besoins, votre solution.</h2><p className="text-lg text-[#171717]/65 max-w-3xl mb-14">Nous concevons chaque projet pour s’adapter à votre façon de vivre : une organisation ergonomique, des gestes plus simples et du rangement pensé selon vos besoins.</p></FadeIn><div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">{advantages.map(({ icon: Icon, title, text }, idx) => <FadeIn key={title} delay={idx * 80}><div className="border-t-2 border-[#D71920] pt-6"><Icon className="text-[#D71920] mb-6" size={32} /><h3 className="font-bold uppercase tracking-wide mb-3">{title}</h3><p className="text-[#171717]/60 leading-relaxed">{text}</p></div></FadeIn>)}</div></div>
       </section>
 
       <section id="realisations" className="scroll-mt-24 py-24 md:py-32 bg-[#F4F4F4] text-[#171717]" data-testid="projects-section">
@@ -178,7 +178,7 @@ export default function Home() {
 
       <section className="py-32 text-white relative overflow-hidden" data-testid="cta-section">
          <div className="absolute inset-0"><img src={img(belleVueImages[18])} alt="" loading="lazy" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-[#171717]/85" /></div>
-        <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-center"><FadeIn><h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight mb-8">Vous avez un <span className="text-[#FF4B50]">projet en tête?</span></h2><p className="text-xl md:text-2xl font-medium mb-12 text-white/90 max-w-2xl mx-auto">Parlez-nous de votre cuisine, salle de bain ou projet d’ébénisterie et obtenez une soumission adaptée à vos besoins.</p><Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })}><Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-10 py-8 uppercase tracking-widest text-lg h-auto">Demander une soumission</Button></Link><a href="tel:+14186721613" className="block mt-8 text-[#FF4B50] font-bold text-2xl">(418) 672-1613</a></FadeIn></div>
+        <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-center"><FadeIn><h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight mb-8">Vous avez un <span className="text-[#FF4B50]">projet en tête?</span></h2><p className="text-xl md:text-2xl font-medium mb-12 text-white/90 max-w-2xl mx-auto">Parlez-nous de vos habitudes et de vos besoins : nous réfléchirons avec vous à une configuration d’armoires ergonomique, adaptée à votre espace.</p><Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })}><Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-10 py-8 uppercase tracking-widest text-lg h-auto">Demander une soumission</Button></Link><a href="tel:+14186721613" className="block mt-8 text-[#FF4B50] font-bold text-2xl">(418) 672-1613</a></FadeIn></div>
       </section>
       <TestimonialsSection />
       <FaqSection />

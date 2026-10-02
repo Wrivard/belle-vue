@@ -116,7 +116,7 @@ export function QuoteForm() {
 
         {step === 1 && (
           <>
-            <p className="text-[#1B1B1B]/70 -mt-3">Quelques informations nous aideront à comprendre votre espace et vos besoins.</p>
+            <p className="text-[#1B1B1B]/70 -mt-3">Décrivez votre espace, vos habitudes et vos besoins. Ces détails nous aideront à réfléchir à une conception ergonomique adaptée à votre quotidien.</p>
             <Row id="quote-projectType" label="Type de projet" error={errors.projectType}>
               <Select id="quote-projectType" value={draft.projectType} onChange={set('projectType')} options={PROJECT_TYPES} placeholder="Sélectionnez un projet" invalid={!!errors.projectType} testId="select-soumission-service" />
             </Row>
