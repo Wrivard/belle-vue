@@ -1,9 +1,5 @@
-import { FormEvent, useState } from 'react';
-import { Link } from 'wouter';
-import { Phone, Mail, MapPin, CheckCircle2, Paperclip } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { Phone, Mail, MapPin, CheckCircle2 } from 'lucide-react';
+import { QuoteForm } from '@/components/quote/quote-form';
 import { PageWrapper } from '@/components/layout/page-wrapper';
 import { FadeIn } from '@/components/layout/fade-in';
 import { TestimonialsSection } from '@/components/layout/testimonials-section';
@@ -21,31 +17,8 @@ const advantages = [
 ];
 
 export default function Soumission() {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const project = String(form.get('projectType') || 'Projet sur mesure');
-    const body = [
-      `Nom : ${form.get('name') || ''}`,
-      `Téléphone : ${form.get('phone') || ''}`,
-      `Courriel : ${form.get('email') || ''}`,
-      `Ville : ${form.get('city') || ''}`,
-      `Type de projet : ${project}`,
-      `Échéancier souhaité : ${form.get('timeline') || ''}`,
-      `Budget approximatif : ${form.get('budget') || ''}`,
-      '',
-      `Description : ${form.get('details') || ''}`,
-      '',
-      'Les photos ou plans peuvent être joints directement au courriel.',
-    ].join('\n');
-    window.location.href = `mailto:armoirebelle-vue@hotmail.ca?subject=${encodeURIComponent(`Demande de soumission — ${project}`)}&body=${encodeURIComponent(body)}`;
-    setSubmitted(true);
-  };
-
   return (
-    <PageWrapper>
+    <PageWrapper hideMobileBackToTop>
       <section className="relative min-h-[46vh] md:min-h-[50vh] flex items-center pt-20" data-testid="soumission-hero">
         <div className="absolute inset-0 z-0">
           <img src={img(belleVueImages[24])} alt="Cuisine avec armoires sur mesure" className="w-full h-full object-cover object-center" />
@@ -66,36 +39,8 @@ export default function Soumission() {
             <div className="lg:col-span-2">
               <FadeIn>
                 <div className="bg-white rounded-md shadow-lg overflow-hidden">
-                  <div className="relative min-h-[220px] md:min-h-[260px] flex items-end overflow-hidden bg-[#1B1B1B]">
-                    <div className="relative z-10 p-8 md:p-12 text-white">
-                      <div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]"></div><span className="text-[#FF4B50] font-bold tracking-[0.2em] uppercase text-xs">Votre projet, à votre mesure</span></div>
-                      <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight">Détails du projet</h2>
-                      <p className="text-white/75 mt-3 max-w-xl">Quelques informations nous aideront à mieux comprendre votre espace et vos besoins.</p>
-                    </div>
-                  </div>
-                  <div className="p-8 md:p-12">
-                    {submitted && <div className="mb-8 border-l-4 border-[#D71920] bg-[#FBE8E9] px-5 py-4 text-sm text-[#1B1B1B]" role="status">Votre demande est prête à être envoyée dans votre application courriel. Vous pouvez y joindre vos photos ou vos plans avant l’envoi.</div>}
-                    <form className="space-y-8" data-testid="soumission-form" onSubmit={handleSubmit}>
-                    <div className="grid md:grid-cols-2 gap-8">
-                      <div className="space-y-2"><label htmlFor="quote-name" className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Nom *</label><Input id="quote-name" name="name" required className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#D71920]" placeholder="Votre nom" data-testid="input-soumission-name" /></div>
-                      <div className="space-y-2"><label htmlFor="quote-phone" className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Téléphone *</label><Input id="quote-phone" name="phone" required type="tel" className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#D71920]" placeholder="(418) 000-0000" data-testid="input-soumission-phone" /></div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-8">
-                      <div className="space-y-2"><label htmlFor="quote-email" className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Courriel *</label><Input id="quote-email" name="email" required type="email" className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#D71920]" placeholder="votre@courriel.com" data-testid="input-soumission-email" /></div>
-                      <div className="space-y-2"><label htmlFor="quote-city" className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Ville</label><Input id="quote-city" name="city" className="bg-[#EDEDED]/50 border-0 h-14 rounded-sm focus-visible:ring-[#D71920]" placeholder="Votre ville" data-testid="input-soumission-city" /></div>
-                    </div>
-                    <div className="space-y-2"><label htmlFor="quote-project" className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Type de projet *</label><select id="quote-project" name="projectType" required className="w-full h-14 bg-[#EDEDED]/50 border-0 rounded-sm px-3 text-[#1B1B1B] focus:ring-2 focus:ring-[#D71920] focus:outline-none appearance-none cursor-pointer" data-testid="select-soumission-service"><option value="">Sélectionnez un projet</option><option value="Cuisine sur mesure">Cuisine sur mesure</option><option value="Salle de bain">Salle de bain</option><option value="Ébénisterie">Ébénisterie</option><option value="Rangement sur mesure">Rangement sur mesure</option><option value="Autre">Autre</option></select></div>
-                    <div className="grid md:grid-cols-2 gap-8">
-                      <div className="space-y-2"><label htmlFor="quote-budget" className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Budget approximatif</label><select id="quote-budget" name="budget" className="w-full h-14 bg-[#EDEDED]/50 border-0 rounded-sm px-3 text-[#1B1B1B] focus:ring-2 focus:ring-[#D71920] focus:outline-none appearance-none cursor-pointer" data-testid="select-soumission-budget"><option value="">À déterminer</option><option value="Moins de 10 000 $">Moins de 10 000 $</option><option value="10 000 $ à 20 000 $">10 000 $ à 20 000 $</option><option value="20 000 $ à 40 000 $">20 000 $ à 40 000 $</option><option value="Plus de 40 000 $">Plus de 40 000 $</option></select></div>
-                      <div className="space-y-2"><label htmlFor="quote-timeline" className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Échéancier souhaité</label><select id="quote-timeline" name="timeline" className="w-full h-14 bg-[#EDEDED]/50 border-0 rounded-sm px-3 text-[#1B1B1B] focus:ring-2 focus:ring-[#D71920] focus:outline-none appearance-none cursor-pointer" data-testid="select-soumission-timeline"><option value="">À déterminer</option><option value="Le plus tôt possible">Le plus tôt possible</option><option value="Dans 1 à 3 mois">Dans 1 à 3 mois</option><option value="Dans 3 à 6 mois">Dans 3 à 6 mois</option><option value="Flexible">Flexible</option></select></div>
-                    </div>
-                    <div className="space-y-2"><label htmlFor="quote-details" className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Description du projet *</label><Textarea id="quote-details" name="details" required className="bg-[#EDEDED]/50 border-0 min-h-[220px] rounded-sm focus-visible:ring-[#D71920] resize-none" placeholder="Parlez-nous de l’espace, de vos besoins et de vos idées." data-testid="input-soumission-details" /></div>
-                    <div className="space-y-2"><label htmlFor="quote-files" className="text-sm font-bold uppercase tracking-wide text-[#1B1B1B]/70">Photos ou plans</label><div className="flex items-center gap-3 bg-[#EDEDED]/50 px-4 h-14 rounded-sm"><Paperclip size={18} className="text-[#D71920]" /><Input id="quote-files" name="files" type="file" accept="image/*,.pdf" multiple className="border-0 p-0 h-auto bg-transparent file:mr-4 file:border-0 file:bg-[#1B1B1B] file:px-3 file:py-2 file:text-white file:text-sm file:font-semibold" data-testid="input-soumission-files" /></div><p className="text-xs text-[#1B1B1B]/50">Vous pourrez joindre ces fichiers dans votre courriel.</p></div>
-                    <div className="flex items-start gap-3 pt-2"><input type="checkbox" id="consent" required className="mt-1 accent-[#D71920] w-4 h-4" data-testid="checkbox-consent" /><label htmlFor="consent" className="text-sm text-[#1B1B1B]/60 leading-relaxed">J’accepte que mes informations soient utilisées uniquement pour traiter ma demande de soumission.</label></div>
-                    <p className="text-sm text-[#1B1B1B]/70">Ce formulaire prépare un courriel dans votre application de messagerie; vous devrez l’envoyer vous-même. <Link href="/politique-cookies" className="underline underline-offset-4 hover:text-[#D71920]">Consultez les renseignements sur la confidentialité et vos droits.</Link></p>
-                    <Button type="submit" className="w-full bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md py-6 uppercase tracking-wide text-base transition-transform hover:scale-[1.02] h-auto mt-4" data-testid="button-soumission-submit">Demander une soumission</Button>
-                    </form>
-                  </div>
+                  <div className="px-8 md:px-12 pt-8 md:pt-10"><div className="flex items-center gap-3 mb-2"><div className="w-8 h-1 bg-[#D71920]"></div><span className="text-[#B51218] font-bold tracking-[0.2em] uppercase text-xs">Votre projet, à votre mesure</span></div><h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-[#1B1B1B]">Demande de soumission</h2></div>
+                  <div className="p-8 md:p-12 pt-6 md:pt-6"><QuoteForm /></div>
                 </div>
               </FadeIn>
             </div>
