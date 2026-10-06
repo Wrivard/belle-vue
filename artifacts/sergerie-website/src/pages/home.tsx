@@ -1,11 +1,12 @@
 import { Link } from 'wouter';
-import { ArrowRight, CheckCircle2, Maximize2, Ruler, Sparkles, TableProperties } from 'lucide-react';
+import { ArrowRight, Maximize2, Ruler, Sparkles, TableProperties } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PageWrapper } from '@/components/layout/page-wrapper';
 import { FadeIn } from '@/components/layout/fade-in';
 import { ContactSection } from '@/components/layout/contact-section';
 import { FaqSection } from '@/components/layout/faq-section';
 import { TestimonialsSection } from '@/components/layout/testimonials-section';
+import { ProcessSection } from '@/components/layout/process-section';
 import { belleVueHeroImage, belleVueImages } from '@/data/belle-vue-images';
 import { img } from '@/lib/utils';
 
@@ -51,12 +52,6 @@ const featuredRealizations = [
   { image: belleVueImages[27], className: 'col-span-1 lg:col-span-1 lg:col-start-4 lg:row-start-3' },
 ];
 
-const processSteps = [
-  ['01', 'Rendez-vous et soumission', 'Nous discutons de votre projet, recueillons les informations nécessaires, puis préparons votre soumission et vous l’envoyons par courriel.'],
-  ['02', 'Plans et planification', 'Si la proposition et le prix vous conviennent, nous vous présentons les plans, les couleurs, les modèles et les matériaux à nos bureaux. Nous déterminons ensuite une date d’installation et planifions les mesures finales.'],
-  ['03', 'Mesures finales et installation', 'Nous prenons les mesures finales pour préparer la fabrication et l’installation. Nous faisons tout pour respecter la date convenue, avec une attention particulière à la propreté et à la qualité du travail.'],
-];
-
 export default function Home() {
   return (
     <PageWrapper>
@@ -79,6 +74,9 @@ export default function Home() {
               </h1>
             </FadeIn>
             <FadeIn delay={200}>
+              <p className="mb-4 text-xl font-bold leading-snug text-white md:text-2xl" data-testid="hero-region">
+                Vos experts au Saguenay Lac Saint-Jean
+              </p>
               <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl leading-relaxed">
                 Cuisine, salle de bain et ameublement sur mesure, pensés pour un quotidien plus ergonomique et adaptés à votre espace, à vos besoins et à votre style.
               </p>
@@ -104,7 +102,7 @@ export default function Home() {
             <div className="max-w-3xl mb-16">
               <div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Notre savoir-faire</span></div>
               <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Des espaces pensés pour vous.</h2>
-              <p className="text-lg text-[#171717]/65 leading-relaxed">Armoire Belle-Vue Ébénisterie conçoit des armoires sur mesure, ergonomiques et adaptées à chaque projet. La configuration tient compte de votre espace, de vos habitudes et de la façon dont vous souhaitez utiliser votre rangement au quotidien.</p>
+              <p className="text-lg text-[#171717]/65 leading-relaxed">Armoire Belle-Vue conçoit des armoires et de l’ameublement sur mesure, ergonomiques et adaptés à chaque projet. La configuration tient compte de votre espace, de vos habitudes et de la façon dont vous souhaitez utiliser votre rangement au quotidien.</p>
             </div>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -130,8 +128,8 @@ export default function Home() {
               <div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#FF4B50] font-bold tracking-widest uppercase text-sm">À propos</span></div>
               <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-8">L’ameublement <span className="text-[#FF4B50]">à votre mesure.</span></h2>
               <div className="space-y-6 text-white/75 text-lg leading-relaxed">
-                <p>Fondée en 2011, Armoire Belle-Vue Ébénisterie est née du désir de Frédéric et Bianca de mieux concilier le travail et la vie de famille, alors que l’entreprise où travaillait Frédéric allait fermer.</p>
-                <p>Diplômé en techniques d’ébénisterie et métiers d’art au Collège d’Alma en 1996, Frédéric œuvre dans le domaine depuis la fin de ses études. Il met aujourd’hui environ 30 ans d’expérience au service de vos projets.</p>
+                <p>Fondée en 2011, Armoire Belle-Vue est née du désir de Frédéric et Bianca de mieux concilier le travail et la vie de famille, alors que l’entreprise où travaillait Frédéric allait fermer.</p>
+                <p>Diplômé du Collège d’Alma en 1996, Frédéric œuvre dans le domaine depuis la fin de ses études. Il met aujourd’hui environ 30 ans d’expérience au service de vos projets.</p>
                 <p>Bianca a étudié et travaillé en comptabilité, puis ouvert un service de garde à domicile en 2007. La création de l’entreprise lui permettait de continuer à travailler de la maison tout en étant présente pour leurs deux jeunes enfants.</p>
                 <p>Notre petite équipe privilégie une communication étroite et une véritable écoute. Comme nous aimons le dire : <strong className="text-white">« C’est votre cuisine. »</strong> Chaque projet doit correspondre à vos goûts, à vos besoins et à votre réalité.</p>
               </div>
@@ -164,14 +162,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="approche" className="scroll-mt-24 py-24 md:py-32 bg-[#EDEDED] text-[#171717]" data-testid="approach-section">
-        <div className="container mx-auto px-6 max-w-[1200px]">
-          <FadeIn><div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Notre approche</span></div><h2 className="text-4xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Un projet conçu autour de vos besoins.</h2><p className="text-lg text-[#171717]/65 max-w-2xl mb-8">De la première rencontre à l’installation, nous vous accompagnons avec écoute, service, qualité et fiabilité. Nous restons également disponibles pour le service après-vente.</p><p className="text-[#171717]/65 max-w-2xl mb-16">Le délai varie selon le projet et le calendrier de production. Nous accordons beaucoup d’importance aux dates annoncées et faisons tout pour les respecter.</p></FadeIn>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
-            {processSteps.map(([number, title, text], idx) => <FadeIn key={number} delay={idx * 70}><div className="border-t-2 border-[#D71920] pt-6 h-full"><span className="text-[#D71920] font-bold text-sm tracking-widest">{number}</span><h3 className="font-bold uppercase tracking-wide mt-4 mb-3">{title}</h3><p className="text-[#171717]/60 leading-relaxed text-sm">{text}</p></div></FadeIn>)}
-          </div>
-        </div>
-      </section>
+      <ProcessSection />
 
       <section className="py-32 text-white relative overflow-hidden" data-testid="cta-section">
          <div className="absolute inset-0"><img src={img(belleVueImages[18])} alt="" loading="lazy" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-[#171717]/85" /></div>

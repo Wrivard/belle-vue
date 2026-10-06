@@ -59,7 +59,7 @@ export function Navbar() {
       <nav data-testid="navbar" className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled && !mobileMenuOpen ? 'bg-[#1B1B1B] py-3 shadow-lg' : 'bg-[#1B1B1B]/95 backdrop-blur py-4 shadow-sm'} text-[#E4E4E4] border-b border-white/10`}>
         <div className="container mx-auto px-6 max-w-[1360px] flex items-center justify-between">
           <Link href="/" data-testid="link-home-logo" className="shrink-0" onClick={closeMenus}>
-            <img src={img('logo-armoire-belle-vue.png')} alt="Armoire Belle-Vue Ébénisterie inc." className="h-[58px] md:h-[66px] w-auto object-contain" />
+            <img src={img('logo-armoire-belle-vue-ameublement.png')} alt="Armoire Belle-Vue — Ameublement sur mesure" className="h-[58px] md:h-[66px] w-auto object-contain" />
           </Link>
           <div className="hidden xl:flex items-center gap-5 font-semibold text-[11px] tracking-wide uppercase">
             <a href={import.meta.env.BASE_URL} className="hover:text-[#FF4B50] transition-colors" data-testid="link-accueil">Accueil</a>

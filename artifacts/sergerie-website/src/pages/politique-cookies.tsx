@@ -40,7 +40,7 @@ export default function PolitiqueCookies() {
         <p className="text-sm text-[#171717]/60 mb-10">Dernière mise à jour : 2 octobre 2026</p>
 
         <Section title="En bref">
-          <p>Le site d’Armoire Belle-Vue Ébénisterie inc. n’intègre aucun outil d’analyse ni de publicité propre au site. Une carte Google Maps est affichée automatiquement sur les pages. Ce service tiers peut recevoir des données techniques et utiliser des témoins, selon les modalités de Google.</p>
+          <p>Le site d’Armoire Belle-Vue n’intègre aucun outil d’analyse ni de publicité propre au site. Une carte Google Maps est affichée automatiquement sur les pages. Ce service tiers peut recevoir des données techniques et utiliser des témoins, selon les modalités de Google.</p>
           <p>Un témoin est un petit fichier que votre navigateur peut conserver sur votre appareil. Le stockage de session est un mécanisme distinct qui permet de mémoriser temporairement une préférence. Cette politique explique ces technologies et vos choix sur notre site.</p>
         </Section>
 
@@ -83,7 +83,7 @@ export default function PolitiqueCookies() {
           <p>Cette fonction relève de la personne ayant la plus haute autorité au sein de l’entreprise, sauf délégation écrite, conformément à la loi. Vous pouvez adresser votre demande à la direction aux coordonnées suivantes :</p>
           <p>Pour toute question ou demande liée à cette politique :</p>
           <address className="not-italic">
-            Armoire Belle-Vue Ébénisterie inc.<br />
+            Armoire Belle-Vue<br />
             381 rue Principale, Québec, G0V 1G0<br />
             Téléphone : <a className={ext} href="tel:+14186721613">(418) 672-1613</a><br />
             Courriel : <a className={ext} href="mailto:armoirebelle-vue@hotmail.ca">armoirebelle-vue@hotmail.ca</a>
