@@ -9,6 +9,12 @@ Mettre de l’avant des armoires ergonomiques, adaptées à l’espace, aux habi
 
 **How to apply:** Utiliser ce message dans les présentations de services, appels à l’action et descriptions du sur mesure sans promettre de certification ni d’amélioration mesurée.
 
+La cofondatrice s’appelle Bianka (avec un « k »), et non Bianca.
+
+**Why:** L’utilisateur a corrigé l’orthographe de son nom.
+
+**How to apply:** Employer « Bianka » dans les biographies et les autres contenus du site qui la nomment.
+
 La région desservie est le Saguenay–Lac-Saint-Jean. Le hero doit porter la mention « Vos experts au Saguenay Lac Saint-Jean ».
 
 **Why:** L’utilisateur a confirmé cette région pour la FAQ et demandé cette phrase dans le hero.

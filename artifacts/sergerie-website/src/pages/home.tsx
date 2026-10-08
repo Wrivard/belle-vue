@@ -128,9 +128,9 @@ export default function Home() {
               <div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#FF4B50] font-bold tracking-widest uppercase text-sm">À propos</span></div>
               <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-8">L’ameublement <span className="text-[#FF4B50]">à votre mesure.</span></h2>
               <div className="space-y-6 text-white/75 text-lg leading-relaxed">
-                <p>Fondée en 2011, Armoire Belle-Vue est née du désir de Frédéric et Bianca de mieux concilier le travail et la vie de famille, alors que l’entreprise où travaillait Frédéric allait fermer.</p>
+                <p>Fondée en 2011, Armoire Belle-Vue est née du désir de Frédéric et Bianka de mieux concilier le travail et la vie de famille, alors que l’entreprise où travaillait Frédéric allait fermer.</p>
                 <p>Diplômé du Collège d’Alma en 1996, Frédéric œuvre dans le domaine depuis la fin de ses études. Il met aujourd’hui environ 30 ans d’expérience au service de vos projets.</p>
-                <p>Bianca a étudié et travaillé en comptabilité, puis ouvert un service de garde à domicile en 2007. La création de l’entreprise lui permettait de continuer à travailler de la maison tout en étant présente pour leurs deux jeunes enfants.</p>
+                <p>Bianka a étudié et travaillé en comptabilité, puis ouvert un service de garde à domicile en 2007. La création de l’entreprise lui permettait de continuer à travailler de la maison tout en étant présente pour leurs deux jeunes enfants.</p>
                 <p>Notre petite équipe privilégie une communication étroite et une véritable écoute. Comme nous aimons le dire : <strong className="text-white">« C’est votre cuisine. »</strong> Chaque projet doit correspondre à vos goûts, à vos besoins et à votre réalité.</p>
               </div>
               <div className="grid grid-cols-3 gap-4 border-t border-white/20 mt-8 pt-6">
@@ -141,7 +141,7 @@ export default function Home() {
             </FadeIn>
             <FadeIn delay={200} className="relative">
               <div className="absolute -inset-4 border-2 border-[#D71920]/60 rounded-md translate-x-4 translate-y-4" />
-               <img src={img(belleVueImages[3])} alt="Projet de cuisine avec armoires personnalisées" loading="lazy" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl" />
+               <img src={img('belle-vue/vanite-bianka.png')} alt="Vanité de salle de bain en bois avec double lavabo" loading="lazy" className="w-full aspect-square object-contain rounded-md relative z-10 shadow-2xl bg-white" />
             </FadeIn>
           </div>
         </div>
