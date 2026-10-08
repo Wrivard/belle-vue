@@ -48,7 +48,7 @@ const featuredRealizations = [
   { image: belleVueImages[2], className: 'col-span-1 lg:col-span-1 lg:col-start-1 lg:row-start-2' },
   { image: belleVueImages[3], className: 'col-span-1 lg:col-span-2 lg:col-start-2 lg:row-start-2' },
   { image: belleVueImages[24], className: 'col-span-2 lg:col-span-2 lg:col-start-1 lg:row-start-3' },
-  { image: belleVueImages[13], className: 'col-span-1 lg:col-span-1 lg:col-start-3 lg:row-start-3' },
+  { image: belleVueImages[11], className: 'col-span-1 lg:col-span-1 lg:col-start-3 lg:row-start-3' },
   { image: belleVueImages[27], className: 'col-span-1 lg:col-span-1 lg:col-start-4 lg:row-start-3' },
 ];
 
@@ -141,7 +141,7 @@ export default function Home() {
             </FadeIn>
             <FadeIn delay={200} className="relative">
               <div className="absolute -inset-4 border-2 border-[#D71920]/60 rounded-md translate-x-4 translate-y-4" />
-               <img src={img('belle-vue/vanite-bianka.png')} alt="Vanité de salle de bain en bois avec double lavabo" loading="lazy" className="w-full aspect-square object-contain rounded-md relative z-10 shadow-2xl bg-white" />
+               <img src={img(belleVueImages[3])} alt="Projet de cuisine avec armoires personnalisées" loading="lazy" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl" />
             </FadeIn>
           </div>
         </div>
