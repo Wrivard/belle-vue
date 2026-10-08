@@ -1,10 +1,11 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { EMPTY_DRAFT, PROJECT_TYPES, buildMailto, validateStep } from '../src/lib/quote-form-model.ts';
+import { EMPTY_DRAFT, PROJECT_TYPES, WORK_TYPES, buildMailto, validateStep } from '../src/lib/quote-form-model.ts';
 
 const valid = {
   ...EMPTY_DRAFT,
   projectType: 'Cuisine sur mesure',
+  workType: 'Rénovation',
   details: 'Une cuisine lumineuse',
   name: 'Client test',
   phone: '+1 418 555 0100',
@@ -12,14 +13,25 @@ const valid = {
 };
 
 test('project step validates only project fields', () => {
-  assert.deepEqual(Object.keys(validateStep(1, EMPTY_DRAFT)), ['projectType', 'details']);
+  assert.deepEqual(Object.keys(validateStep(1, EMPTY_DRAFT)), ['projectType', 'workType', 'details']);
   assert.ok(PROJECT_TYPES.includes('Ameublement sur mesure'));
   assert.ok(!PROJECT_TYPES.includes('Ébénisterie'));
-  assert.deepEqual(validateStep(1, { ...EMPTY_DRAFT, projectType: 'Autre', details: 'Description' }), {});
+  assert.deepEqual(validateStep(1, { ...valid, projectType: 'Autre', details: 'Description' }), {});
   assert.ok(validateStep(1, { ...valid, details: ' \n ' }).details);
   assert.ok(validateStep(1, { ...valid, projectType: 'Invalid option' }).projectType);
   for (const projectType of PROJECT_TYPES) {
     assert.deepEqual(validateStep(1, { ...valid, projectType }), {});
+  }
+});
+
+test('construction neuve or renovation is required and included in the prepared email', () => {
+  assert.deepEqual(WORK_TYPES, ['Construction neuve', 'Rénovation']);
+  assert.ok(validateStep(1, { ...valid, workType: '' }).workType);
+  assert.ok(validateStep(1, { ...valid, workType: 'Autre' }).workType);
+  for (const workType of WORK_TYPES) {
+    const draft = { ...valid, workType };
+    assert.deepEqual(validateStep(1, draft), {});
+    assert.ok(new URL(buildMailto(draft)).searchParams.get('body').includes(`Nature des travaux : ${workType}`));
   }
 });
 
@@ -50,7 +62,7 @@ test('mailto includes every answer, unicode, multiline description and consent w
   const body = url.searchParams.get('body');
   for (const line of [
     'Nom : Client & test', 'Téléphone : +1 418 555 0100', 'Courriel : client@example.com',
-    'Ville : Chicoutimi', 'Type de projet : Cuisine sur mesure',
+    'Ville : Chicoutimi', 'Type de projet : Cuisine sur mesure', 'Nature des travaux : Rénovation',
     'Échéancier souhaité : Dans 3 à 6 mois', 'Budget approximatif : 20 000 $ à 40 000 $',
     'Description : Étagères & îlot\r\nPlans = 2 + 3 ?\r\nFinition #rouge',
     'Consentement :', 'Les photos ou plans peuvent être joints directement au courriel.',

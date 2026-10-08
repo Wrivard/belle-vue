@@ -1,5 +1,6 @@
 export interface QuoteDraft {
   projectType: string;
+  workType: string;
   details: string;
   budget: string;
   timeline: string;
@@ -12,12 +13,13 @@ export interface QuoteDraft {
 export type QuoteErrors = Partial<Record<keyof QuoteDraft | 'consent', string>>;
 
 export const EMPTY_DRAFT: QuoteDraft = {
-  projectType: '', details: '', budget: '', timeline: '', name: '', phone: '', email: '', city: '',
+  projectType: '', workType: '', details: '', budget: '', timeline: '', name: '', phone: '', email: '', city: '',
 };
 
 export const QUOTE_EMAIL = 'armoirebelle-vue@hotmail.ca';
 
 export const PROJECT_TYPES = ['Cuisine sur mesure', 'Salle de bain', 'Ameublement sur mesure', 'Rangement sur mesure', 'Autre'];
+export const WORK_TYPES = ['Construction neuve', 'Rénovation'];
 export const BUDGETS = ['Moins de 10 000 $', '10 000 $ à 20 000 $', '20 000 $ à 40 000 $', 'Plus de 40 000 $'];
 export const TIMELINES = ['Le plus tôt possible', 'Dans 1 à 3 mois', 'Dans 3 à 6 mois', 'Flexible'];
 
@@ -27,6 +29,7 @@ export function validateStep(step: 1 | 2, d: QuoteDraft): QuoteErrors {
   const e: QuoteErrors = {};
   if (step === 1) {
     if (!PROJECT_TYPES.includes(d.projectType)) e.projectType = 'Choisissez un type de projet.';
+    if (!WORK_TYPES.includes(d.workType)) e.workType = 'Choisissez construction neuve ou rénovation.';
     if (!d.details.trim()) e.details = 'Décrivez brièvement votre projet.';
   } else {
     if (!d.name.trim()) e.name = 'Indiquez votre nom.';
@@ -45,6 +48,7 @@ export function buildMailto(d: QuoteDraft): string {
     `Courriel : ${d.email.trim()}`,
     `Ville : ${d.city.trim()}`,
     `Type de projet : ${project}`,
+    `Nature des travaux : ${d.workType}`,
     `Échéancier souhaité : ${d.timeline}`,
     `Budget approximatif : ${d.budget}`,
     '',

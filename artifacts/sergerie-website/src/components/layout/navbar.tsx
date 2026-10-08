@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ChevronDown, Phone, Menu, X } from 'lucide-react';
 import { img } from '@/lib/utils';
+import { FacebookLink } from './facebook-link';
 
 const primaryLinks = [
   ['apropos', 'À propos'],
@@ -80,6 +81,7 @@ export function Navbar() {
             <a href={homeSectionHref('realisations')} className="hover:text-[#FF4B50] transition-colors" data-testid="link-realisations">Réalisations</a>
           </div>
           <div className="hidden xl:flex items-center gap-4">
+            <FacebookLink iconOnly className="text-white hover:text-[#FF4B50]" iconClassName="h-11 w-11 bg-transparent text-[#E4E4E4] group-hover:bg-white/10 group-hover:text-[#FF4B50]" />
             <a href="tel:+14186721613" className="flex items-center gap-2 text-[#E4E4E4] font-bold text-sm tracking-wide" data-testid="link-phone"><Phone size={16} className="text-[#D71920]" />(418) 672-1613</a>
             <Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })} data-testid="link-soumission-nav"><Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-5 py-5 uppercase tracking-wide transition-transform hover:scale-105">Demander une soumission</Button></Link>
           </div>
@@ -142,6 +144,12 @@ export function Navbar() {
                     {label}
                   </a>
                 ))}
+                <FacebookLink
+                  iconOnly
+                  onClick={closeMenus}
+                  className="text-white/75 hover:text-white"
+                  iconClassName="h-10 w-10 bg-transparent text-[#FF4B50] group-hover:bg-white/10"
+                />
               </div>
             </div>
 

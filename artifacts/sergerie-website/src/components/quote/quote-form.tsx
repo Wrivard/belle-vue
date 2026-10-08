@@ -1,7 +1,7 @@
 import { FormEvent, ReactNode, useEffect, useRef, useState } from 'react';
 import { ChevronDown, Paperclip } from 'lucide-react';
 import {
-  BUDGETS, EMPTY_DRAFT, PROJECT_TYPES, QuoteDraft, QuoteErrors, TIMELINES, buildMailto, validateStep,
+  BUDGETS, EMPTY_DRAFT, PROJECT_TYPES, QuoteDraft, QuoteErrors, TIMELINES, WORK_TYPES, buildMailto, validateStep,
 } from '@/lib/quote-form-model';
 
 const STEPS = ['Votre projet', 'Vos coordonnées', 'Vérification'];
@@ -56,7 +56,7 @@ export function QuoteForm() {
   const goTo = (s: 1 | 2 | 3) => { moved.current = true; setPrepared(false); setErrors({}); setStep(s); };
 
   const focusFirst = (errs: QuoteErrors) => {
-    const order: (keyof QuoteDraft)[] = ['projectType', 'details', 'name', 'phone', 'email'];
+    const order: (keyof QuoteDraft)[] = ['projectType', 'workType', 'details', 'name', 'phone', 'email'];
     const first = order.find((k) => errs[k]);
     if (first) requestAnimationFrame(() => document.getElementById(`quote-${first}`)?.focus());
   };
@@ -88,6 +88,7 @@ export function QuoteForm() {
 
   const summary: [string, string, 1 | 2][] = [
     ['Type de projet', draft.projectType, 1],
+    ['Nature des travaux', draft.workType, 1],
     ['Description', draft.details.trim(), 1],
     ['Budget approximatif', draft.budget || 'À déterminer', 1],
     ['Échéancier souhaité', draft.timeline || 'À déterminer', 1],
@@ -120,6 +121,29 @@ export function QuoteForm() {
             <Row id="quote-projectType" label="Type de projet" error={errors.projectType}>
               <Select id="quote-projectType" value={draft.projectType} onChange={set('projectType')} options={PROJECT_TYPES} placeholder="Sélectionnez un projet" invalid={!!errors.projectType} testId="select-soumission-service" />
             </Row>
+            <fieldset id="quote-workType-group" className="scroll-mt-28 space-y-2" aria-describedby={errors.workType ? 'quote-workType-error' : undefined}>
+              <legend className={`${labelCls} mb-2`}>Construction neuve ou rénovation? <span className="text-[#D71920]" aria-hidden="true">*</span></legend>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {WORK_TYPES.map((option, index) => (
+                  <label key={option} className={`flex min-h-14 cursor-pointer items-center gap-3 rounded-sm border px-4 py-3 text-base font-semibold text-[#1B1B1B] transition-colors ${draft.workType === option ? 'border-[#D71920] bg-[#FBE8E9]' : 'border-[#1B1B1B]/15 bg-[#EDEDED] hover:border-[#D71920]/60'}`}>
+                    <input
+                      id={index === 0 ? 'quote-workType' : `quote-workType-${index}`}
+                      type="radio"
+                      name="workType"
+                      value={option}
+                      required
+                      checked={draft.workType === option}
+                      onChange={(e) => set('workType')(e.target.value)}
+                      {...inv('workType')}
+                      className="h-5 w-5 shrink-0 accent-[#D71920] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D71920]"
+                      data-testid={`radio-soumission-work-type-${index}`}
+                    />
+                    {option}
+                  </label>
+                ))}
+              </div>
+              {errors.workType && <p id="quote-workType-error" className="text-sm font-semibold text-[#B51218]" role="alert">{errors.workType}</p>}
+            </fieldset>
             <Row id="quote-details" label="Description du projet" error={errors.details}>
               <textarea id="quote-details" name="details" required value={draft.details} onChange={(e) => set('details')(e.target.value)} {...inv('details')} className={`${field} min-h-[180px] py-3 resize-y`} placeholder="Parlez-nous de l’espace, de vos besoins et de vos idées." data-testid="input-soumission-details" />
             </Row>
