@@ -1,8 +1,8 @@
-- [sergerie-website white-label template](sergerie-template.md) — one construction site re-skinned per client; replit.md/folder name go stale, read live source to find current brand.
+- [White-label website template](sergerie-template.md) — the agency reuses one site across clients; verify current branding and keep collaborator instructions accurate.
 - [Témoignages et conformité](content-and-privacy.md) — avis clients sans réponses du propriétaire; une politique Loi 25 ne certifie pas les pratiques internes.
 - [Rédaction Belle-Vue](copywriting.md) — mettre en valeur l’ergonomie et l’adaptation aux besoins dans les textes du site.
 - [Menu mobile Belle-Vue](mobile-navigation.md) — privilégier une liste simple, sans défilement imbriqué, avec le haut du menu toujours visible.
 - [Public-page SEO](seo-delivery.md) — preserve initial HTML content and route-specific metadata while keeping React navigation and the interactive quote form.
 - [Domaine officiel Belle-Vue](belle-vue-domain.md) — le domaine final demandé est https://armoirebellevue.com/, même avant son raccordement.
-- [Quote analytics semantics](analytics-semantics.md) — requesting a prepared email is intent, not a confirmed quote submission.
+- [Quote delivery analytics](analytics-semantics.md) — a submitted quote accepted for email processing does not guarantee inbox delivery.
 - [Courriels Belle-Vue](belle-vue-email.md) — Vercel et Resend; expéditeur imposé bonjour@kua.quebec, confirmations client et propriétaire.

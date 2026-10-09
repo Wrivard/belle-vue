@@ -1,19 +1,16 @@
 ---
-name: sergerie-website is a white-label construction template
-description: The sergerie-website artifact is reused per client; replit.md can lag behind the live content.
+name: White-label website template
+description: The agency reuses this website across clients; branding and documentation must follow the current client.
 ---
 
-# sergerie-website = shared white-label construction site
+# Shared white-label website
 
-The `artifacts/sergerie-website` site is a single React+Vite template that gets fully
-re-skinned for each new construction client (company name, colors, logo, services, contact).
+The agency reuses one website template across clients, changing the company name,
+colors, logo, services, photos, and contact details for the current client.
 
-**Why:** The agency reuses one codebase across clients ("on va utiliser le même site mais
-pour un autre client"). `public/images/` accumulates assets from many past clients
-(logo-*.png, *-hero-video.mp4, client-prefixed photos) — leftover files are normal.
+**Why:** The user stated "on va utiliser le même site mais pour un autre client".
 
-**How to apply:** Before rebranding, do NOT trust the replit.md artifact block or the folder
-name ("sergerie") to know the current client — they go stale. Read the actual source
-(navbar/footer/home.tsx) to find the live company name, colors, and logo, then update
-replit.md after. Client briefs may say "don't invent certifications/RBQ" → the
-`certifications-section.tsx` component stays in the tree but is left unrendered in that case.
+**How to apply:** Confirm the current client from the live content rather than assuming
+old template names or documentation remain accurate. Keep collaborator-facing
+instructions up to date after rebranding and preserve the client's selected photos.
+Never invent certifications or associations that the client has not confirmed.

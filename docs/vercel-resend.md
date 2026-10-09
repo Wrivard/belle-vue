@@ -2,7 +2,9 @@
 
 ## Configuration Vercel
 
-Importer **le dépôt complet**, avec **Root Directory à la racine du dépôt** (laisser vide / `.`), et non `artifacts/sergerie-website`. Le fichier `vercel.json` à la racine construit le site, sert les pages pré-rendues et déploie la fonction Node `/api/quote`. Le serveur Express et la base de données Replit ne sont pas nécessaires à cet envoi sur Vercel.
+Importer **le dépôt complet dans un seul projet Vercel**, avec **Root Directory à la racine du dépôt** (laisser vide / `.`), et non `artifacts/belle-vue-website`. Le fichier `vercel.json` à la racine construit le site, sert les pages pré-rendues et déploie la fonction Node `/api/quote`. Le serveur Express et la base de données Replit ne sont pas nécessaires à cet envoi sur Vercel.
+
+Si Vercel propose plusieurs applications détectées, ne pas importer chaque application séparément : `belle-vue-website` est le site public, `api-server` sert à la prévisualisation Replit, et `mockup-sandbox` contient les maquettes de conception. Ces deux derniers outils ne nécessitent pas de projet Vercel.
 
 Ne pas sélectionner le preset SPA Vite avec un fallback global vers `index.html` : `/soumission` et `/politique-cookies` ont chacun leur HTML et leurs métadonnées. Le routage configuré préserve aussi `robots.txt`, `sitemap.xml`, les images et les assets. Les URL inconnues renvoient la page 404.
 

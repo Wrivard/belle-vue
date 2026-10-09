@@ -2,8 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "installCommand": "pnpm install --frozen-lockfile",
-  "buildCommand": "PORT=25729 BASE_PATH=/ pnpm --filter @workspace/sergerie-website run build",
-  "outputDirectory": "artifacts/sergerie-website/dist/public",
+  "buildCommand": "PORT=25729 BASE_PATH=/ pnpm --filter @workspace/belle-vue-website run build",
+  "outputDirectory": "artifacts/belle-vue-website/dist/public",
   "functions": { "api/quote.ts": { "maxDuration": 30 } },
   "routes": [
     { "src": "/api/quote", "dest": "/api/quote" },

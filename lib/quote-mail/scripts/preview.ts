@@ -3,7 +3,7 @@ import path from 'node:path';
 import { createQuoteEmails } from '../src/templates';
 
 const root = path.resolve(import.meta.dirname, '../../..');
-const logo = await readFile(path.join(root, 'artifacts/sergerie-website/public/images/logo-armoire-belle-vue-ameublement.png'));
+const logo = await readFile(path.join(root, 'artifacts/belle-vue-website/public/images/logo-armoire-belle-vue-ameublement.png'));
 const messages = createQuoteEmails({
   submissionId: '54a9dc56-16e7-47ed-9361-43ca5a8bf26c',
   projectType: 'Cuisine sur mesure', workType: 'Rénovation',

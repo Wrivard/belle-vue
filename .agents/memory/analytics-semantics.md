@@ -1,10 +1,10 @@
 ---
-name: Quote analytics semantics
-description: Distinguish quote-email intent from a confirmed submission when reporting conversions.
+name: Quote delivery analytics
+description: Distinguish an accepted quote submission from confirmed inbox delivery.
 ---
 
-Treat requesting the prepared quote email as an intent event, not a confirmed lead or successfully sent submission.
+Treat a successful quote submission as accepted for email processing, not as guaranteed receipt in either recipient's inbox.
 
-**Why:** Opening a mail application provides no delivery receipt; the visitor can cancel or have no mail application configured. Counting it as a submitted quote would misrepresent business outcomes.
+**Why:** The site now sends the client and owner messages through Resend. A provider acknowledgement can precede a bounce or other delivery failure; it is not an inbox delivery receipt.
 
-**How to apply:** Preserve this distinction when naming events and reporting funnels. With Resend, count a confirmed submission only after the provider acknowledges both transactional messages. This is acceptance by the sending service, not guaranteed inbox delivery; report bounces/delivery separately.
+**How to apply:** Count a submission only after the provider acknowledges both transactional messages. Report it as submitted/accepted, and use actual provider delivery statuses before claiming receipt. The former prepared-email flow is no longer the site's submission mechanism.

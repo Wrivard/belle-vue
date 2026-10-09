@@ -1,4 +1,4 @@
-# Workspace
+# Armoire Belle-Vue
 
 ## Overview
 
@@ -18,22 +18,30 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 
 ## Artifacts
 
-### Construction Pro-S (sergerie-website)
-- **Type**: Presentation-first React + Vite website (shared construction template reused per client)
+### Armoire Belle-Vue (belle-vue-website)
+- **Type**: React + Vite marketing website with pre-rendered public pages and an interactive quote form
+- **Directory/package**: `artifacts/belle-vue-website`, `@workspace/belle-vue-website`
 - **Path**: `/` (root)
 - **Port**: 25729
-- **Pages**: Homepage (`/`), Soumission (`/soumission`)
-- **Brand colors**: Accent `#0077C8` (blue), Hover `#005B99` (darker blue), Light blue highlight `#4DA8DA` (text on dark), Dark `#1B1B1B`, Text `#E4E4E4`, White `#FFFFFF`. CSS `--primary`/`--accent` HSL = `204 100% 39%`.
-- **Design rules**: Solid colors only — no gradients. Navbar & footer are BLACK `#1B1B1B` (to host the white logo). Blue used for CTA/highlights/icons.
-- **Font**: Inter (Google Fonts)
+- **Pages**: Homepage (`/`), Soumission (`/soumission`), privacy policy (`/politique-cookies`), and branded 404
+- **Brand colors**: Red `#D71920`, hover red `#B51218`, bright red `#FF4B50`, dark `#1B1B1B`, and white
+- **Design rules**: Solid colors; dark navbar and footer with the white/red logo. Preserve the client's selected project photos.
+- **Font**: Self-hosted Inter variable font
 - **Routing**: wouter
-- **Logo**: `public/images/logo-pro-s.png` (white PRO-S CONSTRUCTION logo, transparent bg → needs dark background)
-- **Images**: `public/images/` — uses `photo-*.jpg` set (construction → `photo-construction.jpg`, toiture → `photo-toiture.jpg`)
-- **Components**: `src/components/layout/` — Navbar, Footer, FadeIn, CountUp, MapSection, TestimonialsSection, ContactSection, PageWrapper. Note: `certifications-section.tsx` exists but is NOT rendered (client has no confirmed certifications — do not invent RBQ/associations).
-- **Contact**: (418) 487-8865, constructionpro-s@hotmail.com, 400 rue du Lis-Blanc, Chicoutimi (QC) G7G 0L4
-- **Zones served**: Région du Saguenay
-- **Core message**: "Entrepreneur spécialisé en construction, rénovation & toiture résidentielle"
-- **Services**: Construction résidentielle, Rénovation générale, Toiture, Revêtement extérieur, Agrandissement, Travaux de finition
+- **Images**: Belle-Vue project photos and responsive variants in `public/images/belle-vue/`
+- **Components**: Shared navbar, footer, map, contact, FAQ, process, and quote form. Do not invent certifications or associations.
+- **Service area**: Saguenay–Lac-Saint-Jean
+- **Services**: Custom kitchen cabinets, bathroom vanities, storage, and furniture. Use “ameublement sur mesure” in public copy.
+
+### Supporting tools
+- `artifacts/api-server`: Express API for the Replit preview, including `/api/quote`.
+- `artifacts/mockup-sandbox`: Design/canvas previews; not the public website.
+
+## Vercel deployment
+
+Import the repository **once**, with **Root Directory blank or `.`**. The root `vercel.json` builds `belle-vue-website` and deploys `api/quote.ts` as a serverless function. Do not import the detected artifact folders as separate Vercel projects. The Express preview server and design sandbox are not required on Vercel.
+
+Quote-email logic is shared in `lib/quote-mail`; see `docs/vercel-resend.md` for configuration and delivery verification.
 
 ## Key Commands
 
