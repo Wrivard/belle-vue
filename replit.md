@@ -47,6 +47,8 @@ Do not replace the bundled function with direct TypeScript workspace imports. Ve
 
 ## Key Commands
 
+- `pnpm run test:consent` — check Cookiebot/GTM host guards, consent defaults and load order without calling providers
+
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from OpenAPI spec
@@ -54,3 +56,13 @@ Do not replace the bundled function with direct TypeScript workspace imports. Ve
 - `pnpm --filter @workspace/api-server run dev` — run API server locally
 
 See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.
+
+## Cookiebot and Google Tag Manager
+
+Cookiebot is installed directly in the website HTML, not through GTM. Do not install a second Cookiebot CMP tag in the GTM container.
+
+Before publishing, configure the active public domains in the supplied Cookiebot domain group: `armoirebellevue.com`, `www.armoirebellevue.com` and `belle-vue.vercel.app` as applicable. Publish the GTM container and verify its tags' consent requirements in Tag Assistant. Installing the container does not configure GA4, advertising pixels or conversion tags.
+
+Google Consent Mode defaults to denied for optional categories. This does not guarantee that every tag stops sending data: some Google tags send cookieless signals with denied storage. Require additional consent and appropriate consent-update triggers in GTM if those requests must also be blocked. The requested noscript fallback cannot use the JavaScript Cookiebot banner; do not configure consent-dependent noscript pixels without a separate consent mechanism.
+
+The cookie declaration belongs on the privacy page, inside the body, not in the head. Keep the essential React module exempt from automatic blocking so the quote form and consent controls remain usable. Replit/local previews must not load either provider, including the noscript fallback.

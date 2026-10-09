@@ -2,6 +2,54 @@
 <html lang="fr-CA">
   <head>
     <meta charset="UTF-8" />
+    <script id="consent-bootstrap" data-cookieconsent="ignore">
+      (function (w, d) {
+        var host = w.location.hostname.toLowerCase();
+        if (host === 'localhost' || host.endsWith('.localhost') ||
+            host === '127.0.0.1' || host === '0.0.0.0' ||
+            host === '[::1]' || host === '::1' ||
+            host.includes('replit') || host.endsWith('.repl.co') ||
+            host.endsWith('.repl.dev')) return;
+        if (d.getElementById('Cookiebot')) return;
+        w.belleVueConsentEnabled = true;
+        w.dataLayer = w.dataLayer || [];
+        w.gtag = w.gtag || function () { w.dataLayer.push(arguments); };
+        // Cookiebot updates these defaults when the visitor chooses consent.
+        w.gtag('consent', 'default', {
+          ad_personalization: 'denied',
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          analytics_storage: 'denied',
+          functionality_storage: 'denied',
+          personalization_storage: 'denied',
+          security_storage: 'granted',
+          wait_for_update: 500
+        });
+        w.gtag('set', 'ads_data_redaction', true);
+        w.gtag('set', 'url_passthrough', false);
+        var cb = d.createElement('script');
+        cb.id = 'Cookiebot';
+        cb.src = 'https://consent.cookiebot.com/uc.js';
+        cb.setAttribute('data-cbid', 'a6066f16-917c-48f9-a5b8-c7b1895caa20');
+        cb.setAttribute('data-blockingmode', 'auto');
+        cb.setAttribute('data-culture', 'FR');
+        cb.type = 'text/javascript';
+        cb.async = false;
+        // Do not load GTM if Cookiebot cannot load. The website remains usable.
+        cb.onload = function () {
+          if (d.getElementById('belle-vue-gtm')) return;
+          w.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          var j = d.createElement('script');
+          j.id = 'belle-vue-gtm';
+          j.async = true;
+          j.setAttribute('data-cookieconsent', 'ignore');
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-W8ZSWNVH';
+          d.head.appendChild(j);
+          w.dispatchEvent(new Event('bellevue:cookiebot-ready'));
+        };
+        d.head.appendChild(cb);
+      })(window, document);
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#171717" />
     <!-- SEO_START -->
@@ -10,6 +58,10 @@
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
   </head>
   <body>
+    <!-- GTM_NOSCRIPT_START -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8ZSWNVH"
+      height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+    <!-- GTM_NOSCRIPT_END -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

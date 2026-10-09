@@ -6,6 +6,7 @@
     "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
     "build": "pnpm run typecheck && node scripts/build-vercel-function.mjs && pnpm -r --if-present run build",
     "typecheck:libs": "tsc --build",
+    "test:consent": "node --test artifacts/belle-vue-website/tests/consent-bootstrap.test.mjs",
     "test:quotes": "pnpm --filter @workspace/quote-mail test && pnpm --filter @workspace/quote-mail exec tsx --test ../../artifacts/belle-vue-website/scripts/analytics.test.ts && node --test scripts/vercel-function.test.mjs artifacts/belle-vue-website/tests/quote-form-model.test.mjs",
     "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
   },

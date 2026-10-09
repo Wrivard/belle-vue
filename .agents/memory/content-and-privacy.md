@@ -25,4 +25,4 @@ La demande de conformité à la Loi 25 couvre la politique publique et le compor
 
 **Why:** L’utilisateur a explicitement demandé de retirer l’activation préalable de la carte après avoir été informé des échanges automatiques avec Google.
 
-**How to apply:** Conserver l’affichage automatique de la carte et une politique qui décrit ce comportement réel. Ne pas réintroduire le masquage sans accord de l’utilisateur et ne pas présenter l’affichage automatique comme une conformité juridique garantie.
+**How to apply:** Conserver l’intégration automatique de la carte sans ajouter de bouton d’activation maison. La demande ultérieure de Cookiebot avec blocage automatique peut toutefois en contrôler le chargement selon les catégories et les choix du visiteur; ne pas contourner Cookiebot pour forcer la carte. Décrire le comportement réel, sans garantie de conformité juridique.

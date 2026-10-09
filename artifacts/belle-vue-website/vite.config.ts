@@ -32,10 +32,26 @@ export default defineConfig({
   base: basePath,
   plugins: [
     {
+      name: "belle-vue-essential-app",
+      transformIndexHtml: {
+        order: "post",
+        // The React application is necessary (navigation, form, consent UI).
+        // Vite recreates its module tag and drops source HTML data attributes.
+        handler: (html) => html.replace(
+          /<script\b(?![^>]*\bdata-cookieconsent=)(?=[^>]*\btype=["']module["'])/g,
+          '<script data-cookieconsent="ignore"',
+        ),
+      },
+    },
+    {
       name: "belle-vue-seo",
       transformIndexHtml: {
         order: "pre",
         handler(html, context) {
+          // No third-party noscript requests in the Replit/local dev preview.
+          if (context.server) {
+            html = html.replace(/<!-- GTM_NOSCRIPT_START -->[\s\S]*?<!-- GTM_NOSCRIPT_END -->/, "");
+          }
           const route = (context.originalUrl ?? context.path).split("?")[0];
           return html.replace("<!-- SEO_HEAD -->", renderSeoHead(route === "/index.html" ? "/" : route));
         },
@@ -64,7 +80,9 @@ export default defineConfig({
             const html = await readFile(path.resolve(import.meta.dirname, "dist/public", file), "utf8");
             res.statusCode = known ? 200 : 404;
             res.setHeader("Content-Type", "text/html; charset=utf-8");
-            res.end(req.method === "HEAD" ? undefined : html);
+            // This server is a development preview, even of a production build.
+            const previewHtml = html.replace(/<!-- GTM_NOSCRIPT_START -->[\s\S]*?<!-- GTM_NOSCRIPT_END -->/, "");
+            res.end(req.method === "HEAD" ? undefined : previewHtml);
           } catch (error) {
             next(error);
           }
