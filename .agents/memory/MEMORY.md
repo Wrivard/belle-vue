@@ -6,3 +6,4 @@
 - [Domaine officiel Belle-Vue](belle-vue-domain.md) — le domaine final demandé est https://armoirebellevue.com/, même avant son raccordement.
 - [Quote delivery analytics](analytics-semantics.md) — a submitted quote accepted for email processing does not guarantee inbox delivery.
 - [Courriels Belle-Vue](belle-vue-email.md) — Vercel et Resend; expéditeur imposé bonjour@kua.quebec, confirmations client et propriétaire.
+- [Vercel TypeScript defaults](vercel-typescript.md) — declare function module settings explicitly; Vercel applies defaults before resolving inherited settings.

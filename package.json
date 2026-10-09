@@ -6,7 +6,7 @@
     "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
     "build": "pnpm run typecheck && pnpm -r --if-present run build",
     "typecheck:libs": "tsc --build",
-    "test:quotes": "pnpm --filter @workspace/quote-mail test && pnpm --filter @workspace/quote-mail exec tsx --test ../../api/quote.test.ts ../../artifacts/belle-vue-website/scripts/analytics.test.ts && node --test artifacts/belle-vue-website/tests/quote-form-model.test.mjs",
+    "test:quotes": "pnpm --filter @workspace/quote-mail test && pnpm --filter @workspace/quote-mail exec tsx --test ../../api/quote.test.ts ../../artifacts/belle-vue-website/scripts/analytics.test.ts && node --test api/config.test.mjs artifacts/belle-vue-website/tests/quote-form-model.test.mjs",
     "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck && tsc -p api/tsconfig.json"
   },
   "private": true,

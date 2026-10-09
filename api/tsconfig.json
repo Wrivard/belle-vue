@@ -1,6 +1,14 @@
 {
   "extends": "../tsconfig.base.json",
-  "compilerOptions": { "noEmit": true, "types": ["node"], "lib": ["es2022", "dom"] },
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "es2022",
+    "esModuleInterop": true,
+    "noEmit": true,
+    "types": ["node"],
+    "lib": ["es2022", "dom"]
+  },
   "include": ["*.ts"],
   "exclude": ["*.test.ts"],
   "references": [{ "path": "../lib/quote-mail" }]
