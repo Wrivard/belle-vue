@@ -108,3 +108,31 @@ uri = "file://design-skill-bold-contractor.md"
 type = "text"
 title = "Bold Contractor — Design Skill"
 logical_id = "61b49ee4-27eb-4725-a8c4-539855439f56"
+
+[[outputs]]
+id = "xz0p3czi4hPzwrVzsnaLd"
+uri = "file://exports/resend/confirmation-client.html"
+type = "html"
+title = "Courriel client — confirmation Belle-Vue"
+description = "Aperçu avec logo, couleurs Belle-Vue et récapitulatif fictif."
+logical_id = "0bf89e53-c4aa-40bb-8829-39389fdc9607"
+content_hash = "sha256:c58f4dadce4aaa5fe3945c93e871dcce4f431bd24d67492d60582a01ed8f6fc3"
+size = 225071
+mtime_ms = 1791551166913
+storage_uri = "gcs://replit-rams-assets-janeway/rams/assets/repl:3c1639fa-76b3-4040-8ef3-ccaf471f89b5/0bf89e53-c4aa-40bb-8829-39389fdc9607/4310210a-c07f-4760-8fbc-0141d6e4b4f3"
+storage_version_token = "1791551549823314"
+content_type = "text/html"
+
+[[outputs]]
+id = "x3KlXoiv2OrmEmHXTVuWG"
+uri = "file://exports/resend/avis-proprietaire.html"
+type = "html"
+title = "Courriel propriétaire — nouvelle soumission"
+description = "Aperçu avec coordonnées, détails du projet et bouton de réponse au client. Données fictives."
+logical_id = "25aa3a8e-7d8b-406f-8547-59ac0f52bb5f"
+content_hash = "sha256:eff894cbb789ae9e0508dca914baa73ea0d20fcc5f67d360f55a36fa4573ecc7"
+size = 224850
+mtime_ms = 1791551166905
+storage_uri = "gcs://replit-rams-assets-janeway/rams/assets/repl:3c1639fa-76b3-4040-8ef3-ccaf471f89b5/25aa3a8e-7d8b-406f-8547-59ac0f52bb5f/2546b61a-1e2d-4d3b-ac16-e44a9b7eceda"
+storage_version_token = "1791551550432624"
+content_type = "text/html"

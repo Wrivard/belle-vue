@@ -1,6 +1,6 @@
 kind = "web"
 previewPath = "/"
-title = "Les Rénovations Sergerie"
+title = "Armoire Belle-Vue"
 version = "1.0.0"
 id = "artifacts/sergerie-website"
 router = "path"

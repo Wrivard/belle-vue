@@ -8,6 +8,60 @@
 import * as zod from "zod";
 
 /**
+ * @summary Send a quote request and customer confirmation
+ */
+export const submitQuoteBodyDetailsMax = 5000;
+
+export const submitQuoteBodyNameMax = 120;
+
+export const submitQuoteBodyPhoneMin = 7;
+export const submitQuoteBodyPhoneMax = 40;
+
+export const submitQuoteBodyEmailMax = 254;
+
+export const submitQuoteBodyCityMax = 120;
+
+export const submitQuoteBodyWebsiteMax = 0;
+
+export const SubmitQuoteBody = zod.object({
+  submissionId: zod.string().uuid(),
+  projectType: zod.enum([
+    "Cuisine sur mesure",
+    "Salle de bain",
+    "Ameublement sur mesure",
+    "Rangement sur mesure",
+    "Autre",
+  ]),
+  workType: zod.enum(["Construction neuve", "Rénovation"]),
+  details: zod.string().min(1).max(submitQuoteBodyDetailsMax),
+  budget: zod.enum([
+    "",
+    "Moins de 10 000 $",
+    "10 000 $ à 20 000 $",
+    "20 000 $ à 40 000 $",
+    "Plus de 40 000 $",
+  ]),
+  timeline: zod.enum([
+    "",
+    "Le plus tôt possible",
+    "Dans 1 à 3 mois",
+    "Dans 3 à 6 mois",
+    "Flexible",
+  ]),
+  name: zod.string().min(1).max(submitQuoteBodyNameMax),
+  phone: zod.string().min(submitQuoteBodyPhoneMin).max(submitQuoteBodyPhoneMax),
+  email: zod.string().email().max(submitQuoteBodyEmailMax),
+  city: zod.string().max(submitQuoteBodyCityMax),
+  consent: zod.literal(true),
+  website: zod.string().max(submitQuoteBodyWebsiteMax),
+});
+
+export const SubmitQuoteResponse = zod.object({
+  ok: zod.literal(true),
+  reference: zod.string(),
+});
+
+/**
  * Returns server health status
  * @summary Health check
  */

@@ -3,4 +3,6 @@
 - [Rédaction Belle-Vue](copywriting.md) — mettre en valeur l’ergonomie et l’adaptation aux besoins dans les textes du site.
 - [Menu mobile Belle-Vue](mobile-navigation.md) — privilégier une liste simple, sans défilement imbriqué, avec le haut du menu toujours visible.
 - [Public-page SEO](seo-delivery.md) — preserve initial HTML content and route-specific metadata while keeping React navigation and the interactive quote form.
+- [Domaine officiel Belle-Vue](belle-vue-domain.md) — le domaine final demandé est https://armoirebellevue.com/, même avant son raccordement.
 - [Quote analytics semantics](analytics-semantics.md) — requesting a prepared email is intent, not a confirmed quote submission.
+- [Courriels Belle-Vue](belle-vue-email.md) — Vercel et Resend; expéditeur imposé bonjour@kua.quebec, confirmations client et propriétaire.

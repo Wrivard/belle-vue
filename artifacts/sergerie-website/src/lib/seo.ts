@@ -1,7 +1,7 @@
 import { FACEBOOK_URL, COMPANY_CITY } from './company';
 
-// Verified publishing URL. Update this single value when a custom domain becomes primary.
-export const SITE_URL = 'https://armoire-belle-vue-ebenisterie.replit.app';
+// Owner-designated production domain, prepared ahead of domain connection and publishing.
+export const SITE_URL = 'https://armoirebellevue.com';
 export const PUBLIC_ROUTES = ['/', '/soumission', '/politique-cookies'] as const;
 
 const pages: Record<string, { title: string; description: string; image: string; imageAlt: string }> = {

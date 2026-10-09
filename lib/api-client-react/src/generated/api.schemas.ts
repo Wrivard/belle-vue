@@ -5,6 +5,86 @@
  * API specification
  * OpenAPI spec version: 0.1.0
  */
+export type QuoteInputProjectType =
+  (typeof QuoteInputProjectType)[keyof typeof QuoteInputProjectType];
+
+export const QuoteInputProjectType = {
+  Cuisine_sur_mesure: "Cuisine sur mesure",
+  Salle_de_bain: "Salle de bain",
+  Ameublement_sur_mesure: "Ameublement sur mesure",
+  Rangement_sur_mesure: "Rangement sur mesure",
+  Autre: "Autre",
+} as const;
+
+export type QuoteInputWorkType =
+  (typeof QuoteInputWorkType)[keyof typeof QuoteInputWorkType];
+
+export const QuoteInputWorkType = {
+  Construction_neuve: "Construction neuve",
+  Rénovation: "Rénovation",
+} as const;
+
+export type QuoteInputBudget =
+  (typeof QuoteInputBudget)[keyof typeof QuoteInputBudget];
+
+export const QuoteInputBudget = {
+  "": "",
+  Moins_de_10_000_$: "Moins de 10 000 $",
+  "10_000_$_à_20_000_$": "10 000 $ à 20 000 $",
+  "20_000_$_à_40_000_$": "20 000 $ à 40 000 $",
+  Plus_de_40_000_$: "Plus de 40 000 $",
+} as const;
+
+export type QuoteInputTimeline =
+  (typeof QuoteInputTimeline)[keyof typeof QuoteInputTimeline];
+
+export const QuoteInputTimeline = {
+  "": "",
+  Le_plus_tôt_possible: "Le plus tôt possible",
+  Dans_1_à_3_mois: "Dans 1 à 3 mois",
+  Dans_3_à_6_mois: "Dans 3 à 6 mois",
+  Flexible: "Flexible",
+} as const;
+
+export interface QuoteInput {
+  submissionId: string;
+  projectType: QuoteInputProjectType;
+  workType: QuoteInputWorkType;
+  /**
+   * @minLength 1
+   * @maxLength 5000
+   */
+  details: string;
+  budget: QuoteInputBudget;
+  timeline: QuoteInputTimeline;
+  /**
+   * @minLength 1
+   * @maxLength 120
+   */
+  name: string;
+  /**
+   * @minLength 7
+   * @maxLength 40
+   */
+  phone: string;
+  /** @maxLength 254 */
+  email: string;
+  /** @maxLength 120 */
+  city: string;
+  consent: boolean;
+  /** @maxLength 0 */
+  website: string;
+}
+
+export interface QuoteReceipt {
+  ok: boolean;
+  reference: string;
+}
+
+export interface QuoteError {
+  error: string;
+}
+
 export interface HealthStatus {
   status: string;
 }

@@ -1,8 +1,9 @@
 import { FormEvent, ReactNode, useEffect, useRef, useState } from 'react';
-import { ChevronDown, Paperclip } from 'lucide-react';
+import { ChevronDown, Paperclip, CheckCircle2, Loader2 } from 'lucide-react';
+import { submitQuote } from '@workspace/api-client-react';
 import { trackEvent } from '@/lib/analytics';
 import {
-  BUDGETS, EMPTY_DRAFT, PROJECT_TYPES, QuoteDraft, QuoteErrors, TIMELINES, WORK_TYPES, buildMailto, validateStep,
+  BUDGETS, EMPTY_DRAFT, PROJECT_TYPES, QuoteDraft, QuoteErrors, TIMELINES, WORK_TYPES, buildQuoteInput, validateStep,
 } from '@/lib/quote-form-model';
 
 const STEPS = ['Votre projet', 'Vos coordonnées', 'Vérification'];
@@ -39,7 +40,12 @@ export function QuoteForm() {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [errors, setErrors] = useState<QuoteErrors>({});
   const [consent, setConsent] = useState(false);
-  const [prepared, setPrepared] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [receipt, setReceipt] = useState<string | null>(null);
+  const [sendError, setSendError] = useState('');
+  const [website, setWebsite] = useState('');
+  const submissionId = useRef<string | null>(null);
+  const inFlight = useRef(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const moved = useRef(false);
   const started = useRef(false);
@@ -56,14 +62,15 @@ export function QuoteForm() {
       started.current = true;
       trackEvent('quote_form_started', { page: '/soumission' });
     }
-    setPrepared(false);
+    submissionId.current = null;
+    setSendError('');
     setDraft((d) => ({ ...d, [k]: v }));
     setErrors((e) => (e[k] ? { ...e, [k]: undefined } : e));
   };
-  const goTo = (s: 1 | 2 | 3) => { moved.current = true; setPrepared(false); setErrors({}); setStep(s); };
+  const goTo = (s: 1 | 2 | 3) => { if (inFlight.current) return; moved.current = true; setSendError(''); setErrors({}); setStep(s); };
 
   const focusFirst = (errs: QuoteErrors) => {
-    const order: (keyof QuoteDraft)[] = ['projectType', 'workType', 'details', 'name', 'phone', 'email'];
+    const order: (keyof QuoteDraft)[] = ['projectType', 'workType', 'details', 'budget', 'timeline', 'name', 'phone', 'email', 'city'];
     const first = order.find((k) => errs[k]);
     if (first) requestAnimationFrame(() => document.getElementById(`quote-${first}`)?.focus());
   };
@@ -84,23 +91,47 @@ export function QuoteForm() {
     goTo((step + 1) as 2 | 3);
   };
 
-  const onSubmit = (ev: FormEvent) => {
+  const onSubmit = async (ev: FormEvent) => {
     ev.preventDefault();
+    if (inFlight.current || receipt) return;
     if (step < 3) { next(); return; }
+    const projectErrors = validateStep(1, draft);
+    const contactErrors = validateStep(2, draft);
+    if (Object.keys(projectErrors).length || Object.keys(contactErrors).length) {
+      goTo(Object.keys(projectErrors).length ? 1 : 2);
+      setErrors({ ...projectErrors, ...contactErrors });
+      focusFirst({ ...projectErrors, ...contactErrors });
+      return;
+    }
     if (!consent) {
       trackEvent('quote_validation_error', { page: '/soumission', step: 3, field_count: 1 });
-      setErrors({ consent: 'Cochez cette case pour préparer le courriel.' });
+      setErrors({ consent: 'Cochez cette case pour envoyer votre demande.' });
       document.getElementById('quote-consent')?.focus();
       return;
     }
-    const mailto = buildMailto(draft);
-    trackEvent('quote_email_requested', {
-      page: '/soumission',
-      project_type: PROJECT_TYPES.includes(draft.projectType) ? draft.projectType : 'other',
-      work_type: WORK_TYPES.includes(draft.workType) ? draft.workType : 'other',
-    });
-    window.location.href = mailto;
-    setPrepared(true);
+    inFlight.current = true;
+    setSending(true);
+    setSendError('');
+    // Keep the same UUID after timeout/errors; Resend deduplicates identical retries.
+    try {
+      submissionId.current ??= crypto.randomUUID();
+      const result = await submitQuote(buildQuoteInput(draft, submissionId.current, consent, website), {
+        signal: AbortSignal.timeout(25000),
+      });
+      if (result.ok !== true || typeof result.reference !== 'string' || !result.reference) throw new Error('invalid_receipt');
+      setReceipt(result.reference);
+      trackEvent('quote_submitted', {
+        page: '/soumission', project_type: draft.projectType, work_type: draft.workType,
+      });
+    } catch (error) {
+      const data = error && typeof error === 'object' && 'data' in error ? error.data : null;
+      const message = data && typeof data === 'object' && 'error' in data && typeof data.error === 'string'
+        ? data.error : 'L’envoi n’a pas pu être confirmé. Vos réponses sont conservées ci-dessous. Réessayez ou appelez-nous au (418) 672-1613.';
+      setSendError(message);
+    } finally {
+      inFlight.current = false;
+      setSending(false);
+    }
   };
 
   const inv = (k: keyof QuoteDraft) => ({
@@ -120,6 +151,19 @@ export function QuoteForm() {
     ['Ville', draft.city.trim() || 'Non précisée', 2],
   ];
 
+  if (receipt) return (
+    <div className="space-y-6 text-[#1B1B1B]" role="status" data-testid="status-quote-sent">
+      <CheckCircle2 size={44} className="text-[#D71920]" aria-hidden="true" />
+      <h3 className="text-2xl font-bold">Merci! Votre demande a été transmise.</h3>
+      <p>Notre équipe examinera votre projet et communiquera avec vous. Un courriel de confirmation avec le récapitulatif de votre demande vous est envoyé à <strong className="break-all">{draft.email.trim()}</strong>. Vérifiez aussi vos courriels indésirables.</p>
+      <p className="text-sm break-all">Référence : <strong>{receipt}</strong></p>
+      <p className="text-sm">Vous pouvez répondre au courriel de confirmation pour ajouter des photos, des plans ou des précisions.</p>
+      <dl className="divide-y divide-[#1B1B1B]/10 border border-[#1B1B1B]/10 rounded-sm">
+        {summary.map(([key, value]) => <div key={key} className="p-4"><dt className="text-xs font-bold uppercase text-[#1B1B1B]/60">{key}</dt><dd className="mt-1 whitespace-pre-wrap break-words">{value}</dd></div>)}
+      </dl>
+    </div>
+  );
+
   return (
     <div>
       <ol className="flex gap-2 mb-8" aria-label="Progression du formulaire">
@@ -135,6 +179,11 @@ export function QuoteForm() {
       </ol>
 
       <form noValidate className="space-y-6" onSubmit={onSubmit} data-testid="soumission-form">
+        <div aria-hidden="true" className="absolute -left-[10000px]">
+          <label htmlFor="quote-website">Laissez ce champ vide</label>
+          <input id="quote-website" name="website" tabIndex={-1} autoComplete="off" value={website} onChange={(e) => setWebsite(e.target.value)} />
+        </div>
+        <fieldset disabled={sending} className="space-y-6 border-0 p-0 m-0 min-w-0" aria-busy={sending}>
         <h3 ref={headingRef} tabIndex={-1} className="scroll-mt-28 text-2xl font-bold text-[#1B1B1B] focus:outline-none" data-testid="text-step-heading">{STEPS[step - 1]}</h3>
 
         {step === 1 && (
@@ -167,19 +216,19 @@ export function QuoteForm() {
               {errors.workType && <p id="quote-workType-error" className="text-sm font-semibold text-[#B51218]" role="alert">{errors.workType}</p>}
             </fieldset>
             <Row id="quote-details" label="Description du projet" error={errors.details}>
-              <textarea id="quote-details" name="details" required value={draft.details} onChange={(e) => set('details')(e.target.value)} {...inv('details')} className={`${field} min-h-[180px] py-3 resize-y`} placeholder="Parlez-nous de l’espace, de vos besoins et de vos idées." data-testid="input-soumission-details" />
+              <textarea id="quote-details" name="details" required maxLength={5000} value={draft.details} onChange={(e) => set('details')(e.target.value)} {...inv('details')} className={`${field} min-h-[180px] py-3 resize-y`} placeholder="Parlez-nous de l’espace, de vos besoins et de vos idées." data-testid="input-soumission-details" />
             </Row>
             <div className="grid md:grid-cols-2 gap-6">
-              <Row id="quote-budget" label="Budget approximatif" optional>
+              <Row id="quote-budget" label="Budget approximatif" optional error={errors.budget}>
                 <Select id="quote-budget" value={draft.budget} onChange={set('budget')} options={BUDGETS} placeholder="À déterminer" testId="select-soumission-budget" />
               </Row>
-              <Row id="quote-timeline" label="Échéancier souhaité" optional>
+              <Row id="quote-timeline" label="Échéancier souhaité" optional error={errors.timeline}>
                 <Select id="quote-timeline" value={draft.timeline} onChange={set('timeline')} options={TIMELINES} placeholder="À déterminer" testId="select-soumission-timeline" />
               </Row>
             </div>
             <div className="flex gap-3 border border-dashed border-[#1B1B1B]/25 p-4 rounded-sm" data-testid="text-attachment-guidance">
               <Paperclip size={18} className="text-[#D71920] shrink-0 mt-0.5" aria-hidden="true" />
-              <p className="text-sm text-[#1B1B1B]/75"><strong>Photos ou plans :</strong> ce formulaire ne téléverse aucun fichier. À l’étape finale, votre courriel s’ouvrira; vous pourrez alors y joindre vos photos ou plans manuellement avant de l’envoyer.</p>
+              <p className="text-sm text-[#1B1B1B]/75"><strong>Photos ou plans :</strong> ce formulaire ne téléverse aucun fichier. Après l’envoi de votre demande, répondez au courriel de confirmation pour joindre vos photos ou plans.</p>
             </div>
           </>
         )}
@@ -189,16 +238,16 @@ export function QuoteForm() {
             <p className="text-[#1B1B1B]/70 -mt-3">Pour que nous puissions vous répondre.</p>
             <div className="grid md:grid-cols-2 gap-6">
               <Row id="quote-name" label="Nom" error={errors.name}>
-                <input id="quote-name" name="name" required autoComplete="name" value={draft.name} onChange={(e) => set('name')(e.target.value)} {...inv('name')} className={field} placeholder="Votre nom" data-testid="input-soumission-name" />
+                <input id="quote-name" name="name" required maxLength={120} autoComplete="name" value={draft.name} onChange={(e) => set('name')(e.target.value)} {...inv('name')} className={field} placeholder="Votre nom" data-testid="input-soumission-name" />
               </Row>
               <Row id="quote-phone" label="Téléphone" error={errors.phone}>
-                <input id="quote-phone" name="phone" required type="tel" inputMode="tel" autoComplete="tel" value={draft.phone} onChange={(e) => set('phone')(e.target.value)} {...inv('phone')} className={field} placeholder="(418) 000-0000" data-testid="input-soumission-phone" />
+                <input id="quote-phone" name="phone" required maxLength={40} type="tel" inputMode="tel" autoComplete="tel" value={draft.phone} onChange={(e) => set('phone')(e.target.value)} {...inv('phone')} className={field} placeholder="(418) 000-0000" data-testid="input-soumission-phone" />
               </Row>
               <Row id="quote-email" label="Courriel" error={errors.email}>
-                <input id="quote-email" name="email" required type="email" inputMode="email" autoComplete="email" value={draft.email} onChange={(e) => set('email')(e.target.value)} {...inv('email')} className={field} placeholder="votre@courriel.com" data-testid="input-soumission-email" />
+                <input id="quote-email" name="email" required maxLength={254} type="email" inputMode="email" autoComplete="email" value={draft.email} onChange={(e) => set('email')(e.target.value)} {...inv('email')} className={field} placeholder="votre@courriel.com" data-testid="input-soumission-email" />
               </Row>
-              <Row id="quote-city" label="Ville" optional>
-                <input id="quote-city" name="city" autoComplete="address-level2" value={draft.city} onChange={(e) => set('city')(e.target.value)} className={field} placeholder="Votre ville" data-testid="input-soumission-city" />
+              <Row id="quote-city" label="Ville" optional error={errors.city}>
+                <input id="quote-city" name="city" maxLength={120} autoComplete="address-level2" value={draft.city} onChange={(e) => set('city')(e.target.value)} {...inv('city')} className={field} placeholder="Votre ville" data-testid="input-soumission-city" />
               </Row>
             </div>
           </>
@@ -219,12 +268,12 @@ export function QuoteForm() {
               ))}
             </dl>
             <div className="flex items-start gap-3">
-              <input type="checkbox" id="quote-consent" required checked={consent} onChange={(e) => { setConsent(e.target.checked); setPrepared(false); setErrors({}); }} aria-invalid={errors.consent ? true : undefined} aria-describedby={errors.consent ? 'quote-consent-error' : undefined} className="mt-1 accent-[#D71920] w-5 h-5 shrink-0" data-testid="checkbox-consent" />
+              <input type="checkbox" id="quote-consent" required checked={consent} onChange={(e) => { setConsent(e.target.checked); setSendError(''); setErrors({}); }} aria-invalid={errors.consent ? true : undefined} aria-describedby={errors.consent ? 'quote-consent-error' : undefined} className="mt-1 accent-[#D71920] w-5 h-5 shrink-0" data-testid="checkbox-consent" />
               <label htmlFor="quote-consent" className="text-sm text-[#1B1B1B]/80 leading-relaxed">J’accepte que mes informations soient utilisées uniquement pour traiter ma demande de soumission. <span className="text-[#D71920]" aria-hidden="true">*</span></label>
             </div>
             {errors.consent && <p id="quote-consent-error" className="text-sm font-semibold text-[#B51218]" role="alert">{errors.consent}</p>}
-            <p className="text-sm text-[#1B1B1B]/70">Le bouton ci-dessous ouvre votre application courriel avec le message prérempli. Votre demande n’est envoyée que lorsque vous cliquez sur « Envoyer » dans cette application; pensez à y joindre vos photos ou plans. <a href={`${import.meta.env.BASE_URL}politique-cookies`} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-[#D71920]">Renseignements sur la confidentialité et vos droits (nouvel onglet)</a>.</p>
-            {prepared && <div className="border-l-4 border-[#D71920] bg-[#FBE8E9] px-5 py-4 text-sm text-[#1B1B1B]" role="status" data-testid="status-mailto">Le courriel a été préparé dans votre application de messagerie. Il n’a pas encore été envoyé : vérifiez-le, joignez vos fichiers, puis cliquez sur « Envoyer ». Si rien ne s’est ouvert, écrivez-nous à armoirebelle-vue@hotmail.ca.</div>}
+            <p className="text-sm text-[#1B1B1B]/70">En cliquant sur « Envoyer ma demande », vos réponses seront transmises à notre équipe par courriel via Resend. Vous recevrez également une confirmation avec votre récapitulatif. <a href={`${import.meta.env.BASE_URL}politique-cookies`} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-[#D71920]">Renseignements sur la confidentialité et vos droits (nouvel onglet)</a>.</p>
+            {sendError && <div className="border-l-4 border-[#D71920] bg-[#FBE8E9] px-5 py-4 text-sm text-[#1B1B1B]" role="alert" data-testid="status-quote-error">{sendError}</div>}
           </>
         )}
 
@@ -232,10 +281,11 @@ export function QuoteForm() {
           {step > 1 ? (
             <button type="button" onClick={() => goTo((step - 1) as 1 | 2)} className="min-h-[48px] px-4 font-semibold text-[#1B1B1B] underline underline-offset-4 hover:text-[#D71920]" data-testid="button-soumission-back">Retour</button>
           ) : <span />}
-          <button type="submit" className="min-h-[56px] w-full sm:w-auto px-4 sm:px-8 py-3 bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md uppercase tracking-wide text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1B1B1B]" data-testid={step === 3 ? 'button-soumission-submit' : 'button-soumission-next'}>
-            {step === 1 ? 'Continuer : vos coordonnées' : step === 2 ? 'Continuer : vérification' : 'Préparer mon courriel'}
+          <button type="submit" disabled={sending} className="min-h-[56px] w-full sm:w-auto px-4 sm:px-8 py-3 bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md uppercase tracking-wide text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1B1B1B] disabled:opacity-60 disabled:cursor-wait" data-testid={step === 3 ? 'button-soumission-submit' : 'button-soumission-next'}>
+            {sending ? <span className="inline-flex items-center gap-2"><Loader2 size={18} className="animate-spin" />Envoi en cours…</span> : step === 1 ? 'Continuer : vos coordonnées' : step === 2 ? 'Continuer : vérification' : 'Envoyer ma demande'}
           </button>
         </div>
+        </fieldset>
       </form>
     </div>
   );

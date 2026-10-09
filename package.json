@@ -6,11 +6,17 @@
     "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
     "build": "pnpm run typecheck && pnpm -r --if-present run build",
     "typecheck:libs": "tsc --build",
-    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
+    "test:quotes": "pnpm --filter @workspace/quote-mail test && pnpm --filter @workspace/quote-mail exec tsx --test ../../api/quote.test.ts ../../artifacts/sergerie-website/scripts/analytics.test.ts && node --test artifacts/sergerie-website/tests/quote-form-model.test.mjs",
+    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck && tsc -p api/tsconfig.json"
   },
   "private": true,
+  "packageManager": "pnpm@10.26.1",
+  "dependencies": {
+    "@workspace/quote-mail": "workspace:*"
+  },
   "devDependencies": {
-    "typescript": "~5.9.2",
-    "prettier": "^3.8.1"
+    "@types/node": "catalog:",
+    "prettier": "^3.8.1",
+    "typescript": "~5.9.2"
   }
 }

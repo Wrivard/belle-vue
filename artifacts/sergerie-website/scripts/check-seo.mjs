@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const output = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../dist/public');
+const siteUrl = 'https://armoirebellevue.com';
 const routes = [
   ['/', 'index.html'],
   ['/soumission', 'soumission/index.html'],
@@ -21,7 +22,12 @@ for (const [route, file] of routes) {
   assert.equal((html.match(/<h1(?:\s|>)/g) ?? []).length, 1, `H1 count: ${route}`);
   assert.equal((html.match(/<main(?:\s|>)/g) ?? []).length, 1, `Main landmark count: ${route}`);
   assert.equal((html.match(/rel="canonical"/g) ?? []).length, 1, `Canonical count: ${route}`);
-  assert.ok(html.includes(`rel="canonical" href="https://armoire-belle-vue-ebenisterie.replit.app${route}"`));
+  assert.ok(html.includes(`rel="canonical" href="${siteUrl}${route}"`));
+  assert.ok(html.includes(`property="og:url" content="${siteUrl}${route}"`));
+  for (const key of ['og:image', 'twitter:image']) {
+    assert.ok(html.includes(`="${key}" content="${siteUrl}/images/`), `Social image domain: ${route}`);
+  }
+  assert.ok(!html.includes('armoire-belle-vue-ebenisterie.replit.app'), `Old domain: ${route}`);
   assert.ok(!html.includes('<!-- SEO_HEAD -->'));
   assert.ok(!html.includes('noindex'));
   for (const fade of html.matchAll(/<div\b[^>]*data-fade-in=""[^>]*>/g)) {
@@ -29,6 +35,9 @@ for (const [route, file] of routes) {
   }
   const schema = JSON.parse(html.match(/<script[^>]+type="application\/ld\+json">(.*?)<\/script>/s)[1]);
   assert.equal(schema['@graph'][0].address.addressLocality, 'Saint-Charles-de-Bourget');
+  assert.equal(schema['@graph'][0].url, `${siteUrl}/`);
+  assert.equal(schema['@graph'][1].url, `${siteUrl}/`);
+  assert.equal(schema['@graph'][2].url, `${siteUrl}${route}`);
   for (const image of html.matchAll(/<img\b[^>]*>/g)) {
     assert.ok(/\balt=/.test(image[0]), `Image missing alt: ${route}`);
     assert.ok(/\bwidth=/.test(image[0]) && /\bheight=/.test(image[0]), `Missing image dimensions: ${route}`);
@@ -43,7 +52,11 @@ for (const [route, file] of routes) {
 }
 assert.equal(titles.size, routes.length, 'Titles must be unique');
 assert.equal(descriptions.size, routes.length, 'Descriptions must be unique');
-assert.ok((await readFile(path.join(output, 'robots.txt'), 'utf8')).startsWith('User-agent:'));
-assert.ok((await readFile(path.join(output, 'sitemap.xml'), 'utf8')).includes('<urlset'));
+assert.equal(await readFile(path.join(output, 'robots.txt'), 'utf8'),
+  `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`);
+const sitemap = await readFile(path.join(output, 'sitemap.xml'), 'utf8');
+assert.ok(sitemap.includes('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'));
+assert.deepEqual([...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]),
+  routes.map(([route]) => `${siteUrl}${route}`));
 assert.ok((await readFile(path.join(output, '404.html'), 'utf8')).includes('noindex,follow'));
 console.info('Crawler files and error-page metadata passed.');

@@ -11,6 +11,48 @@ tags:
   - name: health
     description: Health operations
 paths:
+  /quote:
+    post:
+      operationId: submitQuote
+      tags: [quotes]
+      summary: Send a quote request and customer confirmation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuoteInput"
+      responses:
+        "200":
+          description: Both transactional emails accepted by Resend, not an inbox delivery guarantee
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuoteReceipt"
+        "400":
+          description: Invalid request or missing consent
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuoteError"
+        "429":
+          description: Too many attempts
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuoteError"
+        "502":
+          description: Email provider did not acknowledge both emails
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuoteError"
+        "503":
+          description: Email configuration missing or invalid
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuoteError"
   /healthz:
     get:
       operationId: healthCheck
@@ -26,6 +68,66 @@ paths:
                 $ref: "#/components/schemas/HealthStatus"
 components:
   schemas:
+    QuoteInput:
+      type: object
+      additionalProperties: false
+      required: [submissionId, projectType, workType, details, budget, timeline, name, phone, email, city, consent, website]
+      properties:
+        submissionId:
+          type: string
+          format: uuid
+        projectType:
+          type: string
+          enum: [Cuisine sur mesure, Salle de bain, Ameublement sur mesure, Rangement sur mesure, Autre]
+        workType:
+          type: string
+          enum: [Construction neuve, Rénovation]
+        details:
+          type: string
+          minLength: 1
+          maxLength: 5000
+        budget:
+          type: string
+          enum: ["", Moins de 10 000 $, 10 000 $ à 20 000 $, 20 000 $ à 40 000 $, Plus de 40 000 $]
+        timeline:
+          type: string
+          enum: ["", Le plus tôt possible, Dans 1 à 3 mois, Dans 3 à 6 mois, Flexible]
+        name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        phone:
+          type: string
+          minLength: 7
+          maxLength: 40
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        city:
+          type: string
+          maxLength: 120
+        consent:
+          type: boolean
+          enum: [true]
+        website:
+          type: string
+          maxLength: 0
+    QuoteReceipt:
+      type: object
+      required: [ok, reference]
+      properties:
+        ok:
+          type: boolean
+          enum: [true]
+        reference:
+          type: string
+    QuoteError:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: string
     HealthStatus:
       type: object
       properties:

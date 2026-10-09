@@ -4,7 +4,7 @@ type AnalyticsEvent =
   | 'quote_form_started'
   | 'quote_step_completed'
   | 'quote_validation_error'
-  | 'quote_email_requested'
+  | 'quote_submitted'
   | 'contact_clicked'
   | 'facebook_clicked'
   | 'faq_opened';

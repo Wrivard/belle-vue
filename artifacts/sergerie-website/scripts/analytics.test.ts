@@ -28,9 +28,9 @@ test('forwards a custom event once to the injected tracker', () => {
 
 test('tracker exceptions and rejected promises cannot interrupt interactions', async () => {
   fakeWindow({ umami: { track: () => { throw new Error('blocked'); } } });
-  assert.doesNotThrow(() => trackEvent('quote_email_requested'));
+  assert.doesNotThrow(() => trackEvent('quote_submitted'));
   fakeWindow({ umami: { track: () => Promise.reject(new Error('offline')) } });
-  assert.doesNotThrow(() => trackEvent('quote_email_requested'));
+  assert.doesNotThrow(() => trackEvent('quote_submitted'));
   await new Promise((resolve) => setImmediate(resolve));
 });
 

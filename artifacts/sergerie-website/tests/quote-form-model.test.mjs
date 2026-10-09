@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { EMPTY_DRAFT, PROJECT_TYPES, WORK_TYPES, buildMailto, validateStep } from '../src/lib/quote-form-model.ts';
+import { EMPTY_DRAFT, PROJECT_TYPES, WORK_TYPES, buildQuoteInput, validateStep } from '../src/lib/quote-form-model.ts';
 
 const valid = {
   ...EMPTY_DRAFT,
@@ -24,14 +24,14 @@ test('project step validates only project fields', () => {
   }
 });
 
-test('construction neuve or renovation is required and included in the prepared email', () => {
+test('construction neuve or renovation is required and included in the API payload', () => {
   assert.deepEqual(WORK_TYPES, ['Construction neuve', 'Rénovation']);
   assert.ok(validateStep(1, { ...valid, workType: '' }).workType);
   assert.ok(validateStep(1, { ...valid, workType: 'Autre' }).workType);
   for (const workType of WORK_TYPES) {
     const draft = { ...valid, workType };
     assert.deepEqual(validateStep(1, draft), {});
-    assert.ok(new URL(buildMailto(draft)).searchParams.get('body').includes(`Nature des travaux : ${workType}`));
+    assert.equal(buildQuoteInput(draft, 'test-id', true, '').workType, workType);
   }
 });
 
@@ -46,7 +46,7 @@ test('contact step rejects blank fields and invalid emails, accepts flexible pho
   assert.deepEqual(validateStep(2, { ...valid, email: ' client+projet@example.ca ', phone: '+33 1 23 45 67 89' }), {});
 });
 
-test('mailto includes every answer, unicode, multiline description and consent without adding query parameters', () => {
+test('API payload includes all answers, unicode, multiline details and explicit consent', () => {
   const draft = {
     ...valid,
     name: ' Client & test ',
@@ -55,17 +55,19 @@ test('mailto includes every answer, unicode, multiline description and consent w
     budget: '20 000 $ à 40 000 $',
     timeline: 'Dans 3 à 6 mois',
   };
-  const url = new URL(buildMailto(draft));
-  assert.equal(url.pathname, 'armoirebelle-vue@hotmail.ca');
-  assert.deepEqual([...url.searchParams.keys()], ['subject', 'body']);
-  assert.equal(url.searchParams.get('subject'), 'Demande de soumission — Cuisine sur mesure');
-  const body = url.searchParams.get('body');
-  for (const line of [
-    'Nom : Client & test', 'Téléphone : +1 418 555 0100', 'Courriel : client@example.com',
-    'Ville : Chicoutimi', 'Type de projet : Cuisine sur mesure', 'Nature des travaux : Rénovation',
-    'Échéancier souhaité : Dans 3 à 6 mois', 'Budget approximatif : 20 000 $ à 40 000 $',
-    'Description : Étagères & îlot\r\nPlans = 2 + 3 ?\r\nFinition #rouge',
-    'Consentement :', 'Les photos ou plans peuvent être joints directement au courriel.',
-  ]) assert.ok(body.includes(line), line);
-  assert.ok(!body.replaceAll('\r\n', '').includes('\n'));
+  assert.deepEqual(buildQuoteInput(draft, 'test-id', true, ''), {
+    submissionId: 'test-id', consent: true, website: '',
+    name: 'Client & test', phone: '+1 418 555 0100', email: 'client@example.com',
+    city: 'Chicoutimi', projectType: 'Cuisine sur mesure', workType: 'Rénovation',
+    timeline: 'Dans 3 à 6 mois', budget: '20 000 $ à 40 000 $',
+    details: 'Étagères & îlot\nPlans = 2 + 3 ?\r\nFinition #rouge',
+  });
+});
+
+test('client validates limits and optional choices before submission', () => {
+  assert.ok(validateStep(1, { ...valid, details: 'x'.repeat(5001) }).details);
+  assert.ok(validateStep(1, { ...valid, budget: 'tampered' }).budget);
+  assert.ok(validateStep(2, { ...valid, phone: 'not a phone' }).phone);
+  assert.ok(validateStep(2, { ...valid, name: 'x'.repeat(121) }).name);
+  assert.ok(validateStep(2, { ...valid, city: 'x'.repeat(121) }).city);
 });
