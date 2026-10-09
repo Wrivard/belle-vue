@@ -2,6 +2,7 @@ import { Link } from 'wouter';
 import { Phone, MapPin, Mail } from 'lucide-react';
 import { img } from '@/lib/utils';
 import { FacebookLink } from './facebook-link';
+import { COMPANY_CITY } from '@/lib/company';
 
 const services = ['Armoires de cuisine sur mesure', 'Vanités et armoires de salle de bain', 'Rangement sur mesure', 'Ameublement sur mesure'];
 
@@ -13,7 +14,7 @@ export function Footer() {
       <div className="container mx-auto px-6 max-w-[1200px] py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="lg:col-span-1">
-            <Link href="/"><img src={img('logo-armoire-belle-vue-ameublement.png')} alt="Armoire Belle-Vue — Ameublement sur mesure" className="h-[78px] max-w-full w-auto object-contain mb-6" /></Link>
+            <Link href="/"><img src={img('logo-armoire-belle-vue-ameublement.webp')} width={640} height={198} loading="lazy" alt="Armoire Belle-Vue — Ameublement sur mesure" className="h-[78px] max-w-full w-auto object-contain mb-6" /></Link>
             <p className="text-[#E4E4E4]/70 mb-6 text-sm leading-relaxed">Des armoires et du mobilier sur mesure, pensés pour votre espace, vos besoins et votre quotidien.</p>
             <div className="flex items-center gap-3"><div className="w-10 h-10 bg-[#D71920] rounded-md flex items-center justify-center"><Phone size={18} className="text-white" /></div><div><div className="text-xs uppercase tracking-wider text-[#E4E4E4]/50 font-bold">Appelez-nous</div><a href="tel:+14186721613" className="font-bold text-[#E4E4E4] hover:text-[#FF4B50] transition-colors" data-testid="footer-phone">(418) 672-1613</a></div></div>
           </div>
@@ -35,7 +36,7 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-bold uppercase tracking-[0.2em] mb-6 text-[#E4E4E4] border-b border-[#D71920] pb-3 inline-block">Coordonnées</h4>
             <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-3"><MapPin size={18} className="text-[#FF4B50] shrink-0 mt-0.5" /><span className="text-[#E4E4E4]/70">381 rue Principale<br />Québec, G0V 1G0</span></li>
+              <li className="flex items-start gap-3"><MapPin size={18} className="text-[#FF4B50] shrink-0 mt-0.5" /><span className="text-[#E4E4E4]/70">381 rue Principale<br />{COMPANY_CITY}, QC, G0V 1G0</span></li>
               <li className="flex items-start gap-3"><Phone size={18} className="text-[#FF4B50] shrink-0 mt-0.5" /><a href="tel:+14186721613" className="text-[#E4E4E4]/70 hover:text-[#FF4B50] transition-colors">(418) 672-1613</a></li>
               <li className="flex items-start gap-3"><Mail size={18} className="text-[#FF4B50] shrink-0 mt-0.5" /><a href="mailto:armoirebelle-vue@hotmail.ca" className="text-[#E4E4E4]/70 hover:text-[#FF4B50] transition-colors break-all">armoirebelle-vue@hotmail.ca</a></li>
               <li><FacebookLink className="text-[#E4E4E4] hover:text-[#FF4B50]" /></li>

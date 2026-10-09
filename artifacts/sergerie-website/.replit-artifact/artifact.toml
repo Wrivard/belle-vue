@@ -23,8 +23,28 @@ publicDir = "artifacts/sergerie-website/dist/public"
 serve = "static"
 
 [[services.production.rewrites]]
-from = "/*"
+from = "/"
 to = "/index.html"
+
+[[services.production.rewrites]]
+from = "/soumission"
+to = "/soumission/index.html"
+
+[[services.production.rewrites]]
+from = "/soumission/"
+to = "/soumission/index.html"
+
+[[services.production.rewrites]]
+from = "/politique-cookies"
+to = "/politique-cookies/index.html"
+
+[[services.production.rewrites]]
+from = "/politique-cookies/"
+to = "/politique-cookies/index.html"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/404.html"
 
 [services.env]
 PORT = "25729"

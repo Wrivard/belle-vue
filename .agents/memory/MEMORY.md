@@ -2,3 +2,4 @@
 - [Témoignages et conformité](content-and-privacy.md) — avis clients sans réponses du propriétaire; une politique Loi 25 ne certifie pas les pratiques internes.
 - [Rédaction Belle-Vue](copywriting.md) — mettre en valeur l’ergonomie et l’adaptation aux besoins dans les textes du site.
 - [Menu mobile Belle-Vue](mobile-navigation.md) — privilégier une liste simple, sans défilement imbriqué, avec le haut du menu toujours visible.
+- [Public-page SEO](seo-delivery.md) — preserve initial HTML content and route-specific metadata while keeping React navigation and the interactive quote form.

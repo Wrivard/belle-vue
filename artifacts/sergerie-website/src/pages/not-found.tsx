@@ -1,20 +1,11 @@
-import { useEffect } from "react";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import { PageWrapper } from "@/components/layout/page-wrapper";
 
 export default function NotFound() {
-  useEffect(() => {
-    const previousTitle = document.title;
-    document.title = "Page introuvable | Armoire Belle-Vue";
-    return () => {
-      document.title = previousTitle;
-    };
-  }, []);
-
   return (
     <PageWrapper>
-      <main
+      <section
         className="flex min-h-[75vh] items-center justify-center bg-[#1B1B1B] px-6 pb-20 pt-40 text-[#E4E4E4] md:pb-24 md:pt-44"
         data-testid="page-not-found"
       >
@@ -35,7 +26,7 @@ export default function NotFound() {
             Retour à l’accueil <ArrowRight size={18} aria-hidden="true" />
           </Link>
         </div>
-      </main>
+      </section>
     </PageWrapper>
   );
 }

@@ -210,7 +210,7 @@ export function QuoteForm() {
           {step > 1 ? (
             <button type="button" onClick={() => goTo((step - 1) as 1 | 2)} className="min-h-[48px] px-4 font-semibold text-[#1B1B1B] underline underline-offset-4 hover:text-[#D71920]" data-testid="button-soumission-back">Retour</button>
           ) : <span />}
-          <button type="submit" className="min-h-[56px] px-8 bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md uppercase tracking-wide text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1B1B1B]" data-testid={step === 3 ? 'button-soumission-submit' : 'button-soumission-next'}>
+          <button type="submit" className="min-h-[56px] w-full sm:w-auto px-4 sm:px-8 py-3 bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md uppercase tracking-wide text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1B1B1B]" data-testid={step === 3 ? 'button-soumission-submit' : 'button-soumission-next'}>
             {step === 1 ? 'Continuer : vos coordonnées' : step === 2 ? 'Continuer : vérification' : 'Préparer mon courriel'}
           </button>
         </div>

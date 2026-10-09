@@ -8,7 +8,7 @@ import { FaqSection } from '@/components/layout/faq-section';
 import { TestimonialsSection } from '@/components/layout/testimonials-section';
 import { ProcessSection } from '@/components/layout/process-section';
 import { belleVueHeroImage, belleVueImages } from '@/data/belle-vue-images';
-import { img } from '@/lib/utils';
+import { ProjectImage } from '@/components/layout/project-image';
 
 const services = [
   {
@@ -57,7 +57,7 @@ export default function Home() {
     <PageWrapper>
       <section id="accueil" className="relative min-h-[90svh] flex items-center py-32 md:py-40" data-testid="hero-section">
         <div className="absolute inset-0 overflow-hidden">
-           <img src={img(belleVueHeroImage)} alt="Cuisine avec armoires sur mesure" className="w-full h-full object-cover object-center" />
+           <ProjectImage image={belleVueHeroImage} priority sizes="100vw" alt="Cuisine avec armoires en bois clair et rangement sur mesure" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#171717]/75" />
         </div>
         <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-white">
@@ -83,11 +83,11 @@ export default function Home() {
             </FadeIn>
             <FadeIn delay={300} className="flex flex-col sm:flex-row gap-4">
               <Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })}>
-                <Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-8 py-6 uppercase tracking-wide text-base h-auto">
+                <Button className="w-full sm:w-auto max-w-full whitespace-normal bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-5 sm:px-8 py-6 uppercase tracking-wide text-sm sm:text-base h-auto">
                   Demander une soumission <ArrowRight className="ml-2" size={18} />
                 </Button>
               </Link>
-              <Button variant="outline" className="border-2 border-white/70 bg-transparent hover:bg-white hover:text-[#171717] text-white font-bold rounded-md px-8 py-6 uppercase tracking-wide text-base h-auto" onClick={() => document.getElementById('realisations')?.scrollIntoView({ behavior: 'smooth' })}>
+              <Button variant="outline" className="w-full sm:w-auto max-w-full whitespace-normal border-2 border-white/70 bg-transparent hover:bg-white hover:text-[#171717] text-white font-bold rounded-md px-5 sm:px-8 py-6 uppercase tracking-wide text-sm sm:text-base h-auto" onClick={() => document.getElementById('realisations')?.scrollIntoView({ behavior: 'smooth' })}>
                 Voir nos réalisations
               </Button>
             </FadeIn>
@@ -101,7 +101,7 @@ export default function Home() {
           <FadeIn>
             <div className="max-w-3xl mb-16">
               <div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Notre savoir-faire</span></div>
-              <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Des espaces pensés pour vous.</h2>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Armoires, vanités et rangement sur mesure.</h2>
               <p className="text-lg text-[#171717]/65 leading-relaxed">Armoire Belle-Vue conçoit des armoires et de l’ameublement sur mesure, ergonomiques et adaptés à chaque projet. La configuration tient compte de votre espace, de vos habitudes et de la façon dont vous souhaitez utiliser votre rangement au quotidien.</p>
             </div>
           </FadeIn>
@@ -110,7 +110,7 @@ export default function Home() {
               <FadeIn key={service.title} delay={idx * 60}>
                 <Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })}>
                   <div className="group relative overflow-hidden rounded-md aspect-[4/3] cursor-pointer shadow-sm hover:shadow-2xl transition-shadow duration-500">
-                    <img src={img(service.img)} alt={service.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <ProjectImage image={service.img} alt={service.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-[#171717]/60 group-hover:bg-[#D71920]/55 transition-colors duration-500" />
                     <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8"><div className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/60 mb-2">0{idx + 1}</div><h3 className="text-xl md:text-2xl font-bold text-white uppercase tracking-tight leading-tight">{service.title}</h3><p className="text-white/75 text-sm mt-3 leading-relaxed max-w-xl">{service.description}</p><div className="mt-4 h-px w-10 bg-[#D71920] group-hover:w-full group-hover:bg-white transition-all duration-500" /></div>
                   </div>
@@ -123,10 +123,10 @@ export default function Home() {
 
       <section id="apropos" className="scroll-mt-24 py-24 md:py-32 bg-[#171717] text-white" data-testid="about-section">
         <div className="container mx-auto px-6 max-w-[1200px]">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <FadeIn>
               <div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#FF4B50] font-bold tracking-widest uppercase text-sm">À propos</span></div>
-              <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-8">L’ameublement <span className="text-[#FF4B50]">à votre mesure.</span></h2>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-8 [overflow-wrap:anywhere]">L’ameublement <span className="text-[#FF4B50]">à votre mesure.</span></h2>
               <div className="space-y-6 text-white/75 text-lg leading-relaxed">
                 <p>Fondée en 2011, Armoire Belle-Vue est née du désir de Frédéric et Bianka de mieux concilier le travail et la vie de famille, alors que l’entreprise où travaillait Frédéric allait fermer.</p>
                 <p>Diplômé du Collège d’Alma en 1996, Frédéric œuvre dans le domaine depuis la fin de ses études. Il met aujourd’hui environ 30 ans d’expérience au service de vos projets.</p>
@@ -140,8 +140,8 @@ export default function Home() {
               </div>
             </FadeIn>
             <FadeIn delay={200} className="relative">
-              <div className="absolute -inset-4 border-2 border-[#D71920]/60 rounded-md translate-x-4 translate-y-4" />
-               <img src={img(belleVueImages[3])} alt="Projet de cuisine avec armoires personnalisées" loading="lazy" className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl" />
+              <div className="absolute -inset-2 xl:-inset-4 border-2 border-[#D71920]/60 rounded-md translate-x-2 translate-y-2 xl:translate-x-4 xl:translate-y-4" />
+               <ProjectImage image={belleVueImages[3]} className="w-full h-[500px] object-cover rounded-md relative z-10 shadow-2xl" />
             </FadeIn>
           </div>
         </div>
@@ -153,10 +153,10 @@ export default function Home() {
 
       <section id="realisations" className="scroll-mt-24 py-24 md:py-32 bg-[#F4F4F4] text-[#171717]" data-testid="projects-section">
         <div className="container mx-auto px-6 max-w-[1200px]">
-           <FadeIn><div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Réalisations</span></div><h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Des projets qui vous ressemblent.</h2><p className="text-lg text-[#171717]/65 max-w-2xl mb-16">Une sélection de cuisines, salles de bain et solutions de rangement sur mesure.</p></FadeIn>
+           <FadeIn><div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]" /><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Réalisations</span></div><h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-6">Nos réalisations sur mesure.</h2><p className="text-lg text-[#171717]/65 max-w-2xl mb-16">Une sélection de cuisines, salles de bain et solutions de rangement sur mesure.</p></FadeIn>
             <div className="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-[1.55fr_1fr_1fr_1.55fr] lg:grid-rows-[207px_207px_207px]">
              {featuredRealizations.map(({ image, className }, idx) => (
-                <FadeIn key={image} delay={(idx % 6) * 60} className={`min-h-[196px] lg:min-h-0 ${className}`}><div className="group relative h-full min-h-0 overflow-hidden rounded-xl cursor-pointer bg-[#171717]"><img src={img(image)} alt={`Réalisation d’armoires sur mesure ${String(idx + 1).padStart(2, '0')}`} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" /></div></FadeIn>
+                <FadeIn key={image} delay={(idx % 6) * 60} className={`min-h-[196px] lg:min-h-0 ${className}`}><div className="group relative h-full min-h-0 overflow-hidden rounded-xl bg-[#171717]"><ProjectImage image={image} sizes="(min-width: 1024px) 560px, (min-width: 768px) 50vw, 100vw" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" /></div></FadeIn>
             ))}
           </div>
         </div>
@@ -165,8 +165,8 @@ export default function Home() {
       <ProcessSection />
 
       <section className="py-32 text-white relative overflow-hidden" data-testid="cta-section">
-         <div className="absolute inset-0"><img src={img(belleVueImages[18])} alt="" loading="lazy" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-[#171717]/85" /></div>
-        <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-center"><FadeIn><h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight mb-8">Vous avez un <span className="text-[#FF4B50]">projet en tête?</span></h2><p className="text-xl md:text-2xl font-medium mb-12 text-white/90 max-w-2xl mx-auto">Parlez-nous de vos habitudes et de vos besoins : nous réfléchirons avec vous à une configuration d’armoires ergonomique, adaptée à votre espace.</p><Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })}><Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-10 py-8 uppercase tracking-widest text-lg h-auto">Demander une soumission</Button></Link><a href="tel:+14186721613" className="block mt-8 text-[#FF4B50] font-bold text-2xl">(418) 672-1613</a></FadeIn></div>
+         <div className="absolute inset-0"><ProjectImage image={belleVueImages[18]} sizes="100vw" alt="" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-[#171717]/85" /></div>
+        <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-center"><FadeIn><h2 className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tight mb-8">Vous avez un <span className="text-[#FF4B50]">projet en tête?</span></h2><p className="text-xl md:text-2xl font-medium mb-12 text-white/90 max-w-2xl mx-auto">Parlez-nous de vos habitudes et de vos besoins : nous réfléchirons avec vous à une configuration d’armoires ergonomique, adaptée à votre espace.</p><Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })}><Button className="w-full sm:w-auto max-w-full whitespace-normal bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-5 sm:px-10 py-8 uppercase tracking-widest text-sm sm:text-lg h-auto">Demander une soumission</Button></Link><a href="tel:+14186721613" className="block mt-8 text-[#FF4B50] font-bold text-2xl">(418) 672-1613</a></FadeIn></div>
       </section>
       <TestimonialsSection />
       <FaqSection />

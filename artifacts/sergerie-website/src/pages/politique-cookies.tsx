@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect } from 'react';
+import { type ReactNode } from 'react';
 import { PageWrapper } from '@/components/layout/page-wrapper';
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
@@ -13,29 +13,9 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
 const ext = 'underline underline-offset-4 text-[#B5141A] hover:text-[#171717]';
 
 export default function PolitiqueCookies() {
-  useEffect(() => {
-    const title = document.title;
-    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    const previousDescription = description?.content;
-    const ogTitle = document.querySelector<HTMLMetaElement>('meta[property="og:title"]');
-    const previousOgTitle = ogTitle?.content;
-    const ogDescription = document.querySelector<HTMLMetaElement>('meta[property="og:description"]');
-    const previousOgDescription = ogDescription?.content;
-    document.title = 'Politique relative aux témoins | Armoire Belle-Vue';
-    const text = 'Découvrez l’utilisation de Google Maps, les témoins et les moyens de protéger vos renseignements personnels sur le site d’Armoire Belle-Vue.';
-    if (description) description.content = text;
-    if (ogTitle) ogTitle.content = document.title;
-    if (ogDescription) ogDescription.content = text;
-    return () => {
-      document.title = title;
-      if (description && previousDescription !== undefined) description.content = previousDescription;
-      if (ogTitle && previousOgTitle !== undefined) ogTitle.content = previousOgTitle;
-      if (ogDescription && previousOgDescription !== undefined) ogDescription.content = previousOgDescription;
-    };
-  }, []);
   return (
     <PageWrapper>
-      <main className="container mx-auto px-6 max-w-[800px] pt-36 pb-20" data-testid="page-politique-cookies">
+      <article className="container mx-auto px-6 max-w-[800px] pt-36 pb-20" data-testid="page-politique-cookies">
         <h1 className="text-4xl font-bold mb-3">Politique relative aux témoins (cookies)</h1>
         <p className="text-sm text-[#171717]/60 mb-10">Dernière mise à jour : 2 octobre 2026</p>
 
@@ -49,7 +29,7 @@ export default function PolitiqueCookies() {
         </Section>
 
         <Section title="Carte Google Maps (service tiers)">
-          <p>La carte sert à présenter l’emplacement de l’entreprise. Elle se charge automatiquement, sans bouton d’activation préalable. Votre navigateur communique alors avec Google, qui reçoit notamment votre adresse IP et des informations sur votre appareil et votre navigateur, et peut déposer ou lire des témoins. Vos renseignements peuvent être traités à l’extérieur du Québec.</p>
+          <p>La carte sert à présenter l’emplacement de l’entreprise. Elle se charge automatiquement lorsque vous approchez de cette section, sans bouton d’activation préalable. Votre navigateur communique alors avec Google, qui reçoit notamment votre adresse IP et des informations sur votre appareil et votre navigateur, et peut déposer ou lire des témoins. Vos renseignements peuvent être traités à l’extérieur du Québec.</p>
           <p>Le site ne propose pas de contrôle pour désactiver cette carte. Les réglages de confidentialité de votre navigateur peuvent limiter les témoins ou bloquer du contenu tiers; bloquer uniquement les témoins n’empêche pas nécessairement les connexions à Google. Les liens et interactions qui vous conduisent sur un site de Google sont régis par sa politique.</p>
           <p>Pour en savoir plus : <a className={ext} href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Politique de confidentialité de Google</a> · <a className={ext} href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer">Utilisation des témoins par Google</a>.</p>
         </Section>
@@ -84,7 +64,7 @@ export default function PolitiqueCookies() {
           <p>Pour toute question ou demande liée à cette politique :</p>
           <address className="not-italic">
             Armoire Belle-Vue<br />
-            381 rue Principale, Québec, G0V 1G0<br />
+            381 rue Principale, Saint-Charles-de-Bourget, QC, G0V 1G0<br />
             Téléphone : <a className={ext} href="tel:+14186721613">(418) 672-1613</a><br />
             Courriel : <a className={ext} href="mailto:armoirebelle-vue@hotmail.ca">armoirebelle-vue@hotmail.ca</a>
           </address>
@@ -93,7 +73,7 @@ export default function PolitiqueCookies() {
         <Section title="Modifications">
           <p>Les changements à cette politique seront signalés sur cette page avec leur date. Révision du 2 octobre 2026 : la carte Google Maps est désormais affichée automatiquement, sans préférence d’activation enregistrée.</p>
         </Section>
-      </main>
+      </article>
     </PageWrapper>
   );
 }

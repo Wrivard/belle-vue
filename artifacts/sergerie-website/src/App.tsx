@@ -4,11 +4,13 @@ import Home from "@/pages/home";
 import Soumission from "@/pages/soumission";
 import PolitiqueCookies from "@/pages/politique-cookies";
 import NotFound from "@/pages/not-found";
+import { RouteSeo } from "@/components/layout/route-seo";
 
 function Router() {
   return (
     <>
       <ScrollToTop />
+      <RouteSeo />
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/soumission" component={Soumission} />
@@ -19,9 +21,9 @@ function Router() {
   );
 }
 
-function App() {
+function App({ ssrPath }: { ssrPath?: string } = {}) {
   return (
-    <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+    <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")} ssrPath={ssrPath}>
       <Router />
     </WouterRouter>
   );
