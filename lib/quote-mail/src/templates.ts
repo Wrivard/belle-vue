@@ -1,7 +1,9 @@
 import type { QuoteInput } from '@workspace/api-zod';
 
 const SITE = 'https://armoirebellevue.com';
-const LOGO = `${SITE}/images/logo-armoire-belle-vue-ameublement.png`;
+// The official domain is not serving the new site yet. Email images must use
+// a publicly reachable PNG, independently of the final website/canonical URL.
+const LOGO = 'https://belle-vue.vercel.app/images/logo-armoire-belle-vue-ameublement.png';
 const BRAND = 'Armoire Belle-Vue';
 const RED = '#D71920';
 const DARK = '#1B1B1B';

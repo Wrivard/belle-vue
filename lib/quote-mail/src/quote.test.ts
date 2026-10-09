@@ -36,7 +36,9 @@ test('sends both branded emails with fixed sender, all fields and correct reply 
   for (const message of messages) {
     assert.equal(message.from, 'Armoire Belle-Vue <bonjour@kua.quebec>');
     assert.ok(message.html.includes('#D71920'));
-    assert.ok(message.html.includes('https://armoirebellevue.com/images/logo-armoire-belle-vue-ameublement.png'));
+    assert.ok(message.html.includes('src="https://belle-vue.vercel.app/images/logo-armoire-belle-vue-ameublement.png"'));
+    assert.ok(!message.html.includes('src="https://armoirebellevue.com/images/'));
+    assert.ok(message.html.includes('href="https://armoirebellevue.com/"'));
     for (const key of ['name', 'phone', 'email', 'city', 'projectType', 'workType', 'budget', 'timeline'] as const) {
       assert.ok(message.text.includes(input[key]), key);
     }
