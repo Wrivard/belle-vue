@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ChevronDown, Phone, Menu, X } from 'lucide-react';
@@ -19,10 +19,14 @@ const helpfulLinks = [
   ['contact', 'Contact'],
 ] as const;
 
-export function Navbar() {
+export function Navbar({ mobileMenuOpen, setMobileMenuOpen }: {
+  mobileMenuOpen: boolean;
+  setMobileMenuOpen: (open: boolean) => void;
+}) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const navigationRef = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -34,19 +38,58 @@ export function Navbar() {
     if (!mobileMenuOpen) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    const navigation = navigationRef.current;
+    const toggle = toggleRef.current;
+    const focusableElements = () => Array.from(
+      navigation?.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), [tabindex="0"]') ?? [],
+    ).filter((element) => !element.closest('[inert]') && element.getClientRects().length > 0);
 
-    const handleEscape = (event: KeyboardEvent) => {
+    // Include the visible header and close button in the modal focus boundary.
+    toggle?.focus({ preventScroll: true });
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
+        event.preventDefault();
+        setMobileMenuOpen(false);
+        setServicesOpen(false);
+      } else if (event.key === 'Tab') {
+        const elements = focusableElements();
+        const first = elements[0];
+        const last = elements[elements.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }
+    };
+    const containFocus = (event: FocusEvent) => {
+      if (event.target instanceof Node && !navigation?.contains(event.target)) {
+        toggle?.focus({ preventScroll: true });
+      }
+    };
+    const desktop = window.matchMedia('(min-width: 1280px)');
+    const closeOnDesktop = () => {
+      if (desktop.matches) {
         setMobileMenuOpen(false);
         setServicesOpen(false);
       }
     };
-    document.addEventListener('keydown', handleEscape);
+    closeOnDesktop();
+    desktop.addEventListener('change', closeOnDesktop);
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('focusin', containFocus);
     return () => {
       document.body.style.overflow = previousOverflow;
-      document.removeEventListener('keydown', handleEscape);
+      desktop.removeEventListener('change', closeOnDesktop);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('focusin', containFocus);
+      if (toggle?.isConnected && toggle.getClientRects().length > 0) {
+        toggle.focus({ preventScroll: true });
+      }
     };
-  }, [mobileMenuOpen]);
+  }, [mobileMenuOpen, setMobileMenuOpen]);
 
   const closeMenus = () => {
     setMobileMenuOpen(false);
@@ -56,7 +99,12 @@ export function Navbar() {
   const homeSectionHref = (id: string) => `${import.meta.env.BASE_URL}#${id}`;
 
   return (
-    <>
+    <div
+      ref={navigationRef}
+      role={mobileMenuOpen ? 'dialog' : undefined}
+      aria-modal={mobileMenuOpen ? true : undefined}
+      aria-label={mobileMenuOpen ? 'Menu mobile' : undefined}
+    >
       <nav data-testid="navbar" className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled && !mobileMenuOpen ? 'bg-[#1B1B1B] py-3 shadow-lg' : 'bg-[#1B1B1B]/95 backdrop-blur py-4 shadow-sm'} text-[#E4E4E4] border-b border-white/10`}>
         <div className="container mx-auto px-6 max-w-[1360px] flex items-center justify-between">
           <Link href="/" data-testid="link-home-logo" className="shrink-0" onClick={closeMenus}>
@@ -86,6 +134,7 @@ export function Navbar() {
             <Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })} data-testid="link-soumission-nav"><Button className="bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-5 py-5 uppercase tracking-wide transition-transform hover:scale-105">Demander une soumission</Button></Link>
           </div>
           <button
+            ref={toggleRef}
             type="button"
             className="xl:hidden rounded-md p-2 text-[#E4E4E4] transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4B50]"
             onClick={() => mobileMenuOpen ? closeMenus() : setMobileMenuOpen(true)}
@@ -170,6 +219,6 @@ export function Navbar() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
