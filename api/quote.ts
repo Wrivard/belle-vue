@@ -12,7 +12,7 @@ export default async function quote(request: Request, response: ServerResponse) 
   response.setHeader('Cache-Control', 'no-store');
   response.setHeader('Content-Type', 'application/json; charset=utf-8');
   const size = Number(header(request, 'content-length'));
-  if (size > 32768) {
+  if (size > 3200000) {
     response.statusCode = 413;
     response.end(JSON.stringify({ error: 'La demande dépasse la taille maximale.' }));
     return;
@@ -20,7 +20,7 @@ export default async function quote(request: Request, response: ServerResponse) 
   let body: unknown;
   try {
     body = request.body;
-    if (Buffer.byteLength(JSON.stringify(body) ?? '', 'utf8') > 32768) {
+    if (Buffer.byteLength(JSON.stringify(body) ?? '', 'utf8') > 3200000) {
       response.statusCode = 413;
       response.end(JSON.stringify({ error: 'La demande dépasse la taille maximale.' }));
       return;

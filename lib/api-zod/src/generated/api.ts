@@ -23,6 +23,13 @@ export const submitQuoteBodyCityMax = 120;
 
 export const submitQuoteBodyWebsiteMax = 0;
 
+export const submitQuoteBodyPhotosItemFilenameRegExp = new RegExp(
+  "^photo-[1-3]\\.jpg$",
+);
+export const submitQuoteBodyPhotosItemContentMax = 960000;
+
+export const submitQuoteBodyPhotosMax = 3;
+
 export const SubmitQuoteBody = zod.object({
   submissionId: zod.string().uuid(),
   projectType: zod.enum([
@@ -54,6 +61,15 @@ export const SubmitQuoteBody = zod.object({
   city: zod.string().max(submitQuoteBodyCityMax),
   consent: zod.literal(true),
   website: zod.string().max(submitQuoteBodyWebsiteMax),
+  photos: zod
+    .array(
+      zod.object({
+        filename: zod.string().regex(submitQuoteBodyPhotosItemFilenameRegExp),
+        content: zod.string().max(submitQuoteBodyPhotosItemContentMax),
+      }),
+    )
+    .max(submitQuoteBodyPhotosMax)
+    .optional(),
 });
 
 export const SubmitQuoteResponse = zod.object({

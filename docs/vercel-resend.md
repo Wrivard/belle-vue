@@ -33,22 +33,22 @@ Le nom affiché est **Armoire Belle-Vue**, mais les deux messages partent toujou
 
 ## Deux courriels
 
-- **Avis au propriétaire** : coordonnées, projet, construction neuve/rénovation, description, budget, échéancier, ville, consentement et référence. Bouton « Répondre au client ».
-- **Confirmation au client** : confirmation de prise en charge, même récapitulatif et référence, invitation à répondre pour ajouter des précisions, photos ou plans. Aucun délai de réponse ni montant n’est promis.
+- **Avis au propriétaire** : coordonnées, projet, construction neuve/rénovation, description, budget, échéancier, ville, consentement, référence et jusqu’à trois photos compressées en pièces jointes. Bouton « Répondre au client ».
+- **Confirmation au client** : confirmation de prise en charge, même récapitulatif et référence, nombre de photos jointes à l’avis de l’équipe, sans reproduire les pièces jointes. Invitation à répondre pour ajouter des précisions, photos ou plans. Aucun délai de réponse ni montant n’est promis.
 
 Templates : `lib/quote-mail/src/templates.ts`. HTML compatible courriel (tableaux, styles inline, logo sur fond noir, accent rouge `#D71920`) et version texte. L’envoi utilise l’API REST Resend, sans connecteur Replit à transporter vers Vercel.
 
 ## Fiabilité et confidentialité
 
-- POST JSON uniquement, schéma strict, consentement obligatoire, tailles et choix contrôlés côté serveur.
+- POST JSON uniquement, schéma strict, consentement obligatoire, tailles et choix contrôlés côté serveur. Jusqu’à trois JPEG compressés à 700 Ko chacun, validés avant tout envoi; requête totale limitée à 3,2 Mo. La compression par canvas retire normalement les métadonnées des originaux. Les images ne sont pas conservées dans une base de données, mais restent dans le courriel reçu par l’équipe et chez les prestataires d’envoi.
 - Champ piège et contrôle d’origine. **Ces protections ne remplacent pas un contrôle anti-bot distribué.**
 - Limite de cinq tentatives/minute/IP par processus; cette limite est **locale**, pas partagée entre instances serverless.
 - Avant ouverture publique, ajouter dans **Vercel Firewall** une règle distribuée de limitation pour `POST /api/quote` (par exemple cinq demandes/minute/IP), et ajuster selon les besoins. Cela protège contre les abus envoyant des confirmations à des adresses tierces.
-- Les deux courriels sont envoyés dans un batch avec une clé d’idempotence. Les tentatives identiques réutilisent le même identifiant tant que la page reste ouverte, évitant les doublons pendant la fenêtre Resend de 24 heures. Ne pas recharger la page pour réessayer après une erreur.
+- Sans photo, les deux courriels partent dans un batch. Avec photos, Resend n’accepte pas les pièces jointes dans un batch : l’avis au propriétaire et la confirmation au client sont alors envoyés séparément, avec une clé d’idempotence distincte pour chacun. Les tentatives identiques réutilisent les mêmes clés tant que la page reste ouverte, évitant les doublons pendant la fenêtre Resend de 24 heures. Un premier courriel peut être accepté même si le second échoue; dans ce cas le formulaire affiche une erreur et il faut réessayer sans recharger la page.
 - Un état de réussite ne s’affiche que si Resend accuse réception des **deux** messages. Cet accusé ne garantit pas la livraison en boîte de réception; consulter les statuts/bounces dans Resend.
 - En cas d’erreur, aucune réussite fictive ni ouverture `mailto` automatique. Le formulaire reste rempli et permet de réessayer. Les réponses ne sont pas persistées après rechargement/fermeture de la page.
 - Aucune réponse, clé ou adresse client n’est écrite dans les logs applicatifs. Pas de stockage du projet dans une base de données. Les services d’hébergement/envoi et les boîtes des destinataires traitent cependant ces données.
-- Pas de pièces jointes téléversées : répondre au courriel de confirmation pour joindre photos ou plans.
+- Les plans en PDF et les autres documents ne sont pas acceptés dans le formulaire : répondre au courriel de confirmation pour les transmettre.
 
 ## Vérification après déploiement
 

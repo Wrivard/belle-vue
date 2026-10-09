@@ -24,6 +24,6 @@ test('Vercel adapter handles bad bodies and method restrictions as JSON, never H
   assert.equal(result.headers['Content-Type'], 'application/json; charset=utf-8');
 });
 test('Vercel adapter limits the actual body and declared size', async () => {
-  assert.equal((await invoke({ details: 'x'.repeat(33000) })).statusCode, 413);
-  assert.equal((await invoke({}, { 'content-length': '33000' })).statusCode, 413);
+  assert.equal((await invoke({ details: 'x'.repeat(3200001) })).statusCode, 413);
+  assert.equal((await invoke({}, { 'content-length': '3200001' })).statusCode, 413);
 });

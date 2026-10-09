@@ -45,9 +45,9 @@ export function validateStep(step: 1 | 2, d: QuoteDraft): QuoteErrors {
   return e;
 }
 
-export function buildQuoteInput(d: QuoteDraft, submissionId: string, consent: boolean, website: string): QuoteInput {
+export function buildQuoteInput(d: QuoteDraft, submissionId: string, consent: boolean, website: string, photos: NonNullable<QuoteInput['photos']> = []): QuoteInput {
   return {
-    submissionId, consent, website,
+    submissionId, consent, website, ...(photos.length ? { photos } : {}),
     projectType: d.projectType as QuoteInput['projectType'],
     workType: d.workType as QuoteInput['workType'],
     budget: d.budget as QuoteInput['budget'],

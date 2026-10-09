@@ -1,7 +1,10 @@
 import { FormEvent, ReactNode, useEffect, useRef, useState } from 'react';
-import { ChevronDown, Paperclip, CheckCircle2, Loader2 } from 'lucide-react';
+import { ChevronDown, Paperclip, CheckCircle2, Loader2, X } from 'lucide-react';
 import { submitQuote } from '@workspace/api-client-react';
 import { trackEvent } from '@/lib/analytics';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { compressQuotePhoto, type QuotePhoto } from '@/lib/compress-quote-photo';
 import {
   BUDGETS, EMPTY_DRAFT, PROJECT_TYPES, QuoteDraft, QuoteErrors, TIMELINES, WORK_TYPES, buildQuoteInput, validateStep,
 } from '@/lib/quote-form-model';
@@ -44,6 +47,10 @@ export function QuoteForm() {
   const [receipt, setReceipt] = useState<string | null>(null);
   const [sendError, setSendError] = useState('');
   const [website, setWebsite] = useState('');
+  const [photos, setPhotos] = useState<QuotePhoto[]>([]);
+  const [photoError, setPhotoError] = useState('');
+  const [processingPhotos, setProcessingPhotos] = useState(false);
+  const processing = useRef(false);
   const submissionId = useRef<string | null>(null);
   const inFlight = useRef(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -67,6 +74,36 @@ export function QuoteForm() {
     setDraft((d) => ({ ...d, [k]: v }));
     setErrors((e) => (e[k] ? { ...e, [k]: undefined } : e));
   };
+  const addPhotos = async (files: FileList | null) => {
+    if (!files?.length || processing.current || inFlight.current) return;
+    if (photos.length + files.length > 3) {
+      setPhotoError('Vous pouvez joindre trois photos au maximum. Ces fichiers n’ont pas été ajoutés.');
+      return;
+    }
+    processing.current = true;
+    setProcessingPhotos(true);
+    setPhotoError('');
+    try {
+      const added: QuotePhoto[] = [];
+      for (const file of Array.from(files)) {
+        added.push(await compressQuotePhoto(file, photos.length + added.length + 1));
+      }
+      submissionId.current = null;
+      setSendError('');
+      setPhotos(current => [...current, ...added]);
+    } catch (error) {
+      setPhotoError(error instanceof Error ? error.message : 'Impossible de préparer les photos.');
+    } finally {
+      processing.current = false;
+      setProcessingPhotos(false);
+    }
+  };
+  const removePhoto = (index: number) => {
+    submissionId.current = null;
+    setSendError('');
+    setPhotoError('');
+    setPhotos(current => current.filter((_, i) => i !== index).map((photo, i) => ({ ...photo, filename: `photo-${i + 1}.jpg` })));
+  };
   const goTo = (s: 1 | 2 | 3) => { if (inFlight.current) return; moved.current = true; setSendError(''); setErrors({}); setStep(s); };
 
   const focusFirst = (errs: QuoteErrors) => {
@@ -76,7 +113,7 @@ export function QuoteForm() {
   };
 
   const next = () => {
-    if (step === 3) return;
+    if (step === 3 || processing.current) return;
     const errs = validateStep(step, draft);
     setErrors(errs);
     if (Object.keys(errs).length) {
@@ -93,7 +130,7 @@ export function QuoteForm() {
 
   const onSubmit = async (ev: FormEvent) => {
     ev.preventDefault();
-    if (inFlight.current || receipt) return;
+    if (inFlight.current || receipt || processing.current) return;
     if (step < 3) { next(); return; }
     const projectErrors = validateStep(1, draft);
     const contactErrors = validateStep(2, draft);
@@ -115,7 +152,7 @@ export function QuoteForm() {
     // Keep the same UUID after timeout/errors; Resend deduplicates identical retries.
     try {
       submissionId.current ??= crypto.randomUUID();
-      const result = await submitQuote(buildQuoteInput(draft, submissionId.current, consent, website), {
+      const result = await submitQuote(buildQuoteInput(draft, submissionId.current, consent, website, photos.map(({ filename, content }) => ({ filename, content }))), {
         signal: AbortSignal.timeout(25000),
       });
       if (result.ok !== true || typeof result.reference !== 'string' || !result.reference) throw new Error('invalid_receipt');
@@ -157,6 +194,7 @@ export function QuoteForm() {
       <h3 className="text-2xl font-bold">Merci! Votre demande a été transmise.</h3>
       <p>Notre équipe examinera votre projet et communiquera avec vous. Un courriel de confirmation avec le récapitulatif de votre demande vous est envoyé à <strong className="break-all">{draft.email.trim()}</strong>. Vérifiez aussi vos courriels indésirables.</p>
       <p className="text-sm break-all">Référence : <strong>{receipt}</strong></p>
+      {photos.length > 0 && <p className="text-sm">{photos.length} {photos.length === 1 ? 'photo a été jointe' : 'photos ont été jointes'} à votre demande.</p>}
       <p className="text-sm">Vous pouvez répondre au courriel de confirmation pour ajouter des photos, des plans ou des précisions.</p>
       <dl className="divide-y divide-[#1B1B1B]/10 border border-[#1B1B1B]/10 rounded-sm">
         {summary.map(([key, value]) => <div key={key} className="p-4"><dt className="text-xs font-bold uppercase text-[#1B1B1B]/60">{key}</dt><dd className="mt-1 whitespace-pre-wrap break-words">{value}</dd></div>)}
@@ -183,7 +221,7 @@ export function QuoteForm() {
           <label htmlFor="quote-website">Laissez ce champ vide</label>
           <input id="quote-website" name="website" tabIndex={-1} autoComplete="off" value={website} onChange={(e) => setWebsite(e.target.value)} />
         </div>
-        <fieldset disabled={sending} className="space-y-6 border-0 p-0 m-0 min-w-0" aria-busy={sending}>
+        <fieldset disabled={sending} className="space-y-6 border-0 p-0 m-0 min-w-0" aria-busy={sending || processingPhotos}>
         <h3 ref={headingRef} tabIndex={-1} className="scroll-mt-28 text-2xl font-bold text-[#1B1B1B] focus:outline-none" data-testid="text-step-heading">{STEPS[step - 1]}</h3>
 
         {step === 1 && (
@@ -226,9 +264,31 @@ export function QuoteForm() {
                 <Select id="quote-timeline" value={draft.timeline} onChange={set('timeline')} options={TIMELINES} placeholder="À déterminer" testId="select-soumission-timeline" />
               </Row>
             </div>
-            <div className="flex gap-3 border border-dashed border-[#1B1B1B]/25 p-4 rounded-sm" data-testid="text-attachment-guidance">
-              <Paperclip size={18} className="text-[#D71920] shrink-0 mt-0.5" aria-hidden="true" />
-              <p className="text-sm text-[#1B1B1B]/75"><strong>Photos ou plans :</strong> ce formulaire ne téléverse aucun fichier. Après l’envoi de votre demande, répondez au courriel de confirmation pour joindre vos photos ou plans.</p>
+            <div className="space-y-3 border border-dashed border-[#1B1B1B]/25 p-4 rounded-sm" data-testid="quote-photos">
+              <div className="flex items-start gap-3">
+                <Paperclip size={18} className="text-[#D71920] shrink-0 mt-0.5" aria-hidden="true" />
+                <div>
+                  <p className="text-sm font-bold text-[#1B1B1B]">Photos de votre projet <span className="font-normal text-[#1B1B1B]/60">(facultatif)</span></p>
+                  <p className="text-sm text-[#1B1B1B]/75">Jusqu’à 3 images. Compression automatique avant l’envoi. Formats JPG, PNG, WebP et HEIC selon votre navigateur. Pour des plans en PDF, répondez au courriel de confirmation.</p>
+                </div>
+              </div>
+              {photos.length > 0 && <ul className="space-y-2" aria-label="Photos jointes">
+                {photos.map((photo, index) => <li key={`${photo.filename}-${photo.originalName}`} className="flex items-center justify-between gap-3 bg-[#EDEDED] px-3 py-2 text-sm text-[#1B1B1B]">
+                  <span className="min-w-0 truncate">{photo.originalName} <span className="text-[#1B1B1B]/60">→ {photo.filename} · JPG compressé · {Math.ceil(photo.bytes / 1000)} Ko</span></span>
+                  <Button type="button" variant="outline" size="sm" className="shrink-0 bg-white border-[#1B1B1B]/25" onClick={() => removePhoto(index)} aria-label={`Retirer ${photo.originalName}`}><X aria-hidden="true" /> Retirer</Button>
+                </li>)}
+              </ul>}
+              {photos.length < 3 && <>
+                <Input id="quote-photos-input" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple
+                  className="peer sr-only" disabled={processingPhotos || sending}
+                  aria-describedby="quote-photos-help"
+                  onChange={event => { void addPhotos(event.target.files); event.target.value = ''; }} />
+                <Button asChild variant="outline" className="border-[#1B1B1B]/30 bg-white text-[#1B1B1B] peer-focus-visible:ring-2 peer-focus-visible:ring-[#D71920]">
+                  <label htmlFor="quote-photos-input" className="cursor-pointer"><Paperclip aria-hidden="true" /> Ajouter {photos.length ? 'd’autres photos' : 'des photos'}</label>
+                </Button>
+              </>}
+              <p id="quote-photos-help" className="text-xs text-[#1B1B1B]/65">{photos.length} photo{photos.length > 1 ? 's' : ''} sur 3. {processingPhotos ? 'Compression en cours…' : '700 Ko maximum par photo après compression.'}</p>
+              {photoError && <p className="text-sm font-semibold text-[#B51218]" role="alert">{photoError}</p>}
             </div>
           </>
         )}
@@ -267,12 +327,13 @@ export function QuoteForm() {
                 </div>
               ))}
             </dl>
+            {photos.length > 0 && <p className="text-sm text-[#1B1B1B]">{photos.length} {photos.length === 1 ? 'photo sera jointe' : 'photos seront jointes'} à l’avis envoyé à notre équipe. <button type="button" className="font-semibold underline underline-offset-4" onClick={() => goTo(1)}>Modifier les photos</button></p>}
             <div className="flex items-start gap-3">
               <input type="checkbox" id="quote-consent" required checked={consent} onChange={(e) => { setConsent(e.target.checked); setSendError(''); setErrors({}); }} aria-invalid={errors.consent ? true : undefined} aria-describedby={errors.consent ? 'quote-consent-error' : undefined} className="mt-1 accent-[#D71920] w-5 h-5 shrink-0" data-testid="checkbox-consent" />
               <label htmlFor="quote-consent" className="text-sm text-[#1B1B1B]/80 leading-relaxed">J’accepte que mes informations soient utilisées uniquement pour traiter ma demande de soumission. <span className="text-[#D71920]" aria-hidden="true">*</span></label>
             </div>
             {errors.consent && <p id="quote-consent-error" className="text-sm font-semibold text-[#B51218]" role="alert">{errors.consent}</p>}
-            <p className="text-sm text-[#1B1B1B]/70">En cliquant sur « Envoyer ma demande », vos réponses seront transmises à notre équipe par courriel via Resend. Vous recevrez également une confirmation avec votre récapitulatif. <a href={`${import.meta.env.BASE_URL}politique-cookies`} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-[#D71920]">Renseignements sur la confidentialité et vos droits (nouvel onglet)</a>.</p>
+            <p className="text-sm text-[#1B1B1B]/70">En cliquant sur « Envoyer ma demande », vos réponses et les photos ajoutées seront transmises à notre équipe par courriel via Resend. Vous recevrez également une confirmation avec votre récapitulatif, sans copie des photos. <a href={`${import.meta.env.BASE_URL}politique-cookies`} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-[#D71920]">Renseignements sur la confidentialité et vos droits (nouvel onglet)</a>.</p>
             {sendError && <div className="border-l-4 border-[#D71920] bg-[#FBE8E9] px-5 py-4 text-sm text-[#1B1B1B]" role="alert" data-testid="status-quote-error">{sendError}</div>}
           </>
         )}
@@ -281,8 +342,8 @@ export function QuoteForm() {
           {step > 1 ? (
             <button type="button" onClick={() => goTo((step - 1) as 1 | 2)} className="min-h-[48px] px-4 font-semibold text-[#1B1B1B] underline underline-offset-4 hover:text-[#D71920]" data-testid="button-soumission-back">Retour</button>
           ) : <span />}
-          <button type="submit" disabled={sending} className="min-h-[56px] w-full sm:w-auto px-4 sm:px-8 py-3 bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md uppercase tracking-wide text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1B1B1B] disabled:opacity-60 disabled:cursor-wait" data-testid={step === 3 ? 'button-soumission-submit' : 'button-soumission-next'}>
-            {sending ? <span className="inline-flex items-center gap-2"><Loader2 size={18} className="animate-spin" />Envoi en cours…</span> : step === 1 ? 'Continuer : vos coordonnées' : step === 2 ? 'Continuer : vérification' : 'Envoyer ma demande'}
+          <button type="submit" disabled={sending || processingPhotos} className="min-h-[56px] w-full sm:w-auto px-4 sm:px-8 py-3 bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md uppercase tracking-wide text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1B1B1B] disabled:opacity-60 disabled:cursor-wait" data-testid={step === 3 ? 'button-soumission-submit' : 'button-soumission-next'}>
+            {sending ? <span className="inline-flex items-center gap-2"><Loader2 size={18} className="animate-spin" />Envoi en cours…</span> : processingPhotos ? 'Compression en cours…' : step === 1 ? 'Continuer : vos coordonnées' : step === 2 ? 'Continuer : vérification' : 'Envoyer ma demande'}
           </button>
         </div>
         </fieldset>

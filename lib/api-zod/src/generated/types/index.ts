@@ -10,6 +10,7 @@ export * from "./healthStatus";
 export * from "./quoteError";
 export * from "./quoteInput";
 export * from "./quoteInputBudget";
+export * from "./quoteInputPhotosItem";
 export * from "./quoteInputProjectType";
 export * from "./quoteInputTimeline";
 export * from "./quoteInputWorkType";

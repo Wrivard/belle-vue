@@ -56,6 +56,16 @@ export async function handleQuote(
       /[\r\n]/.test(String(normalized.name))) {
     return fail(400, 'Vérifiez les champs du formulaire et votre consentement.');
   }
+  const photos = parsed.data.photos ?? [];
+  if (new Set(photos.map(photo => photo.filename)).size !== photos.length ||
+      photos.some(photo => {
+        if (!/^[A-Za-z0-9+/]+={0,2}$/.test(photo.content) || photo.content.length % 4 !== 0) return true;
+        const bytes = Buffer.from(photo.content, 'base64');
+        return bytes.length > 700000 || bytes.length < 4 ||
+          bytes[0] !== 0xff || bytes[1] !== 0xd8 || bytes[2] !== 0xff ||
+          bytes[bytes.length - 2] !== 0xff || bytes[bytes.length - 1] !== 0xd9 ||
+          bytes.toString('base64') !== photo.content;
+      })) return fail(400, 'Les photos doivent être des images JPEG valides de 700 Ko maximum (3 photos au plus).');
   if (!(options.rateLimit ?? rateAllowed)(context.ip)) return fail(429, 'Trop de tentatives. Réessayez dans une minute.');
   const env = options.env ?? process.env;
   const from = env.RESEND_FROM_EMAIL?.trim();
@@ -71,6 +81,32 @@ export async function handleQuote(
   // Include normalized content so edits yield a new request; timeout retries reuse the key.
   const digest = createHash('sha256').update(JSON.stringify(messages)).digest('hex');
   try {
+    if (photos.length) {
+      // Resend's batch endpoint does not accept attachments. Distinct keys make
+      // retries safe even when the first of these two requests succeeded.
+      for (const [index, message] of messages.entries()) {
+        const response = await (options.fetcher ?? fetch)('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${env.RESEND_API_KEY}`,
+            'Content-Type': 'application/json',
+            'Idempotency-Key': `belle-vue-quote/${digest}/${index}`,
+          },
+          body: JSON.stringify(message),
+          signal: AbortSignal.timeout(15000),
+        });
+        if (!response.ok) {
+          logger.warn({ providerStatus: response.status }, 'Resend rejected quote email');
+          return fail(502, FAILURE);
+        }
+        const result = await response.json() as { id?: string };
+        if (typeof result.id !== 'string' || !result.id) {
+          logger.warn({ code: 'invalid_provider_acknowledgement' }, 'Resend did not confirm quote email');
+          return fail(502, FAILURE);
+        }
+      }
+      return { status: 200, body: { ok: true, reference } };
+    }
     const response = await (options.fetcher ?? fetch)('https://api.resend.com/emails/batch', {
       method: 'POST',
       headers: {

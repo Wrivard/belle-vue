@@ -15,6 +15,7 @@ function recap(quote: QuoteInput): [string, string][] {
     ['Ville', quote.city || 'Non précisée'], ['Type de projet', quote.projectType],
     ['Nature des travaux', quote.workType], ['Budget approximatif', quote.budget || 'À déterminer'],
     ['Échéancier souhaité', quote.timeline || 'À déterminer'], ['Description du projet', quote.details],
+    ['Photos jointes', String(quote.photos?.length ?? 0)],
   ];
 }
 
@@ -44,7 +45,7 @@ function layout(title: string, preheader: string, intro: string, quote: QuoteInp
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E6E6E6;background:#FAFAFA;">${rows}</table>
       </td></tr>
       <tr><td style="padding:0 32px 32px;">${action}
-        <p style="margin:20px 0 0;font-size:12px;line-height:20px;color:#666666;">Les renseignements transmis servent uniquement à traiter cette demande de soumission. Aucun fichier n’est joint à ce formulaire.</p>
+        <p style="margin:20px 0 0;font-size:12px;line-height:20px;color:#666666;">Les renseignements et les photos transmis servent uniquement à traiter cette demande de soumission.${quote.photos?.length ? ` ${quote.photos.length} photo(s) jointe(s) à l’avis envoyé à notre équipe.` : ''}</p>
       </td></tr>
       <tr><td style="padding:24px 32px;background:${DARK};color:#FFFFFF;font-size:12px;line-height:22px;">
         <strong>${BRAND}</strong><br />381 rue Principale, Saint-Charles-de-Bourget, QC, G0V 1G0<br />
@@ -77,6 +78,11 @@ export function createQuoteEmails(quote: QuoteInput, from: string, recipient: st
         quote, reference, button(`mailto:${quote.email}`, 'Répondre au client') +
         paragraph(`<br />Le client a accepté que ses renseignements soient utilisés pour traiter sa demande. Une confirmation avec ce récapitulatif lui est également envoyée.`)),
       text: `${ownerTitle}\n\nRépondez à ce courriel pour contacter le client.\n\n${summaryText}\n\nConsentement : accepté pour le traitement de la demande.${footer}`,
+      ...(quote.photos?.length ? { attachments: quote.photos.map(photo => ({
+        filename: photo.filename,
+        content: photo.content,
+        content_type: 'image/jpeg',
+      })) } : {}),
     },
     {
       from: `${BRAND} <${from}>`,
@@ -88,7 +94,7 @@ export function createQuoteEmails(quote: QuoteInput, from: string, recipient: st
         paragraph('Merci de faire confiance à Armoire Belle-Vue. Votre demande a été transmise à notre équipe pour prise en charge. Nous examinerons vos besoins et communiquerons avec vous pour discuter de votre projet.') +
         paragraph('Ce courriel confirme votre demande; il ne constitue pas une soumission chiffrée ni une réservation de travaux.'),
         quote, reference, button(`mailto:${recipient}`, 'Ajouter des précisions à ma demande') +
-        paragraph('<br />Vous avez des photos, des mesures ou des plans? Répondez à ce courriel pour les joindre ou compléter les informations sur votre projet.')),
+        paragraph('<br />Vous avez d’autres photos, des mesures ou des plans? Répondez à ce courriel pour compléter les informations sur votre projet.')),
       text: `Bonjour ${quote.name},\n\n${customerTitle}.\nMerci de faire confiance à Armoire Belle-Vue. Votre demande a été transmise à notre équipe. Nous examinerons vos besoins et communiquerons avec vous.\nCe courriel n’est pas une soumission chiffrée ni une réservation.\n\n${summaryText}\n\nRépondez à ce courriel pour ajouter des photos, des plans ou des précisions.${footer}`,
     },
   ];

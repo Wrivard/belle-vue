@@ -119,6 +119,66 @@ test('retries retain stable idempotency key and payload; edited content changes 
   assert.notEqual(key(requests[0]), key(requests[2]));
 });
 
+test('sends up to three validated JPEGs only to the owner, without duplicating them in the client email', async () => {
+  const image = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0, 0, 0xff, 0xd9]).toString('base64');
+  const photos = [1, 2, 3].map(n => ({ filename: `photo-${n}.jpg`, content: image }));
+  const messages: any[] = [];
+  const keys: string[] = [];
+  const result = await handleQuote({ ...input, photos }, context, {
+    env, rateLimit: () => true,
+    fetcher: async (url, init) => {
+      assert.equal(url, 'https://api.resend.com/emails');
+      messages.push(JSON.parse(String(init?.body)));
+      keys.push(new Headers(init?.headers).get('Idempotency-Key')!);
+      return Response.json({ id: `message-${messages.length}` });
+    },
+  });
+  assert.equal(result.status, 200);
+  assert.deepEqual(messages[0].attachments, photos.map(photo => ({ ...photo, content_type: 'image/jpeg' })));
+  assert.equal(messages[1].attachments, undefined);
+  assert.ok(messages[1].text.includes('Photos jointes : 3'));
+  assert.ok(!messages[1].text.includes(image));
+  assert.notEqual(keys[0], keys[1]);
+});
+
+test('photo email retries retain independent keys if the second message fails', async () => {
+  const content = Buffer.from([0xff, 0xd8, 0xff, 0xd9]).toString('base64');
+  const seen: string[] = [];
+  let secondFails = true;
+  const fetcher = async (_url: unknown, init?: RequestInit) => {
+    seen.push(new Headers(init?.headers).get('Idempotency-Key')!);
+    if (seen.length % 2 === 0 && secondFails) return Response.json({}, { status: 500 });
+    return Response.json({ id: 'accepted' });
+  };
+  const payload = { ...input, photos: [{ filename: 'photo-1.jpg', content }] };
+  assert.equal((await handleQuote(payload, context, { env, rateLimit: () => true, fetcher })).status, 502);
+  secondFails = false;
+  assert.equal((await handleQuote(payload, context, { env, rateLimit: () => true, fetcher })).status, 200);
+  assert.deepEqual(seen, [seen[0], seen[1], seen[0], seen[1]]);
+  assert.notEqual(seen[0], seen[1]);
+});
+
+test('rejects extra photos, duplicate names, forged content and oversized images before emailing', async () => {
+  const good = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0xff, 0xd9]).toString('base64');
+  let calls = 0;
+  for (const photos of [
+    [1, 2, 3, 4].map(n => ({ filename: `photo-${n}.jpg`, content: good })),
+    [1, 1].map(n => ({ filename: `photo-${n}.jpg`, content: good })),
+    [{ filename: 'document.pdf', content: good }],
+    [{ filename: 'photo-1.jpg', content: Buffer.from('bad file').toString('base64') }],
+    [{ filename: 'photo-1.jpg', content: 'abc?' }],
+    [{ filename: 'photo-1.jpg', content: Buffer.concat([
+      Buffer.from([0xff, 0xd8, 0xff]), Buffer.alloc(700001), Buffer.from([0xff, 0xd9]),
+    ]).toString('base64') }],
+  ]) {
+    const result = await handleQuote({ ...input, photos }, context, {
+      env, rateLimit: () => true, fetcher: async () => { calls++; return acknowledgement(); },
+    });
+    assert.equal(result.status, 400);
+  }
+  assert.equal(calls, 0);
+});
+
 test('throttled requests do not reach the provider', async () => {
   let called = false;
   const result = await handleQuote(input, context, {

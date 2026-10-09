@@ -6,6 +6,7 @@
  * OpenAPI spec version: 0.1.0
  */
 import type { QuoteInputBudget } from "./quoteInputBudget";
+import type { QuoteInputPhotosItem } from "./quoteInputPhotosItem";
 import type { QuoteInputProjectType } from "./quoteInputProjectType";
 import type { QuoteInputTimeline } from "./quoteInputTimeline";
 import type { QuoteInputWorkType } from "./quoteInputWorkType";
@@ -38,4 +39,6 @@ export interface QuoteInput {
   consent: boolean;
   /** @maxLength 0 */
   website: string;
+  /** @maxItems 3 */
+  photos?: QuoteInputPhotosItem[];
 }

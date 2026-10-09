@@ -46,6 +46,13 @@ export const QuoteInputTimeline = {
   Flexible: "Flexible",
 } as const;
 
+export type QuoteInputPhotosItem = {
+  /** @pattern ^photo-[1-3]\.jpg$ */
+  filename: string;
+  /** @maxLength 960000 */
+  content: string;
+};
+
 export interface QuoteInput {
   submissionId: string;
   projectType: QuoteInputProjectType;
@@ -74,6 +81,8 @@ export interface QuoteInput {
   consent: boolean;
   /** @maxLength 0 */
   website: string;
+  /** @maxItems 3 */
+  photos?: QuoteInputPhotosItem[];
 }
 
 export interface QuoteReceipt {
