@@ -7,3 +7,4 @@
 - [Quote delivery analytics](analytics-semantics.md) — a submitted quote accepted for email processing does not guarantee inbox delivery.
 - [Courriels Belle-Vue](belle-vue-email.md) — Vercel et Resend; expéditeur imposé, confirmations client/propriétaire; photos incompatibles avec l’envoi batch.
 - [Vercel TypeScript defaults](vercel-typescript.md) — declare function module settings explicitly; Vercel applies defaults before resolving inherited settings.
+- [Browser audit targets](browser-audits.md) — select a page target explicitly; bundled Chromium exposes background targets that give misleading viewport measurements.

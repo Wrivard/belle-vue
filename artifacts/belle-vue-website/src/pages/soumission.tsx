@@ -27,24 +27,24 @@ export default function Soumission() {
           <ProjectImage image={belleVueImages[24]} priority sizes="100vw" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#1B1B1B]/85"></div>
         </div>
-        <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-[#EDEDED] py-16">
+        <div className="container mx-auto px-6 max-w-[1200px] relative z-10 text-[#EDEDED] py-10 sm:py-16">
           <div className="max-w-3xl">
             <FadeIn><div className="flex items-center gap-4 mb-6"><div className="w-12 h-1 bg-[#D71920]"></div><span className="text-[#FF4B50] font-bold tracking-[0.2em] uppercase text-sm">Armoire Belle-Vue</span></div></FadeIn>
             <nav aria-label="Fil d’Ariane" className="mb-6 text-sm text-white/75"><ol className="flex items-center gap-2"><li><Link href="/" className="underline underline-offset-4 hover:text-white">Accueil</Link></li><li aria-hidden="true">/</li><li aria-current="page">Soumission</li></ol></nav>
-            <FadeIn delay={100}><h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] mb-6 text-white uppercase tracking-tight" data-testid="text-soumission-title">Demandez une soumission pour vos <span className="text-[#FF4B50]">armoires sur mesure.</span></h1></FadeIn>
+            <FadeIn delay={100}><h1 className="text-[clamp(1.875rem,8vw,2.25rem)] sm:text-5xl md:text-6xl font-bold leading-[1.1] mb-5 sm:mb-6 text-white uppercase tracking-tight" data-testid="text-soumission-title">Demandez une soumission pour vos <span className="text-[#FF4B50]">armoires sur mesure.</span></h1></FadeIn>
             <FadeIn delay={200}><p className="text-lg md:text-xl text-[#EDEDED]/80 max-w-2xl font-medium leading-relaxed">Vous planifiez une nouvelle cuisine, une salle de bain ou un projet d’ameublement sur mesure au Saguenay–Lac-Saint-Jean? Parlons de vos habitudes, de votre espace et de vos besoins pour imaginer des armoires ergonomiques et adaptées à votre quotidien.</p></FadeIn>
           </div>
         </div>
       </section>
 
-      <section className="py-14 md:py-20 bg-[#EDEDED]" data-testid="soumission-form-section">
+      <section className="py-12 md:py-20 bg-[#EDEDED]" data-testid="soumission-form-section">
         <div className="container mx-auto px-6 max-w-[1200px]">
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
               <FadeIn>
                 <div className="bg-white rounded-md shadow-lg overflow-hidden">
-                  <div className="px-8 md:px-12 pt-8 md:pt-10"><div className="flex items-center gap-3 mb-2"><div className="w-8 h-1 bg-[#D71920]"></div><span className="text-[#B51218] font-bold tracking-[0.2em] uppercase text-xs">Votre projet, à votre mesure</span></div><h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-[#1B1B1B]">Demande de soumission</h2></div>
-                  <div className="p-8 md:p-12 pt-6 md:pt-6"><QuoteForm /></div>
+                  <div className="px-5 sm:px-8 md:px-12 pt-6 sm:pt-8 md:pt-10"><div className="flex items-center gap-3 mb-2"><div className="w-8 h-1 bg-[#D71920]"></div><span className="text-[#B51218] font-bold tracking-[0.2em] uppercase text-xs">Votre projet, à votre mesure</span></div><h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-[#1B1B1B]">Demande de soumission</h2></div>
+                  <div className="p-5 pt-6 sm:p-8 sm:pt-6 md:p-12 md:pt-6"><QuoteForm /></div>
                 </div>
               </FadeIn>
             </div>

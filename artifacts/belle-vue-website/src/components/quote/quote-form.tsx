@@ -209,8 +209,10 @@ export function QuoteForm() {
           const n = i + 1;
           const current = n === step;
           return (
-            <li key={s} aria-current={current ? 'step' : undefined} className={`flex-1 border-t-4 pt-2 text-xs sm:text-sm font-bold ${n <= step ? 'border-[#D71920] text-[#1B1B1B]' : 'border-[#1B1B1B]/15 text-[#1B1B1B]/55'}`} data-testid={`progress-step-${n}`}>
-              <span className="block text-[11px] font-semibold uppercase tracking-wide">Étape {n} sur 3</span>{s}
+            <li key={s} aria-label={`Étape ${n} sur 3 : ${s}`} aria-current={current ? 'step' : undefined} className={`min-w-0 flex-1 border-t-4 pt-2 text-xs sm:text-sm font-bold ${n <= step ? 'border-[#D71920] text-[#1B1B1B]' : 'border-[#1B1B1B]/15 text-[#1B1B1B]/55'}`} data-testid={`progress-step-${n}`}>
+              <span className="block text-[11px] font-semibold uppercase tracking-wide" aria-hidden="true">Étape {n}<span className="hidden sm:inline"> sur 3</span></span>
+              <span className="sm:hidden" aria-hidden="true">{['Projet', 'Contact', 'Envoi'][i]}</span>
+              <span className="hidden sm:block" aria-hidden="true">{s}</span>
             </li>
           );
         })}
@@ -280,7 +282,7 @@ export function QuoteForm() {
               </ul>}
               {photos.length < 3 && <>
                 <Input id="quote-photos-input" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple
-                  className="peer sr-only" disabled={processingPhotos || sending}
+                  className="peer sr-only !h-px !w-px !p-0" disabled={processingPhotos || sending}
                   aria-describedby="quote-photos-help"
                   onChange={event => { void addPhotos(event.target.files); event.target.value = ''; }} />
                 <Button asChild variant="outline" className="border-[#1B1B1B]/30 bg-white text-[#1B1B1B] peer-focus-visible:ring-2 peer-focus-visible:ring-[#D71920]">

@@ -24,7 +24,7 @@ export function TestimonialsSection() {
   }, [api]);
 
   return (
-    <section id="temoignages" className="scroll-mt-24 py-24 md:py-32 bg-[#EDEDED] text-[#1B1B1B]" data-testid="testimonials-section">
+    <section id="temoignages" className="scroll-mt-24 py-16 md:py-24 lg:py-32 bg-[#EDEDED] text-[#1B1B1B]" data-testid="testimonials-section">
       <div className="container mx-auto px-6 max-w-[1200px]">
         <FadeIn><div className="flex items-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]"></div><span className="text-[#D71920] font-bold tracking-widest uppercase text-sm">Témoignages</span></div><div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10"><h2 id="testimonials-heading" className="text-4xl md:text-6xl font-extrabold uppercase tracking-tight max-w-3xl">Ce que nos clients disent de nous</h2></div></FadeIn>
         <FadeIn delay={150}>

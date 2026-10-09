@@ -13,9 +13,9 @@ const faqItems = [
 
 export function FaqSection() {
   return (
-    <section id="faq" className="scroll-mt-24 py-24 md:py-32 bg-[#1B1B1B] text-[#EDEDED]" data-testid="faq-section">
+    <section id="faq" className="scroll-mt-24 py-16 md:py-24 lg:py-32 bg-[#1B1B1B] text-[#EDEDED]" data-testid="faq-section">
       <div className="container mx-auto px-6 max-w-[1200px]">
-        <FadeIn className="text-center mb-16">
+        <FadeIn className="text-center mb-10 md:mb-16">
           <div className="flex items-center justify-center gap-3 mb-4"><div className="w-8 h-1 bg-[#D71920]"></div><span className="text-[#FF4B50] font-bold tracking-widest uppercase text-sm">Questions</span><div className="w-8 h-1 bg-[#D71920]"></div></div>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-tight">Questions fréquentes</h2>
         </FadeIn>
@@ -32,10 +32,10 @@ export function FaqSection() {
               <AccordionItem
                 key={item.value}
                 value={item.value}
-                className="rounded-md border border-[#EDEDED]/20 bg-[#161616] px-6"
+                className="rounded-md border border-[#EDEDED]/20 bg-[#161616] px-5 sm:px-6"
                 data-testid={`faq-${item.value}`}
               >
-                <AccordionTrigger className="min-h-32 gap-4 py-5 text-left text-lg font-bold leading-7 hover:text-[#FF4B50] hover:no-underline lg:min-h-[104px]">
+                <AccordionTrigger className="min-h-20 md:min-h-[104px] gap-4 py-5 text-left text-base sm:text-lg font-bold leading-7 hover:text-[#FF4B50] hover:no-underline">
                   <span>{item.q}</span>
                 </AccordionTrigger>
                 <AccordionContent forceMount containerClassName="data-[state=closed]:hidden" className="pb-6 text-base leading-relaxed text-[#EDEDED]/70">
