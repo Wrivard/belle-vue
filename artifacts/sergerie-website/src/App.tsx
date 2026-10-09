@@ -5,12 +5,14 @@ import Soumission from "@/pages/soumission";
 import PolitiqueCookies from "@/pages/politique-cookies";
 import NotFound from "@/pages/not-found";
 import { RouteSeo } from "@/components/layout/route-seo";
+import { AnalyticsInteractions } from "@/components/layout/analytics-interactions";
 
 function Router() {
   return (
     <>
       <ScrollToTop />
       <RouteSeo />
+      <AnalyticsInteractions />
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/soumission" component={Soumission} />

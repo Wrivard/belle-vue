@@ -17,10 +17,10 @@ export default function PolitiqueCookies() {
     <PageWrapper>
       <article className="container mx-auto px-6 max-w-[800px] pt-36 pb-20" data-testid="page-politique-cookies">
         <h1 className="text-4xl font-bold mb-3">Politique relative aux témoins (cookies)</h1>
-        <p className="text-sm text-[#171717]/60 mb-10">Dernière mise à jour : 2 octobre 2026</p>
+        <p className="text-sm text-[#171717]/60 mb-10">Dernière mise à jour : 9 octobre 2026</p>
 
         <Section title="En bref">
-          <p>Le site d’Armoire Belle-Vue n’intègre aucun outil d’analyse ni de publicité propre au site. Une carte Google Maps est affichée automatiquement sur les pages. Ce service tiers peut recevoir des données techniques et utiliser des témoins, selon les modalités de Google.</p>
+          <p>Le site d’Armoire Belle-Vue prévoit une mesure des visites et de certaines interactions au moyen de l’outil d’analyse de son hébergeur, Replit, lorsque cette fonction est activée pour le site publié. Aucun outil publicitaire n’est ajouté par le site. Une carte Google Maps est affichée automatiquement sur les pages; ce service tiers peut recevoir des données techniques et utiliser des témoins, selon les modalités de Google.</p>
           <p>Un témoin est un petit fichier que votre navigateur peut conserver sur votre appareil. Le stockage de session est un mécanisme distinct qui permet de mémoriser temporairement une préférence. Cette politique explique ces technologies et vos choix sur notre site.</p>
         </Section>
 
@@ -36,6 +36,12 @@ export default function PolitiqueCookies() {
 
         <Section title="Polices de caractères">
           <p>Les polices de caractères sont hébergées avec le site. Leur affichage ne nécessite aucune connexion à Google Fonts.</p>
+        </Section>
+
+        <Section title="Mesure des visites et des interactions">
+          <p>Lorsque l’analyse est activée pour le site publié, l’hébergeur peut mesurer les visites et les interactions suivantes : accès au formulaire de soumission, début du formulaire, étapes complétées, nombre de champs à corriger, demande d’ouverture du courriel préparé, clics sur les coordonnées et Facebook, et ouverture des réponses de la FAQ. Ces mesures servent à comprendre l’utilisation du site et à améliorer le parcours.</p>
+          <p>Les événements personnalisés contiennent uniquement des catégories prédéfinies, comme la page, la section, le numéro d’étape, le type de projet ou la nature des travaux. Ils ne contiennent pas votre nom, votre téléphone, votre adresse courriel, votre ville, la description de votre projet ni le contenu du courriel préparé. Une demande d’ouverture du courriel ne prouve pas que celui-ci a été envoyé.</p>
+          <p>La mesure des visites peut aussi faire intervenir des données techniques de navigation traitées par l’hébergeur. Pour en savoir plus sur son traitement des données : <a className={ext} href="https://replit.com/privacy-policy" target="_blank" rel="noopener noreferrer">Politique de confidentialité de Replit</a>. Les bloqueurs et réglages de confidentialité de votre navigateur peuvent limiter ces mesures.</p>
         </Section>
 
         <Section title="Formulaire de soumission">

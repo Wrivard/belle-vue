@@ -1,5 +1,6 @@
 import { FormEvent, ReactNode, useEffect, useRef, useState } from 'react';
 import { ChevronDown, Paperclip } from 'lucide-react';
+import { trackEvent } from '@/lib/analytics';
 import {
   BUDGETS, EMPTY_DRAFT, PROJECT_TYPES, QuoteDraft, QuoteErrors, TIMELINES, WORK_TYPES, buildMailto, validateStep,
 } from '@/lib/quote-form-model';
@@ -41,6 +42,8 @@ export function QuoteForm() {
   const [prepared, setPrepared] = useState(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const moved = useRef(false);
+  const started = useRef(false);
+  const completedSteps = useRef(new Set<number>());
 
   useEffect(() => {
     if (!moved.current) return;
@@ -49,6 +52,10 @@ export function QuoteForm() {
   }, [step]);
 
   const set = (k: keyof QuoteDraft) => (v: string) => {
+    if (v && !started.current) {
+      started.current = true;
+      trackEvent('quote_form_started', { page: '/soumission' });
+    }
     setPrepared(false);
     setDraft((d) => ({ ...d, [k]: v }));
     setErrors((e) => (e[k] ? { ...e, [k]: undefined } : e));
@@ -65,7 +72,15 @@ export function QuoteForm() {
     if (step === 3) return;
     const errs = validateStep(step, draft);
     setErrors(errs);
-    if (Object.keys(errs).length) { focusFirst(errs); return; }
+    if (Object.keys(errs).length) {
+      trackEvent('quote_validation_error', { page: '/soumission', step, field_count: Object.keys(errs).length });
+      focusFirst(errs);
+      return;
+    }
+    if (!completedSteps.current.has(step)) {
+      completedSteps.current.add(step);
+      trackEvent('quote_step_completed', { page: '/soumission', step });
+    }
     goTo((step + 1) as 2 | 3);
   };
 
@@ -73,11 +88,18 @@ export function QuoteForm() {
     ev.preventDefault();
     if (step < 3) { next(); return; }
     if (!consent) {
+      trackEvent('quote_validation_error', { page: '/soumission', step: 3, field_count: 1 });
       setErrors({ consent: 'Cochez cette case pour préparer le courriel.' });
       document.getElementById('quote-consent')?.focus();
       return;
     }
-    window.location.href = buildMailto(draft);
+    const mailto = buildMailto(draft);
+    trackEvent('quote_email_requested', {
+      page: '/soumission',
+      project_type: PROJECT_TYPES.includes(draft.projectType) ? draft.projectType : 'other',
+      work_type: WORK_TYPES.includes(draft.workType) ? draft.workType : 'other',
+    });
+    window.location.href = mailto;
     setPrepared(true);
   };
 

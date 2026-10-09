@@ -1,5 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { FadeIn } from './fade-in';
+import { getAnalyticsPage, trackEvent } from '@/lib/analytics';
 
 const faqItems = [
   { value: 'item-1', q: 'Quels types de projets réalisez-vous?', a: 'Nous réalisons des armoires de cuisine, des vanités et armoires de salle de bain, du rangement et de l’ameublement sur mesure, principalement pour une clientèle résidentielle. Chaque projet est étudié selon votre espace et vos besoins; décrivez-nous votre idée pour en discuter.' },
@@ -19,7 +20,14 @@ export function FaqSection() {
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-tight">Questions fréquentes</h2>
         </FadeIn>
         <FadeIn delay={200}>
-          <Accordion type="single" collapsible className="grid w-full grid-cols-1 items-start gap-4 md:grid-cols-2">
+          <Accordion type="single" collapsible onValueChange={(value) => {
+            if (faqItems.some((item) => item.value === value)) {
+              trackEvent('faq_opened', {
+                question_id: value,
+                page: getAnalyticsPage(window.location.pathname, import.meta.env.BASE_URL),
+              });
+            }
+          }} className="grid w-full grid-cols-1 items-start gap-4 md:grid-cols-2">
             {faqItems.map((item) => (
               <AccordionItem
                 key={item.value}
