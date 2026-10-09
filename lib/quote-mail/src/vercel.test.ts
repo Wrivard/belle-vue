@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import type { IncomingMessage, ServerResponse } from 'node:http';
-import quote from './quote';
+import quote from './vercel';
 
 async function invoke(body: unknown, headers: Record<string, string> = {}, method = 'POST') {
   const response = {

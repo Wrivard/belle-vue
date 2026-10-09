@@ -4,10 +4,10 @@
   "license": "MIT",
   "scripts": {
     "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
-    "build": "pnpm run typecheck && pnpm -r --if-present run build",
+    "build": "pnpm run typecheck && node scripts/build-vercel-function.mjs && pnpm -r --if-present run build",
     "typecheck:libs": "tsc --build",
-    "test:quotes": "pnpm --filter @workspace/quote-mail test && pnpm --filter @workspace/quote-mail exec tsx --test ../../api/quote.test.ts ../../artifacts/belle-vue-website/scripts/analytics.test.ts && node --test api/config.test.mjs artifacts/belle-vue-website/tests/quote-form-model.test.mjs",
-    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck && tsc -p api/tsconfig.json"
+    "test:quotes": "pnpm --filter @workspace/quote-mail test && pnpm --filter @workspace/quote-mail exec tsx --test ../../artifacts/belle-vue-website/scripts/analytics.test.ts && node --test scripts/vercel-function.test.mjs artifacts/belle-vue-website/tests/quote-form-model.test.mjs",
+    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
   },
   "private": true,
   "packageManager": "pnpm@10.26.1",
@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@types/node": "catalog:",
+    "esbuild": "^0.27.3",
     "prettier": "^3.8.1",
     "typescript": "~5.9.2"
   }

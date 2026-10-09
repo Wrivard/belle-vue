@@ -39,9 +39,11 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 
 ## Vercel deployment
 
-Import the repository **once**, with **Root Directory blank or `.`**. The root `vercel.json` builds `belle-vue-website` and deploys `api/quote.ts` as a serverless function. Do not import the detected artifact folders as separate Vercel projects. The Express preview server and design sandbox are not required on Vercel.
+Import the repository **once**, with **Root Directory blank or `.`**. The root `vercel.json` builds a standalone CommonJS quote bundle and the `belle-vue-website`, then deploys the tracked `api/quote.js` entrypoint as a serverless function. Do not import the detected artifact folders as separate Vercel projects. The Express preview server and design sandbox are not required on Vercel.
 
 Quote-email logic is shared in `lib/quote-mail`; see `docs/vercel-resend.md` for configuration and delivery verification.
+
+Do not replace the bundled function with direct TypeScript workspace imports. Vercel can rename compiled source files without updating workspace package exports, causing a runtime startup failure even when typechecks pass. `pnpm run test:quotes` checks the deployed entrypoint in plain Node outside the workspace, with simulated email responses and no real emails sent.
 
 ## Key Commands
 

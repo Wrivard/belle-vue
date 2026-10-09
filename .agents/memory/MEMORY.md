@@ -6,5 +6,5 @@
 - [Domaine officiel Belle-Vue](belle-vue-domain.md) — le domaine final demandé est https://armoirebellevue.com/, même avant son raccordement.
 - [Quote delivery analytics](analytics-semantics.md) — a submitted quote accepted for email processing does not guarantee inbox delivery.
 - [Courriels Belle-Vue](belle-vue-email.md) — Vercel et Resend; expéditeur imposé, confirmations client/propriétaire; photos incompatibles avec l’envoi batch.
-- [Vercel TypeScript defaults](vercel-typescript.md) — declare function module settings explicitly; Vercel applies defaults before resolving inherited settings.
+- [Vercel function verification](vercel-typescript.md) — test packaged functions in plain Node outside the workspace; passing TypeScript checks does not prove they can start.
 - [Browser audit targets](browser-audits.md) — select a page target explicitly; bundled Chromium exposes background targets that give misleading viewport measurements.
