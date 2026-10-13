@@ -1,5 +1,5 @@
 import { Link } from 'wouter';
-import { Phone, MapPin, Mail } from 'lucide-react';
+import { Phone, MapPin, Mail, Clock } from 'lucide-react';
 import { img } from '@/lib/utils';
 import { FacebookLink } from './facebook-link';
 import { COMPANY_CITY } from '@/lib/company';
@@ -39,6 +39,7 @@ export function Footer() {
               <li className="flex items-start gap-3"><MapPin size={18} className="text-[#FF4B50] shrink-0 mt-0.5" /><span className="text-[#E4E4E4]/70">381 rue Principale<br />{COMPANY_CITY}, QC, G0V 1G0</span></li>
               <li className="flex items-start gap-3"><Phone size={18} className="text-[#FF4B50] shrink-0 mt-0.5" /><a href="tel:+14186721613" className="text-[#E4E4E4]/70 hover:text-[#FF4B50] transition-colors">(418) 672-1613</a></li>
               <li className="flex items-start gap-3"><Mail size={18} className="text-[#FF4B50] shrink-0 mt-0.5" /><a href="mailto:armoirebelle-vue@hotmail.ca" className="text-[#E4E4E4]/70 hover:text-[#FF4B50] transition-colors break-all">armoirebelle-vue@hotmail.ca</a></li>
+              <li className="flex items-start gap-3"><Clock size={18} className="text-[#FF4B50] shrink-0 mt-0.5" /><span className="text-[#E4E4E4]/70">Heures d’ouverture<br />Lundi au jeudi : 8 h à 16 h<br />Vendredi : 8 h à 12 h</span></li>
               <li><FacebookLink className="text-[#E4E4E4] hover:text-[#FF4B50]" /></li>
             </ul>
           </div>

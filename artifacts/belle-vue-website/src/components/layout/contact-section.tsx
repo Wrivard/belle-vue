@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { Link } from 'wouter';
 import { FadeIn } from './fade-in';
 import { belleVueImages } from '@/data/belle-vue-images';
@@ -21,6 +21,7 @@ export function ContactSection({ showForm = true }: ContactSectionProps) {
               <div className="flex items-start gap-6"><div className="w-14 h-14 bg-[#1B1B1B] text-[#FF4B50] rounded-md flex items-center justify-center shrink-0"><Phone size={24} /></div><div><h4 className="font-bold uppercase text-sm text-[#1B1B1B]/60 tracking-wider mb-1">Téléphone</h4><a href="tel:+14186721613" className="text-2xl font-bold hover:text-[#D71920] transition-colors" data-testid="text-phone">(418) 672-1613</a></div></div>
               <div className="flex items-start gap-6"><div className="w-14 h-14 bg-[#1B1B1B] text-[#FF4B50] rounded-md flex items-center justify-center shrink-0"><Mail size={24} /></div><div className="min-w-0"><h4 className="font-bold uppercase text-sm text-[#1B1B1B]/60 tracking-wider mb-1">Courriel</h4><a href="mailto:armoirebelle-vue@hotmail.ca" className="break-all text-xl font-bold hover:text-[#D71920] transition-colors" data-testid="text-email">armoirebelle-vue@hotmail.ca</a></div></div>
               <div className="flex items-start gap-6"><div className="w-14 h-14 bg-[#1B1B1B] text-[#FF4B50] rounded-md flex items-center justify-center shrink-0"><MapPin size={24} /></div><div className="min-w-0"><h4 className="font-bold uppercase text-sm text-[#1B1B1B]/60 tracking-wider mb-1">Adresse</h4><p className="text-xl font-bold" data-testid="text-location">381 rue Principale<br /><span className="text-base text-[#1B1B1B]/60">{COMPANY_CITY}, QC, G0V 1G0</span></p></div></div>
+              <div className="flex items-start gap-6"><div className="w-14 h-14 bg-[#1B1B1B] text-[#FF4B50] rounded-md flex items-center justify-center shrink-0"><Clock size={24} /></div><div className="min-w-0"><h4 className="font-bold uppercase text-sm text-[#1B1B1B]/60 tracking-wider mb-1">Heures d’ouverture</h4><p className="font-semibold leading-relaxed">Lundi au jeudi : 8 h à 16 h<br />Vendredi : 8 h à 12 h</p></div></div>
               <FacebookLink className="gap-6 text-xl font-bold hover:text-[#D71920]" iconClassName="h-14 w-14 bg-[#1B1B1B] text-[#FF4B50]" />
             </div>
             {!showForm && <div className="mt-12"><Link href="/soumission" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })}><button className="w-full sm:w-auto bg-[#D71920] hover:bg-[#B51218] text-white font-bold rounded-md px-5 sm:px-8 py-5 uppercase tracking-wide text-sm sm:text-base transition-transform hover:scale-105">Demander une soumission</button></Link></div>}

@@ -3,8 +3,8 @@ type ModuleMap = Record<string, () => Promise<Record<string, unknown>>>;
 export const modules: ModuleMap = {
   "./components/mockups/sergerie-menu/Current.tsx": () => import("../components/mockups/sergerie-menu/Current.tsx"),
   "./components/mockups/sergerie-menu/Redesigned.tsx": () => import("../components/mockups/sergerie-menu/Redesigned.tsx"),
-  "./components/mockups/sergerie-v1/Homepage.tsx": () => import("../components/mockups/sergerie-v1/Homepage.tsx"),
   "./components/mockups/sergerie-v2/Homepage.tsx": () => import("../components/mockups/sergerie-v2/Homepage.tsx"),
   "./components/mockups/sergerie-v2/Soumission.tsx": () => import("../components/mockups/sergerie-v2/Soumission.tsx"),
+  "./components/mockups/sergerie-v1/Homepage.tsx": () => import("../components/mockups/sergerie-v1/Homepage.tsx"),
   "./components/mockups/sergerie-v3/Homepage.tsx": () => import("../components/mockups/sergerie-v3/Homepage.tsx")
 };
